@@ -1,0 +1,14 @@
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\DB.HappyBuy.dacpac
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\DB.HappyBuy.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\DB.HappyBuy.pdb
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.sqlprojAssemblyReference.cache
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.pdb
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Payment.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\ShippingAddress.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Orders.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\SubCategory.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Product.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Cart.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Stock.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\CreateTable\Customer.sql
