@@ -56,32 +56,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="CreateTable" />
+    <Folder Include="TableCreation" />
     <Folder Include="Insertion" />
+    <Folder Include="StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CreateTable\Customer.sql">
+    <None Include="TableCreation\Customer.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\Payment.sql">
+    <None Include="TableCreation\Payment.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\ShippingAddress.sql">
+    <None Include="TableCreation\ShippingAddress.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\Orders.sql">
+    <None Include="TableCreation\Orders.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\SubCategory.sql">
+    <None Include="TableCreation\SubCategory.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\Product.sql">
+    <None Include="TableCreation\Product.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\Cart.sql">
+    <None Include="TableCreation\Cart.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="CreateTable\Stock.sql">
+    <None Include="TableCreation\Stock.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Insertion\DML.sql" />
@@ -90,7 +91,11 @@
     <None Include="DB.HappyBuy.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="CreateTable\Script.Publisher.sql" />
-    <None Include="CreateTable\Category.sql" />
+    <PostDeploy Include="TableCreation\Script.Publisher.sql" />
+    <None Include="TableCreation\Category.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StoredProcedures\CustomerEntity.sql" />
+    <Build Include="StoredProcedures\GetCustomerDetails.sql" />
   </ItemGroup>
 </Project>

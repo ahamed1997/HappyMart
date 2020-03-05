@@ -1,5 +1,3 @@
-using System;
-
 namespace AppHappyBuy.Models
 {
     public class ErrorViewModel
