@@ -5,11 +5,19 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DB.HappyBuy", "DB.HappyBuy\DB.HappyBuy.sqlproj", "{8DD84195-7B45-49DC-8C91-8F9ED72D5D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyBuyDAL", "HappyBuyDAL\HappyBuyDAL.csproj", "{9B59B211-76CA-452D-9F61-1104040C29B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyBuyDAL", "HappyBuyDAL\HappyBuyDAL.csproj", "{9B59B211-76CA-452D-9F61-1104040C29B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyBuyBL", "HappyBuyBL\HappyBuyBL.csproj", "{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyBuyBL", "HappyBuyBL\HappyBuyBL.csproj", "{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHappyBuy", "AppHappyBuy\AppHappyBuy.csproj", "{4E529E53-9DA3-4057-BD87-48132431DACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyBuy.ECommerceProject", "HappyBuy.ECommerceProject\HappyBuy.ECommerceProject.csproj", "{1C3C2E9D-B89E-4130-8412-BEB8698B60DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.Database", "HappyBuy.Database", "{4F3025C7-7E31-4FBB-BBEA-E8178AA4B3C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.Project", "HappyBuy.Project", "{BE3CCEB7-BD3B-44AB-8B86-E8CE71427921}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.DataAccess", "HappyBuy.DataAccess", "{27ED7548-85FF-4AC7-B9C9-4EC2F53C692B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.Buisness", "HappyBuy.Buisness", "{D92374BC-60B8-431E-9EE2-C4FEE166C4B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,13 +39,19 @@ Global
 		{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E529E53-9DA3-4057-BD87-48132431DACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E529E53-9DA3-4057-BD87-48132431DACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E529E53-9DA3-4057-BD87-48132431DACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E529E53-9DA3-4057-BD87-48132431DACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3C2E9D-B89E-4130-8412-BEB8698B60DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3C2E9D-B89E-4130-8412-BEB8698B60DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3C2E9D-B89E-4130-8412-BEB8698B60DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3C2E9D-B89E-4130-8412-BEB8698B60DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DD84195-7B45-49DC-8C91-8F9ED72D5D34} = {4F3025C7-7E31-4FBB-BBEA-E8178AA4B3C4}
+		{9B59B211-76CA-452D-9F61-1104040C29B4} = {27ED7548-85FF-4AC7-B9C9-4EC2F53C692B}
+		{26DDE27B-65E0-42C2-BB3F-DD34F6F28B1C} = {D92374BC-60B8-431E-9EE2-C4FEE166C4B5}
+		{1C3C2E9D-B89E-4130-8412-BEB8698B60DE} = {BE3CCEB7-BD3B-44AB-8B86-E8CE71427921}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B77E5530-744F-40F4-837B-4CABD9294CD1}

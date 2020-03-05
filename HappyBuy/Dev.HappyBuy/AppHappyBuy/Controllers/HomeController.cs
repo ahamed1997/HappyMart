@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AppHappyBuy.Models;
 using Microsoft.AspNetCore.Mvc;
-using AppHappyBuy.Models;
+using System.Diagnostics;
 
 namespace AppHappyBuy.Controllers
 {

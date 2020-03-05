@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HappyBuyBL
+﻿namespace HappyBuyBL
 {
     public class DevHappyBuyBL
     {
