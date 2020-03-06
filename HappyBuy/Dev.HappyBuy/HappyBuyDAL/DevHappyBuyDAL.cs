@@ -32,8 +32,11 @@ namespace HappyBuyDAL
             foreach (var item in dictionary)
             {
                 string keyvalue = "@"+item.Key;
-                cmdExecuteNonQuery.Parameters.AddWithValue(keyvalue, item.Value);
-                cmdExecuteNonQuery.CommandType = CommandType.StoredProcedure;               
+                if (item.Value != null)
+                {
+                    cmdExecuteNonQuery.Parameters.AddWithValue(keyvalue, item.Value);
+                    cmdExecuteNonQuery.CommandType = CommandType.StoredProcedure;
+                }                           
 
             }
             if (cmdExecuteNonQuery.ExecuteNonQuery() > 0)
@@ -43,11 +46,11 @@ namespace HappyBuyDAL
             conn.Close();
             return i;
         }
-        public List<T> ExecuteReader<T>(string value, string commandText,object obj) where  T : new()
+        public List<T> ExecuteReader<T>(string value, string commandText) where  T : new()
         {
             this.conn.Open();
             cmdExecuteReader = new SqlCommand(commandText, conn);            
-            string keyvalue = "@FirstName";
+            string keyvalue = "@Id";
             cmdExecuteReader.Parameters.AddWithValue(keyvalue, value);
             cmdExecuteReader.CommandType = CommandType.StoredProcedure;
             SqlDataReader sqlDataReader = cmdExecuteReader.ExecuteReader();
@@ -73,27 +76,9 @@ namespace HappyBuyDAL
                     }
                 }
                 entities.Add(newObject);
-            }
-            //List<object> list = new List<object>();
-            //obj = new object();
-            //int i= 0;
-            //T[] array = new T[] { };
-            //int len = array.Length;
-            //Customer customer = new Customer();
-            //while (sqlDataReader.Read())
-            //{
-            //    while (i == len)
-            //    {
-            //        var temp = array[i].GetType();
-            //        customer.Id = sqlDataReader[i].ToString();
-
-            //    }
-            //    i = 0;
-            //    list.Add(obj);
-            //}
+            }            
             this.conn.Close();
             return entities;
-
         }
 
     }

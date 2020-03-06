@@ -4826,6 +4826,19 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "HappyBuyBL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "HappyBuyDAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HappyBuyBL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HappyBuyBL.dll": {}
+        }
+      },
       "HappyBuyDAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -13278,6 +13291,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "HappyBuyBL/1.0.0": {
+      "type": "project",
+      "path": "../HappyBuyBL/HappyBuyBL.csproj",
+      "msbuildProject": "../HappyBuyBL/HappyBuyBL.csproj"
+    },
     "HappyBuyDAL/1.0.0": {
       "type": "project",
       "path": "../HappyBuyDAL/HappyBuyDAL.csproj",
@@ -13286,6 +13304,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "HappyBuyBL >= 1.0.0",
       "HappyBuyDAL >= 1.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.7",
       "Microsoft.AspNetCore.App >= 2.2.0",
@@ -13325,6 +13344,9 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
+            "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj": {
+              "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj"
+            },
             "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj": {
               "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj"
             }

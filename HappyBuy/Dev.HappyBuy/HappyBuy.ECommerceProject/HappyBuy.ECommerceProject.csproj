@@ -16,6 +16,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\HappyBuyBL\HappyBuyBL.csproj" />
     <ProjectReference Include="..\HappyBuyDAL\HappyBuyDAL.csproj" />
   </ItemGroup>
 
