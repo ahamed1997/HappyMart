@@ -56,46 +56,47 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="TableCreation" />
-    <Folder Include="Insertion" />
-    <Folder Include="StoredProcedures" />
+    <Folder Include="HappyBuy.Tables" />
+    <Folder Include="HappyBuy.StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TableCreation\Customer.sql">
+    <None Include="HappyBuy.Tables\Customer.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\Payment.sql">
+    <None Include="HappyBuy.Tables\Payment.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\ShippingAddress.sql">
+    <None Include="HappyBuy.Tables\ShippingAddress.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\Orders.sql">
+    <None Include="HappyBuy.Tables\Orders.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\SubCategory.sql">
+    <None Include="HappyBuy.Tables\SubCategory.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\Product.sql">
+    <None Include="HappyBuy.Tables\Product.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\Cart.sql">
+    <None Include="HappyBuy.Tables\Cart.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TableCreation\Stock.sql">
+    <None Include="HappyBuy.Tables\Stock.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Insertion\DML.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.HappyBuy.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="TableCreation\Script.Publisher.sql" />
-    <None Include="TableCreation\Category.sql" />
+    <PostDeploy Include="HappyBuy.Tables\Script.Publisher.sql" />
+    <None Include="HappyBuy.Tables\Category.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="StoredProcedures\CustomerEntity.sql" />
-    <Build Include="StoredProcedures\GetCustomerDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_CustomerRegistration.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_GetCustomerDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_InsertProduct.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_InsertCategory.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_InsertSubCategory.sql" />
   </ItemGroup>
 </Project>

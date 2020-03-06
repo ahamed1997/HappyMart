@@ -30,3 +30,5 @@ C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBu
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuy.ECommerceProject\obj\Debug\netcoreapp2.2\HappyBuy.ECommerceProject.csproj.CopyComplete
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuy.ECommerceProject\bin\Debug\netcoreapp2.2\HappyBuyDAL.dll
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuy.ECommerceProject\bin\Debug\netcoreapp2.2\HappyBuyDAL.pdb
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuy.ECommerceProject\bin\Debug\netcoreapp2.2\HappyBuyBL.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuy.ECommerceProject\bin\Debug\netcoreapp2.2\HappyBuyBL.pdb
