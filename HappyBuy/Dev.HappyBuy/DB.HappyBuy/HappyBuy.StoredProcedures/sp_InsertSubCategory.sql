@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[sp_InsertSubCategory]
-	@param1 int = 0,
-	@param2 int
+	@Categories varchar(50),
+	@Name varchar(100)
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	declare @Id varchar(30),@Count int, @TempCategoryId varchar(10);
+	set @Count = (select count(*) from SubCategory)+1;
+	set @TempCategoryId = (select Id from Category where Categories = @Categories);
+	set @Id = @TempCategoryId + 'SC' + (FORMAT(@Count,'00000'))
+	INSERT INTO SubCategory values( @Id , @TempCategoryId, @Name);
+END
