@@ -12,3 +12,7 @@ C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBu
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\HappyBuy.Tables\Product.sql
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\HappyBuy.Tables\Cart.sql
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\HappyBuy.Tables\Stock.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\Model.xml
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\refactor.xml
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\postdeploy.sql
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\predeploy.sql

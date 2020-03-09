@@ -14,11 +14,11 @@ create table Product
 (
 		Id varchar(50) primary key,
 		SubCategoryId varchar(30),
-		Name varchar(10),
+		Name varchar(100),
 		Description varchar(500),
 		Specification varchar(600),
 		Options varchar(400),
-		Price int ,
+		Price nvarchar(50) ,
 		Brand varchar(50),
 		IsActive int,
 		ImageURL varchar(200),
