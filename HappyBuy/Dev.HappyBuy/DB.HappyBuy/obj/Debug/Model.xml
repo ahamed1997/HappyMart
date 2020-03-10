@@ -477,10 +477,10 @@ END]]></Value>
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="500" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -493,10 +493,10 @@ END]]></Value>
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="600" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -509,10 +509,10 @@ END]]></Value>
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="400" />
+									<Property Name="IsMax" Value="True" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varchar]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -590,10 +590,10 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="803" />
+				<Property Name="Length" Value="806" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertProduct]&#xD;&#xA;&#x9;@SubCategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100),&#xD;&#xA;&#x9;@Description varchar(500),&#xD;&#xA;&#x9;@Specification varchar(600),&#xD;&#xA;&#x9;@Options varchar(400),&#xD;&#xA;&#x9;@Price nvarchar(50),&#xD;&#xA;&#x9;@Brand varchar(50),&#xD;&#xA;&#x9;@IsActive int,&#xD;&#xA;&#x9;@ImageURL varchar(200)&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertProduct]&#xD;&#xA;&#x9;@SubCategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100),&#xD;&#xA;&#x9;@Description nvarchar(MAX),&#xD;&#xA;&#x9;@Specification nvarchar(MAX),&#xD;&#xA;&#x9;@Options nvarchar(MAX),&#xD;&#xA;&#x9;@Price nvarchar(50),&#xD;&#xA;&#x9;@Brand varchar(50),&#xD;&#xA;&#x9;@IsActive int,&#xD;&#xA;&#x9;@ImageURL varchar(200)&#xD;&#xA;&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_InsertSubCategory]">

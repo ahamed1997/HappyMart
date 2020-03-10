@@ -13,6 +13,6 @@ GO
 create table Category 
 (
 		Id varchar(10) primary key,
-		Categories varchar(50)
+		Name varchar(50)
 );
 GO
