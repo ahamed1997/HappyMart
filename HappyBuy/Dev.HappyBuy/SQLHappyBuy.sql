@@ -109,6 +109,15 @@ set @updatedNvarchar = (select FORMAT(@price,'C','ta-IN'));
 --insert into tblTest(@money,@price);
 insert into tblTest values (@tempmoneyvalue,@price,@updatedNvarchar);
 end
-
 exec procNvarchar '123'
+select * from tblTest
+-------------------------------------------------------
+drop table tblTest
+create table tblTest (jSONoBJECT nvarchar(MAX))
+DECLARE @json NVARCHAR(MAX);
+SET @json = '{"info": {"address": [{"town": "Belgrade"}, {"town": "Paris"}, {"town":"Madrid"}]}}';
+INSERT INTO tblTest values(@json)
+SET @json = JSON_MODIFY(@json, '$.info.address[1].town', 'London');
+SELECT modifiedJson = @json;
+INSERT INTO tblTest values(@json)
 select * from tblTest

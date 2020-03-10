@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[sp_InsertProduct]
 	@SubCategoryName varchar(50),
 	@Name varchar(100),
-	@Description varchar(500),
-	@Specification varchar(600),
-	@Options varchar(400),
+	@Description nvarchar(MAX),
+	@Specification nvarchar(MAX),
+	@Options nvarchar(MAX),
 	@Price nvarchar(50),
 	@Brand varchar(50),
 	@IsActive int,
