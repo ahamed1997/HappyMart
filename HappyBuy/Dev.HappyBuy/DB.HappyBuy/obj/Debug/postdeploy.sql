@@ -59,7 +59,7 @@ create table Payment
 		CustomerId varchar(30),
 		PaymentMode varchar(20),
 		AmountPaid varchar(20),
-		DateOfPAyment datetime,
+		DateOfPayment datetime,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
 );
 GO
@@ -105,7 +105,7 @@ GO
 create table Category 
 (
 		Id varchar(10) primary key,
-		Categories varchar(50)
+		Name varchar(50)
 );
 GO
 /*
@@ -152,6 +152,7 @@ create table Product
 		Price nvarchar(50) ,
 		Brand varchar(50),
 		IsActive int,
+		Quantity int,
 		ImageURL varchar(200),
 		FOREIGN KEY (SubCategoryId) REFERENCES SubCategory(Id)
 );
@@ -200,9 +201,10 @@ Post-Deployment Script Template
 GO
 create table Cart
 (
-		Id varchar(10) primary key,
+		Id varchar(20) primary key,
 		CustomerId varchar (30),
 		ProductId varchar(50),
+		Quantity int,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 		FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );

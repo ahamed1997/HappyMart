@@ -2,10 +2,10 @@
 	@Name varchar(300)
 AS
 BEGIN
-	IF((SELECT COUNT(*) FROM Category WHERE Categories LIKE '%'+@Name+'%') > 0)
+	IF((SELECT COUNT(*) FROM Category WHERE Name LIKE '%'+@Name+'%') > 0)
 		BEGIN
 			select * from Product P join SubCategory SC on P.SubCategoryId = SC.Id 
-			join Category C on SC.CategoryId = C.Id where C.Categories  LIKE '%'+@Name+'%';
+			join Category C on SC.CategoryId = C.Id where C.Name  LIKE '%'+@Name+'%';
 		END
 	ELSE IF((SELECT COUNT(*) FROM SubCategory WHERE Name LIKE '%'+@Name+'%')>0)
 		BEGIN

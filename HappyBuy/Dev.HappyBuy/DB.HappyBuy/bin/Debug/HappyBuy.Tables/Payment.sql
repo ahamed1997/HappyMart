@@ -16,7 +16,7 @@ create table Payment
 		CustomerId varchar(30),
 		PaymentMode varchar(20),
 		AmountPaid varchar(20),
-		DateOfPAyment datetime,
+		DateOfPayment datetime,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
 );
 Go
