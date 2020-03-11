@@ -99,5 +99,9 @@
     <Build Include="HappyBuy.StoredProcedures\sp_InsertCategory.sql" />
     <Build Include="HappyBuy.StoredProcedures\sp_InsertSubCategory.sql" />
     <Build Include="HappyBuy.StoredProcedures\sp_GetProductDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_AddCart.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_PlaceOrder.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_MakePayment.sql" />
+    <Build Include="HappyBuy.StoredProcedures\sp_AddShippingAddress.sql" />
   </ItemGroup>
 </Project>

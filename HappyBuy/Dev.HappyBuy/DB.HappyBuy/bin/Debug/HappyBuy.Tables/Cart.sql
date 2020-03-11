@@ -12,9 +12,10 @@ Post-Deployment Script Template
 Go
 create table Cart
 (
-		Id varchar(10) primary key,
+		Id varchar(20) primary key,
 		CustomerId varchar (30),
 		ProductId varchar(50),
+		Quantity int,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 		FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );

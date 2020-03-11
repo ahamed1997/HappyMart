@@ -44,6 +44,292 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_AddCart]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	declare @Id varchar(10),@TempId int, @Count int,@ProductCount int,@ProductId varchar(50) ;
+	set @Count = (select count(*) from Cart)+1;
+	set @Id = 'CR' + (FORMAT(@Count,'0000'))
+	set @ProductId = (select Id from Product where Name = @ProductName);
+	set @ProductCount = (select COUNT(*) from Cart where CustomerId = @CustomerId 
+	AND ProductId = @ProductId);
+	IF(@ProductCount > 0)
+	BEGIN
+		UPDATE Cart set Quantity += @Quantity where ProductId = @ProductId
+	END
+
+	ELSE IF (@ProductCount < 1)
+	BEGIN
+		INSERT INTO Cart values(@Id, @CustomerId,@ProductId,@Quantity)
+	END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_AddCart].[@ProductName]" />
+				</Entry>
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_AddCart].[@CustomerId]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_AddCart].[@Quantity]" />
+				</Entry>
+				<Entry />
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddCart].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddCart].[@ProductName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddCart].[@Quantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="711" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_AddCart]&#xD;&#xA;&#x9;&#x9;@CustomerId varchar (30),&#xD;&#xA;&#x9;&#x9;@ProductName varchar(100),&#xD;&#xA;&#x9;&#x9;@Quantity int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_AddShippingAddress]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	declare @Id varchar(10),@Count int
+	set @Count = (select count(*) from ShippingAddress)+1;
+	set @Id = 'SA' + (FORMAT(@Count,'0000'));
+	INSERT into ShippingAddress values(@Id,@CustomerId,@Mobile,@Street,@landMark,@City,@State,@Zipcode);
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@Mobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@Street]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@LandMark]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@City]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@State]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_AddShippingAddress].[@Zipcode]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@Mobile]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="15" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@Street]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@LandMark]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@City]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@State]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_AddShippingAddress].[@Zipcode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="479" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_AddShippingAddress]&#xD;&#xA;&#x9;&#x9;@CustomerId varchar (30),&#xD;&#xA;&#x9;&#x9;@Mobile varchar(15),&#xD;&#xA;&#x9;&#x9;@Street varchar(100),&#xD;&#xA;&#x9;&#x9;@LandMark varchar(100),&#xD;&#xA;&#x9;&#x9;@City varchar(30), &#xD;&#xA;&#x9;&#x9;@State varchar(30), &#xD;&#xA;&#x9;&#x9;@Zipcode varchar(10)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_CustomerRegistration]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -320,6 +606,78 @@ END]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_GetCustomerDetails]&#xD;&#xA;&#x9;@Id varchar(10)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_GetProductDetails]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	IF((SELECT COUNT(*) FROM Category WHERE Name LIKE '%'+@Name+'%') > 0)
+		BEGIN
+			select * from Product P join SubCategory SC on P.SubCategoryId = SC.Id 
+			join Category C on SC.CategoryId = C.Id where C.Name  LIKE '%'+@Name+'%';
+		END
+	ELSE IF((SELECT COUNT(*) FROM SubCategory WHERE Name LIKE '%'+@Name+'%')>0)
+		BEGIN
+		select * from Product P join SubCategory SC on 
+		P.SubCategoryId = SC.Id where SC.Name LIKE '%'+@Name+'%';
+		END
+	ELSE IF((SELECT COUNT(*) FROM Product WHERE Name LIKE '%'+@Name+'%')>0)
+		BEGIN
+		select * from Product P where Name LIKE '%'+@Name+'%';
+		END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_GetProductDetails].[@Name]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_GetProductDetails].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="300" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="678" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_GetProductDetails]&#xD;&#xA;&#x9;@Name varchar(300)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_InsertCategory]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -327,7 +685,7 @@ BEGIN
 	declare @Id varchar(10),@TempId int, @Count int;
 	set @Count = (select count(*) from Category)+1;
 	set @Id = 'CT' + (FORMAT(@Count,'0000'))
-	INSERT INTO Category values( @Id , @Categories);
+	INSERT INTO Category values( @Id , @Name);
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -344,12 +702,12 @@ END]]></Value>
 				<Entry />
 				<Entry />
 				<Entry>
-					<References Name="[dbo].[sp_InsertCategory].[@Categories]" />
+					<References Name="[dbo].[sp_InsertCategory].[@Name]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="Parameters">
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertCategory].[@Categories]">
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertCategory].[@Name]">
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -371,22 +729,53 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="278" />
+				<Property Name="Length" Value="266" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertCategory]&#xD;&#xA;&#x9;@Categories varchar(50)&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertCategory]&#xD;&#xA;&#x9;@Name varchar(50)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_InsertProduct]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),@Count int, @TempPrice nvarchar(50)
+	declare @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),
+	@StockId varchar(50),@Count int, @TempPrice nvarchar(50),@ProductCount int
 	set @TempSubCategoryId = (select Id from SubCategory where Name = @SubCategoryName)
 	set @Count = (select count(*) from Product)+1;
 	set @Id = 'P' + @TempSubCategoryId + 'SC' + (FORMAT(@Count,'00000'));
-	set @TempPrice = (SELECT FORMAT ( @money,'C', 'ta-IN'));
-	insert into Product values (@Id,@TempSubCategoryId,@Name,@Description,@Specification,@Options,@TempPrice,@Brand,@IsActive,@ImageURL);
+	set @ProductCount = (select count(1) from Product where Id = @Id)
+	set @Count = (select count(*) from Stock)+1;
+	set @StockId = 'SK' + (FORMAT(@Count,'00000'));
+
+	IF(@ProductCount > 0)
+	BEGIN
+		set @TempPrice = (SELECT FORMAT ( @money,'C', 'ta-IN'));
+		INSERT into Product values (@Id,@TempSubCategoryId,@Name,@Description,@Specification,@Options,@TempPrice,@Brand,@IsActive,@Quantity,@ImageURL);
+		INSERT into Stock values (@StockId,@Id,@Quantity);
+	END
+	ELSE 
+	BEGIN
+		set @TempPrice = (SELECT FORMAT ( @money,'C', 'ta-IN'));
+		UPDATE Product 
+		set SubCategoryId = @TempSubCategoryId,
+			Name = @Name,
+			Description = @Description,
+			Specification = @Specification,
+			Options = @Options,
+			Price = @Price,
+			Brand =@Brand,
+			IsActive = @IsActive,
+			Quantity=@Quantity,
+			ImageURL= @ImageURL
+		where Id = @Id;
+
+		UPDATE Stock
+		set ProductId = @Id,
+			Quantity = @Quantity
+		where 
+			Id = @StockId;
+	END
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -404,10 +793,16 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[varchar]" />
 				</Entry>
 				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry>
 					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
 				</Entry>
 				<Entry />
 				<Entry />
@@ -415,6 +810,8 @@ END]]></Value>
 				<Entry>
 					<References Name="[dbo].[sp_InsertProduct].[@SubCategoryName]" />
 				</Entry>
+				<Entry />
+				<Entry />
 				<Entry />
 				<Entry />
 				<Entry>
@@ -436,8 +833,26 @@ END]]></Value>
 					<References Name="[dbo].[sp_InsertProduct].[@IsActive]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[sp_InsertProduct].[@Quantity]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[sp_InsertProduct].[@ImageURL]" />
 				</Entry>
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
+				<Entry />
 			</Relationship>
 			<Relationship Name="Parameters">
 				<Entry>
@@ -568,6 +983,21 @@ END]]></Value>
 					</Element>
 				</Entry>
 				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertProduct].[@Quantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
 					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertProduct].[@ImageURL]">
 						<Relationship Name="Type">
 							<Entry>
@@ -590,10 +1020,10 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="806" />
+				<Property Name="Length" Value="1618" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertProduct]&#xD;&#xA;&#x9;@SubCategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100),&#xD;&#xA;&#x9;@Description nvarchar(MAX),&#xD;&#xA;&#x9;@Specification nvarchar(MAX),&#xD;&#xA;&#x9;@Options nvarchar(MAX),&#xD;&#xA;&#x9;@Price nvarchar(50),&#xD;&#xA;&#x9;@Brand varchar(50),&#xD;&#xA;&#x9;@IsActive int,&#xD;&#xA;&#x9;@ImageURL varchar(200)&#xD;&#xA;&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertProduct]&#xD;&#xA;&#x9;@SubCategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100),&#xD;&#xA;&#x9;@Description nvarchar(MAX),&#xD;&#xA;&#x9;@Specification nvarchar(MAX),&#xD;&#xA;&#x9;@Options nvarchar(MAX),&#xD;&#xA;&#x9;@Price nvarchar(50),&#xD;&#xA;&#x9;@Brand varchar(50),&#xD;&#xA;&#x9;@IsActive int,&#xD;&#xA;&#x9;@Quantity int,&#xD;&#xA;&#x9;@ImageURL varchar(200)&#xD;&#xA;&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_InsertSubCategory]">
@@ -602,7 +1032,7 @@ END]]></Value>
 BEGIN
 	declare @Id varchar(30),@Count int, @TempCategoryId varchar(10);
 	set @Count = (select count(*) from SubCategory)+1;
-	set @TempCategoryId = (select Id from Category where Categories = @Categories);
+	set @TempCategoryId = (select Id from Category where Name = @CategoryName);
 	set @Id = @TempCategoryId + 'SC' + (FORMAT(@Count,'00000'))
 	INSERT INTO SubCategory values( @Id , @TempCategoryId, @Name);
 END]]></Value>
@@ -623,7 +1053,7 @@ END]]></Value>
 				<Entry />
 				<Entry />
 				<Entry>
-					<References Name="[dbo].[sp_InsertSubCategory].[@Categories]" />
+					<References Name="[dbo].[sp_InsertSubCategory].[@CategoryName]" />
 				</Entry>
 				<Entry />
 				<Entry>
@@ -632,7 +1062,7 @@ END]]></Value>
 			</Relationship>
 			<Relationship Name="Parameters">
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertSubCategory].[@Categories]">
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_InsertSubCategory].[@CategoryName]">
 						<Relationship Name="Type">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -670,10 +1100,309 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="437" />
+				<Property Name="Length" Value="436" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertSubCategory]&#xD;&#xA;&#x9;@Categories varchar(50),&#xD;&#xA;&#x9;@Name varchar(100)&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertSubCategory]&#xD;&#xA;&#x9;@CategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_MakePayment]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	declare @Count int,@Datetime varchar(20),@Id varchar(30)
+	set @Count = (select count(*) from Payment)+1;
+	set @Id = 'PY' + (FORMAT(@Count,'0000'))
+	set @Datetime = (select FORMAT (GETDATE(),'dd/MM/yyyy'))
+	insert into Payment values(@Id,@CustomerId,@PaymentMode,@AmountPaid,@Datetime)
+	select @Id;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_MakePayment].[@CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_MakePayment].[@PaymentMode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_MakePayment].[@AmountPaid]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_MakePayment].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_MakePayment].[@PaymentMode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_MakePayment].[@AmountPaid]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="440" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_MakePayment]&#xD;&#xA;&#x9;&#x9;@CustomerId varchar(30),&#xD;&#xA;&#x9;&#x9;@PaymentMode varchar(20),&#xD;&#xA;&#x9;&#x9;@AmountPaid nvarchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[sp_PlaceOrder]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	declare @Id varchar(30),@Count int
+	set @Count = (select count(*) from Orders)+1;
+	set @Id = 'OR' + (FORMAT(@Count,'000000'));
+	INSERT into Orders values(@Id,@Quantity,@Price,@DateOrdered,@DateReceived,@Status,@CustomerId,@PaymentId,@ProductId,@AddressId);
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varchar]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry />
+				<Entry />
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@Quantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@Price]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@DateOrdered]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@DateReceived]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@Status]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@PaymentId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[sp_PlaceOrder].[@AddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@Quantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@Price]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@DateOrdered]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@DateReceived]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@Status]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@PaymentId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@ProductId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[sp_PlaceOrder].[@AddressId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="535" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_PlaceOrder]&#xD;&#xA;&#x9;&#x9;@Quantity int,&#xD;&#xA;&#x9;&#x9;@Price int,&#xD;&#xA;&#x9;&#x9;@DateOrdered datetime,&#xD;&#xA;&#x9;&#x9;@DateReceived datetime,&#xD;&#xA;&#x9;&#x9;@Status varchar(20),&#xD;&#xA;&#x9;&#x9;@CustomerId varchar (30),&#xD;&#xA;&#x9;&#x9;@PaymentId varchar(30),&#xD;&#xA;&#x9;&#x9;@ProductId varchar(50),&#xD;&#xA;&#x9;&#x9;@AddressId varchar(10)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 	</Model>
