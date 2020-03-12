@@ -1,22 +1,10 @@
-﻿/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-Go
-create table Orders
+﻿CREATE TABLE [dbo].[Orders]
 (
-		Id varchar(30) primary key,
+	Id varchar(30) primary key,
 		Quantity int,
 		Price int,
-		DateOrdered datetime,
-		DateReceived datetime,
+		DateOrdered varchar(15),
+		DateReceived varchar(15),
 		Status varchar(20),
 		CustomerId varchar (30),
 		PaymentId varchar(30),
@@ -26,5 +14,4 @@ create table Orders
 		FOREIGN KEY (PaymentId) REFERENCES Payment(Id),
 		FOREIGN KEY (ProductId) REFERENCES Product(Id),
 		FOREIGN KEY (AddressId) REFERENCES ShippingAddress(Id)
-);
-Go
+)

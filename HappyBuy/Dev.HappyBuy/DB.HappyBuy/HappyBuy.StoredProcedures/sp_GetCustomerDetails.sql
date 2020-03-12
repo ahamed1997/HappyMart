@@ -2,5 +2,5 @@
 	@Id varchar(10)
 AS
 BEGIN
-	SELECT * FROM Customer where Id = @Id
+	SELECT * FROM Customer WHERE Id = @Id
 END

@@ -1,0 +1,44 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Cart] (Table)
+       [dbo].[Category] (Table)
+       [dbo].[Customer] (Table)
+       [dbo].[Orders] (Table)
+       [dbo].[Payment] (Table)
+       [dbo].[Product] (Table)
+       [dbo].[ShippingAddress] (Table)
+       [dbo].[Stock] (Table)
+       [dbo].[SubCategory] (Table)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Payment] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Product] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[ShippingAddress] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Stock] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[SubCategory] (Foreign Key)
+       [dbo].[sp_AddCart] (Procedure)
+       [dbo].[sp_AddShippingAddress] (Procedure)
+       [dbo].[sp_CustomerRegistration] (Procedure)
+       [dbo].[sp_GetCustomerDetails] (Procedure)
+       [dbo].[sp_GetProductDetails] (Procedure)
+       [dbo].[sp_InsertCategory] (Procedure)
+       [dbo].[sp_InsertProduct] (Procedure)
+       [dbo].[sp_InsertSubCategory] (Procedure)
+       [dbo].[sp_MakePayment] (Procedure)
+       [dbo].[sp_PlaceOrder] (Procedure)
+
+** Supporting actions

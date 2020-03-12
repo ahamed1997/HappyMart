@@ -12,13 +12,13 @@
 
 AS
 BEGIN
-	declare @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),
+	DECLARE @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),
 	@StockId varchar(50),@Count int, @TempPrice nvarchar(50),@ProductCount int
-	set @TempSubCategoryId = (select Id from SubCategory where Name = @SubCategoryName)
-	set @Count = (select count(*) from Product)+1;
+	set @TempSubCategoryId = (SELECT Id from SubCategory WHERE Name = @SubCategoryName)
+	set @Count = (SELECT count(*) from Product)+1;
 	set @Id = 'P' + @TempSubCategoryId + 'SC' + (FORMAT(@Count,'00000'));
-	set @ProductCount = (select count(1) from Product where Id = @Id)
-	set @Count = (select count(*) from Stock)+1;
+	set @ProductCount = (SELECT count(1) from Product WHERE Id = @Id)
+	set @Count = (SELECT count(*) from Stock)+1;
 	set @StockId = 'SK' + (FORMAT(@Count,'00000'));
 
 	IF(@ProductCount > 0)
@@ -36,17 +36,17 @@ BEGIN
 			Description = @Description,
 			Specification = @Specification,
 			Options = @Options,
-			Price = @Price,
+			Price = @TempPrice,
 			Brand =@Brand,
 			IsActive = @IsActive,
 			Quantity=@Quantity,
 			ImageURL= @ImageURL
-		where Id = @Id;
+		WHERE Id = @Id;
 
 		UPDATE Stock
 		set ProductId = @Id,
 			Quantity = @Quantity
-		where 
+		WHERE 
 			Id = @StockId;
 	END
 END

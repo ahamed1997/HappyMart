@@ -4,20 +4,20 @@ using System.Collections.Generic;
 
 namespace HappyBuyBL
 {
-    public class DevHappyBuyBL
+    public class HBCustomerBL
     {
-        CustomerRepository customerRepository;
-        public DevHappyBuyBL()
+        HappyBuyRepository happyBuyRepository;
+        public HBCustomerBL()
         {
-            customerRepository = new CustomerRepository();
+            happyBuyRepository = new HappyBuyRepository();
         }
         public int RegisterCustomer<T>(Dictionary<string, object> dictionary)
         {
-            return customerRepository.AddCustomer<T>(dictionary, 1);
+            return happyBuyRepository.AddCustomer<T>(dictionary, 1);
         }
         public List<T> GetAllCustomers<T>(string value) where T : new()
         {
-            return customerRepository.GetAllCustomers<T>(value,2);
+            return happyBuyRepository.GetAllCustomers<T>(value,2);
         }
 
     }

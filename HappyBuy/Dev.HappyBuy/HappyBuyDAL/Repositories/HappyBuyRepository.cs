@@ -7,11 +7,11 @@ using HappyBuyDAL.Enums;
 
 namespace HappyBuyDAL.Implementation
 {
-    public class CustomerRepository : ICustomerRepository
+    public class HappyBuyRepository : ICustomerRepository
     {
         DevHappyBuyDAL happyBuyDAL;
         StoredProcedure storedProcedure;
-        public CustomerRepository()
+        public HappyBuyRepository()
         {
             happyBuyDAL = new DevHappyBuyDAL();
         }
@@ -19,8 +19,7 @@ namespace HappyBuyDAL.Implementation
         public int AddCustomer<T>(Dictionary<string, object> dictionary,int storedProcedureEnum)
         {
             var commandText = (StoredProcedure)storedProcedureEnum;
-            string storedProcedure = commandText.ToString();
-            
+            string storedProcedure = commandText.ToString();            
             return happyBuyDAL.ExecuteNonQuery<DevHappyBuyDAL>(dictionary, storedProcedure);
         }
         public List<T> GetAllCustomers<T>(string value, int storedProcedureEnum) where T : new()

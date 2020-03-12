@@ -8,8 +8,9 @@
 		@Zipcode varchar(10)
 AS
 BEGIN
-	declare @Id varchar(10),@Count int
+	DECLARE @Id varchar(10),@Count int
 	set @Count = (select count(*) from ShippingAddress)+1;
 	set @Id = 'SA' + (FORMAT(@Count,'0000'));
+
 	INSERT into ShippingAddress values(@Id,@CustomerId,@Mobile,@Street,@landMark,@City,@State,@Zipcode);
 END

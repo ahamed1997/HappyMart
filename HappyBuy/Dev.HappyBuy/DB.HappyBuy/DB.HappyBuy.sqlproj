@@ -56,41 +56,11 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="HappyBuy.Tables" />
     <Folder Include="HappyBuy.StoredProcedures" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="HappyBuy.Tables\Customer.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\Payment.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\ShippingAddress.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\Orders.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\SubCategory.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\Product.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\Cart.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HappyBuy.Tables\Stock.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Folder Include="HappyBuy.Tables" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.HappyBuy.publish.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="HappyBuy.Tables\Script.Publisher.sql" />
-    <None Include="HappyBuy.Tables\Category.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="HappyBuy.StoredProcedures\sp_CustomerRegistration.sql" />
@@ -103,5 +73,14 @@
     <Build Include="HappyBuy.StoredProcedures\sp_PlaceOrder.sql" />
     <Build Include="HappyBuy.StoredProcedures\sp_MakePayment.sql" />
     <Build Include="HappyBuy.StoredProcedures\sp_AddShippingAddress.sql" />
+    <Build Include="HappyBuy.Tables\Cart.sql" />
+    <Build Include="HappyBuy.Tables\Category.sql" />
+    <Build Include="HappyBuy.Tables\Customer.sql" />
+    <Build Include="HappyBuy.Tables\Orders.sql" />
+    <Build Include="HappyBuy.Tables\Payment.sql" />
+    <Build Include="HappyBuy.Tables\Product.sql" />
+    <Build Include="HappyBuy.Tables\ShippingAddress.sql" />
+    <Build Include="HappyBuy.Tables\Stock.sql" />
+    <Build Include="HappyBuy.Tables\SubCategory.sql" />
   </ItemGroup>
 </Project>
