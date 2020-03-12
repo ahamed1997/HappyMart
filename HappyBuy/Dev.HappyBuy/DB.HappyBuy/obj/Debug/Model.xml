@@ -47,12 +47,12 @@
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
 				<Entry>
-					<References Name="[dbo].[Orders].[CustomerId]" />
+					<References Name="[dbo].[ShippingAddress].[CustomerId]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[Orders]" />
+					<References Name="[dbo].[ShippingAddress]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="ForeignColumns">
@@ -66,75 +66,6 @@
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Orders].[PaymentId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Orders]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Payment].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Payment]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Orders].[ProductId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Orders]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Product].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Product]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Orders].[AddressId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Orders]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[ShippingAddress].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[ShippingAddress]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -157,76 +88,7 @@
 					<References Name="[dbo].[SubCategory]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[ShippingAddress].[CustomerId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[ShippingAddress]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Customer].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Customer]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[Stock].[ProductId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Stock]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Product].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Product]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[dbo].[SubCategory].[CategoryId]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[SubCategory]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[dbo].[Category].[Id]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[dbo].[Category]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -249,7 +111,99 @@
 					<References Name="[dbo].[Customer]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Customer].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[PaymentId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Payment].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[ProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Product].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[AddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -272,7 +226,7 @@
 					<References Name="[dbo].[Customer]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint">
 			<Relationship Name="Columns">
@@ -295,83 +249,53 @@
 					<References Name="[dbo].[Product]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
 				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Category].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
+					<References Name="[dbo].[SubCategory].[CategoryId]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Category].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
 				<Entry>
 					<References Name="[dbo].[Category]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
 				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Customer].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
+					<References Name="[dbo].[Stock].[ProductId]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[Customer]" />
+					<References Name="[dbo].[Stock]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
+			<Relationship Name="ForeignColumns">
 				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Orders].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
+					<References Name="[dbo].[Product].[Id]" />
 				</Entry>
 			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Orders]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
-		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Product].[Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
+			<Relationship Name="ForeignTable">
 				<Entry>
 					<References Name="[dbo].[Product]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -390,7 +314,7 @@
 					<References Name="[dbo].[ShippingAddress]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -398,7 +322,7 @@
 					<Element Type="SqlIndexedColumnSpecification">
 						<Relationship Name="Column">
 							<Entry>
-								<References Name="[dbo].[SubCategory].[Id]" />
+								<References Name="[dbo].[Product].[Id]" />
 							</Entry>
 						</Relationship>
 					</Element>
@@ -406,10 +330,10 @@
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[SubCategory]" />
+					<References Name="[dbo].[Product]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -428,7 +352,64 @@
 					<References Name="[dbo].[Payment]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Orders].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Customer].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Category].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -445,6 +426,25 @@
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[dbo].[Cart]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[SubCategory].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
@@ -467,7 +467,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="21" />
+						<AttachedAnnotation Disambiguator="20" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -539,8 +539,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="12" />
-			<AttachedAnnotation Disambiguator="13" />
+			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Category]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -560,7 +560,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="14" />
+						<AttachedAnnotation Disambiguator="19" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -604,7 +604,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="15" />
+						<AttachedAnnotation Disambiguator="18" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -792,7 +792,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="16" />
+						<AttachedAnnotation Disambiguator="17" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -943,10 +943,10 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="3" />
-			<AttachedAnnotation Disambiguator="4" />
-			<AttachedAnnotation Disambiguator="5" />
 			<AttachedAnnotation Disambiguator="6" />
+			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="9" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Payment]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -966,7 +966,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="20" />
+						<AttachedAnnotation Disambiguator="16" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1039,7 +1039,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="5" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Product]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1059,7 +1059,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="17" />
+						<AttachedAnnotation Disambiguator="15" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1226,7 +1226,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="4" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[ShippingAddress]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1246,7 +1246,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="18" />
+						<AttachedAnnotation Disambiguator="14" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -1367,33 +1367,33 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="8" />
+			<AttachedAnnotation Disambiguator="3" />
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[sp_AddCart]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Id varchar(10),@TempId int, @Count int,@ProductCount int,
+	DECLARE @Id varchar(10),@TempId int, @Count int,@ProductCount int,
 	@ProductId varchar(50),@TotalPrice nvarchar(50),@TempPrice int;
 
 	set @Count = (select count(*) from Cart)+1;
 	set @Id = 'CR' + (FORMAT(@Count,'0000'))
 
-	set @ProductId = (select Id from Product where Name = @ProductName);
-	set @ProductCount = (select COUNT(*) from Cart where CustomerId = @CustomerId 
+	set @ProductId = (select Id from Product WHERE Name = @ProductName);
+	set @ProductCount = (select COUNT(*) from Cart WHERE CustomerId = @CustomerId 
 	AND ProductId = @ProductId);
 
-	set @TotalPrice = (select Price from Product where Id = @ProductId);	
+	set @TotalPrice = (select Price from Product WHERE Id = @ProductId);	
 
 	IF(@ProductCount > 0)
 	BEGIN
-		UPDATE Cart set Quantity += @Quantity where ProductId = @ProductId;
+		UPDATE Cart set Quantity += @Quantity WHERE ProductId = @ProductId;
 		set @TempPrice = (SELECT CAST(@TotalPrice as int));
-		set @TempPrice = @TempPrice * (select Quantity from Cart where ProductId = @ProductId);
+		set @TempPrice = @TempPrice * (select Quantity from Cart WHERE ProductId = @ProductId);
 
 		declare @money money = @TempPrice;
 		set @TotalPrice = (SELECT FORMAT ( @money,'C', 'ta-IN'));
-		UPDATE Cart set TotalPrice = @TotalPrice where ProductId = @ProductId;
+		UPDATE Cart set TotalPrice = @TotalPrice WHERE ProductId = @ProductId;
 	END
 	ELSE IF (@ProductCount < 1)
 	BEGIN
@@ -1541,9 +1541,10 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Id varchar(10),@Count int
+	DECLARE @Id varchar(10),@Count int
 	set @Count = (select count(*) from ShippingAddress)+1;
 	set @Id = 'SA' + (FORMAT(@Count,'0000'));
+
 	INSERT into ShippingAddress values(@Id,@CustomerId,@Mobile,@Street,@landMark,@City,@State,@Zipcode);
 END]]></Value>
 			</Property>
@@ -1703,7 +1704,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="479" />
+				<Property Name="Length" Value="481" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_AddShippingAddress]&#xD;&#xA;&#x9;&#x9;@CustomerId varchar (30),&#xD;&#xA;&#x9;&#x9;@Mobile varchar(15),&#xD;&#xA;&#x9;&#x9;@Street varchar(100),&#xD;&#xA;&#x9;&#x9;@LandMark varchar(100),&#xD;&#xA;&#x9;&#x9;@City varchar(30), &#xD;&#xA;&#x9;&#x9;@State varchar(30), &#xD;&#xA;&#x9;&#x9;@Zipcode varchar(10)&#xD;&#xA;AS" />
@@ -1714,12 +1715,11 @@ END]]></Value>
 				<Value><![CDATA[
 BEGIN
 
-declare @Id varchar(30),@TempId varchar(30), @Count int
-set @Count = (select count(*) from Customer)+1;
-set @TempId = (FORMAT(@Count,'000000000'));
-set @Id = 'HBCUS' + @TempId;
-	insert  Customer values 
-	(@Id,@Firstname,@Lastname,@Mobile,@Email,@Password,@Street,@Landmark,@City,@State,@Zipcode)
+DECLARE @Id varchar(30),@TempId varchar(30), @Count int
+	set @Count = (select count(*) from Customer)+1;
+	set @TempId = (FORMAT(@Count,'000000000'));
+	set @Id = 'HBCUS' + @TempId;
+	INSERT Customer values (@Id,@Firstname,@Lastname,@Mobile,@Email,@Password,@Street,@Landmark,@City,@State,@Zipcode)
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1938,7 +1938,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="605" />
+				<Property Name="Length" Value="604" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_CustomerRegistration]&#xD;&#xA;&#x9;@Firstname varchar(50),&#xD;&#xA;&#x9;@Lastname varchar(50),&#xD;&#xA;&#x9;@Mobile varchar(15),&#xD;&#xA;&#x9;@Email varchar(30),&#xD;&#xA;&#x9;@Password varchar(30),&#xD;&#xA;&#x9;@Street varchar(100),&#xD;&#xA;&#x9;@Landmark varchar(100),&#xD;&#xA;&#x9;@City varchar(30),&#xD;&#xA;&#x9;@State varchar(30),&#xD;&#xA;&#x9;@Zipcode varchar(10)&#xD;&#xA;AS" />
@@ -1948,7 +1948,7 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	SELECT * FROM Customer where Id = @Id
+	SELECT * FROM Customer WHERE Id = @Id
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1999,17 +1999,49 @@ END]]></Value>
 BEGIN
 	IF((SELECT COUNT(*) FROM Category WHERE Name LIKE '%'+@Name+'%') > 0)
 		BEGIN
-			select * from Product P join SubCategory SC on P.SubCategoryId = SC.Id 
-			join Category C on SC.CategoryId = C.Id where C.Name  LIKE '%'+@Name+'%';
+			SELECT 
+				P.Id,
+				P.Name,
+				P.Description,
+				P.Specification,
+				P.Options,
+				P.Price,
+				P.Brand,
+				P.Quantity,
+				P.ImageURL
+			FROM Product P join SubCategory SC ON P.SubCategoryId = SC.Id 
+			JOIN Category C on SC.CategoryId = C.Id WHERE C.Name  LIKE '%'+@Name+'%';
 		END
+
 	ELSE IF((SELECT COUNT(*) FROM SubCategory WHERE Name LIKE '%'+@Name+'%')>0)
 		BEGIN
-		select * from Product P join SubCategory SC on 
-		P.SubCategoryId = SC.Id where SC.Name LIKE '%'+@Name+'%';
+			SELECT 
+				P.Id,
+				P.Name,
+				P.Description,
+				P.Specification,
+				P.Options,
+				P.Price,
+				P.Brand,
+				P.Quantity,
+				P.ImageURL
+			FROM Product P JOIN SubCategory SC ON 
+			P.SubCategoryId = SC.Id WHERE SC.Name LIKE '%'+@Name+'%';
 		END
+
 	ELSE IF((SELECT COUNT(*) FROM Product WHERE Name LIKE '%'+@Name+'%')>0)
 		BEGIN
-		select * from Product P where Name LIKE '%'+@Name+'%';
+			SELECT 
+				P.Id,
+				P.Name,
+				P.Description,
+				P.Specification,
+				P.Options,
+				P.Price,
+				P.Brand,
+				P.Quantity,
+				P.ImageURL
+			FROM Product P WHERE Name LIKE '%'+@Name+'%';
 		END
 END]]></Value>
 			</Property>
@@ -2046,6 +2078,33 @@ END]]></Value>
 					<References Name="[dbo].[Category].[Id]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Product].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Specification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Options]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Price]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Brand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Quantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ImageURL]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[Category].[Name]" />
 				</Entry>
 				<Entry>
@@ -2055,6 +2114,33 @@ END]]></Value>
 					<References Name="[dbo].[SubCategory].[Name]" />
 				</Entry>
 				<Entry>
+					<References Name="[dbo].[Product].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Specification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Options]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Price]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Brand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Quantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ImageURL]" />
+				</Entry>
+				<Entry>
 					<References Name="[dbo].[SubCategory].[Name]" />
 				</Entry>
 				<Entry>
@@ -2062,6 +2148,33 @@ END]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Product].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Specification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Options]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Price]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Brand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[Quantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ImageURL]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[Product].[Name]" />
@@ -2091,7 +2204,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="678" />
+				<Property Name="Length" Value="1123" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_GetProductDetails]&#xD;&#xA;&#x9;@Name varchar(300)&#xD;&#xA;AS" />
@@ -2101,8 +2214,8 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Id varchar(10),@TempId int, @Count int;
-	set @Count = (select count(*) from Category)+1;
+	DECLARE @Id varchar(10),@TempId int, @Count int;
+	set @Count = (SELECT count(*) FROM Category)+1;
 	set @Id = 'CT' + (FORMAT(@Count,'0000'))
 	INSERT INTO Category values( @Id , @Name);
 END]]></Value>
@@ -2162,13 +2275,13 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),
+	DECLARE @money money = @Price, @TempSubCategoryId varchar(30),@Id varchar(50),
 	@StockId varchar(50),@Count int, @TempPrice nvarchar(50),@ProductCount int
-	set @TempSubCategoryId = (select Id from SubCategory where Name = @SubCategoryName)
-	set @Count = (select count(*) from Product)+1;
+	set @TempSubCategoryId = (SELECT Id from SubCategory WHERE Name = @SubCategoryName)
+	set @Count = (SELECT count(*) from Product)+1;
 	set @Id = 'P' + @TempSubCategoryId + 'SC' + (FORMAT(@Count,'00000'));
-	set @ProductCount = (select count(1) from Product where Id = @Id)
-	set @Count = (select count(*) from Stock)+1;
+	set @ProductCount = (SELECT count(1) from Product WHERE Id = @Id)
+	set @Count = (SELECT count(*) from Stock)+1;
 	set @StockId = 'SK' + (FORMAT(@Count,'00000'));
 
 	IF(@ProductCount > 0)
@@ -2191,12 +2304,12 @@ BEGIN
 			IsActive = @IsActive,
 			Quantity=@Quantity,
 			ImageURL= @ImageURL
-		where Id = @Id;
+		WHERE Id = @Id;
 
 		UPDATE Stock
 		set ProductId = @Id,
 			Quantity = @Quantity
-		where 
+		WHERE 
 			Id = @StockId;
 	END
 END]]></Value>
@@ -2497,10 +2610,11 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Id varchar(30),@Count int, @TempCategoryId varchar(10);
+	DECLARE @Id varchar(30),@Count int, @TempCategoryId varchar(10);
 	set @Count = (select count(*) from SubCategory)+1;
-	set @TempCategoryId = (select Id from Category where Name = @CategoryName);
-	set @Id = @TempCategoryId + 'SC' + (FORMAT(@Count,'00000'))
+	set @TempCategoryId = (select Id from Category WHERE Name = @CategoryName);
+	set @Id = @TempCategoryId + 'SC' + (FORMAT(@Count,'00000'));
+
 	INSERT INTO SubCategory values( @Id , @TempCategoryId, @Name);
 END]]></Value>
 			</Property>
@@ -2577,7 +2691,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="436" />
+				<Property Name="Length" Value="439" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_InsertSubCategory]&#xD;&#xA;&#x9;@CategoryName varchar(50),&#xD;&#xA;&#x9;@Name varchar(100)&#xD;&#xA;AS" />
@@ -2587,12 +2701,13 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Count int,@Datetime varchar(20),@Id varchar(30)
+	DECLARE @Count int,@Datetime varchar(20),@Id varchar(30)
 	set @Count = (select count(*) from Payment)+1;
 	set @Id = 'PY' + (FORMAT(@Count,'0000'))
 	set @Datetime = (select FORMAT (GETDATE(),'dd/MM/yyyy'))
-	insert into Payment values(@Id,@CustomerId,@PaymentMode,@AmountPaid,@Datetime)
-	select @Id;
+
+	INSERT into Payment values(@Id,@CustomerId,@PaymentMode,@AmountPaid,@Datetime);
+	SELECT @Id;
 END]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2678,7 +2793,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="440" />
+				<Property Name="Length" Value="442" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_MakePayment]&#xD;&#xA;&#x9;&#x9;@CustomerId varchar(30),&#xD;&#xA;&#x9;&#x9;@PaymentMode varchar(20),&#xD;&#xA;&#x9;&#x9;@AmountPaid nvarchar(30)&#xD;&#xA;AS" />
@@ -2688,9 +2803,10 @@ END]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
-	declare @Id varchar(30),@Count int
-	set @Count = (select count(*) from Orders)+1;
+	DECLARE @Id varchar(30),@Count int
+	set @Count = (select count(*) FROM Orders)+1;
 	set @Id = 'ORD' + (FORMAT(@Count,'000000'));
+
 	INSERT into Orders values(@Id,@Quantity,@Price,@DateOrdered,@DateReceived,@Status,@CustomerId,@PaymentId,@ProductId,@AddressId);
 END]]></Value>
 			</Property>
@@ -2884,7 +3000,7 @@ END]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="536" />
+				<Property Name="Length" Value="538" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[sp_PlaceOrder]&#xD;&#xA;&#x9;&#x9;@Quantity int,&#xD;&#xA;&#x9;&#x9;@Price int,&#xD;&#xA;&#x9;&#x9;@DateOrdered datetime,&#xD;&#xA;&#x9;&#x9;@DateReceived datetime,&#xD;&#xA;&#x9;&#x9;@Status varchar(20),&#xD;&#xA;&#x9;&#x9;@CustomerId varchar (30),&#xD;&#xA;&#x9;&#x9;@PaymentId varchar(30),&#xD;&#xA;&#x9;&#x9;@ProductId varchar(50),&#xD;&#xA;&#x9;&#x9;@AddressId varchar(10)&#xD;&#xA;AS" />
@@ -2946,7 +3062,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
+			<AttachedAnnotation Disambiguator="13" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[SubCategory]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2966,7 +3082,7 @@ END]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="19" />
+						<AttachedAnnotation Disambiguator="21" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -3007,7 +3123,7 @@ END]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="12" />
 		</Element>
 	</Model>
 </DataSchemaModel>
