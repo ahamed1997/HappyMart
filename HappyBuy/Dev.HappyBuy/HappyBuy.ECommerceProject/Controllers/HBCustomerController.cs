@@ -14,7 +14,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     [EnableCors("http://localhost:4200", "*", "GET,PUT,POST")]
     public class HBCustomerController : Controller
     {
-        private DevHappyBuyBL devHappyBuyBL = new DevHappyBuyBL();
+        private HBCustomerBL devHappyBuyBL = new HBCustomerBL();
         // GET: HBCustomer
         public int RegisterCustomer(Customer customer)
         {

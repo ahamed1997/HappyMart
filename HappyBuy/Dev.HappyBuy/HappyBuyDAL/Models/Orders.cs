@@ -9,8 +9,8 @@ namespace HappyBuyDAL
         string Id { get; set; }
         string Quantity { get; set; }
         string Price { get; set; }
-        DateTime DateOrdered { get; set; }
-        DateTime DateReceived { get; set; }
+        string DateOrdered { get; set; }
+        string DateReceived { get; set; }
         string Status { get; set; }
         string CustomerId { get; set; }
         string PaymentId { get; set; }

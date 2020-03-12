@@ -10,8 +10,9 @@
 		@AddressId varchar(10)
 AS
 BEGIN
-	declare @Id varchar(30),@Count int
-	set @Count = (select count(*) from Orders)+1;
-	set @Id = 'OR' + (FORMAT(@Count,'000000'));
+	DECLARE @Id varchar(30),@Count int
+	set @Count = (select count(*) FROM Orders)+1;
+	set @Id = 'ORD' + (FORMAT(@Count,'000000'));
+
 	INSERT into Orders values(@Id,@Quantity,@Price,@DateOrdered,@DateReceived,@Status,@CustomerId,@PaymentId,@ProductId,@AddressId);
 END

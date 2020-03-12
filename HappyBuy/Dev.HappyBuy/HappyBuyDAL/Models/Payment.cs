@@ -10,6 +10,6 @@ namespace HappyBuyDAL
         string CustomerId { get; set; }
         string PaymentMode { get; set; }
         string AmountPaid { get; set; }
-        DateTime DateOdPayment { get; set; }
+        string DateOfPayment { get; set; }
     }
 }

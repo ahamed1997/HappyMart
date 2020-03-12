@@ -12,12 +12,11 @@
 AS
 BEGIN
 
-declare @Id varchar(30),@TempId varchar(30), @Count int
-set @Count = (select count(*) from Customer)+1;
-set @TempId = (FORMAT(@Count,'000000000'));
-set @Id = 'HBCUS' + @TempId;
-	insert  Customer values 
-	(@Id,@Firstname,@Lastname,@Mobile,@Email,@Password,@Street,@Landmark,@City,@State,@Zipcode)
+DECLARE @Id varchar(30),@TempId varchar(30), @Count int
+	set @Count = (select count(*) from Customer)+1;
+	set @TempId = (FORMAT(@Count,'000000000'));
+	set @Id = 'HBCUS' + @TempId;
+	INSERT Customer values (@Id,@Firstname,@Lastname,@Mobile,@Email,@Password,@Street,@Landmark,@City,@State,@Zipcode)
 END
 
 

@@ -106,11 +106,18 @@ print @price;
 set @price = @price+123;
 print @price;
 set @updatedNvarchar = (select FORMAT(@price,'C','ta-IN'));
+
 --insert into tblTest(@money,@price);
 insert into tblTest values (@tempmoneyvalue,@price,@updatedNvarchar);
 end
 exec procNvarchar '123'
 select * from tblTest
+declare @val int
+set @val = 3;
+set @val = @val * 3;
+print @val;
+
+
 -------------------------------------------------------
 drop table tblTest
 create table tblTest (jSONoBJECT nvarchar(MAX))

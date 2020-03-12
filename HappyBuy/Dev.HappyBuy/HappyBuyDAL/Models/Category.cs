@@ -6,6 +6,6 @@ namespace HappyBuyDAL
     public class Category
     {
         string Id { get; set; }
-        string Categories { get; set; }
+        string Name { get; set; }
     }
 }

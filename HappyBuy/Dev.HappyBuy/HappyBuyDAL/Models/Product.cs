@@ -14,6 +14,7 @@ namespace HappyBuyDAL
         int Price { get; set; }
         string Brand { get; set; }
         int IsActive { get; set; }
+        int Quantity { get; set; }
         string ImageURL { get; set; }
     }
 }
