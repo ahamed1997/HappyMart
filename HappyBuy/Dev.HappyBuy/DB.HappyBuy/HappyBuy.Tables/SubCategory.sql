@@ -1,7 +1,7 @@
-﻿CREATE TABLE [dbo].[SubCategory]
+﻿CREATE TABLE SubCategory
 (
-	Id varchar(30) primary key,
-		CategoryId varchar(10),
-		Name varchar(100),
+	Id INT primary key,
+		CategoryId INT NOT NULL,
+		Name varchar(100) NOT NULL,
 		FOREIGN KEY (CategoryId) REFERENCES Category(Id)
-)
+);

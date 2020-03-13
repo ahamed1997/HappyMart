@@ -1,10 +1,10 @@
-﻿CREATE TABLE [dbo].[Cart]
+﻿CREATE TABLE Cart
 (
-	Id varchar(20) primary key,
-		CustomerId varchar (30),
-		ProductId varchar(50),
-		TotalPrice nvarchar(MAX),
-		Quantity int,
+	Id INT primary key,
+		CustomerId INT NOT NULL,
+		ProductId INT NOT NULL,
+		TotalPrice DECIMAL(10,2) NOT NULL,
+		Quantity int NOT NULL,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 		FOREIGN KEY (ProductId) REFERENCES Product(Id)
-)
+);

@@ -1,15 +1,15 @@
-﻿CREATE TABLE [dbo].[Product]
+﻿CREATE TABLE Product
 (
-	Id varchar(50) primary key,
-		SubCategoryId varchar(30),
-		Name varchar(100),
-		Description nvarchar(MAX),
-		Specification nvarchar(MAX),
-		Options nvarchar(MAX),
-		Price nvarchar(50) ,
-		Brand varchar(50),
-		IsActive int,
-		Quantity int,
-		ImageURL varchar(200),
+	Id INT primary key,
+		SubCategoryId INT NOT NULL,
+		Name varchar(100) NOT NULL,
+		Description nvarchar(MAX) NOT NULL,
+		Specification nvarchar(MAX) NOT NULL,
+		Options nvarchar(MAX) NOT NULL,
+		Price DECIMAL(10,2) NOT NULL ,
+		Brand varchar(50) NOT NULL,
+		IsActive bit NOT NULL,
+		Quantity int NOT NULL,
+		ImageURL varchar(200) NOT NULL,
 		FOREIGN KEY (SubCategoryId) REFERENCES SubCategory(Id)
-)
+);

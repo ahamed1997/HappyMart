@@ -1,20 +1,70 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿// <copyright file="Product.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace HappyBuyDAL
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    /// <summary>
+    /// Product Entity.
+    /// </summary>
     [Table("Product")]
     public class Product
     {
-        string Id { get; set; }
-        string SubCategoryId { get; set; }
-        string Name { get; set; }
-        string Description { get; set; }
-        string Specification { get; set; }
-        string Options { get; set; }
-        int Price { get; set; }
-        string Brand { get; set; }
-        int IsActive { get; set; }
-        int Quantity { get; set; }
-        string ImageURL { get; set; }
+        /// <summary>
+        /// Gets or Sets Id.
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SubCategoryId.
+        /// </summary>
+        public string SubCategoryId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Description.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Specification.
+        /// </summary>
+        public string Specification { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OPtions.
+        /// </summary>
+        public string Options { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Price.
+        /// </summary>
+        public int Price { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Brand.
+        /// </summary>
+        public string Brand { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsActive.
+        /// </summary>
+        public int IsActive { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Quantity.
+        /// </summary>
+        public int Quantity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ImageURL.
+        /// </summary>
+        public string ImageURL { get; set; }
     }
 }
