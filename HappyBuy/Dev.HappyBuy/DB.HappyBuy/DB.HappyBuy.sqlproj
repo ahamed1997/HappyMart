@@ -56,23 +56,12 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="HappyBuy.StoredProcedures" />
     <Folder Include="HappyBuy.Tables" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.HappyBuy.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="HappyBuy.StoredProcedures\sp_CustomerRegistration.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_GetCustomerDetails.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_InsertProduct.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_InsertCategory.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_InsertSubCategory.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_GetProductDetails.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_AddCart.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_PlaceOrder.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_MakePayment.sql" />
-    <Build Include="HappyBuy.StoredProcedures\sp_AddShippingAddress.sql" />
     <Build Include="HappyBuy.Tables\Cart.sql" />
     <Build Include="HappyBuy.Tables\Category.sql" />
     <Build Include="HappyBuy.Tables\Customer.sql" />
@@ -80,7 +69,9 @@
     <Build Include="HappyBuy.Tables\Payment.sql" />
     <Build Include="HappyBuy.Tables\Product.sql" />
     <Build Include="HappyBuy.Tables\ShippingAddress.sql" />
-    <Build Include="HappyBuy.Tables\Stock.sql" />
     <Build Include="HappyBuy.Tables\SubCategory.sql" />
+    <Build Include="HappyBuy.Tables\PaymentDetails.sql" />
+    <Build Include="HappyBuy.Tables\Status.sql" />
+    <Build Include="HappyBuy.Tables\OrderDetails.sql" />
   </ItemGroup>
 </Project>

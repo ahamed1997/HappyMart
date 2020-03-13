@@ -1,17 +1,14 @@
 ﻿CREATE TABLE [dbo].[Orders]
 (
-	Id varchar(30) primary key,
-		Quantity int,
-		Price int,
+		Id INT NOT NULL primary key,
 		DateOrdered varchar(15),
 		DateReceived varchar(15),
-		Status varchar(20),
-		CustomerId varchar (30),
-		PaymentId varchar(30),
-		ProductId varchar(50),
-		AddressId varchar(10),
+		StatusId INT,
+		CustomerId INT,
+		PaymentId INT,
+		AddressId INT,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 		FOREIGN KEY (PaymentId) REFERENCES Payment(Id),
-		FOREIGN KEY (ProductId) REFERENCES Product(Id),
+		FOREIGN KEY (StatusId) REFERENCES Status(Id),
 		FOREIGN KEY (AddressId) REFERENCES ShippingAddress(Id)
 )

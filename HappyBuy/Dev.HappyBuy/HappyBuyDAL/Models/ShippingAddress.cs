@@ -1,7 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿// <copyright file="ShippingAddress.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace HappyBuyDAL
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    /// <summary>
+    /// ShippingAddress.
+    /// </summary>
     [Table("ShippingAddress")]
     public class ShippingAddress
     {

@@ -1,0 +1,38 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Cart] (Table)
+       [dbo].[Category] (Table)
+       [dbo].[Customer] (Table)
+       [dbo].[OrderDetails] (Table)
+       [dbo].[Orders] (Table)
+       [dbo].[Payment] (Table)
+       [dbo].[PaymentDetails] (Table)
+       [dbo].[Product] (Table)
+       [dbo].[ShippingAddress] (Table)
+       [dbo].[Status] (Table)
+       [dbo].[SubCategory] (Table)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[OrderDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[OrderDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[PaymentDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Product] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[ShippingAddress] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[SubCategory] (Foreign Key)
+
+** Supporting actions

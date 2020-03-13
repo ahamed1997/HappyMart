@@ -1,14 +1,14 @@
 ﻿CREATE TABLE [dbo].[Customer]
 (
-	Id varchar(30) primary key ,
-		FirstName varchar(50), 
-		LastName varchar(50),
-		Mobile varchar(15),
-		Email varchar(30),
-		Password varchar(30),
-		Street varchar(100),
-		LandMark varchar(100),
-		City varchar(30), 
-		State varchar(30), 
-		Zipcode varchar(10)
+	Id INT primary key ,
+		FirstName varchar(50) NOT NULL, 
+		LastName varchar(50) NOT NULL,
+		Mobile varchar(15) NOT NULL,
+		Email nvarchar(30) NOT NULL,
+		Password varchar(30) NOT NULL,
+		Street varchar(100) NOT NULL,
+		LandMark varchar(100) NOT NULL,
+		City varchar(30) NOT NULL, 
+		State varchar(30) NOT NULL, 
+		Zipcode CHAR(6) NOT NULL
 )

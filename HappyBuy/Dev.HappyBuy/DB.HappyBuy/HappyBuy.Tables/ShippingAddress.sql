@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [dbo].[ShippingAddress]
 (
-	Id varchar(10) primary key,
-		CustomerId varchar (30),
-		Mobile varchar(15),
-		Street varchar(100),
-		LandMark varchar(100),
-		City varchar(30), 
-		State varchar(30), 
-		Zipcode varchar(10),
+	Id INT primary key,
+		CustomerId INT NOT NULL,
+		Mobile varchar(15) NOT NULL,
+		Street varchar(100) NOT NULL,
+		LandMark varchar(100) NOT NULL,
+		City varchar(30) NOT NULL, 
+		State varchar(30) NOT NULL, 
+		Zipcode varchar(10) NOT NULL,
 		FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
 )
