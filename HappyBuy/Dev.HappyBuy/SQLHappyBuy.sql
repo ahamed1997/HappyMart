@@ -128,3 +128,12 @@ SET @json = JSON_MODIFY(@json, '$.info.address[1].town', 'London');
 SELECT modifiedJson = @json;
 INSERT INTO tblTest values(@json)
 select * from tblTest
+
+
+declare @temp money
+set @temp  = 5.0 * 2;
+print @temp
+declare @Existingdate datetime
+Set @Existingdate=GETDATE()
+PRINT @Existingdate
+Select CONVERT(varchar,GETDATE(),103) as [DD/MM/YYYY]

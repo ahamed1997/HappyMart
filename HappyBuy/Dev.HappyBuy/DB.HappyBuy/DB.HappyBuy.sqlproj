@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="HappyBuy.Tables" />
+    <Folder Include="HappyBuy.StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.HappyBuy.publish.xml" />
@@ -71,7 +72,21 @@
     <Build Include="HappyBuy.Tables\ShippingAddress.sql" />
     <Build Include="HappyBuy.Tables\SubCategory.sql" />
     <Build Include="HappyBuy.Tables\PaymentDetails.sql" />
-    <Build Include="HappyBuy.Tables\Status.sql" />
+    <Build Include="HappyBuy.Tables\OrderStatus.sql" />
     <Build Include="HappyBuy.Tables\OrderDetails.sql" />
+    <Build Include="HappyBuy.Tables\PaymentMode.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_CustomerRegister.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetCustomerDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_ AddCart.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_AddShippingAddress.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetProductDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_InsertProduct.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_InsertSubCategory.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_InsertCategory.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateShippingAddress.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateProductDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_PlaceOrder.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_ModifyOrderStatusTable.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_InsertOrderStatusTable.sql" />
   </ItemGroup>
 </Project>

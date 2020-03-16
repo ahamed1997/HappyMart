@@ -46,7 +46,7 @@ namespace HappyBuyDAL.Implementation
         /// <param name="value">Command Type.</param>
         /// <param name="storedProcedureEnum">Stored Procedure.</param>
         /// <returns>All Details.</returns>
-        public List<T> GetAllDetails<T>(string value, int storedProcedureEnum) 
+        public List<T> GetAllDetails<T>(string value, int storedProcedureEnum)
             where T : new()
         {
             var commandText = (StoredProcedure)storedProcedureEnum;
