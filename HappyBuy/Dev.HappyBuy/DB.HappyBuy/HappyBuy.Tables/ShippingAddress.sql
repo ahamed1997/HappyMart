@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ShippingAddress]
 (
-	Id INT primary key,
+	Id INT   primary key,
 		CustomerId INT NOT NULL,
 		Mobile varchar(15) NOT NULL,
 		Street varchar(100) NOT NULL,
