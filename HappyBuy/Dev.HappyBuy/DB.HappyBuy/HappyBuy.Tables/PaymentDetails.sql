@@ -9,7 +9,7 @@
 	ExpiryYear char(4) NOT NULL,
 	CVV char(3) NOT NULL,
 	DateOfPayment DATETIME NOT NULL,
-	AmountPaid MONEY NOT NULL,
+	AmountPaid DECIMAL(10,2) NOT NULL,
 	FOREIGN KEY ([PaymentId]) REFERENCES [dbo].[Payment] ([Id]),
 	FOREIGN KEY ([PaymentModeId]) REFERENCES [dbo].[PaymentMode] ([Id])
 

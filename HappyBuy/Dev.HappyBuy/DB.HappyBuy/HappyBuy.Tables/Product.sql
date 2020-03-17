@@ -6,7 +6,7 @@
 	Description nvarchar(1000) NOT NULL,
 	Specification nvarchar(MAX) NOT NULL,
 	Options nvarchar(MAX) NOT NULL,
-	Price MONEY NOT NULL ,
+	Price DECIMAL(10,2) NOT NULL ,
 	Brand varchar(50) NOT NULL,
 	IsActive bit NOT NULL,
 	Quantity int NOT NULL,
