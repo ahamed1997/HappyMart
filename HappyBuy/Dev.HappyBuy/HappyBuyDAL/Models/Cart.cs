@@ -15,22 +15,22 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerId.
         /// </summary>
-        public string CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets ProductId.
         /// </summary>
-        public string ProductId { get; set; }
+        public int ProductId { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalPrice.
         /// </summary>
-        public string TotalPrice { get; set; }
+        public decimal Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Quantity.

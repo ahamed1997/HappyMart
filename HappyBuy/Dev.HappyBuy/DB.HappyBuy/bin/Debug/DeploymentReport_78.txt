@@ -1,0 +1,54 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Cart] (Table)
+       [dbo].[Category] (Table)
+       [dbo].[Customer] (Table)
+       [dbo].[OrderDetails] (Table)
+       [dbo].[Orders] (Table)
+       [dbo].[OrderStatus] (Table)
+       [dbo].[Payment] (Table)
+       [dbo].[PaymentDetails] (Table)
+       [dbo].[PaymentMode] (Table)
+       [dbo].[Product] (Table)
+       [dbo].[ShippingAddress] (Table)
+       [dbo].[SubCategory] (Table)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Cart] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[OrderDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[OrderDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Orders] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Payment] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[PaymentDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[PaymentDetails] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[Product] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[ShippingAddress] (Foreign Key)
+       Foreign Key: unnamed constraint on [dbo].[SubCategory] (Foreign Key)
+       [dbo].[USP_ AddCart] (Procedure)
+       [dbo].[USP_AddShippingAddress] (Procedure)
+       [dbo].[USP_CustomerRegister] (Procedure)
+       [dbo].[USP_GetCustomerDetails] (Procedure)
+       [dbo].[USP_GetProductDetails] (Procedure)
+       [dbo].[USP_InsertCategory] (Procedure)
+       [dbo].[USP_InsertOrderStatusTable] (Procedure)
+       [dbo].[USP_InsertProduct] (Procedure)
+       [dbo].[USP_InsertSubCategory] (Procedure)
+       [dbo].[USP_ModifyOrderStatusTable] (Procedure)
+       [dbo].[USP_PlaceOrder] (Procedure)
+       [dbo].[USP_RemoveCartItems] (Procedure)
+       [dbo].[USP_UpdateCartQuantity] (Procedure)
+       [dbo].[USP_UpdateProductDetails] (Procedure)
+       [dbo].[USP_UpdateShippingAddress] (Procedure)
+
+** Supporting actions

@@ -4,7 +4,7 @@
 	@Description nvarchar(1000),
 	@Specification nvarchar(MAX),
 	@Options nvarchar(MAX),
-	@Price MONEY,
+	@Price DECIMAL(10,2),
 	@Brand varchar(50),
 	@IsActive int,
 	@Quantity int,

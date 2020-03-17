@@ -88,5 +88,7 @@
     <Build Include="HappyBuy.StoredProcedures\USP_PlaceOrder.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_ModifyOrderStatusTable.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_InsertOrderStatusTable.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_RemoveCartItems.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateCartQuantity.sql" />
   </ItemGroup>
 </Project>
