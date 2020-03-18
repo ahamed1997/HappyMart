@@ -15,7 +15,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or sets category Id.
         /// </summary>
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets category Name.

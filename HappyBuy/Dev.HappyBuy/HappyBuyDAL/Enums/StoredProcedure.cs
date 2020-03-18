@@ -10,53 +10,78 @@ namespace HappyBuyDAL.Enums
     public enum StoredProcedure
     {
         /// <summary>
-        /// Stored Procedure for Cutomer Registration.
+        /// Stored Procedure for Add Items to Cart.
         /// </summary>
-        sp_CustomerRegistration = 1,
+        USP_AddCart = 1,
 
         /// <summary>
-        /// Stored Procedure for Fetch Customer Details.
+        /// Stored Procedure for Add new Shipping Address.
         /// </summary>
-        sp_GetCustomerDetails = 2,
+        USP_AddShippingAddress = 2,
 
         /// <summary>
-        /// Stored Procedure for Add Product to Cart.
+        /// Stored Procedure for Customer Register.
         /// </summary>
-        sp_AddCart = 3,
+        USP_CustomerRegister = 3,
 
         /// <summary>
-        /// Stored Procedure for Adding Shipping Address.
+        /// Stored Procedure for Get Customer Details.
         /// </summary>
-        sp_AddShippingAddress = 4,
+        USP_GetCustomerDetails = 4,
 
         /// <summary>
         /// Stored Procedure for Get Product Details.
         /// </summary>
-        sp_GetProductDetails = 5,
+        USP_GetProductDetails = 5,
 
         /// <summary>
         /// Stored Procedure for Inserting Category.
         /// </summary>
-        sp_InsertCategory = 6,
+        USP_InsertCategory = 6,
 
         /// <summary>
-        /// Stored Procedure for for Inserting Product.
+        /// Stored Procedure for for Inserting Status in Orders.
         /// </summary>
-        sp_InsertProduct = 7,
+        USP_InsertOrderStatusTable = 7,
 
         /// <summary>
-        /// Stored Procedure for Inserting SubCategory.
+        /// Stored Procedure for Inserting Product.
         /// </summary>
-        sp_InsertSubCategory = 8,
+        USP_InsertProduct = 8,
 
         /// <summary>
-        /// Stored Procedure for Update Payment Details.
+        /// Stored Procedure for Insert SubCategory.
         /// </summary>
-        sp_MakePayment = 9,
+        USP_InsertSubCategory = 9,
 
         /// <summary>
-        /// Stored Procedure for Update Order Details.
+        /// Stored Procedure for Modify OrderStatus.
         /// </summary>
-        sp_PlaceOrder = 10
+        USP_ModifyOrderStatusTable = 10,
+
+        /// <summary>
+        /// Stored Procedure for Place Order.
+        /// </summary>
+        USP_PlaceOrder = 11,
+
+        /// <summary>
+        /// Stored Procedure for Remove Items in Cart.
+        /// </summary>
+        USP_RemoveCartItems = 12,
+
+        /// <summary>
+        /// Stored Procedure for Update Cart Items Quantity.
+        /// </summary>
+        USP_UpdateCartQuantity = 13,
+
+        /// <summary>
+        /// Stored Procedure for Update Product Details.
+        /// </summary>
+        USP_UpdateProductDetails = 14,
+
+        /// <summary>
+        /// Stored Procedure for Shipping Address.
+        /// </summary>
+        USP_UpdateShippingAddress = 15,
     }
 }

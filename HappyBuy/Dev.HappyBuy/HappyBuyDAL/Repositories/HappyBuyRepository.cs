@@ -15,7 +15,6 @@ namespace HappyBuyDAL.Implementation
     public class HappyBuyRepository : IHaapyBuyRepository
     {
         private DevHappyBuyDAL happyBuyDAL;
-        private StoredProcedure storedProcedure;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HappyBuyRepository"/> class.

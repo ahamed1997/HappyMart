@@ -77,7 +77,7 @@
     <Build Include="HappyBuy.Tables\PaymentMode.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_CustomerRegister.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_GetCustomerDetails.sql" />
-    <Build Include="HappyBuy.StoredProcedures\USP_ AddCart.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_AddCart.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_AddShippingAddress.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_GetProductDetails.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_InsertProduct.sql" />
