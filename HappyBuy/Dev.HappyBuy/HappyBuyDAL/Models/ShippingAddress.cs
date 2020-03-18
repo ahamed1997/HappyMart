@@ -12,13 +12,44 @@ namespace HappyBuyDAL
     [Table("ShippingAddress")]
     public class ShippingAddress
     {
-        string Id { get; set; }
-        string CustomerId { get; set; }
-        string Mobile { get; set; }
-        string Street { get; set; }
-        string LandMark { get; set; }
-        string City { get; set; }
-        string State { get; set; }
-        string Zicode { get; set; }
+        /// <summary>
+        /// Gets or Sets Id.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomerId.
+        /// </summary>
+        public string CustomerId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Mobile.
+        /// </summary>
+        public string Mobile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Street.
+        /// </summary>
+        public string Street { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LandMark.
+        /// </summary>
+        public string LandMark { get; set; }
+
+        /// <summary>
+        /// Gets or Sets City.
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or Sets State.
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Zicode.
+        /// </summary>
+        public string Zicode { get; set; }
     }
 }

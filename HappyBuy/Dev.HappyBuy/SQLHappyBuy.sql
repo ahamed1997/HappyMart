@@ -137,3 +137,48 @@ declare @Existingdate datetime
 Set @Existingdate=GETDATE()
 PRINT @Existingdate
 Select CONVERT(varchar,GETDATE(),103) as [DD/MM/YYYY]
+------------------------------------------------------------------------
+
+create table CITY (ID int, Name varchar(17),CountryCode varchar(3),District varchar(20),Population int)
+
+
+insert into CITY (ID,Name,CountryCode,District,Population) values
+(1, 'America' ,'USA','Austin',120000),
+(2, 'America' ,'USA','Chicago',10000),
+(3, 'America' ,'USA','San Francisco',3000000),
+(4, 'America' ,'USA','Newyork',120000),
+(5, 'India' ,'IN','Erode',120000),
+(6,'Japan','JP','Tokyo',120000),
+(7,'Japan','JP','Hiroshima',120000)
+
+---Query 1 .Query all columns for all american city with populations larger than 100000.The country code for America is 'USA'
+
+select * from CITY where CountryCode ='USA' AND Population>100000
+
+----Query 2 Query the names of all American cities in city with populations larger than 120000. The country code for America is 'USA'
+
+select District from CITY where CountryCode ='USA' AND Population>120000
+
+---Query 3 all attributes of every japanese city in the city table .
+
+select * from CITY where Name ='Japan'
+
+--- Query 4
+
+create table Station (Id int, City varchar(21),State varchar(2), LAT_N int,Long_W int)
+
+insert into Station values 
+(1,'Chennai','TN',12.3,23.4),
+(2,'Salem','TN',23.4,23.4),
+(3,'Coimbatore','TN',52.3,23.4),
+(4,'Madurai','TN',72.3,23.4),
+(5,'Erode','TN',92.3,23.4),
+(6,'Thrichy','TN',22.3,23.4),
+(7,'Thrichy','TN',22.3,23.4)
+
+select Distinct * from Station where Id %2 = 0
+
+
+--Query 5
+
+select  COUNT(Distinct City), COUNT(*)  from Station 

@@ -4,6 +4,7 @@
 
 namespace HappyBuyDAL
 {
+    using System;
     using System.ComponentModel.DataAnnotations.Schema;
 
     /// <summary>
@@ -15,32 +16,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Quantity.
-        /// </summary>
-        public string Quantity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Price.
-        /// </summary>
-        public string Price { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DateOrderd.
-        /// </summary>
-        public string DateOrdered { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DateRecieved.
-        /// </summary>
-        public string DateReceived { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status.
-        /// </summary>
-        public string Status { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets CustoemrId.
@@ -48,18 +24,44 @@ namespace HappyBuyDAL
         public string CustomerId { get; set; }
 
         /// <summary>
+        /// Gets or Sets AddressId.
+        /// </summary>
+        public string AddressId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DateOrderd.
+        /// </summary>
+        public DateTime DateOfOrder { get; set; }
+
+        /// <summary>
         /// Gets or Sets PaymentId.
         /// </summary>
-        public string PaymentId { get; set; }
+        public int OrderStatusId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DateRecieved.
+        /// </summary>
+        public DateTime DateOfOrderDispatched { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status.
+        /// </summary>
+        public string Status { get; set; }
+
+       
+        
 
         /// <summary>
         /// Gets or Sets ProductId.
         /// </summary>
         public string ProductId { get; set; }
 
-        /// <summary>
-        /// Gets or Sets AddressId.
-        /// </summary>
-        public string AddressId { get; set; }
+        
     }
 }
+Id INT    NOT NULL primary key,
+        CustomerId INT NOT NULL,
+		AddressId INT NOT NULL,
+        DateOfOrder varchar(15) NOT NULL,
+         INT NOT NULL,
+		DateOfOrderDispatched varchar(15) NULL,
