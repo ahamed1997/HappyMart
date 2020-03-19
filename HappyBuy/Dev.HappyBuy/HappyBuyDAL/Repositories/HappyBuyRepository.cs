@@ -42,25 +42,29 @@ namespace HappyBuyDAL.Implementation
         /// Get All Details.
         /// </summary>
         /// <typeparam name="T">Generic Type Object.</typeparam>
-        /// <param name="value">Command Type.</param>
+        /// <param name="dictionary">Input Parameters.</param>
         /// <param name="storedProcedureEnum">Stored Procedure.</param>
         /// <returns>All Details.</returns>
-        public List<T> GetAllDetails<T>(string value, int storedProcedureEnum)
+        public List<T> GetAllDetails<T>(Dictionary<string, object> dictionary, int storedProcedureEnum)
             where T : new()
         {
             var commandText = (StoredProcedure)storedProcedureEnum;
             string storedProcedure = commandText.ToString();
-            return this.happyBuyDAL.ExecuteReader<T>(value, storedProcedure);
+            return this.happyBuyDAL.ExecuteReader<T>(dictionary, storedProcedure);
         }
 
         /// <summary>
         /// Delete Details.
         /// </summary>
-        /// <param name="id">Delete by id.</param>
-        /// <returns>Delete Results.</returns>
-        public int DeleteDetails(string id)
+        /// <typeparam name="T">Generic Type Object.</typeparam>
+        /// <param name="dictionary">Dynamic Dictionary Object.</param>
+        /// <param name="storedProcedureEnum">Stored Procedure.</param>
+        /// <returns>Insert Results.</returns>
+        public int DeleteDetails<T>(Dictionary<string, object> dictionary, int storedProcedureEnum)
         {
-            throw new NotImplementedException();
+            var commandText = (StoredProcedure)storedProcedureEnum;
+            string storedProcedure = commandText.ToString();
+            return this.happyBuyDAL.ExecuteNonQuery<DevHappyBuyDAL>(dictionary, storedProcedure);
         }
 
         /// <summary>

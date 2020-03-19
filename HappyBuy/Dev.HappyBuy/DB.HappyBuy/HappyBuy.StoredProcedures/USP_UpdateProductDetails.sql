@@ -26,5 +26,5 @@ BEGIN
 				Quantity=@Quantity,
 				ImageURL= @ImageURL
 			WHERE Id = @Id;
-RETURN 0
+			SELECT Id from Product where Id = @Id;
 END

@@ -1,93 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Web.Http.Cors;
+using HappyBuyBL;
+using HappyBuyDAL;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HappyBuy.ECommerceProject.Controllers
 {
+    [EnableCors("http://localhost:4200", "*", "GET,PUT,POST")]
+
     public class HBCartController : Controller
     {
-        // GET: HBCart
-        public ActionResult Index()
+        private HBCartBL hBCartBL = new HBCartBL();
+        // GET: HBCustomer
+        public int RegisterCustomer(Cart cart)
         {
-            return View();
-        }
-
-        // GET: HBCart/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: HBCart/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: HBCart/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = cart.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                keyValues.Add(info.Name, info.GetValue(cart, null));
             }
-            catch
-            {
-                return View();
-            }
+            int i = hBCartBL.AddToCart<Cart>(keyValues);
+            return i;
         }
-
-        // GET: HBCart/Edit/5
-        public ActionResult Edit(int id)
+        public int UpdateCartQuantity(Cart cart)
         {
-            return View();
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = cart.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                keyValues.Add(info.Name, info.GetValue(cart, null));
+            }
+            int i = hBCartBL.UpdateCartQuantity<Cart>(keyValues);
+            return i;
         }
-
-        // POST: HBCart/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public int RemoveCartItem(Cart cart)
         {
-            try
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = cart.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
+                keyValues.Add(info.Name, info.GetValue(cart, null));
             }
-            catch
-            {
-                return View();
-            }
+            int i = hBCartBL.RemoveCartItem<Cart>(keyValues);
+            return i;
         }
-
-        // GET: HBCart/Delete/5
-        public ActionResult Delete(int id)
+        public Object GetCartItems(Cart cart)
         {
-            return View();
-        }
-
-        // POST: HBCart/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            Product product = new Product();
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            Dictionary<string, object> keyValues2 = new Dictionary<string, object>();
+            Dictionary<string, object> keyValues3 = new Dictionary<string, object>();
+            PropertyInfo[] infos = cart.GetType().GetProperties();
+            keyValues = cart.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
+            .ToDictionary(prop => prop.Name, prop => prop.GetValue(cart));
+            keyValues2 = product.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
+          .ToDictionary(prop => prop.Name, prop => prop.GetValue(product));
+            foreach (var item in keyValues)
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
+                keyValues3.Add(item.Key,item.Value);
             }
-            catch
+            foreach (var item in keyValues2)
             {
-                return View();
+                keyValues3.Add(item.Key, item.Value);
             }
+            foreach (PropertyInfo info in infos)
+            {
+                if (info.GetValue(cart) != null)
+                {
+                    keyValues.Add(info.Name, info.GetValue(cart, null));
+                }
+            }
+            infos = product.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                if (info.GetValue(product) != null)
+                {
+                    keyValues.Add(info.Name, info.GetValue(cart, null));
+                }
+            }
+            var GetData = hBCartBL.GetCartItems<Cart>(keyValues);
+            return GetData;
         }
     }
 }

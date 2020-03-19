@@ -50,9 +50,11 @@ namespace HappyBuyDAL
                 }
             }
 
-            if (this.cmdExecuteNonQuery.ExecuteNonQuery() > 0)
+            SqlDataReader sqlDataReader = this.cmdExecuteNonQuery.ExecuteReader();
+
+            while (sqlDataReader.Read())
             {
-                i = 1;
+                i = Convert.ToInt32(sqlDataReader[0]);
             }
 
             this.conn.Close();
@@ -63,17 +65,24 @@ namespace HappyBuyDAL
         /// Fetching Data using ExecuteReader.
         /// </summary>
         /// <typeparam name="T">Generic Object Parameter.</typeparam>
-        /// <param name="value">Input Parameter.</param>
+        /// <param name="dictionary">Input Parameter.</param>
         /// <param name="commandText">Stored Procedure type.</param>
         /// <returns>Generic Object.</returns>
-        public List<T> ExecuteReader<T>(string value, string commandText)
+        public List<T> ExecuteReader<T>(Dictionary<string, object> dictionary, string commandText)
             where T : new()
         {
             this.conn.Open();
             this.cmdExecuteReader = new SqlCommand(commandText, this.conn);
-            string keyvalue = "@Id";
-            this.cmdExecuteReader.Parameters.AddWithValue(keyvalue, value);
-            this.cmdExecuteReader.CommandType = CommandType.StoredProcedure;
+            foreach (var item in dictionary)
+            {
+                string keyvalue = "@" + item.Key;
+                if (item.Value != null)
+                {
+                    this.cmdExecuteReader.Parameters.AddWithValue(keyvalue, item.Value);
+                    this.cmdExecuteReader.CommandType = CommandType.StoredProcedure;
+                }
+            }
+
             SqlDataReader sqlDataReader = this.cmdExecuteReader.ExecuteReader();
             var entity = typeof(T);
             var entities = new List<T>();
@@ -90,7 +99,6 @@ namespace HappyBuyDAL
                     if (propDict.ContainsKey(sqlDataReader.GetName(index).ToUpper()))
                     {
                         var info = propDict[sqlDataReader.GetName(index).ToUpper()];
-
                         if ((info != null) && info.CanWrite)
                         {
                             var val = sqlDataReader.GetValue(index);

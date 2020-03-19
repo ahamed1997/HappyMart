@@ -15,11 +15,11 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerId.
         /// </summary>
-        public int OredrId { get; set; }
+        public int? OredrId { get; set; }
     }
 }

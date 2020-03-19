@@ -16,17 +16,17 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentId.
         /// </summary>
-        public int PaymentId { get; set; }
+        public int? PaymentId { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentModeId.
         /// </summary>
-        public int PaymentModeId { get; set; }
+        public int? PaymentModeId { get; set; }
 
         /// <summary>
         /// Gets or Sets CardHolderName.
@@ -36,26 +36,26 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets CardNumber.
         /// </summary>
-        public int CardNumber { get; set; }
+        public int? CardNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryMonth.
         /// </summary>
-        public char ExpiryMonth { get; set; }
+        public char? ExpiryMonth { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryYear.
         /// </summary>
-        public char ExpiryYear { get; set; }
+        public char? ExpiryYear { get; set; }
 
         /// <summary>
         /// Gets or Sets CVV.
         /// </summary>
-        public char CVV { get; set; }
+        public char? CVV { get; set; }
 
         /// <summary>
         /// Gets or Sets DateOfPayment.
         /// </summary>
-        public DateTime DateOfPayment { get; set; }
+        public DateTime? DateOfPayment { get; set; }
     }
 }

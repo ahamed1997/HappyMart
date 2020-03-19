@@ -19,4 +19,5 @@ BEGIN
 			Zipcode = @Zipcode
 			WHERE 
 			Id = @Id;
+	select Id from ShippingAddress where Id = @Id;
 END

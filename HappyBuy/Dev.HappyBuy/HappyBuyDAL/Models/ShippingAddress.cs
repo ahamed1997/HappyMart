@@ -15,7 +15,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerId.
@@ -48,8 +48,8 @@ namespace HappyBuyDAL
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zicode.
+        /// Gets or Sets Zipcode.
         /// </summary>
-        public string Zicode { get; set; }
+        public string Zipcode { get; set; }
     }
 }

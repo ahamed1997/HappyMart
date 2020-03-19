@@ -83,5 +83,10 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for Shipping Address.
         /// </summary>
         USP_UpdateShippingAddress = 15,
+
+        /// <summary>
+        /// Stored Procedure for Get Cart Items.
+        /// </summary>
+        USP_GetCartItems = 16,
     }
 }

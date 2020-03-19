@@ -5,4 +5,5 @@
 AS
 BEGIN
 	UPDATE OrderStatus set Status = @Status where Id = @Id;
+	SELECT Id from OrderStatus where Id = @Id;
 END

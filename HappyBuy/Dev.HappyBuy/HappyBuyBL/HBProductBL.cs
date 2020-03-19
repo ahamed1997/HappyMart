@@ -30,7 +30,52 @@ namespace HappyBuyBL
         /// <returns>Insert Results.</returns>
         public int AddProduct<T>(Dictionary<string, object> dictionary)
         {
-            return this.happyBuyRepository.AddCustomer<T>(dictionary, 7);
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 8);
+        }
+
+        /// <summary>
+        /// Update Product Details.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns>Update Results.</returns>
+        public int UpdateProductDetails<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 14);
+        }
+
+        /// <summary>
+        /// Get All Products.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns>Product Details.</returns>
+        public List<T> GetProducts<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 5);
+        }
+
+        /// <summary>
+        /// Insert Category.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Category Type Dictionary.</param>
+        /// <returns>Insert Results.</returns>
+        public int InsertCategory<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 6);
+        }
+
+        /// <summary>
+        /// Insert SubCategory.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">SubCategory. Type Dictionary.</param>
+        /// <returns>Insert Results.</returns>
+        public int InsertSubCategory<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 9);
         }
     }
 }
