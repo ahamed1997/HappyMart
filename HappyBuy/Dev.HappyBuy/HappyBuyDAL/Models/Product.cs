@@ -15,7 +15,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets SubCategoryId.
@@ -45,7 +45,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Price.
         /// </summary>
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Brand.
@@ -55,12 +55,12 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets IsActive.
         /// </summary>
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
         /// <summary>
         /// Gets or Sets Quantity.
         /// </summary>
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageURL.

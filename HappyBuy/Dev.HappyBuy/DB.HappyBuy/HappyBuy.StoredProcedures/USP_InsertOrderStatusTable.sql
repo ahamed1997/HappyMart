@@ -5,4 +5,5 @@ BEGIN
 	DECLARE @Id INT;
 	set @Id = (SELECT COUNT(*) from OrderStatus)+1;
 	INSERT into OrderStatus values (@Id,@Status);
+	select Max(Id) from OrderStatus;
 END

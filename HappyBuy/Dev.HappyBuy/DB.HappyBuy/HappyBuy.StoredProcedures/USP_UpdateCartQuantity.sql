@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[USP_UpdateCartQuantity]
 	@Id INT,
-	@QuantityUpdate varchar(15)
+	@Quantity INT
 AS
 BEGIN
 	DECLARE @CartProductCount INT,@StockCount INT,@CartCount INT;
@@ -13,16 +13,16 @@ BEGIN
 		RETURN @CartProductCount;
 	END
 
-	IF(@QuantityUpdate = 'Increament')
+	IF(@Quantity > @CartProductCount)
 	BEGIN
 		UPDATE Cart set Quantity = Quantity + 1 WHERE Id = @Id;
 		UPDATE Cart set Price = 
 		(SELECT P.Price from Product P JOIN Cart C on P.Id = C.ProductId where C.Id = @Id) * 
 		(SELECT Quantity from Cart where Id = @Id);
-		RETURN (SELECT Quantity from Cart WHERE Id = @Id);
+		SELECT Quantity from Cart WHERE Id = @Id;
 	END
 
-	IF(@QuantityUpdate = 'Decreament')
+	IF(@Quantity < @CartProductCount)
 	BEGIN
 		IF((SELECT Quantity from Cart WHERE Id = @Id)=1)
 		DELETE FROM Cart WHERE Id = @Id;
@@ -38,7 +38,7 @@ BEGIN
 		ELSE IF((SELECT Quantity from Cart WHERE Id = @Id)>1)
 		BEGIN
 			UPDATE Cart set Quantity = Quantity - 1 WHERE Id = @Id;
-			RETURN (SELECT Quantity from Cart WHERE Id = @Id);
+			SELECT Quantity from Cart WHERE Id = @Id;
 		END
 	END
 

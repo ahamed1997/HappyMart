@@ -19,8 +19,6 @@ namespace HappyBuy.ECommerceProject.Controllers
         public int RegisterCustomer(Customer customer)
         {
             Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            //keyValues= customer.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            // .ToDictionary(prop => prop.Name, prop => prop.GetValue(customer));
             PropertyInfo[] infos = customer.GetType().GetProperties();
             foreach (PropertyInfo info in infos)
             {
@@ -29,13 +27,41 @@ namespace HappyBuy.ECommerceProject.Controllers
             int i = devHappyBuyBL.RegisterCustomer<Customer>(keyValues);
             return i;
         }
-        public Object GetAllCustomers(string value)
+        public int AddShippingAddress(ShippingAddress shippingAddress)
         {
             Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            List<Customer> customers = new List<Customer>();          
-            var GetData = devHappyBuyBL.GetAllCustomers<Customer>(value);
+            PropertyInfo[] infos = shippingAddress.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                keyValues.Add(info.Name, info.GetValue(shippingAddress, null));
+            }
+            int i = devHappyBuyBL.AddShippingAddress<ShippingAddress>(keyValues);
+            return i;
+        }
+        public Object GetAllCustomers(Customer customer)
+        {
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = customer.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                if (info.GetValue(customer) != null)
+                {
+                    keyValues.Add(info.Name, info.GetValue(customer, null));
+                }
+            }
+            var GetData = devHappyBuyBL.GetAllCustomers<Customer>(keyValues);
             return GetData;
         }
-        
+        public int UpdateShippingAddress(ShippingAddress shippingAddress)
+        {
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = shippingAddress.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                keyValues.Add(info.Name, info.GetValue(shippingAddress, null));
+            }
+            int i = devHappyBuyBL.UpdateShippingAddress<ShippingAddress>(keyValues);
+            return i;
+        }
     }
 }

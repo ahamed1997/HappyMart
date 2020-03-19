@@ -16,7 +16,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or Sets CustoemrId.
@@ -31,12 +31,12 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets DateOrderd.
         /// </summary>
-        public DateTime DateOfOrder { get; set; }
+        public DateTime? DateOfOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentId.
         /// </summary>
-        public int OrderStatusId { get; set; }
+        public int? OrderStatusId { get; set; }
 
         /// <summary>
         /// Gets or Sets DateRecieved.
@@ -48,20 +48,9 @@ namespace HappyBuyDAL
         /// </summary>
         public string Status { get; set; }
 
-       
-        
-
         /// <summary>
         /// Gets or Sets ProductId.
         /// </summary>
         public string ProductId { get; set; }
-
-        
     }
 }
-Id INT    NOT NULL primary key,
-        CustomerId INT NOT NULL,
-		AddressId INT NOT NULL,
-        DateOfOrder varchar(15) NOT NULL,
-         INT NOT NULL,
-		DateOfOrderDispatched varchar(15) NULL,
