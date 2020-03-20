@@ -16,46 +16,46 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? PaymentDetailsId { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentId.
         /// </summary>
-        public int? PaymentId { get; set; }
+        public int? PaymentDetailsPaymentId { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentModeId.
         /// </summary>
-        public int? PaymentModeId { get; set; }
+        public int? PaymentDetailsPaymentModeId { get; set; }
 
         /// <summary>
         /// Gets or Sets CardHolderName.
         /// </summary>
-        public string CardHolderName { get; set; }
+        public string PaymentDetailsCardHolderName { get; set; }
 
         /// <summary>
         /// Gets or Sets CardNumber.
         /// </summary>
-        public int? CardNumber { get; set; }
+        public int? PaymentDetailsCardNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryMonth.
         /// </summary>
-        public char? ExpiryMonth { get; set; }
+        public char? PaymentDetailsExpiryMonth { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryYear.
         /// </summary>
-        public char? ExpiryYear { get; set; }
+        public char? PaymentDetailsExpiryYear { get; set; }
 
         /// <summary>
         /// Gets or Sets CVV.
         /// </summary>
-        public char? CVV { get; set; }
+        public char? PaymentDetailsCVV { get; set; }
 
         /// <summary>
         /// Gets or Sets DateOfPayment.
         /// </summary>
-        public DateTime? DateOfPayment { get; set; }
+        public DateTime? PaymentDetailsDateOfPayment { get; set; }
     }
 }

@@ -1,20 +1,20 @@
 ﻿CREATE PROCEDURE [dbo].[USP_AddCart]
-	@CustomerId INT,
-	@ProductId INT,
-	@Quantity INT
+	@CartCustomerId INT,
+	@CartProductId INT,
+	@CartQuantity INT
 AS
 BEGIN
-	DECLARE @Id INT, @ProductCount INT,@Price MONEY;
-	set @ProductCount = (SELECT COUNT(*) from Cart WHERE CustomerId = @CustomerId AND ProductId = @ProductId);
-	set @Price = (SELECT Price from Product WHERE Id = @ProductId);
+	DECLARE @Id INT, @ProductCount INT,@CartPrice DECIMAL;
+	set @ProductCount = (SELECT COUNT(*) from Cart WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId);
+	set @CartPrice = (SELECT ProductPrice from Product WHERE ProductId = @CartProductId);
 	IF(@ProductCount > 0)
 	BEGIN
-		UPDATE Cart set Quantity += @Quantity WHERE CustomerId = @CustomerId AND ProductId = @ProductId;
-		UPDATE Cart set Price = @Price * (SELECT Quantity from Cart where CustomerId = @CustomerId AND ProductId = @ProductId) WHERE ProductId = @ProductId;
+		UPDATE Cart set CartQuantity += @CartQuantity WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
+		UPDATE Cart set CartPrice = @CartPrice * (SELECT CartQuantity from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId) WHERE CartProductId = @CartProductId;
 	END
 	ELSE IF (@ProductCount < 1)
 	BEGIN
 	set @Id = (SELECT COUNT(*) from Cart)+1;
-		INSERT INTO Cart values(@Id, @CustomerId,@ProductId,@Price,@Quantity)
+		INSERT INTO Cart values(@Id, @CartCustomerId,@CartProductId,@CartPrice,@CartQuantity)
 	END
 END

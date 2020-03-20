@@ -15,11 +15,11 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? PaymentModeId { get; set; }
 
         /// <summary>
         /// Gets or Sets ModeOfPayment.
         /// </summary>
-        public string ModeOfPayment { get; set; }
+        public string PaymentModeModeOfPayment { get; set; }
     }
 }

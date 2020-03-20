@@ -1,16 +1,16 @@
 ﻿CREATE PROCEDURE [dbo].[USP_AddShippingAddress]
-		@CustomerId INT,
-		@Mobile varchar(15),
-		@Street varchar(100),
-		@LandMark varchar(100),
-		@City varchar(30), 
-		@State varchar(30), 
-		@Zipcode varchar(10)
+		@ShippingAddressCustomerId INT,
+		@ShippingAddressMobile varchar(15),
+		@ShippingAddressStreet varchar(100),
+		@ShippingAddressLandMark varchar(100),
+		@ShippingAddressCity varchar(30), 
+		@ShippingAddressState varchar(30), 
+		@ShippingAddressZipcode varchar(10)
 
 AS
 BEGIN
 	DECLARE @Id INT;
 	set @Id = (SELECT count(*) from ShippingAddress)+1;
-	INSERT into ShippingAddress values(@Id,@CustomerId,@Mobile,@Street,@landMark,@City,@State,@Zipcode);
-	RETURN (SELECT MAX(Id) from ShippingAddress);
+	INSERT into ShippingAddress values(@Id,@ShippingAddressCustomerId,@ShippingAddressMobile,@ShippingAddressStreet,@ShippingAddressLandMark,@ShippingAddressCity,@ShippingAddressState,@ShippingAddressZipcode);
+	RETURN (SELECT MAX(ShippingAddressId) from ShippingAddress);
 END

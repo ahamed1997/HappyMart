@@ -138,7 +138,7 @@ Set @Existingdate=GETDATE()
 PRINT @Existingdate
 Select CONVERT(varchar,GETDATE(),103) as [DD/MM/YYYY]
 ------------------------------------------------------------------------
-
+----------PREVIOUS QUERIES----
 create table CITY (ID int, Name varchar(17),CountryCode varchar(3),District varchar(20),Population int)
 
 
@@ -182,3 +182,36 @@ select Distinct * from Station where Id %2 = 0
 --Query 5
 
 select  COUNT(Distinct City), COUNT(*)  from Station 
+
+
+---20-03-2020 Queries
+
+--Query 1
+SELECT value FROM STRING_SPLIT('S,Q,L,S,E,R,V,E,R', ',');
+
+--Query 2
+Select E.EmployeeName,M.EmployeeName from Employee E , Manager M where E.Id = M.ManagerId
+
+--Query 3
+DECLARE @var int                 
+SELECT @var = 1                   
+WHILE @var <= 3                   
+BEGIN                           
+PRINT replicate('* ', @var)       
+SET @var = @var + 1              
+END 
+
+
+--Query 4 
+
+DECLARE @num int;
+set @num = 1;
+WHILE(@num <=100)
+BEGIN
+PRINT (@num)
+SET @num = @num+1;
+END
+
+--Query 5
+
+SELECT Name, COUNT(*) FROM tblStudent GROUP BY  Name HAVING  COUNT(*) > 1;

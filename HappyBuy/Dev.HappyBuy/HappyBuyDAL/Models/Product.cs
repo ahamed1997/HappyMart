@@ -15,56 +15,56 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? ProductId { get; set; }
 
         /// <summary>
         /// Gets or Sets SubCategoryId.
         /// </summary>
-        public string SubCategoryId { get; set; }
+        public string ProductSubCategoryId { get; set; }
 
         /// <summary>
         /// Gets or Sets Name.
         /// </summary>
-        public string Name { get; set; }
+        public string ProductName { get; set; }
 
         /// <summary>
         /// Gets or Sets Description.
         /// </summary>
-        public string Description { get; set; }
+        public string ProductDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets Specification.
         /// </summary>
-        public string Specification { get; set; }
+        public string ProductSpecification { get; set; }
 
         /// <summary>
         /// Gets or Sets OPtions.
         /// </summary>
-        public string Options { get; set; }
+        public string ProductOptions { get; set; }
 
         /// <summary>
         /// Gets or Sets Price.
         /// </summary>
-        public decimal? Price { get; set; }
+        public decimal? ProductPrice { get; set; }
 
         /// <summary>
         /// Gets or Sets Brand.
         /// </summary>
-        public string Brand { get; set; }
+        public string ProductBrand { get; set; }
 
         /// <summary>
         /// Gets or Sets IsActive.
         /// </summary>
-        public bool? IsActive { get; set; }
+        public bool? ProductIsActive { get; set; }
 
         /// <summary>
         /// Gets or Sets Quantity.
         /// </summary>
-        public int? Quantity { get; set; }
+        public int? ProductQuantity { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageURL.
         /// </summary>
-        public string ImageURL { get; set; }
+        public string ProductImageURL { get; set; }
     }
 }
