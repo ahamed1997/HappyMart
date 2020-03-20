@@ -15,11 +15,11 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets  Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? OrdersStatusId { get; set; }
 
         /// <summary>
         /// Gets or Sets  Status.
         /// </summary>
-        public string Status { get; set; }
+        public string OrdersStatusState { get; set; }
     }
 }

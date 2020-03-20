@@ -1,12 +1,12 @@
 ﻿CREATE TABLE [dbo].[OrderDetails]
 (
-	Id INT   NOT NULL PRIMARY KEY,
-	ProductId  INT NOT NULL,
-	OrderId INT NOT NULL,
-	Quantity INT NOT NULL,
-	Price DECIMAL NOT NULL,
-	FOREIGN KEY ([OrderId]) REFERENCES [dbo].[Orders] ([Id]),
-	FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product] ([Id]),
+	OrderDetailsId INT   NOT NULL PRIMARY KEY,
+	OrderDetailsProductId  INT NOT NULL,
+	OrderDetailsOrdersId INT NOT NULL,
+	OrderDetailsQuantity INT NOT NULL,
+	OrderDetailsPrice DECIMAL NOT NULL,
+	FOREIGN KEY ([OrderDetailsOrdersId]) REFERENCES [dbo].[Orders] ([OrdersId]),
+	FOREIGN KEY ([OrderDetailsProductId]) REFERENCES [dbo].[Product] ([ProductId]),
 	
 
 )

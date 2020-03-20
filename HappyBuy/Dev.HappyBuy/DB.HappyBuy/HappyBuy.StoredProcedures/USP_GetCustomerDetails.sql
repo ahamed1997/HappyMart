@@ -1,16 +1,16 @@
 ﻿CREATE PROCEDURE [dbo].[USP_GetCustomerDetails]
-	@Id int
+	@CustomerId int
 AS
 BEGIN
 	SELECT 
-		Id, 
-		FirstName, 
-		LastName,
-		Mobile,
-		Email,
-		Street,
-		LandMark,
-		City,
-		State,
-		Zipcode  from Customer where Id = @Id;	
+		CustomerId, 
+		CustomerFirstName, 
+		CustomerLastName,
+		CustomerMobile,
+		CustomerEmail,
+		CustomerStreet,
+		CustomerLandMark,
+		CustomerCity,
+		CustomerState,
+		CustomerZipcode  from Customer where CustomerId = @CustomerId;	
 END

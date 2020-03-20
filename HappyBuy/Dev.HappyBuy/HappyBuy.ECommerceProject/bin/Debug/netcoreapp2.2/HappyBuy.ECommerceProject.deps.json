@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "0c04ec18f53a5c720025124ae15dcf0e262e015e"
+    "signature": "e35196663245f0c220b22f3674d31b276532b4b4"
   },
   "compilationOptions": {
     "defines": [
@@ -31,7 +31,8 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.Owin.Cors": "4.1.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.4"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.4",
+          "StyleCop.Analyzers": "1.1.118"
         },
         "runtime": {
           "HappyBuy.ECommerceProject.dll": {}
@@ -370,6 +371,7 @@
           }
         }
       },
+      "StyleCop.Analyzers/1.1.118": {},
       "System.Composition/1.0.31": {
         "dependencies": {
           "System.Composition.AttributedModel": "1.0.31",
@@ -3982,6 +3984,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "path": "stylecop.analyzers/1.1.118",
+      "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

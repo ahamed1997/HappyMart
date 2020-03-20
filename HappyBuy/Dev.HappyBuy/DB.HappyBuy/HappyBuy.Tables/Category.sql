@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Category]
 (
-	Id INT   primary key,
-		Name varchar(50) NOT NULL
+	CategoryId INT   primary key,
+		CategoryName varchar(50) NOT NULL
 )

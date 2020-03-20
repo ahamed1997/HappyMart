@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[OrderStatus]
 (
-	[Id] INT    NOT NULL PRIMARY KEY,
-	Status varchar(20) NOT NULL
+	OrdersStatusId INT    NOT NULL PRIMARY KEY,
+	OrdersStatusState varchar(20) NOT NULL
 )

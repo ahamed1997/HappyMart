@@ -15,16 +15,16 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? SubCategoryId { get; set; }
 
         /// <summary>
         /// Gets or Sets CategoryId.
         /// </summary>
-        public int? CategoryId { get; set; }
+        public int? SubCategoryCategoryId { get; set; }
 
         /// <summary>
         /// Gets or Sets Name.
         /// </summary>
-        public string Name { get; set; }
+        public string SubCategoryName { get; set; }
     }
 }

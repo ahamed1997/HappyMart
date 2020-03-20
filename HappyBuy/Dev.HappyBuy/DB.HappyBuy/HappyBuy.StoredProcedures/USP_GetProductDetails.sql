@@ -1,51 +1,51 @@
 ﻿CREATE PROCEDURE [dbo].[USP_GetProductDetails]
-	@Name varchar(100)
+	@ProductName varchar(100)
 AS
 BEGIN
-	IF((SELECT COUNT(*) FROM Category WHERE Name LIKE '%'+@Name+'%') > 0)
+	IF((SELECT COUNT(*) FROM Category WHERE CategoryName LIKE '%'+@ProductName+'%') > 0)
 		BEGIN
 			SELECT 
-				P.Id,
-				P.Name,
-				P.Description,
-				P.Specification,
-				P.Options,
-				P.Price,
-				P.Brand,
-				P.Quantity,
-				P.ImageURL
-			FROM Product P JOIN SubCategory SC ON P.SubCategoryId = SC.Id 
-			JOIN Category C on SC.CategoryId = C.Id WHERE C.Name  LIKE '%'+@Name+'%';
+				P.ProductId,
+				P.ProductName,
+				P.ProductDescription,
+				P.ProductSpecification,
+				P.ProductOptions,
+				P.ProductPrice,
+				P.ProductBrand,
+				P.ProductQuantity,
+				P.ProductImageURL
+			FROM Product P JOIN SubCategory SC ON P.ProductSubCategoryId = SC.SubCategoryId 
+			JOIN Category C on SC.SubCategoryId = C.CategoryId WHERE C.CategoryName  LIKE '%'+@ProductName+'%';
 		END
 
-	ELSE IF((SELECT COUNT(*) FROM SubCategory WHERE Name LIKE '%'+@Name+'%')>0)
+	ELSE IF((SELECT COUNT(*) FROM SubCategory WHERE SubCategoryName LIKE '%'+@ProductName+'%')>0)
 		BEGIN
 			SELECT 
-				P.Id,
-				P.Name,
-				P.Description,
-				P.Specification,
-				P.Options,
-				P.Price,
-				P.Brand,
-				P.Quantity,
-				P.ImageURL
+				P.ProductId,
+				P.ProductName,
+				P.ProductDescription,
+				P.ProductSpecification,
+				P.ProductOptions,
+				P.ProductPrice,
+				P.ProductBrand,
+				P.ProductQuantity,
+				P.ProductImageURL
 			FROM Product P JOIN SubCategory SC ON 
-			P.SubCategoryId = SC.Id WHERE SC.Name LIKE '%'+@Name+'%';
+			P.ProductSubCategoryId = SC.SubCategoryId WHERE SC.SubCategoryName LIKE '%'+@ProductName+'%';
 		END
 
-	ELSE IF((SELECT COUNT(*) FROM Product WHERE Name LIKE '%'+@Name+'%')>0)
+	ELSE IF((SELECT COUNT(*) FROM Product WHERE ProductName LIKE '%'+@ProductName+'%')>0)
 		BEGIN
 			SELECT 
-				P.Id,
-				P.Name,
-				P.Description,
-				P.Specification,
-				P.Options,
-				P.Price,
-				P.Brand,
-				P.Quantity,
-				P.ImageURL
-			FROM Product P WHERE Name LIKE '%'+@Name+'%';
+				P.ProductId,
+				P.ProductName,
+				P.ProductDescription,
+				P.ProductSpecification,
+				P.ProductOptions,
+				P.ProductPrice,
+				P.ProductBrand,
+				P.ProductQuantity,
+				P.ProductImageURL
+			FROM Product P WHERE ProductName LIKE '%'+@ProductName+'%';
 		END
 END

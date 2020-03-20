@@ -15,56 +15,56 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets  Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? CustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets FisrtName.
         /// </summary>
-        public string FirstName { get; set; }
+        public string CustomerFirstName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName.
         /// </summary>
-        public string LastName { get; set; }
+        public string CustomerLastName { get; set; }
 
         /// <summary>
         /// Gets or Sets Mobile.
         /// </summary>
-        public string Mobile { get; set; }
+        public string CustomerMobile { get; set; }
 
         /// <summary>
         /// Gets or Sets Email.
         /// </summary>
-        public string Email { get; set; }
+        public string CustomerEmail { get; set; }
 
         /// <summary>
         /// Gets or Sets Password.
         /// </summary>
-        public string Password { get; set; }
+        public string CustomerPassword { get; set; }
 
         /// <summary>
         /// Gets or Sets Street.
         /// </summary>
-        public string Street { get; set; }
+        public string CustomerStreet { get; set; }
 
         /// <summary>
         /// Gets or Sets LandMark.
         /// </summary>
-        public string LandMark { get; set; }
+        public string CustomerLandMark { get; set; }
 
         /// <summary>
         /// Gets or Sets City.
         /// </summary>
-        public string City { get; set; }
+        public string CustomerCity { get; set; }
 
         /// <summary>
         /// Gets or Sets State.
         /// </summary>
-        public string State { get; set; }
+        public string CustomerState { get; set; }
 
         /// <summary>
         /// Gets or Sets Zipcode.
         /// </summary>
-        public string Zipcode { get; set; }
+        public string CustomerZipcode { get; set; }
     }
 }

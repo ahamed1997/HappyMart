@@ -16,41 +16,41 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets Id.
         /// </summary>
-        public int? Id { get; set; }
+        public int? OrdersId { get; set; }
 
         /// <summary>
         /// Gets or Sets CustoemrId.
         /// </summary>
-        public string CustomerId { get; set; }
+        public string OrdersCustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets AddressId.
         /// </summary>
-        public string AddressId { get; set; }
+        public string OrdersShippingAddressId { get; set; }
 
         /// <summary>
         /// Gets or Sets DateOrderd.
         /// </summary>
-        public DateTime? DateOfOrder { get; set; }
+        public DateTime? OrdersDateOfOrder { get; set; }
 
         /// <summary>
         /// Gets or Sets PaymentId.
         /// </summary>
-        public int? OrderStatusId { get; set; }
+        public int? OrdersOrderStatusId { get; set; }
 
         /// <summary>
         /// Gets or Sets DateRecieved.
         /// </summary>
-        public DateTime DateOfOrderDispatched { get; set; }
+        public DateTime OrdersDateOfOrderDispatched { get; set; }
 
         /// <summary>
         /// Gets or Sets Status.
         /// </summary>
-        public string Status { get; set; }
+        public string OrdersStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets ProductId.
         /// </summary>
-        public string ProductId { get; set; }
+        public string OrdersProductId { get; set; }
     }
 }

@@ -1,15 +1,15 @@
 ﻿CREATE TABLE Product
 (
-	Id INT   primary key,
-	SubCategoryId INT NOT NULL,
-	Name varchar(100) NOT NULL,
-	Description nvarchar(1000) NOT NULL,
-	Specification nvarchar(MAX) NOT NULL,
-	Options nvarchar(MAX) NOT NULL,
-	Price DECIMAL(10,2) NOT NULL ,
-	Brand varchar(50) NOT NULL,
-	IsActive bit NOT NULL,
-	Quantity int NOT NULL,
-	ImageURL varchar(200) NOT NULL,
-	FOREIGN KEY (SubCategoryId) REFERENCES SubCategory(Id)
+	ProductId INT   primary key,
+	ProductSubCategoryId INT NOT NULL,
+	ProductName varchar(100) NOT NULL,
+	ProductDescription nvarchar(1000) NOT NULL,
+	ProductSpecification nvarchar(MAX) NOT NULL,
+	ProductOptions nvarchar(MAX) NOT NULL,
+	ProductPrice DECIMAL(10,2) NOT NULL ,
+	ProductBrand varchar(50) NOT NULL,
+	ProductIsActive bit NOT NULL,
+	ProductQuantity int NOT NULL,
+	ProductImageURL varchar(200) NOT NULL,
+	FOREIGN KEY (ProductSubCategoryId) REFERENCES SubCategory(SubCategoryId)
 );

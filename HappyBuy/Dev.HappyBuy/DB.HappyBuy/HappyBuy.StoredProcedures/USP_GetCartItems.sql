@@ -1,25 +1,25 @@
 ﻿CREATE PROCEDURE [dbo].[USP_GetCartItems]
-	@CustomerId INT
+	@CartCustomerId INT
 AS
 	BEGIN
 		SELECT 
-		C.Id,
-		C.Price,
-		C.Quantity,
-		C.CustomerId,
-		C.ProductId,
-		P.Id,
-		P.Name,
-		P.Brand,
-		P.Description,
-		P.Specification,
-		P.ImageURL,
-		P.IsActive,
-		P.Options,
-		P.Price,
-		P.Quantity,
-		P.SubCategoryId
-		from Cart C JOIN Product P on P.Id = C.ProductId 
-		WHERE C.ProductId in (SELECT ProductId from Cart 
-		where CustomerId = @CustomerId);
+		C.CartId,
+		C.CartPrice,
+		C.CartQuantity,
+		C.CartCustomerId,
+		C.CartProductId,
+		P.ProductId,
+		P.ProductName,
+		P.ProductBrand,
+		P.ProductDescription,
+		P.ProductSpecification,
+		P.ProductImageURL,
+		P.ProductIsActive,
+		P.ProductOptions,
+		P.ProductPrice,
+		P.ProductQuantity,
+		P.ProductSubCategoryId
+		from Cart C JOIN Product P on P.ProductId = C.CartProductId 
+		WHERE C.CartProductId in (SELECT ProductId from Cart 
+		where CartCustomerId = @CartCustomerId);
 END

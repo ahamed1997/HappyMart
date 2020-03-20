@@ -86,9 +86,9 @@ namespace HappyBuyDAL
             SqlDataReader sqlDataReader = this.cmdExecuteReader.ExecuteReader();
             var entity = typeof(T);
             var entities = new List<T>();
-            var propDict = new Dictionary<string, PropertyInfo>();
+            var propertyDictionary = new Dictionary<string, PropertyInfo>();
             var props = entity.GetProperties(BindingFlags.Instance | BindingFlags.Public);
-            propDict = props.ToDictionary(p => p.Name.ToUpper(), p => p);
+            propertyDictionary = props.ToDictionary(p => p.Name, p => p);
             T newObject = default(T);
 
             while (sqlDataReader.Read())
@@ -96,9 +96,9 @@ namespace HappyBuyDAL
                 newObject = Activator.CreateInstance<T>();
                 for (int index = 0; index < sqlDataReader.FieldCount; index++)
                 {
-                    if (propDict.ContainsKey(sqlDataReader.GetName(index).ToUpper()))
+                    if (propertyDictionary.ContainsKey(sqlDataReader.GetName(index)))
                     {
-                        var info = propDict[sqlDataReader.GetName(index).ToUpper()];
+                        var info = propertyDictionary[sqlDataReader.GetName(index)];
                         if ((info != null) && info.CanWrite)
                         {
                             var val = sqlDataReader.GetValue(index);

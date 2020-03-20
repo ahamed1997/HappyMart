@@ -1,7 +1,7 @@
 ﻿CREATE TABLE SubCategory
 (
-	Id INT primary key,
-	CategoryId INT NOT NULL,
-	Name varchar(100) NOT NULL,
-	FOREIGN KEY (CategoryId) REFERENCES Category(Id)
+	SubCategoryId INT primary key,
+	SubCategoryCategoryId INT NOT NULL,
+	SubCategoryName varchar(100) NOT NULL,
+	FOREIGN KEY (SubCategoryCategoryId) REFERENCES Category(CategoryId)
 );
