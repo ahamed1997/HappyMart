@@ -27,15 +27,31 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns Registered Results.</returns>
         public int AddToCart(Cart cart)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = cart.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                keyValues.Add(info.Name, info.GetValue(cart, null));
-            }
+            Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
 
             int i = this.hBCartBL.AddToCart<Cart>(keyValues);
             return i;
+        }
+
+        /// <summary>
+        /// Get Properties for the Model.
+        /// </summary>
+        /// <typeparam name="T">Generic Dictionary.</typeparam>
+        /// <param name="classobject">Dynamic Object.</param>
+        /// <returns>Property Dictionary.</returns>
+        public Dictionary<string, object> GetProperty<T>(object classobject)
+        {
+            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            PropertyInfo[] infos = classobject.GetType().GetProperties();
+            foreach (PropertyInfo info in infos)
+            {
+                if (info.GetValue(classobject) != null)
+                {
+                    keyValues.Add(info.Name, info.GetValue(classobject, null));
+                }
+            }
+
+            return keyValues;
         }
 
         /// <summary>
@@ -45,13 +61,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns Updated Results.</returns>
         public int UpdateCartQuantity(Cart cart)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = cart.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                keyValues.Add(info.Name, info.GetValue(cart, null));
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
             int i = this.hBCartBL.UpdateCartQuantity<Cart>(keyValues);
             return i;
         }
@@ -63,13 +73,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns the Removed cart Id.</returns>
         public int RemoveCartItem(Cart cart)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = cart.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                keyValues.Add(info.Name, info.GetValue(cart, null));
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
             int i = this.hBCartBL.RemoveCartItem<Cart>(keyValues);
             return i;
         }
@@ -82,39 +86,21 @@ namespace HappyBuy.ECommerceProject.Controllers
         public object GetCartItems(Cart cart)
         {
             Product product = new Product();
+            Dictionary<string, object> cartkeyValues = new Dictionary<string, object>();
+            Dictionary<string, object> productkeyValues = new Dictionary<string, object>();
             Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            Dictionary<string, object> keyValues2 = new Dictionary<string, object>();
-            Dictionary<string, object> keyValues3 = new Dictionary<string, object>();
-            PropertyInfo[] infos = cart.GetType().GetProperties();
-            keyValues = cart.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
+            cartkeyValues = cart.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
             .ToDictionary(prop => prop.Name, prop => prop.GetValue(cart));
-            keyValues2 = product.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
+            productkeyValues = product.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
           .ToDictionary(prop => prop.Name, prop => prop.GetValue(product));
-            foreach (var item in keyValues)
+            foreach (var item in cartkeyValues)
             {
-                keyValues3.Add(item.Key, item.Value);
+                keyValues.Add(item.Key, item.Value);
             }
 
-            foreach (var item in keyValues2)
+            foreach (var item in productkeyValues)
             {
-                keyValues3.Add(item.Key, item.Value);
-            }
-
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(cart) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(cart, null));
-                }
-            }
-
-            infos = product.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(product) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(cart, null));
-                }
+                keyValues.Add(item.Key, item.Value);
             }
 
             var getCartDetails = this.hBCartBL.GetCartItems<Cart>(keyValues);

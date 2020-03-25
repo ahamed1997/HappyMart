@@ -8,6 +8,7 @@ namespace HappyBuyDAL.Implementation
     using System.Collections.Generic;
     using HappyBuyDAL.Enums;
     using HappyBuyDAL.Interfaces;
+    using Microsoft.Extensions.Configuration;
 
     /// <summary>
     /// Repository Implementation.

@@ -1,30 +1,30 @@
 ﻿CREATE PROCEDURE [dbo].[USP_UpdateProductDetails]
-	@Id INT,
-	@SubCategoryName varchar(50),
-	@Name varchar(100),
-	@Description nvarchar(1000),
-	@Specification nvarchar(MAX),
-	@Options nvarchar(MAX),
-	@Price DECIMAL(10,2),
-	@Brand varchar(50),
-	@IsActive int,
-	@Quantity int,
-	@ImageURL varchar(200)
+	@ProductId INT,
+	@ProductSubCategoryName varchar(50),
+	@ProductName varchar(100),
+	@ProductDescription nvarchar(1000),
+	@ProductSpecification nvarchar(MAX),
+	@ProductOptions nvarchar(MAX),
+	@ProductPrice DECIMAL(10,2),
+	@ProductBrand varchar(50),
+	@ProductIsActive int,
+	@ProductQuantity int,
+	@ProductImageURL varchar(200)
 AS
 BEGIN
 	DECLARE @SubCategoryId INT;
-	set @SubCategoryId = (SELECT Id from SubCategory where Name = @SubCategoryName);
+	set @SubCategoryId = (SELECT SubCategoryId from SubCategory where SubCategoryName = @ProductSubCategoryName);
 	UPDATE Product 
-			set SubCategoryId = @SubCategoryId,
-				Name = @Name,
-				Description = @Description,
-				Specification = @Specification,
-				Options = @Options,
-				Price = @Price,
-				Brand =@Brand,
-				IsActive = @IsActive,
-				Quantity=@Quantity,
-				ImageURL= @ImageURL
-			WHERE Id = @Id;
-			SELECT Id from Product where Id = @Id;
+			set ProductSubCategoryId = @SubCategoryId,
+				ProductName = @ProductName,
+				ProductDescription = @ProductDescription,
+				ProductSpecification = @ProductSpecification,
+				ProductOptions = @ProductOptions,
+				ProductPrice = @ProductPrice,
+				ProductBrand = @ProductBrand,
+				ProductIsActive = @ProductIsActive,
+				ProductQuantity = @ProductQuantity,
+				ProductImageURL= @ProductImageURL
+			WHERE ProductId = @ProductId;
+			SELECT ProductId from Product where ProductId = @ProductId;
 END

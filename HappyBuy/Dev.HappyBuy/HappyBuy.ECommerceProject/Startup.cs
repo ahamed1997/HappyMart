@@ -27,9 +27,14 @@ namespace HappyBuy.ECommerceProject
         }
 
         /// <summary>
-        /// Gets configuration Properties.
+        /// Gets or sets database Connectionstring Property.
         /// </summary>
-        public IConfiguration Configuration { get; }
+        public static string ConnectionString { get; set; }
+
+        /// <summary>
+        /// Gets or sets configuration Properties.
+        /// </summary>
+        public IConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Service Provider.
@@ -43,6 +48,7 @@ namespace HappyBuy.ECommerceProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            ConnectionString = this.Configuration.GetConnectionString("happyBuyConnection");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

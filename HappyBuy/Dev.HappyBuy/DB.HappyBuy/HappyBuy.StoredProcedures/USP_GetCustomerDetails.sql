@@ -7,10 +7,6 @@ BEGIN
 		CustomerFirstName, 
 		CustomerLastName,
 		CustomerMobile,
-		CustomerEmail,
-		CustomerStreet,
-		CustomerLandMark,
-		CustomerCity,
-		CustomerState,
-		CustomerZipcode  from Customer where CustomerId = @CustomerId;	
+		CustomerEmail
+	    from Customer where CustomerId = @CustomerId;	
 END

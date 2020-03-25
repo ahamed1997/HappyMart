@@ -3,8 +3,3 @@ C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBu
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\bin\Debug\DB.HappyBuy.pdb
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.dll
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.pdb
-C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.sqlprojAssemblyReference.cache
-C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\Model.xml
-C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\refactor.xml
-C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\postdeploy.sql
-C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\predeploy.sql

@@ -1,21 +1,21 @@
 ﻿CREATE PROCEDURE [dbo].[USP_InsertProduct]	
-	@SubCategoryId INT,
-	@Name varchar(100),
-	@Description nvarchar(1000),
-	@Specification nvarchar(MAX),
-	@Options nvarchar(MAX),
-	@Price DECIMAL(10,2),
-	@Brand varchar(50),
-	@IsActive int,
-	@Quantity int,
-	@ImageURL varchar(200)
+	@ProductSubCategoryId INT,
+	@ProductName varchar(100),
+	@ProductDescription nvarchar(1000),
+	@ProductSpecification nvarchar(MAX),
+	@ProductOptions nvarchar(MAX),
+	@ProductPrice DECIMAL(10,2),
+	@ProductBrand varchar(50),
+	@ProductIsActive int,
+	@ProductQuantity int,
+	@ProductImageURL varchar(200)
 
 AS
 BEGIN
 	DECLARE @Id INT;
 	set @Id = (SELECT COUNT(*) from Product)+1;
-	INSERT into Product values (@Id,@SubCategoryId,@Name,@Description,@Specification,@Options,@Price,@Brand,@IsActive,@Quantity,@ImageURL);
-	select Max(Id) from Product;
+	INSERT into Product values (@Id,@ProductSubCategoryId,@ProductName,@ProductDescription,@ProductSpecification,@ProductOptions,@ProductPrice,@ProductBrand,@ProductIsActive,@ProductQuantity,@ProductImageURL);
+	select Max(ProductId) from Product;
 END
 
 

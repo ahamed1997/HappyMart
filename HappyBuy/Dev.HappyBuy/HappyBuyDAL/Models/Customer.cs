@@ -41,30 +41,5 @@ namespace HappyBuyDAL
         /// Gets or Sets Password.
         /// </summary>
         public string CustomerPassword { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Street.
-        /// </summary>
-        public string CustomerStreet { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LandMark.
-        /// </summary>
-        public string CustomerLandMark { get; set; }
-
-        /// <summary>
-        /// Gets or Sets City.
-        /// </summary>
-        public string CustomerCity { get; set; }
-
-        /// <summary>
-        /// Gets or Sets State.
-        /// </summary>
-        public string CustomerState { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Zipcode.
-        /// </summary>
-        public string CustomerZipcode { get; set; }
     }
 }
