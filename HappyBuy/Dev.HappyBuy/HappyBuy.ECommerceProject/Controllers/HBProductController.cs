@@ -27,15 +27,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Inserted result.</returns>
         public int InsertProduct(Product product)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = product.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(product) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(product, null));
-                }
-            }
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
 
             int i = this.hBProductBL.AddProduct<Product>(keyValues);
             return i;
@@ -48,18 +40,30 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Updated Results.</returns>
         public int UpdateProductDetails(Product product)
         {
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
+            int i = this.hBProductBL.UpdateProductDetails<Product>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// Get Properties for the Model.
+        /// </summary>
+        /// <typeparam name="T">Generic Dictionary.</typeparam>
+        /// <param name="classobject">Dynamic Object.</param>
+        /// <returns>Property Dictionary.</returns>
+        public Dictionary<string, object> GetProperty<T>(object classobject)
+        {
             Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = product.GetType().GetProperties();
+            PropertyInfo[] infos = classobject.GetType().GetProperties();
             foreach (PropertyInfo info in infos)
             {
-                if (info.GetValue(product) != null)
+                if (info.GetValue(classobject) != null)
                 {
-                    keyValues.Add(info.Name, info.GetValue(product, null));
+                    keyValues.Add(info.Name, info.GetValue(classobject, null));
                 }
             }
 
-            int i = this.hBProductBL.UpdateProductDetails<Product>(keyValues);
-            return i;
+            return keyValues;
         }
 
         /// <summary>
@@ -69,16 +73,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns Inserted Results.</returns>
         public int InsertCategory(Category category)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = category.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(category) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(category, null));
-                }
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<Category>(category);
             int i = this.hBProductBL.InsertCategory<Category>(keyValues);
             return i;
         }
@@ -90,16 +85,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns inserted results.</returns>
         public int InsertSubCategory(SubCategory subCategory)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = subCategory.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(subCategory) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(subCategory, null));
-                }
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<SubCategory>(subCategory);
             int i = this.hBProductBL.InsertSubCategory<SubCategory>(keyValues);
             return i;
         }
@@ -111,16 +97,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns Product Items.</returns>
         public object GetProducts(Product product)
         {
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-            PropertyInfo[] infos = product.GetType().GetProperties();
-            foreach (PropertyInfo info in infos)
-            {
-                if (info.GetValue(product) != null)
-                {
-                    keyValues.Add(info.Name, info.GetValue(product, null));
-                }
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
             var getProduct = this.hBProductBL.GetProducts<Product>(keyValues);
             return getProduct;
         }

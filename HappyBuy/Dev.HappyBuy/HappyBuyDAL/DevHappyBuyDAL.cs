@@ -10,11 +10,13 @@ namespace HappyBuyDAL
     using System.Data.SqlClient;
     using System.Linq;
     using System.Reflection;
+    using HappyBuyDAL.Interfaces;
+    using Microsoft.Extensions.Configuration;
 
     /// <summary>
     /// HappyBuy Data Access Layer.
     /// </summary>
-    public class DevHappyBuyDAL
+    public class DevHappyBuyDAL : IDevHappyBuyDAL
     {
         private SqlConnection conn;
         private SqlCommand cmdExecuteNonQuery;

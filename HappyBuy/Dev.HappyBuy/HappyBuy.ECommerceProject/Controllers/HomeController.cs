@@ -16,7 +16,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <summary>
         /// Index View.
         /// </summary>
-        /// <returns>Index View.</returns>
+        /// <returns>Returns Index View.</returns>
         public IActionResult Index()
         {
             return this.View();

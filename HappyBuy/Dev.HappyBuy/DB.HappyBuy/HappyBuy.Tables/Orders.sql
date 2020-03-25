@@ -7,6 +7,6 @@
 		OrdersOrderStatusId INT NOT NULL,
 		OrdersDateOfOrderDispatched varchar(15) NULL,
 		FOREIGN KEY (OrdersCustomerId) REFERENCES Customer(CustomerId),
-		FOREIGN KEY (OrdersOrderStatusId) REFERENCES OrderStatus(OrderStatusId),
-		FOREIGN KEY (OrdersShippingAddressId) REFERENCES ShippingAddress(AddressId)
+		FOREIGN KEY (OrdersOrderStatusId) REFERENCES OrderStatus(OrdersStatusId),
+		FOREIGN KEY (OrdersShippingAddressId) REFERENCES ShippingAddress(ShippingAddressId)
 )

@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyTests\\HappyBuyTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj",
+        "projectName": "HappyBuyBL",
+        "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj",
+        "packagesPath": "C:\\Users\\ahamed.thamimul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ahamed.thamimul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj": {
+                "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj",
+        "projectName": "HappyBuyDAL",
+        "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\HappyBuyDAL.csproj",
+        "packagesPath": "C:\\Users\\ahamed.thamimul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyDAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ahamed.thamimul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyTests\\HappyBuyTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyTests\\HappyBuyTests.csproj",
+        "projectName": "HappyBuyTests",
+        "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyTests\\HappyBuyTests.csproj",
+        "packagesPath": "C:\\Users\\ahamed.thamimul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ahamed.thamimul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj": {
+                "projectPath": "C:\\Users\\ahamed.thamimul\\Documents\\Desktop Github\\HappyMart\\HappyBuy\\Dev.HappyBuy\\HappyBuyBL\\HappyBuyBL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

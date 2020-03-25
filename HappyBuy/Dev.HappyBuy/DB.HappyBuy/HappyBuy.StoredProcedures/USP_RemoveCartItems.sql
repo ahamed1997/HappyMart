@@ -1,17 +1,17 @@
 ﻿CREATE PROCEDURE [dbo].[USP_RemoveCartItems]
-	@Id INT
+	@CartId INT
 AS
 BEGIN
 	DECLARE @CartCount INT;
 
 	set @CartCount = (SELECT COUNT(*) from Cart);
 
-	DELETE from Cart WHERE Id = @Id;
+	DELETE from Cart WHERE CartId = @CartId;
 
-	while(@Id <= @CartCount)
+	while(@CartId <= @CartCount)
 	BEGIN
-	UPDATE Cart set Id = @Id WHERE Id = @Id+1;
-	set @Id = @Id + 1;
+	UPDATE Cart set CartId = @CartId WHERE CartId = @CartId+1;
+	set @CartId = @CartId + 1;
 	END
 
 END

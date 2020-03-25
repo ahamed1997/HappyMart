@@ -1,23 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[USP_UpdateShippingAddress]
-	@Id INT,
-	@CustomerId INT,
-	@Mobile varchar(15),
-	@Street varchar(100),
-	@LandMark varchar(100),
-	@City varchar(30), 
-	@State varchar(30), 
-	@Zipcode varchar(10)
+	@ShippingAddressId INT,
+	@ShippingAddressCustomerId INT,
+	@ShippingAddressMobile varchar(15),
+	@ShippingAddressStreet varchar(100),
+	@ShippingAddressLandMark varchar(100),
+	@ShippingAddressCity varchar(30), 
+	@ShippingAddressState varchar(30), 
+	@ShippingAddressZipcode varchar(10)
 AS
 BEGIN
 	UPDATE ShippingAddress
-		set CustomerId = @CustomerId,
-			Mobile = @Mobile,
-			Street = @Street,
-			LandMark = @LandMark,
-			City = @City,
-			State =@State,
-			Zipcode = @Zipcode
+		set ShippingAddressCustomerId = @ShippingAddressCustomerId,
+			ShippingAddressMobile = @ShippingAddressMobile,
+			ShippingAddressStreet = @ShippingAddressStreet,
+			ShippingAddressLandMark = @ShippingAddressLandMark,
+			ShippingAddressCity = @ShippingAddressCity,
+			ShippingAddressState =@ShippingAddressState,
+			ShippingAddressZipcode = @ShippingAddressZipcode
 			WHERE 
-			Id = @Id;
-	select Id from ShippingAddress where Id = @Id;
+			ShippingAddressId = @ShippingAddressId;
+	select ShippingAddressId from ShippingAddress where ShippingAddressId = @ShippingAddressId;
 END
