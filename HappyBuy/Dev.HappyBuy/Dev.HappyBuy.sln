@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.DataAccess", "Happ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.Buisness", "HappyBuy.Buisness", "{D92374BC-60B8-431E-9EE2-C4FEE166C4B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyBuyTests", "HappyBuyTests\HappyBuyTests.csproj", "{56F2650A-66AA-4820-9900-610583205B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyBuyTests", "HappyBuyTests\HappyBuyTests.csproj", "{56F2650A-66AA-4820-9900-610583205B49}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy.Tests", "HappyBuy.Tests", "{2548E7E4-5E35-414E-9F25-DAF97BD35B05}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HappyBuy", "HappyBuy", "{2548E7E4-5E35-414E-9F25-DAF97BD35B05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
