@@ -25,7 +25,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="product">Product Details.</param>
         /// <returns>Inserted result.</returns>
-        public int InsertProduct(Product product)
+        public int InsertProduct([FromBody]Product product)
         {
             Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
 

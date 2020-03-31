@@ -11,6 +11,7 @@ import EventBinding from './components/EventBinding';
 import ParentComponent from './components/ParentComponent';
 import ConditionalRendering from './components/ConditionalRendering';
 import ListRendering from './components/ListRendering';
+import LogIn from './components/LogIn';
 function App() {
   return (
     <div className="App">
@@ -48,7 +49,9 @@ function App() {
 
       {/* <ConditionalRendering></ConditionalRendering> */}
 
-      <ListRendering></ListRendering>
+      {/* <ListRendering></ListRendering> */}
+
+      <LogIn></LogIn>
 
     </div>
 
