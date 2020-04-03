@@ -10,6 +10,7 @@ namespace HappyBuyTests
     using HappyBuyBL;
     using HappyBuyBL.HB.BL.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
 
     /// <summary>
     /// Customer Business Layer Test.
@@ -17,6 +18,7 @@ namespace HappyBuyTests
     public class CustomerTest
     {
         private IHBCustomerBL hBCustomerBL;
+        private Mock<IHBCustomerBL> hBCustomerBLMock;
         private Dictionary<string, object> dictionary;
 
         /// <summary>
@@ -25,7 +27,7 @@ namespace HappyBuyTests
         [TestInitialize]
         public void CustomerInitialize()
         {
-            this.hBCustomerBL = new HBCustomerBL();
+            this.hBCustomerBLMock = new Mock<IHBCustomerBL>();
         }
 
         /// <summary>

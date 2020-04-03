@@ -10,14 +10,15 @@ namespace HappyBuyTests
     using global::HappyBuyDAL;
     using global::HappyBuyDAL.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
 
     /// <summary>
     /// Data Access layer Test.
     /// </summary>
     public class HappyBuyDAL
     {
-        private Dictionary<string, object> dictionary;
-        private IDevHappyBuyDAL devHappyBuyDAL;
+        private readonly Dictionary<string, object> dictionary;
+        private Mock<IDevHappyBuyDAL> devHappyBuyDAL;
 
         /// <summary>
         /// Test Initialization.
@@ -25,7 +26,7 @@ namespace HappyBuyTests
         [TestInitialize]
         public void TestInitialize()
         {
-            this.devHappyBuyDAL = new DevHappyBuyDAL();
+            this.devHappyBuyDAL = new Mock<IDevHappyBuyDAL>();
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace HappyBuyTests
             var expectedValue = 1;
 
             // Act
-            var actualValue = this.devHappyBuyDAL.ExecuteNonQuery<Customer>(this.dictionary, storedProcedure);
+            var actualValue = this.devHappyBuyDAL.Setup(x => x.ExecuteNonQuery<Customer>(this.dictionary, storedProcedure));
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);

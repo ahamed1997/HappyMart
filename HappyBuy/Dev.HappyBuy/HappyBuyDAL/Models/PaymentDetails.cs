@@ -36,7 +36,7 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets CardNumber.
         /// </summary>
-        public int? PaymentDetailsCardNumber { get; set; }
+        public string PaymentDetailsCardNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryMonth.

@@ -1,0 +1,13 @@
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.deps.json
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.runtimeconfig.json
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.runtimeconfig.dev.json
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\b\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.csprojAssemblyReference.cache
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.csproj.CoreCompileInputs.cache
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.AssemblyInfoInputs.cache
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.AssemblyInfo.cs
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.csproj.CopyComplete
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\.vs\Dev.HappyBuy\lut\0\i\UnitTestProject\Debug\netcoreapp2.2\UnitTestProject.dll

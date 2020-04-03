@@ -20,6 +20,6 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets CustomerId.
         /// </summary>
-        public int? PaymentOredrId { get; set; }
+        public int? PaymentOrderId { get; set; }
     }
 }

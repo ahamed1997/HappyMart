@@ -7,20 +7,21 @@ namespace HappyBuyBL
     using System.Collections.Generic;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL.Implementation;
+    using HappyBuyDAL.Interfaces;
 
     /// <summary>
     /// Business Layer for Product Entity.
     /// </summary>
     public class HBProductBL : IHBProductBL
     {
-        private HappyBuyRepository happyBuyRepository;
+        private readonly IHaapyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBProductBL"/> class.
         /// </summary>
-        public HBProductBL()
+        public HBProductBL(IHaapyBuyRepository happyBuyRepository)
         {
-            this.happyBuyRepository = new HappyBuyRepository();
+            this.happyBuyRepository = happyBuyRepository;
         }
 
         /// <summary>

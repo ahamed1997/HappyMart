@@ -12,5 +12,5 @@ BEGIN
 	DECLARE @Id INT;
 	set @Id = (SELECT count(*) from ShippingAddress)+1;
 	INSERT into ShippingAddress values(@Id,@ShippingAddressCustomerId,@ShippingAddressMobile,@ShippingAddressStreet,@ShippingAddressLandMark,@ShippingAddressCity,@ShippingAddressState,@ShippingAddressZipcode);
-	RETURN (SELECT MAX(ShippingAddressId) from ShippingAddress);
+	SELECT MAX(ShippingAddressId) from ShippingAddress;
 END
