@@ -14,7 +14,6 @@ AS
 		P.ProductDescription,
 		P.ProductSpecification,
 		P.ProductImageURL,
-		P.ProductIsActive,
 		P.ProductOptions,
 		P.ProductPrice,
 		P.ProductQuantity,

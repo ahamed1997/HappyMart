@@ -6,8 +6,10 @@
 	@CustomerPassword varchar(30)
 AS
 BEGIN
-	DECLARE @Id INT; 
+	DECLARE @Id INT,@encryptedPassword varbinary(4000); 
 	set @Id = (SELECT COUNT(*) from Customer)+1;
-	INSERT Customer values (@Id,@CustomerFirstname,@CustomerLastname,@CustomerMobile,@CustomerEmail,@CustomerPassword);
+	set @encryptedPassword = EncryptByPassPhrase('key', @CustomerPassword)
+
+	INSERT Customer values (@Id,@CustomerFirstname,@CustomerLastname,@CustomerMobile,@CustomerEmail,@encryptedPassword);
 	SELECT MAX(CustomerId) from Customer;
 END

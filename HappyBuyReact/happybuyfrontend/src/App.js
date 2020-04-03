@@ -12,6 +12,8 @@ import ParentComponent from './components/ParentComponent';
 import ConditionalRendering from './components/ConditionalRendering';
 import ListRendering from './components/ListRendering';
 import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
+import Home from './components/Home';
 function App() {
   return (
     <div className="App">
@@ -51,8 +53,11 @@ function App() {
 
       {/* <ListRendering></ListRendering> */}
 
-      <LogIn></LogIn>
+      {/* <LogIn></LogIn> */}
 
+      <SignUp></SignUp>
+
+        {/* <Home></Home>       */}
     </div>
 
   );

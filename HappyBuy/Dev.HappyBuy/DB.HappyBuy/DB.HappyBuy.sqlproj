@@ -92,5 +92,7 @@
     <Build Include="HappyBuy.StoredProcedures\USP_UpdateCartQuantity.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_GetCartItems.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_GetShippingAddress.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_LogInValidation.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_MakePayment.sql" />
   </ItemGroup>
 </Project>

@@ -93,5 +93,15 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for Get Shipping Address.
         /// </summary>
         USP_GetShippingAddress = 17,
+
+        /// <summary>
+        /// Stored Procedure for LogIn Authentication.
+        /// </summary>
+        USP_LogInValidation = 18,
+
+        /// <summary>
+        /// Stored Procedure for Make Payment.
+        /// </summary>
+        USP_MakePayment = 19,
     }
 }

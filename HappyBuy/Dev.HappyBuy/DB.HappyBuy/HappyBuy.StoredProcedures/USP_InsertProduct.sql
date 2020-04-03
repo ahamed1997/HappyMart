@@ -6,7 +6,7 @@
 	@ProductOptions nvarchar(MAX),
 	@ProductPrice DECIMAL(10,2),
 	@ProductBrand varchar(50),
-	@ProductIsActive int,
+	@ProductIsActive bit,
 	@ProductQuantity int,
 	@ProductImageURL varchar(200)
 

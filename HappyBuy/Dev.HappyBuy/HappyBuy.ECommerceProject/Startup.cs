@@ -4,6 +4,13 @@
 
 namespace HappyBuy.ECommerceProject
 {
+    using System.Text;
+    using HappyBuyBL;
+    using HappyBuyBL.HB.BL.Interfaces;
+    using HappyBuyDAL;
+    using HappyBuyDAL.Implementation;
+    using HappyBuyDAL.Interfaces;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -12,6 +19,7 @@ namespace HappyBuy.ECommerceProject
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.IdentityModel.Tokens;
     using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
     /// <summary>
@@ -50,8 +58,32 @@ namespace HappyBuy.ECommerceProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            ConnectionString = this.Configuration.GetConnectionString("happyBuyConnection");
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
+            });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = this.Configuration["Jwt:Issuer"],
+                        ValidAudience = this.Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.Configuration["Jwt:Key"])),
+                    };
+                });
+            ConnectionString = this.Configuration.GetValue<string>("ConnectonStrings:happyBuyConnection");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddTransient<IDevHappyBuyDAL, DevHappyBuyDAL>();
+            services.AddTransient<IHaapyBuyRepository, HappyBuyRepository>();
+            services.AddTransient<IHBCartBL, HBCartBL>();
+            services.AddTransient<IHBCustomerBL, HBCustomerBL>();
+            services.AddTransient<IHBProductBL, HBProductBL>();
         }
 
         /// <summary>
@@ -74,17 +106,8 @@ namespace HappyBuy.ECommerceProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
             app.UseMvc();
-            
-
-            app.UseHttpsRedirection();
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
         }
     }
 }

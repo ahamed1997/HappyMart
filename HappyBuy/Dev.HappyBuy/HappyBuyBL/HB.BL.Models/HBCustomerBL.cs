@@ -7,20 +7,22 @@ namespace HappyBuyBL
     using System.Collections.Generic;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL.Implementation;
+    using HappyBuyDAL.Interfaces;
 
     /// <summary>
     /// Business Layer for Cutsomer.
     /// </summary>
     public class HBCustomerBL : IHBCustomerBL
     {
-        private HappyBuyRepository happyBuyRepository;
+        private readonly IHaapyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBCustomerBL"/> class.
         /// </summary>
-        public HBCustomerBL()
+        /// <param name="happyBuyRepository">Interface Injection.</param>
+        public HBCustomerBL(IHaapyBuyRepository happyBuyRepository)
         {
-            this.happyBuyRepository = new HappyBuyRepository();
+            this.happyBuyRepository = happyBuyRepository;
         }
 
         /// <summary>
@@ -66,6 +68,18 @@ namespace HappyBuyBL
             where T : new()
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 4);
+        }
+
+        /// <summary>
+        /// LogIn Validation.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Customer Details.</returns>
+        public List<T> LogInValidation<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 18);
         }
     }
 }

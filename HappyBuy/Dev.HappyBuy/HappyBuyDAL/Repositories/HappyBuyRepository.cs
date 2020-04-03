@@ -15,14 +15,15 @@ namespace HappyBuyDAL.Implementation
     /// </summary>
     public class HappyBuyRepository : IHaapyBuyRepository
     {
-        private DevHappyBuyDAL happyBuyDAL;
+        private readonly IDevHappyBuyDAL happyBuyDAL;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HappyBuyRepository"/> class.
         /// </summary>
-        public HappyBuyRepository()
+        /// <param name="happyBuyDAL">Dependency Injection.</param>
+        public HappyBuyRepository(IDevHappyBuyDAL happyBuyDAL)
         {
-            this.happyBuyDAL = new DevHappyBuyDAL();
+            this.happyBuyDAL = happyBuyDAL;
         }
 
         /// <summary>

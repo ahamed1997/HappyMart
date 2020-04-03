@@ -41,16 +41,6 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets DateRecieved.
         /// </summary>
-        public DateTime OrdersDateOfOrderDispatched { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Status.
-        /// </summary>
-        public string OrdersStatus { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProductId.
-        /// </summary>
-        public string OrdersProductId { get; set; }
+        public DateTime OrdersDateOfOrderCompleted { get; set; }
     }
 }
