@@ -11,10 +11,12 @@ BEGIN
 	BEGIN
 		UPDATE Cart set CartQuantity += @CartQuantity WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
 		UPDATE Cart set CartPrice = @CartPrice * (SELECT CartQuantity from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId) WHERE CartProductId = @CartProductId;
+		select CartId from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
 	END
 	ELSE IF (@ProductCount < 1)
 	BEGIN
 	set @Id = (SELECT COUNT(*) from Cart)+1;
 		INSERT INTO Cart values(@Id, @CartCustomerId,@CartProductId,@CartPrice,@CartQuantity)
+		select @Id;
 	END
 END

@@ -14,13 +14,13 @@ namespace HappyBuyBL
     /// </summary>
     public class HBOrderBL : IHBOrderBL
     {
-        private readonly IHaapyBuyRepository happyBuyRepository;
+        private readonly IHappyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBOrderBL"/> class.
         /// </summary>
         /// <param name="happyBuyRepository">Repository Injection.</param>
-        public HBOrderBL(IHaapyBuyRepository happyBuyRepository)
+        public HBOrderBL(IHappyBuyRepository happyBuyRepository)
         {
             this.happyBuyRepository = happyBuyRepository;
         }

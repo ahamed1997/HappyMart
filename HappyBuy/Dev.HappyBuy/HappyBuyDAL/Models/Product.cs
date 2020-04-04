@@ -20,7 +20,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets SubCategoryId.
         /// </summary>
-        public string ProductSubCategoryId { get; set; }
+        public int ProductSubCategoryId { get; set; }
 
         /// <summary>
         /// Gets or Sets Name.

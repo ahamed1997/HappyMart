@@ -16,3 +16,4 @@ C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBu
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\UnitTestProject\obj\Debug\netcoreapp2.2\UnitTestProject.csproj.CopyComplete
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\UnitTestProject\obj\Debug\netcoreapp2.2\UnitTestProject.dll
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\UnitTestProject\obj\Debug\netcoreapp2.2\UnitTestProject.pdb
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\UnitTestProject\obj\Debug\netcoreapp2.2\UnitTestProject.csprojAssemblyReference.cache

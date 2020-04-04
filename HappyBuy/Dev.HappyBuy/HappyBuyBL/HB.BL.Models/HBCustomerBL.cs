@@ -14,13 +14,13 @@ namespace HappyBuyBL
     /// </summary>
     public class HBCustomerBL : IHBCustomerBL
     {
-        private readonly IHaapyBuyRepository happyBuyRepository;
+        private readonly IHappyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBCustomerBL"/> class.
         /// </summary>
         /// <param name="happyBuyRepository">Interface Injection.</param>
-        public HBCustomerBL(IHaapyBuyRepository happyBuyRepository)
+        public HBCustomerBL(IHappyBuyRepository happyBuyRepository)
         {
             this.happyBuyRepository = happyBuyRepository;
         }
@@ -55,7 +55,7 @@ namespace HappyBuyBL
         /// <returns>Update Results.</returns>
         public int UpdateShippingAddress<T>(Dictionary<string, object> dictionary)
         {
-            return this.happyBuyRepository.AddDetails<T>(dictionary, 15);
+            return this.happyBuyRepository.UpdateDetails<T>(dictionary, 15);
         }
 
         /// <summary>
@@ -64,10 +64,10 @@ namespace HappyBuyBL
         /// <typeparam name="T">Dynamic Object.</typeparam>
         /// <param name="dictionary">Input Parameters.</param>
         /// <returns>Customer Details.</returns>
-        public List<T> GetAllCustomers<T>(Dictionary<string, object> dictionary)
+        public List<T> GetMyProfile<T>(Dictionary<string, object> dictionary)
             where T : new()
         {
-            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 4);
+            return this.happyBuyRepository.GetOneDetail<T>(dictionary, 4);
         }
 
         /// <summary>

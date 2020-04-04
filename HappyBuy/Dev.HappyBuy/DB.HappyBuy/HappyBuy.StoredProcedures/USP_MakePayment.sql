@@ -8,5 +8,5 @@ BEGIN
 	DECLARE @Count int;
 	set @Count = (SELECT COUNT(*) from OrderDetails)+1;
 	INSERT into OrderDetails  values (@Count,@OrderDetailsProductId,@OrderDetailsOrdersId,@OrderDetailsQuantity,@OrderDetailsPrice);
-	SELECT Max(OrderDetailsId) from OrderDetails;
+	SELECT @OrderDetailsOrdersId;
 END

@@ -59,4 +59,5 @@ BEGIN
 		@OrderDetailsPrice
 		);
 	END
+	select @OrderId;
 END

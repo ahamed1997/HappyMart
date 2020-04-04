@@ -14,7 +14,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     /// Customer WebAPI.
     /// </summary>
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomerController : ICustomerController
     {
         private readonly IHBCustomerBL devHappyBuyBL;
 
@@ -25,20 +25,6 @@ namespace HappyBuy.ECommerceProject.Controllers
         public CustomerController(IHBCustomerBL devHappyBuyBL)
         {
             this.devHappyBuyBL = devHappyBuyBL;
-        }
-
-        /// <summary>
-        /// Customer Registration.
-        /// </summary>
-        /// <param name="customer">Customer Object Properties.</param>
-        /// <returns>Returns Inserted resulted.</returns>
-        [HttpPost]
-        [Route("api/RegisterCustomer")]
-        public int RegisterCustomer(Customer customer)
-        {
-            Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
-            int i = this.devHappyBuyBL.RegisterCustomer<Customer>(keyValues);
-            return i;
         }
 
         /// <summary>
@@ -60,6 +46,20 @@ namespace HappyBuy.ECommerceProject.Controllers
             }
 
             return keyValues;
+        }
+
+        /// <summary>
+        /// Customer Registration.
+        /// </summary>
+        /// <param name="customer">Customer Object Properties.</param>
+        /// <returns>Returns Inserted resulted.</returns>
+        [HttpPost]
+        [Route("api/RegisterCustomer")]
+        public int RegisterCustomer(Customer customer)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
+            int i = this.devHappyBuyBL.RegisterCustomer<Customer>(keyValues);
+            return i;
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         {
             Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
 
-            var getCustomer = this.devHappyBuyBL.GetAllCustomers<Customer>(keyValues);
+            var getCustomer = this.devHappyBuyBL.GetMyProfile<Customer>(keyValues);
             return getCustomer;
         }
 

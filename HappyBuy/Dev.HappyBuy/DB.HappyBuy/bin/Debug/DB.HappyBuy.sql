@@ -41,233 +41,904 @@ USE [$(DatabaseName)];
 
 GO
 /*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
+The table [dbo].[Category] is being dropped and re-created since all non-computed columns within the table have been redefined.
 */
 
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
+IF EXISTS (select top 1 1 from [dbo].[Category])
+    RAISERROR (N'Rows were detected. The schema update is terminating because data loss might occur.', 16, 127) WITH NOWAIT
 
 GO
-create table Customer 
-(
-		Id varchar(10) primary key ,
-		FirstName varchar(50), 
-		LastName varchar(50),
-		Mobile varchar(15),
-		Email varchar(30),
-		Password varchar(30),
-		Street varchar(100),
-		LandMark varchar(100),
-		City varchar(30), 
-		State varchar(30), 
-		Zipcode varchar(10)
-);
-
-GO
-
-
 /*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-GO
-create table Payment 
-(
-		Id varchar(10) primary key, 
-		CustomerId varchar(10),
-		PaymentMode varchar(20),
-		AmountPaid varchar(20),
-		DateOfPAyment datetime,
-		FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
-);
-GO
-
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-GO
-create table ShippingAddress
-(
-		Id varchar(10) primary key,
-		CustomerId varchar (10),
-		Mobile varchar(15),
-		Street varchar(100),
-		LandMark varchar(100),
-		City varchar(30), 
-		State varchar(30), 
-		Zipcode varchar(10),
-		FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
-);
-GO
-
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
-GO
-create table Category 
-(
-		Id varchar(10) primary key,
-		Categories varchar(20)
-);
-GO
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
+The table [dbo].[Customer] is being dropped and re-created since all non-computed columns within the table have been redefined.
 */
 
+IF EXISTS (select top 1 1 from [dbo].[Customer])
+    RAISERROR (N'Rows were detected. The schema update is terminating because data loss might occur.', 16, 127) WITH NOWAIT
+
 GO
-create table SubCategory 
-(
-		Id varchar(10) primary key,
-		CategoryId varchar(10),
-		Name varchar(100),
-		FOREIGN KEY (CategoryId) REFERENCES Category(Id)
+PRINT N'Dropping [dbo].[Category]...';
+
+
+GO
+DROP TABLE [dbo].[Category];
+
+
+GO
+PRINT N'Dropping [dbo].[Customer]...';
+
+
+GO
+DROP TABLE [dbo].[Customer];
+
+
+GO
+PRINT N'Creating [dbo].[Category]...';
+
+
+GO
+CREATE TABLE [dbo].[Category] (
+    [CategoryId]   INT          NOT NULL,
+    [CategoryName] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CategoryId] ASC)
 );
+
+
 GO
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
+PRINT N'Creating [dbo].[Customer]...';
+
+
 GO
-create table Product 
-(
-		Id varchar(10) primary key,
-		SubCategoryId varchar(10),
-		Name varchar(10),
-		Description varchar(500),
-		Specification varchar(600),
-		Options varchar(400),
-		Price int ,
-		Brand varchar(50),
-		IsActive int,
-		ImageURL varchar(200),
-		FOREIGN KEY (SubCategoryId) REFERENCES SubCategory(Id)
+CREATE TABLE [dbo].[Customer] (
+    [CustomerId]        INT              NOT NULL,
+    [CustomerFirstName] VARCHAR (50)     NOT NULL,
+    [CustomerLastName]  VARCHAR (50)     NULL,
+    [CustomerMobile]    VARCHAR (15)     NOT NULL,
+    [CustomerEmail]     NVARCHAR (30)    NOT NULL,
+    [CustomerPassword]  VARBINARY (1000) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC),
+    CONSTRAINT [Uk_Email] UNIQUE NONCLUSTERED ([CustomerEmail] ASC)
 );
+
+
 GO
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
+PRINT N'Creating [dbo].[Cart]...';
+
+
 GO
-create table Orders
-(
-		Id varchar(10) primary key,
-		Quantity int,
-		Price int,
-		DateOrdered datetime,
-		DateReceived datetime,
-		Status varchar(20),
-		CustomerId varchar (10),
-		PaymentId varchar(10),
-		ProductId varchar(10),
-		AddressId varchar(10),
-		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
-		FOREIGN KEY (PaymentId) REFERENCES Payment(Id),
-		FOREIGN KEY (ProductId) REFERENCES Product(Id),
-		FOREIGN KEY (AddressId) REFERENCES ShippingAddress(Id)
+CREATE TABLE [dbo].[Cart] (
+    [CartId]         INT             NOT NULL,
+    [CartCustomerId] INT             NOT NULL,
+    [CartProductId]  INT             NOT NULL,
+    [CartPrice]      DECIMAL (10, 2) NOT NULL,
+    [CartQuantity]   INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([CartId] ASC)
 );
+
+
 GO
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
+PRINT N'Creating [dbo].[OrderDetails]...';
+
+
 GO
-create table Cart
-(
-		Id varchar(10) primary key,
-		CustomerId varchar (10),
-		ProductId varchar(10),
-		FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
-		FOREIGN KEY (ProductId) REFERENCES Product(Id)
+CREATE TABLE [dbo].[OrderDetails] (
+    [OrderDetailsId]        INT          NOT NULL,
+    [OrderDetailsProductId] INT          NOT NULL,
+    [OrderDetailsOrdersId]  INT          NOT NULL,
+    [OrderDetailsQuantity]  INT          NOT NULL,
+    [OrderDetailsPrice]     DECIMAL (18) NOT NULL,
+    PRIMARY KEY CLUSTERED ([OrderDetailsId] ASC)
 );
+
+
 GO
-/*
-Post-Deployment Script Template							
---------------------------------------------------------------------------------------
- This file contains SQL statements that will be appended to the build script.		
- Use SQLCMD syntax to include a file in the post-deployment script.			
- Example:      :r .\myfile.sql								
- Use SQLCMD syntax to reference a variable in the post-deployment script.		
- Example:      :setvar TableName MyTable							
-               SELECT * FROM [$(TableName)]					
---------------------------------------------------------------------------------------
-*/
+PRINT N'Creating [dbo].[Orders]...';
+
+
 GO
-create table Stock 
-(
-		Id varchar(10),
-		ProductId varchar(10),
-		Quantity int,FOREIGN KEY (ProductId) REFERENCES Product(Id)
+CREATE TABLE [dbo].[Orders] (
+    [OrdersId]                   INT      NOT NULL,
+    [OrdersCustomerId]           INT      NOT NULL,
+    [OrdersShippingAddressId]    INT      NOT NULL,
+    [OrdersDateOfOrder]          DATETIME NOT NULL,
+    [OrdersOrderStatusId]        INT      NOT NULL,
+    [OrdersDateOfOrderCompleted] DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([OrdersId] ASC)
 );
+
+
 GO
+PRINT N'Creating [dbo].[OrderStatus]...';
+
+
+GO
+CREATE TABLE [dbo].[OrderStatus] (
+    [OrdersStatusId]    INT          NOT NULL,
+    [OrdersStatusState] VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([OrdersStatusId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[Payment]...';
+
+
+GO
+CREATE TABLE [dbo].[Payment] (
+    [PaymentId]      INT NOT NULL,
+    [PaymentOrderId] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([PaymentId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[PaymentDetails]...';
+
+
+GO
+CREATE TABLE [dbo].[PaymentDetails] (
+    [PaymentDetailsId]             INT             NOT NULL,
+    [PaymentDetailsPaymentId]      INT             NOT NULL,
+    [PaymentDetailsPaymentModeId]  INT             NOT NULL,
+    [PaymentDetailsCardHolderName] VARCHAR (50)    NULL,
+    [PaymentDetailsCardNumber]     VARCHAR (50)    NULL,
+    [PaymentDetailsExpiryMonth]    CHAR (2)        NULL,
+    [PaymentDetailsExpiryYear]     CHAR (4)        NULL,
+    [PaymentDetailsCVV]            CHAR (3)        NULL,
+    [PaymentDetailsDateOfPayment]  DATETIME        NOT NULL,
+    [PaymentDetailsAmountPaid]     DECIMAL (10, 2) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PaymentDetailsId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[PaymentMode]...';
+
+
+GO
+CREATE TABLE [dbo].[PaymentMode] (
+    [PaymentModeId]            INT          NOT NULL,
+    [PaymentModeModeOfPayment] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([PaymentModeId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[Product]...';
+
+
+GO
+CREATE TABLE [dbo].[Product] (
+    [ProductId]            INT             NOT NULL,
+    [ProductSubCategoryId] INT             NOT NULL,
+    [ProductName]          VARCHAR (100)   NOT NULL,
+    [ProductDescription]   NVARCHAR (1000) NOT NULL,
+    [ProductSpecification] NVARCHAR (MAX)  NOT NULL,
+    [ProductOptions]       NVARCHAR (MAX)  NOT NULL,
+    [ProductPrice]         DECIMAL (10, 2) NOT NULL,
+    [ProductBrand]         VARCHAR (50)    NOT NULL,
+    [ProductIsActive]      BIT             NOT NULL,
+    [ProductQuantity]      INT             NOT NULL,
+    [ProductImageURL]      VARCHAR (200)   NOT NULL,
+    PRIMARY KEY CLUSTERED ([ProductId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[ShippingAddress]...';
+
+
+GO
+CREATE TABLE [dbo].[ShippingAddress] (
+    [ShippingAddressId]         INT           NOT NULL,
+    [ShippingAddressCustomerId] INT           NOT NULL,
+    [ShippingAddressMobile]     VARCHAR (15)  NOT NULL,
+    [ShippingAddressStreet]     VARCHAR (100) NOT NULL,
+    [ShippingAddressLandMark]   VARCHAR (100) NOT NULL,
+    [ShippingAddressCity]       VARCHAR (30)  NOT NULL,
+    [ShippingAddressState]      VARCHAR (30)  NOT NULL,
+    [ShippingAddressZipcode]    VARCHAR (10)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ShippingAddressId] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[SubCategory]...';
+
+
+GO
+CREATE TABLE [dbo].[SubCategory] (
+    [SubCategoryId]         INT           NOT NULL,
+    [SubCategoryCategoryId] INT           NOT NULL,
+    [SubCategoryName]       VARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([SubCategoryId] ASC)
+);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Cart]...';
+
+
+GO
+ALTER TABLE [dbo].[Cart] WITH NOCHECK
+    ADD FOREIGN KEY ([CartCustomerId]) REFERENCES [dbo].[Customer] ([CustomerId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Cart]...';
+
+
+GO
+ALTER TABLE [dbo].[Cart] WITH NOCHECK
+    ADD FOREIGN KEY ([CartProductId]) REFERENCES [dbo].[Product] ([ProductId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[OrderDetails]...';
+
+
+GO
+ALTER TABLE [dbo].[OrderDetails] WITH NOCHECK
+    ADD FOREIGN KEY ([OrderDetailsOrdersId]) REFERENCES [dbo].[Orders] ([OrdersId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[OrderDetails]...';
+
+
+GO
+ALTER TABLE [dbo].[OrderDetails] WITH NOCHECK
+    ADD FOREIGN KEY ([OrderDetailsProductId]) REFERENCES [dbo].[Product] ([ProductId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Orders]...';
+
+
+GO
+ALTER TABLE [dbo].[Orders] WITH NOCHECK
+    ADD FOREIGN KEY ([OrdersCustomerId]) REFERENCES [dbo].[Customer] ([CustomerId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Orders]...';
+
+
+GO
+ALTER TABLE [dbo].[Orders] WITH NOCHECK
+    ADD FOREIGN KEY ([OrdersOrderStatusId]) REFERENCES [dbo].[OrderStatus] ([OrdersStatusId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Orders]...';
+
+
+GO
+ALTER TABLE [dbo].[Orders] WITH NOCHECK
+    ADD FOREIGN KEY ([OrdersShippingAddressId]) REFERENCES [dbo].[ShippingAddress] ([ShippingAddressId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Payment]...';
+
+
+GO
+ALTER TABLE [dbo].[Payment] WITH NOCHECK
+    ADD FOREIGN KEY ([PaymentOrderId]) REFERENCES [dbo].[Orders] ([OrdersId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[PaymentDetails]...';
+
+
+GO
+ALTER TABLE [dbo].[PaymentDetails] WITH NOCHECK
+    ADD FOREIGN KEY ([PaymentDetailsPaymentId]) REFERENCES [dbo].[Payment] ([PaymentId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[PaymentDetails]...';
+
+
+GO
+ALTER TABLE [dbo].[PaymentDetails] WITH NOCHECK
+    ADD FOREIGN KEY ([PaymentDetailsPaymentModeId]) REFERENCES [dbo].[PaymentMode] ([PaymentModeId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[Product]...';
+
+
+GO
+ALTER TABLE [dbo].[Product] WITH NOCHECK
+    ADD FOREIGN KEY ([ProductSubCategoryId]) REFERENCES [dbo].[SubCategory] ([SubCategoryId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[ShippingAddress]...';
+
+
+GO
+ALTER TABLE [dbo].[ShippingAddress] WITH NOCHECK
+    ADD FOREIGN KEY ([ShippingAddressCustomerId]) REFERENCES [dbo].[Customer] ([CustomerId]);
+
+
+GO
+PRINT N'Creating unnamed constraint on [dbo].[SubCategory]...';
+
+
+GO
+ALTER TABLE [dbo].[SubCategory] WITH NOCHECK
+    ADD FOREIGN KEY ([SubCategoryCategoryId]) REFERENCES [dbo].[Category] ([CategoryId]);
+
+
+GO
+PRINT N'Creating [dbo].[USP_AddCart]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_AddCart]
+	@CartCustomerId INT,
+	@CartProductId INT,
+	@CartQuantity INT
+AS
+BEGIN
+	DECLARE @Id INT, @ProductCount INT,@CartPrice DECIMAL;
+	set @ProductCount = (SELECT COUNT(*) from Cart WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId);
+	set @CartPrice = (SELECT ProductPrice from Product WHERE ProductId = @CartProductId);
+	IF(@ProductCount > 0)
+	BEGIN
+		UPDATE Cart set CartQuantity += @CartQuantity WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
+		UPDATE Cart set CartPrice = @CartPrice * (SELECT CartQuantity from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId) WHERE CartProductId = @CartProductId;
+	END
+	ELSE IF (@ProductCount < 1)
+	BEGIN
+	set @Id = (SELECT COUNT(*) from Cart)+1;
+		INSERT INTO Cart values(@Id, @CartCustomerId,@CartProductId,@CartPrice,@CartQuantity)
+	END
+END
+GO
+PRINT N'Creating [dbo].[USP_AddShippingAddress]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_AddShippingAddress]
+		@ShippingAddressCustomerId INT,
+		@ShippingAddressMobile varchar(15),
+		@ShippingAddressStreet varchar(100),
+		@ShippingAddressLandMark varchar(100),
+		@ShippingAddressCity varchar(30), 
+		@ShippingAddressState varchar(30), 
+		@ShippingAddressZipcode varchar(10)
+
+AS
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT count(*) from ShippingAddress)+1;
+	INSERT into ShippingAddress values(@Id,@ShippingAddressCustomerId,@ShippingAddressMobile,@ShippingAddressStreet,@ShippingAddressLandMark,@ShippingAddressCity,@ShippingAddressState,@ShippingAddressZipcode);
+	SELECT MAX(ShippingAddressId) from ShippingAddress;
+END
+GO
+PRINT N'Creating [dbo].[USP_CustomerRegister]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_CustomerRegister]
+	@CustomerFirstname varchar(50),
+	@CustomerLastname varchar(50),
+	@CustomerMobile varchar(15),
+	@CustomerEmail varchar(30),
+	@CustomerPassword varchar(30)
+AS
+BEGIN
+	DECLARE @Id INT,@encryptedPassword varbinary(4000); 
+	set @Id = (SELECT COUNT(*) from Customer)+1;
+	set @encryptedPassword = EncryptByPassPhrase('key', @CustomerPassword)
+
+	INSERT Customer values (@Id,@CustomerFirstname,@CustomerLastname,@CustomerMobile,@CustomerEmail,@encryptedPassword);
+	SELECT MAX(CustomerId) from Customer;
+END
+GO
+PRINT N'Creating [dbo].[USP_GetCartItems]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_GetCartItems]
+	@CartCustomerId INT
+AS
+	BEGIN
+		SELECT 
+		C.CartId,
+		C.CartPrice,
+		C.CartQuantity,
+		C.CartCustomerId,
+		C.CartProductId,
+		P.ProductId,
+		P.ProductName,
+		P.ProductBrand,
+		P.ProductDescription,
+		P.ProductSpecification,
+		P.ProductImageURL,
+		P.ProductOptions,
+		P.ProductPrice,
+		P.ProductQuantity,
+		P.ProductSubCategoryId
+		from Cart C JOIN Product P on P.ProductId = C.CartProductId 
+		WHERE C.CartProductId in (SELECT ProductId from Cart 
+		where CartCustomerId = @CartCustomerId);
+END
+GO
+PRINT N'Creating [dbo].[USP_GetCustomerDetails]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_GetCustomerDetails]
+	@CustomerId int
+AS
+BEGIN
+	SELECT 
+		CustomerId, 
+		CustomerFirstName, 
+		CustomerLastName,
+		CustomerMobile,
+		CustomerEmail
+	    from Customer where CustomerId = @CustomerId;	
+END
+GO
+PRINT N'Creating [dbo].[USP_GetProductDetails]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_GetProductDetails]
+	@ProductName varchar(100)
+AS
+BEGIN
+	DECLARE @Count int;		
+			SELECT 
+				P.ProductId,
+				P.ProductSubCategoryId,
+				P.ProductName,
+				P.ProductDescription,
+				P.ProductSpecification,
+				P.ProductOptions,
+				P.ProductPrice,
+				P.ProductBrand,
+				P.ProductQuantity,
+				P.ProductImageURL
+			FROM Product P JOIN SubCategory SC ON SC.SubCategoryId = P.ProductSubCategoryId
+			JOIN Category C on SC.SubCategoryCategoryId = C.CategoryId 
+			WHERE 
+			(
+			C.CategoryName  LIKE '%'+@ProductName+'%' OR
+			P.ProductName LIKE '%'+@ProductName+'%' OR
+			SC.SubCategoryName LIKE '%'+@ProductName+'%')
+END
+GO
+PRINT N'Creating [dbo].[USP_GetShippingAddress]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_GetShippingAddress]
+	@ShippingAddressCustomerId INT
+AS
+BEGIN
+	SELECT 
+		ShippingAddressId,
+		ShippingAddressCustomerId,
+		ShippingAddressMobile,
+		ShippingAddressStreet,
+		ShippingAddressLandMark,
+		ShippingAddressCity,
+		ShippingAddressState,
+		ShippingAddressZipcode
+	from ShippingAddress 
+	WHERE ShippingAddressCustomerId = @ShippingAddressCustomerId;
+END
+GO
+PRINT N'Creating [dbo].[USP_InsertCategory]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_InsertCategory]
+	@CategoryName varchar(50)
+AS
+BEGIN
+	DECLARE @Id INT;
+	select @Id = (SELECT COUNT(*) FROM Category)+1
+	INSERT INTO Category values( @Id , @CategoryName);
+	SELECT MAX(CategoryId) from Category;
+END
+GO
+PRINT N'Creating [dbo].[USP_InsertOrderStatusTable]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_InsertOrderStatusTable]
+	@OrdersState varchar(20)
+AS
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT COUNT(*) from OrderStatus)+1;
+	INSERT into OrderStatus values (@Id,@OrdersState);
+	select Max(OrdersStatusId) from OrderStatus;
+END
+GO
+PRINT N'Creating [dbo].[USP_InsertProduct]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_InsertProduct]	
+	@ProductSubCategoryId INT,
+	@ProductName varchar(100),
+	@ProductDescription nvarchar(1000),
+	@ProductSpecification nvarchar(MAX),
+	@ProductOptions nvarchar(MAX),
+	@ProductPrice DECIMAL(10,2),
+	@ProductBrand varchar(50),
+	@ProductIsActive bit,
+	@ProductQuantity int,
+	@ProductImageURL varchar(200)
+
+AS
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT COUNT(*) from Product)+1;
+	INSERT into Product values (@Id,@ProductSubCategoryId,@ProductName,@ProductDescription,@ProductSpecification,@ProductOptions,@ProductPrice,@ProductBrand,@ProductIsActive,@ProductQuantity,@ProductImageURL);
+	select Max(ProductId) from Product;
+END
+GO
+PRINT N'Creating [dbo].[USP_InsertSubCategory]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_InsertSubCategory]
+	@SubCategoryCategoryId INT,
+	@SubCategoryName varchar(100)
+AS
+BEGIN
+	DECLARE @Id INT,@Count INT;
+	set @Id = (select COUNT(*) from SubCategory)+1;
+	INSERT INTO SubCategory values( @Id , @SubCategoryCategoryId, @SubCategoryName);
+	select Max(SubCategoryId) from SubCategory
+END
+GO
+PRINT N'Creating [dbo].[USP_LogInValidation]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_LogInValidation]
+	@CustomerEmail varchar(30),
+	@CustomerPassword varchar(30)
+AS
+BEGIN
+	SELECT
+		CustomerId,
+		CustomerFirstName,
+		CustomerLastName,
+		CustomerMobile,
+		CustomerEmail
+	from Customer WHERE CustomerEmail = @CustomerEmail AND 
+	(select convert(nvarchar(100),DecryptByPassPhrase('key', CustomerPassword ))) = @CustomerPassword
+END
+GO
+PRINT N'Creating [dbo].[USP_MakePayment]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_MakePayment]
+	@OrderDetailsProductId  INT ,
+	@OrderDetailsOrdersId INT ,
+	@OrderDetailsQuantity INT ,
+	@OrderDetailsPrice DECIMAL
+AS
+BEGIN
+	DECLARE @Count int;
+	set @Count = (SELECT COUNT(*) from OrderDetails)+1;
+	INSERT into OrderDetails  values (@Count,@OrderDetailsProductId,@OrderDetailsOrdersId,@OrderDetailsQuantity,@OrderDetailsPrice);
+	SELECT Max(OrderDetailsId) from OrderDetails;
+END
+GO
+PRINT N'Creating [dbo].[USP_ModifyOrdersStatusTable]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_ModifyOrdersStatusTable]
+	@OrdersStatusId INT,
+	@OrdersStatusState varchar(20)
+
+AS
+BEGIN
+	UPDATE OrderStatus set OrdersStatusState = @OrdersStatusState where OrdersStatusId = @OrdersStatusId;
+	SELECT OrdersStatusId from OrderStatus where OrdersStatusId = @OrdersStatusId;
+END
+GO
+PRINT N'Creating [dbo].[USP_PlaceOrder]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_PlaceOrder]
+	@OrdersCustomerId int,
+	@OrdersShippingAddressId int,
+	@OrdersOrderStatusId int,
+	@PaymentDetailsPaymentModeId int,
+	@PaymentDetailsCardNumber VARCHAR(50),
+	@PaymentDetailsCardHolderName varchar(50),
+	@PaymentDetailsExpiryMonth char(2),
+	@PaymentDetailsExpiryYear char(4) ,
+	@PaymentDetailsCVV char(3),
+	@OrderDetailsPrice Decimal
+AS
+BEGIN
+	DECLARE 
+	@OrderId INT, 
+	@OrderDetailsId INT,
+	@CurrentDate DATETIME,
+	@PaymentId int,
+	@PaymentDetailsId int;
+
+	set @OrderId = (SELECT COUNT(*) from Orders)+1;
+	set @CurrentDate = (Select CONVERT(varchar,GETDATE(),103) as [DD/MM/YYYY]);
+	INSERT into Orders values (@OrderId,@OrdersCustomerId,@OrdersShippingAddressId,@CurrentDate,@OrdersOrderStatusId,NULL);
+	
+	set @PaymentId = (SELECT COUNT(*) from Payment)+1;
+	INSERT into Payment values(@PaymentId,@OrderId);
+
+	IF(@PaymentDetailsPaymentModeId = 2)
+	BEGIN
+		set @PaymentDetailsId = (SELECT COUNT(*) from PaymentDetails)+1;
+		
+		INSERT into PaymentDetails values(
+		@PaymentDetailsId,
+		@PaymentId,
+		@PaymentDetailsPaymentModeId,
+		@PaymentDetailsCardNumber,
+		@PaymentDetailsCardHolderName,
+		@PaymentDetailsExpiryMonth,
+		@PaymentDetailsExpiryYear,
+		@PaymentDetailsCVV,
+		@CurrentDate,
+		@OrderDetailsPrice
+		);
+	
+	END
+	ELSE IF (@PaymentDetailsPaymentModeId = 1)
+	BEGIN
+		set @PaymentDetailsId = (SELECT COUNT(*) from PaymentDetails)+1;
+		INSERT into PaymentDetails values(
+		@PaymentDetailsId,
+		@PaymentId,
+		@PaymentDetailsPaymentModeId,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		@CurrentDate,
+		@OrderDetailsPrice
+		);
+	END
+END
+GO
+PRINT N'Creating [dbo].[USP_RemoveCartItems]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_RemoveCartItems]
+	@CartId INT
+AS
+BEGIN
+	DECLARE @CartCount INT;
+
+	set @CartCount = (SELECT COUNT(*) from Cart);
+
+	DELETE from Cart WHERE CartId = @CartId;
+
+	while(@CartId <= @CartCount)
+	BEGIN
+	UPDATE Cart set CartId = @CartId WHERE CartId = @CartId+1;
+	set @CartId = @CartId + 1;
+	END
+
+END
+GO
+PRINT N'Creating [dbo].[USP_UpdateCartQuantity]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_UpdateCartQuantity]
+	@CartId INT,
+	@CartQuantity INT
+AS
+BEGIN
+	DECLARE @CartProductCount INT,@StockCount INT,@CartCount INT;
+	set @CartProductCount = (SELECT CartQuantity from Cart WHERE CartId = @CartId);
+	set @StockCount = (SELECT P.ProductQuantity from Product P JOIN Cart C on P.ProductId = C.CartProductId  where C.CartId  = @CartId);
+
+
+	IF(@CartProductCount = @StockCount)
+	BEGIN
+		RETURN @CartProductCount;
+	END
+
+	IF(@CartQuantity > @CartProductCount)
+	BEGIN
+		UPDATE Cart set CartQuantity = CartQuantity + 1 WHERE CartId = @CartId;
+		UPDATE Cart set CartPrice = 
+		(SELECT P.ProductPrice from Product P JOIN Cart C on P.ProductId = C.CartProductId where C.CartId = @CartId) * 
+		(SELECT CartQuantity from Cart where CartId = @CartId);
+		SELECT CartQuantity from Cart WHERE CartId = @CartId;
+	END
+
+	IF(@CartQuantity < @CartProductCount)
+	BEGIN
+		IF((SELECT CartQuantity from Cart WHERE CartId = @CartId)=1)
+		DELETE FROM Cart WHERE CartId = @CartId;
+		set @CartProductCount = @CartId;
+		set @CartCount = (SELECT COUNT(*) from Cart)
+		WHILE(@CartProductCount <= @CartCount)
+			BEGIN
+				UPDATE Cart set CartId = @CartProductCount WHERE CartId = @CartProductCount +1;
+				set @CartProductCount = @CartProductCount +1;
+			END
+		RETURN 0
+		END
+		ELSE IF((SELECT CartQuantity from Cart WHERE CartId = @CartId)>1)
+		BEGIN
+			UPDATE Cart set CartQuantity = CartQuantity - 1 WHERE CartId = @CartId;
+			SELECT CartQuantity from Cart WHERE CartId = @CartId;
+		END
+	END
+
+
+RETURN 0
+GO
+PRINT N'Creating [dbo].[USP_UpdateProductDetails]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_UpdateProductDetails]
+	@ProductId INT,
+	@ProductSubCategoryName varchar(50),
+	@ProductName varchar(100),
+	@ProductDescription nvarchar(1000),
+	@ProductSpecification nvarchar(MAX),
+	@ProductOptions nvarchar(MAX),
+	@ProductPrice DECIMAL(10,2),
+	@ProductBrand varchar(50),
+	@ProductIsActive int,
+	@ProductQuantity int,
+	@ProductImageURL varchar(200)
+AS
+BEGIN
+	DECLARE @SubCategoryId INT;
+	set @SubCategoryId = (SELECT SubCategoryId from SubCategory where SubCategoryName = @ProductSubCategoryName);
+	UPDATE Product 
+			set ProductSubCategoryId = @SubCategoryId,
+				ProductName = @ProductName,
+				ProductDescription = @ProductDescription,
+				ProductSpecification = @ProductSpecification,
+				ProductOptions = @ProductOptions,
+				ProductPrice = @ProductPrice,
+				ProductBrand = @ProductBrand,
+				ProductIsActive = @ProductIsActive,
+				ProductQuantity = @ProductQuantity,
+				ProductImageURL= @ProductImageURL
+			WHERE ProductId = @ProductId;
+			SELECT ProductId from Product where ProductId = @ProductId;
+END
+GO
+PRINT N'Creating [dbo].[USP_UpdateShippingAddress]...';
+
+
+GO
+CREATE PROCEDURE [dbo].[USP_UpdateShippingAddress]
+	@ShippingAddressId INT,
+	@ShippingAddressCustomerId INT,
+	@ShippingAddressMobile varchar(15),
+	@ShippingAddressStreet varchar(100),
+	@ShippingAddressLandMark varchar(100),
+	@ShippingAddressCity varchar(30), 
+	@ShippingAddressState varchar(30), 
+	@ShippingAddressZipcode varchar(10)
+AS
+BEGIN
+	UPDATE ShippingAddress
+		set ShippingAddressCustomerId = @ShippingAddressCustomerId,
+			ShippingAddressMobile = @ShippingAddressMobile,
+			ShippingAddressStreet = @ShippingAddressStreet,
+			ShippingAddressLandMark = @ShippingAddressLandMark,
+			ShippingAddressCity = @ShippingAddressCity,
+			ShippingAddressState =@ShippingAddressState,
+			ShippingAddressZipcode = @ShippingAddressZipcode
+			WHERE 
+			ShippingAddressId = @ShippingAddressId;
+	select ShippingAddressId from ShippingAddress where ShippingAddressId = @ShippingAddressId;
+END
+GO
+PRINT N'Checking existing data against newly created constraints';
+
+
+GO
+USE [$(DatabaseName)];
+
+
+GO
+CREATE TABLE [#__checkStatus] (
+    id           INT            IDENTITY (1, 1) PRIMARY KEY CLUSTERED,
+    [Schema]     NVARCHAR (256),
+    [Table]      NVARCHAR (256),
+    [Constraint] NVARCHAR (256)
+);
+
+SET NOCOUNT ON;
+
+DECLARE tableconstraintnames CURSOR LOCAL FORWARD_ONLY
+    FOR SELECT SCHEMA_NAME([schema_id]),
+               OBJECT_NAME([parent_object_id]),
+               [name],
+               0
+        FROM   [sys].[objects]
+        WHERE  [parent_object_id] IN (OBJECT_ID(N'dbo.Cart'), OBJECT_ID(N'dbo.OrderDetails'), OBJECT_ID(N'dbo.Orders'), OBJECT_ID(N'dbo.Payment'), OBJECT_ID(N'dbo.PaymentDetails'), OBJECT_ID(N'dbo.Product'), OBJECT_ID(N'dbo.ShippingAddress'), OBJECT_ID(N'dbo.SubCategory'))
+               AND [type] IN (N'F', N'C')
+                   AND [object_id] IN (SELECT [object_id]
+                                       FROM   [sys].[check_constraints]
+                                       WHERE  [is_not_trusted] <> 0
+                                              AND [is_disabled] = 0
+                                       UNION
+                                       SELECT [object_id]
+                                       FROM   [sys].[foreign_keys]
+                                       WHERE  [is_not_trusted] <> 0
+                                              AND [is_disabled] = 0);
+
+DECLARE @schemaname AS NVARCHAR (256);
+
+DECLARE @tablename AS NVARCHAR (256);
+
+DECLARE @checkname AS NVARCHAR (256);
+
+DECLARE @is_not_trusted AS INT;
+
+DECLARE @statement AS NVARCHAR (1024);
+
+BEGIN TRY
+    OPEN tableconstraintnames;
+    FETCH tableconstraintnames INTO @schemaname, @tablename, @checkname, @is_not_trusted;
+    WHILE @@fetch_status = 0
+        BEGIN
+            PRINT N'Checking constraint: ' + @checkname + N' [' + @schemaname + N'].[' + @tablename + N']';
+            SET @statement = N'ALTER TABLE [' + @schemaname + N'].[' + @tablename + N'] WITH ' + CASE @is_not_trusted WHEN 0 THEN N'CHECK' ELSE N'NOCHECK' END + N' CHECK CONSTRAINT [' + @checkname + N']';
+            BEGIN TRY
+                EXECUTE [sp_executesql] @statement;
+            END TRY
+            BEGIN CATCH
+                INSERT  [#__checkStatus] ([Schema], [Table], [Constraint])
+                VALUES                  (@schemaname, @tablename, @checkname);
+            END CATCH
+            FETCH tableconstraintnames INTO @schemaname, @tablename, @checkname, @is_not_trusted;
+        END
+END TRY
+BEGIN CATCH
+    PRINT ERROR_MESSAGE();
+END CATCH
+
+IF CURSOR_STATUS(N'LOCAL', N'tableconstraintnames') >= 0
+    CLOSE tableconstraintnames;
+
+IF CURSOR_STATUS(N'LOCAL', N'tableconstraintnames') = -1
+    DEALLOCATE tableconstraintnames;
+
+SELECT N'Constraint verification failed:' + [Schema] + N'.' + [Table] + N',' + [Constraint]
+FROM   [#__checkStatus];
+
+IF @@ROWCOUNT > 0
+    BEGIN
+        DROP TABLE [#__checkStatus];
+        RAISERROR (N'An error occurred while verifying constraints', 16, 127);
+    END
+
+SET NOCOUNT OFF;
+
+DROP TABLE [#__checkStatus];
+
 
 GO
 PRINT N'Update complete.';

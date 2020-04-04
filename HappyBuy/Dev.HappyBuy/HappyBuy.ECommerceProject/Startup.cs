@@ -27,6 +27,8 @@ namespace HappyBuy.ECommerceProject
     /// </summary>
     public class Startup
     {
+        private readonly string myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup"/> class.
         /// </summary>
@@ -60,7 +62,8 @@ namespace HappyBuy.ECommerceProject
 
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
+                options.AddPolicy(this.myAllowSpecificOrigins, builder => builder.WithOrigins("http://localhost:3000").
+                AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -80,7 +83,7 @@ namespace HappyBuy.ECommerceProject
             ConnectionString = this.Configuration.GetValue<string>("ConnectonStrings:happyBuyConnection");
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddTransient<IDevHappyBuyDAL, DevHappyBuyDAL>();
-            services.AddTransient<IHaapyBuyRepository, HappyBuyRepository>();
+            services.AddTransient<IHappyBuyRepository, HappyBuyRepository>();
             services.AddTransient<IHBCartBL, HBCartBL>();
             services.AddTransient<IHBCustomerBL, HBCustomerBL>();
             services.AddTransient<IHBProductBL, HBProductBL>();
@@ -103,6 +106,7 @@ namespace HappyBuy.ECommerceProject
                 app.UseHsts();
             }
 
+            app.UseCors(this.myAllowSpecificOrigins);
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
