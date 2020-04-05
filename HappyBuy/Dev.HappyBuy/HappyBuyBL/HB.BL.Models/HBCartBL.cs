@@ -14,12 +14,13 @@ namespace HappyBuyBL
     /// </summary>
     public class HBCartBL : IHBCartBL
     {
-        private readonly IHaapyBuyRepository happyBuyRepository;
+        private readonly IHappyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBCartBL"/> class.
         /// </summary>
-        public HBCartBL(IHaapyBuyRepository happyBuyRepository)
+        /// <param name="happyBuyRepository">Dependency Injection.</param>
+        public HBCartBL(IHappyBuyRepository happyBuyRepository)
         {
             this.happyBuyRepository = happyBuyRepository;
         }

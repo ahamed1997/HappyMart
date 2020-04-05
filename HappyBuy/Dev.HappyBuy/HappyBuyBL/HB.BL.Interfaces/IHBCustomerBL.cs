@@ -41,7 +41,7 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <typeparam name="T">Dynamic Object.</typeparam>
         /// <param name="dictionary">Input Parameters.</param>
         /// <returns>Customer Details.</returns>
-        List<T> GetAllCustomers<T>(Dictionary<string, object> dictionary)
+        List<T> GetMyProfile<T>(Dictionary<string, object> dictionary)
             where T : new();
 
         /// <summary>

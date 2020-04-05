@@ -13,7 +13,7 @@ namespace HappyBuyDAL.Implementation
     /// <summary>
     /// Repository Implementation.
     /// </summary>
-    public class HappyBuyRepository : IHaapyBuyRepository
+    public class HappyBuyRepository : IHappyBuyRepository
     {
         private readonly IDevHappyBuyDAL happyBuyDAL;
 
@@ -37,7 +37,8 @@ namespace HappyBuyDAL.Implementation
         {
             var commandText = (StoredProcedure)storedProcedureEnum;
             string storedProcedure = commandText.ToString();
-            return this.happyBuyDAL.ExecuteNonQuery<DevHappyBuyDAL>(dictionary, storedProcedure);
+            int result = this.happyBuyDAL.ExecuteNonQuery<DevHappyBuyDAL>(dictionary, storedProcedure);
+            return result;
         }
 
         /// <summary>
@@ -70,13 +71,18 @@ namespace HappyBuyDAL.Implementation
         }
 
         /// <summary>
-        /// Get Single Details.
+        /// Get One detail.
         /// </summary>
-        /// <param name="id">Get By One Item.</param>
-        /// <returns>Single Object.</returns>
-        public Customer GetOneDetails(string id)
+        /// <typeparam name="T">Generic Type Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <param name="storedProcedureEnum">Stored Procedure.</param>
+        /// <returns>All Details.</returns>
+        public List<T> GetOneDetail<T>(Dictionary<string, object> dictionary, int storedProcedureEnum)
+            where T : new()
         {
-            throw new NotImplementedException();
+            var commandText = (StoredProcedure)storedProcedureEnum;
+            string storedProcedure = commandText.ToString();
+            return this.happyBuyDAL.ExecuteReader<T>(dictionary, storedProcedure);
         }
 
         /// <summary>
@@ -88,7 +94,10 @@ namespace HappyBuyDAL.Implementation
         /// <returns>Update Results.</returns>
         public int UpdateDetails<T>(Dictionary<string, object> dictionary, int storedProcedureEnum)
         {
-            throw new NotImplementedException();
+            var commandText = (StoredProcedure)storedProcedureEnum;
+            string storedProcedure = commandText.ToString();
+            int result = this.happyBuyDAL.ExecuteNonQuery<DevHappyBuyDAL>(dictionary, storedProcedure);
+            return result;
         }
     }
 }

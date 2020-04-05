@@ -2,7 +2,9 @@
 	@CartId INT
 AS
 BEGIN
-	DECLARE @CartCount INT;
+	DECLARE @CartCount INT, @returnRemovedCartId int;
+
+	set @returnRemovedCartId = @CartId;
 
 	set @CartCount = (SELECT COUNT(*) from Cart);
 
@@ -14,4 +16,5 @@ BEGIN
 	set @CartId = @CartId + 1;
 	END
 
+	select @returnRemovedCartId;
 END

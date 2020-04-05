@@ -14,12 +14,13 @@ namespace HappyBuyBL
     /// </summary>
     public class HBProductBL : IHBProductBL
     {
-        private readonly IHaapyBuyRepository happyBuyRepository;
+        private readonly IHappyBuyRepository happyBuyRepository;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HBProductBL"/> class.
         /// </summary>
-        public HBProductBL(IHaapyBuyRepository happyBuyRepository)
+        /// <param name="happyBuyRepository">Dependency Injection.</param>
+        public HBProductBL(IHappyBuyRepository happyBuyRepository)
         {
             this.happyBuyRepository = happyBuyRepository;
         }
@@ -66,7 +67,8 @@ namespace HappyBuyBL
         /// <returns>Insert Results.</returns>
         public int InsertCategory<T>(Dictionary<string, object> dictionary)
         {
-            return this.happyBuyRepository.AddDetails<T>(dictionary, 6);
+            int result = this.happyBuyRepository.AddDetails<T>(dictionary, 6);
+            return result;
         }
 
         /// <summary>
