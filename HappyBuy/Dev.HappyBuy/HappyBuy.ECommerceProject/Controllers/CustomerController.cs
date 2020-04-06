@@ -14,7 +14,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     /// Customer WebAPI.
     /// </summary>
     [ApiController]
-    public class CustomerController : ICustomerController
+    public class CustomerController : ControllerBase
     {
         private readonly IHBCustomerBL devHappyBuyBL;
 

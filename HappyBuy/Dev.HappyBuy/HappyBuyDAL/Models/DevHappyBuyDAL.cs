@@ -43,28 +43,35 @@ namespace HappyBuyDAL
         /// <returns>Adding Results.</returns>
         public int ExecuteNonQuery<T>(Dictionary<string, object> dictionary, string commandText)
         {
-            this.conn.Open();
-            int i = 0;
-            this.cmdExecuteNonQuery = new SqlCommand(commandText, this.conn);
-            foreach (var item in dictionary)
+            try
             {
-                string keyvalue = "@" + item.Key;
-                if (item.Value != null)
+                this.conn.Open();
+                int i = 0;
+                this.cmdExecuteNonQuery = new SqlCommand(commandText, this.conn);
+                foreach (var item in dictionary)
                 {
-                    this.cmdExecuteNonQuery.Parameters.AddWithValue(keyvalue, item.Value);
-                    this.cmdExecuteNonQuery.CommandType = CommandType.StoredProcedure;
+                    string keyvalue = "@" + item.Key;
+                    if (item.Value != null)
+                    {
+                        this.cmdExecuteNonQuery.Parameters.AddWithValue(keyvalue, item.Value);
+                        this.cmdExecuteNonQuery.CommandType = CommandType.StoredProcedure;
+                    }
                 }
+
+                SqlDataReader sqlDataReader = this.cmdExecuteNonQuery.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    i = Convert.ToInt32(sqlDataReader[0]);
+                }
+
+                this.conn.Close();
+                return i;
             }
-
-            SqlDataReader sqlDataReader = this.cmdExecuteNonQuery.ExecuteReader();
-
-            while (sqlDataReader.Read())
+            catch (SqlException ex)
             {
-                i = Convert.ToInt32(sqlDataReader[0]);
+                return ex.Number;
             }
-
-            this.conn.Close();
-            return i;
         }
 
         /// <summary>

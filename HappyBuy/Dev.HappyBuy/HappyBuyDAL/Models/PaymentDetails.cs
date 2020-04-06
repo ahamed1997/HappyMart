@@ -41,21 +41,26 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets ExpiryMonth.
         /// </summary>
-        public char? PaymentDetailsExpiryMonth { get; set; }
+        public string PaymentDetailsExpiryMonth { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryYear.
         /// </summary>
-        public char? PaymentDetailsExpiryYear { get; set; }
+        public string PaymentDetailsExpiryYear { get; set; }
 
         /// <summary>
         /// Gets or Sets CVV.
         /// </summary>
-        public char? PaymentDetailsCVV { get; set; }
+        public string PaymentDetailsCVV { get; set; }
 
         /// <summary>
         /// Gets or Sets DateOfPayment.
         /// </summary>
         public DateTime? PaymentDetailsDateOfPayment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsAmountPaid.
+        /// </summary>
+        public decimal? PaymentDetailsAmountPaid { get; set; }
     }
 }

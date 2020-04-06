@@ -20,7 +20,7 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets CustomerId.
         /// </summary>
-        public string ShippingAddressCustomerId { get; set; }
+        public int? ShippingAddressCustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets Mobile.

@@ -8,7 +8,7 @@
 	@PaymentDetailsExpiryMonth char(2),
 	@PaymentDetailsExpiryYear char(4) ,
 	@PaymentDetailsCVV char(3),
-	@OrderDetailsPrice Decimal
+	@PaymentDetailsAmountPaid Decimal
 AS
 BEGIN
 	DECLARE 
@@ -25,7 +25,7 @@ BEGIN
 	set @PaymentId = (SELECT COUNT(*) from Payment)+1;
 	INSERT into Payment values(@PaymentId,@OrderId);
 
-	IF(@PaymentDetailsPaymentModeId = 2)
+	IF(@PaymentDetailsPaymentModeId != 1)
 	BEGIN
 		set @PaymentDetailsId = (SELECT COUNT(*) from PaymentDetails)+1;
 		
@@ -39,7 +39,7 @@ BEGIN
 		@PaymentDetailsExpiryYear,
 		@PaymentDetailsCVV,
 		@CurrentDate,
-		@OrderDetailsPrice
+		@PaymentDetailsAmountPaid
 		);
 	
 	END
@@ -56,7 +56,7 @@ BEGIN
 		NULL,
 		NULL,
 		@CurrentDate,
-		@OrderDetailsPrice
+		@PaymentDetailsAmountPaid
 		);
 	END
 	select @OrderId;

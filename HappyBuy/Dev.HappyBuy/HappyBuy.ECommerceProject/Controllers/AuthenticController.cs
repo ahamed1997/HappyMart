@@ -45,26 +45,27 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Return Token.</returns>
         [HttpPost]
         [Route("api/LogIn")]
-        public IActionResult LogIn(Customer customer)
+        public string LogIn(Customer customer)
         {
-            IActionResult response = this.Unauthorized();
+            string response = null;
             Customer customers = new Customer();
             List<Customer> customerList = null;
+            Dictionary<string, object> keyValues = null;
             if (customer.CustomerEmail != null && customer.CustomerPassword != null)
             {
-                Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
+                keyValues = this.GetProperty<Customer>(customer);
                 customerList = this.devHappyBuyBL.LogInValidation<Customer>(keyValues);
+            }
+
+            if (customerList.Count > 0)
+            {
                 customers.CustomerEmail = customerList[0].CustomerEmail.ToString();
                 customers.CustomerFirstName = customerList[0].CustomerFirstName.ToString();
                 customers.CustomerId = Convert.ToInt32(customerList[0].CustomerId.ToString());
                 customers.CustomerLastName = customerList[0].CustomerLastName.ToString();
                 customers.CustomerMobile = customerList[0].CustomerMobile.ToString();
-            }
-
-            if (customers != null)
-            {
                 var tokenString = this.GenerateJSONWebToken(customers);
-                response = this.Ok(new { token = tokenString });
+                response = this.Ok(new { token = tokenString }).ToString();
             }
 
             return response;

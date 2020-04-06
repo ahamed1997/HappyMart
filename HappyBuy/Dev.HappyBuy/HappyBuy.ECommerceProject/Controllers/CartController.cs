@@ -25,7 +25,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// Initializes a new instance of the <see cref="CartController"/> class.
         /// </summary>
         /// <param name="hBCartBL">Injecting Dependency.</param>
-        public CartController(HBCartBL hBCartBL)
+        public CartController(IHBCartBL hBCartBL)
         {
             this.hBCartBL = hBCartBL;
         }
@@ -104,26 +104,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         public object GetCartItems(Cart cart)
         {
             Product product = new Product();
-            Dictionary<string, object> cartkeyValues = new Dictionary<string, object>();
-            Dictionary<string, object> productkeyValues = new Dictionary<string, object>();
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
-
-            cartkeyValues = cart.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            .ToDictionary(prop => prop.Name, prop => prop.GetValue(cart));
-
-            productkeyValues = product.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-          .ToDictionary(prop => prop.Name, prop => prop.GetValue(product));
-
-            foreach (var item in cartkeyValues)
-            {
-                keyValues.Add(item.Key, item.Value);
-            }
-
-            foreach (var item in productkeyValues)
-            {
-                keyValues.Add(item.Key, item.Value);
-            }
-
+            Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
             var getCartDetails = this.hBCartBL.GetCartItems<Cart>(keyValues);
             return getCartDetails;
         }

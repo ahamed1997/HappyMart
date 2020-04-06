@@ -51,5 +51,14 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <param name="dictionary">SubCategory. Type Dictionary.</param>
         /// <returns>Insert Results.</returns>
         int InsertSubCategory<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Get All Products.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns>Product Details.</returns>
+        List<T> GetAllProducts<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

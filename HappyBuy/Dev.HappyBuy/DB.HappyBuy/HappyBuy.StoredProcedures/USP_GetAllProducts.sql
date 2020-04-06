@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetAllProducts]
+AS	
+BEGIN
+	SELECT * FROM Product;
+END

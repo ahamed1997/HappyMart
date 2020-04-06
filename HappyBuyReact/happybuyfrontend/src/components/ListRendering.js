@@ -1,5 +1,5 @@
 import React from 'react'
-import ChildList from './ChildList'
+import ChildList from '../PracticeComponents/ChildList'
 
 function ListRendering() {
     //First type of rendering

@@ -25,7 +25,7 @@ namespace HappyBuyDAL.Models
         /// <summary>
         /// Gets or Sets  OrderId.
         /// </summary>
-        public int? OrderDetailsOrderId { get; set; }
+        public int? OrderDetailsOrdersId { get; set; }
 
         /// <summary>
         /// Gets or Sets  Quantity.

@@ -6,12 +6,13 @@ namespace HappyBuyDAL
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
+    using HappyBuyDAL.Models;
 
     /// <summary>
     /// Orders Entity.
     /// </summary>
     [Table("Orders")]
-    public class Orders
+    public class Orders : PaymentDetails
     {
         /// <summary>
         /// Gets or Sets Id.
@@ -21,12 +22,12 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets CustoemrId.
         /// </summary>
-        public string OrdersCustomerId { get; set; }
+        public int? OrdersCustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets AddressId.
         /// </summary>
-        public string OrdersShippingAddressId { get; set; }
+        public int? OrdersShippingAddressId { get; set; }
 
         /// <summary>
         /// Gets or Sets DateOrderd.
