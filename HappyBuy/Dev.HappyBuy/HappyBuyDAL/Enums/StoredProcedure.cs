@@ -103,5 +103,10 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for Make Payment.
         /// </summary>
         USP_MakePayment = 19,
+
+        /// <summary>
+        /// Stored Procedure for Get All Products.
+        /// </summary>
+        USP_GetAllProducts = 20,
     }
 }

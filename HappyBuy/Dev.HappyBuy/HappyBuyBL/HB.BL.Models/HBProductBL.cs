@@ -60,6 +60,18 @@ namespace HappyBuyBL
         }
 
         /// <summary>
+        /// Get All Products.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns>Product Details.</returns>
+        public List<T> GetAllProducts<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 20);
+        }
+
+        /// <summary>
         /// Insert Category.
         /// </summary>
         /// <typeparam name="T">Generic Object Passing.</typeparam>

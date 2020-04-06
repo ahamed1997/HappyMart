@@ -10,6 +10,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using System.Web.Http.Cors;
     using HappyBuyBL;
     using HappyBuyBL.HB.BL.Interfaces;
+    using HappyBuyDAL;
     using HappyBuyDAL.Models;
     using Microsoft.AspNetCore.Mvc;
 
@@ -33,14 +34,14 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <summary>
         /// Placing Order.
         /// </summary>
-        /// <param name="orderPayment">Order Items.</param>
+        /// <param name="order">Order Items.</param>
         /// <returns>Returns OrderID.</returns>
         [HttpPost]
         [Route("api/PlaceOrder")]
-        public int PlaceOrder(OrderPayment orderPayment)
+        public int PlaceOrder(Orders order)
         {
-            Dictionary<string, object> keyValues = this.GetProperty<OrderPayment>(orderPayment);
-            int i = this.hBOrderBL.PlaceOrder<OrderPayment>(keyValues);
+            Dictionary<string, object> keyValues = this.GetProperty<Orders>(order);
+            int i = this.hBOrderBL.PlaceOrder<Orders>(keyValues);
             return i;
         }
 

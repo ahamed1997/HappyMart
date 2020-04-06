@@ -1,13 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="DALTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace HappyBuyTest.HappyBuy.DAL
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
     using HappyBuyDAL;
     using HappyBuyDAL.Interfaces;
     using Microsoft.Extensions.Configuration;
@@ -32,13 +29,11 @@ namespace HappyBuyTest.HappyBuy.DAL
         [TestInitialize]
         public void TestInitialze()
         {
-
             this.configurationMock = new Mock<IConfiguration>();
             this.devHappyBuyDALMock = new Mock<IDevHappyBuyDAL>();
 
             this.devHappyBuyDAL = this.devHappyBuyDALMock.Object;
             this.dictionary = new Dictionary<string, object>();
-
         }
 
         /// <summary>
@@ -55,11 +50,11 @@ namespace HappyBuyTest.HappyBuy.DAL
             this.dictionary.Add("CustomerEmail", "ahamed973@gmail.com");
             this.dictionary.Add("CustomerPassword", "737373");
 
-            this.devHappyBuyDALMock.Setup(x => x.ExecuteNonQuery<Customer>(dictionary, commandText)).Returns(3);            
+            this.devHappyBuyDALMock.Setup(x => x.ExecuteNonQuery<Customer>(this.dictionary, commandText)).Returns(3);
             int expectedValue = 3;
 
             // Act
-            int actualValue = this.devHappyBuyDAL.ExecuteNonQuery<Customer>(dictionary, commandText);
+            int actualValue = this.devHappyBuyDAL.ExecuteNonQuery<Customer>(this.dictionary, commandText);
 
             // Assert
             Assert.AreEqual(actualValue, expectedValue);
@@ -71,23 +66,22 @@ namespace HappyBuyTest.HappyBuy.DAL
         [TestMethod]
         public void Execute_Reader_Test()
         {
-            //  Arrange
+            // Arrange
             string commandText = "USP_GetCustomerDetails";
             this.dictionary.Add("CustomerId", "1");
             this.listCustomer = new List<Customer>()
             {
                 new Customer()
                 {
-                    CustomerId =1,
+                    CustomerId = 1,
                     CustomerFirstName = "Ahamed",
                     CustomerLastName = "Ayathullah",
                     CustomerMobile = "9445774250",
-                    CustomerEmail = "ahamed@gmail.com"
-                }
+                    CustomerEmail = "ahamed@gmail.com",
+                },
             };
-
-            this.devHappyBuyDALMock.Setup(x => x.ExecuteReader<Customer>(this.dictionary, commandText)).Returns(listCustomer);
-            List<Customer> expectedValuelist = listCustomer;
+            this.devHappyBuyDALMock.Setup(x => x.ExecuteReader<Customer>(this.dictionary, commandText)).Returns(this.listCustomer);
+            List<Customer> expectedValuelist = this.listCustomer;
 
             // Act
             List<Customer> actualValuelist = this.devHappyBuyDAL.ExecuteReader<Customer>(this.dictionary, commandText);

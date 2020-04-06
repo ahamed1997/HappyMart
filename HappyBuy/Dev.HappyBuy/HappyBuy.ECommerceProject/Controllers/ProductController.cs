@@ -118,5 +118,19 @@ namespace HappyBuy.ECommerceProject.Controllers
             var getProduct = this.hBProductBL.GetProducts<Product>(keyValues);
             return getProduct;
         }
+
+        /// <summary>
+        /// Get All Products.
+        /// </summary>
+        /// <returns>Returns Product Items.</returns>
+        [HttpPost]
+        [Route("api/GetAllProducts")]
+        public List<Product> GetAllProducts()
+        {
+            Product p = new Product();
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(p);
+            List<Product> getProduct = this.hBProductBL.GetAllProducts<Product>(keyValues);
+            return getProduct;
+        }
     }
 }

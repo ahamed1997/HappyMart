@@ -10,7 +10,7 @@ namespace HappyBuyDAL
     /// Cart Entity.
     /// </summary>
     [Table("Cart")]
-    public class Cart
+    public class Cart : Product
     {
         /// <summary>
         /// Gets or Sets Id.

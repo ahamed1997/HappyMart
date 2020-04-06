@@ -1,14 +1,20 @@
-﻿using HappyBuyBL.HB.BL.Interfaces;
-using HappyBuyDAL.Interfaces;
-using HappyBuyDAL.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// <copyright file="OrderTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace HappyBuyTest.HappyBuy.BL
 {
+    using System.Collections.Generic;
+    using HappyBuyBL.HB.BL.Interfaces;
+    using HappyBuyDAL;
+    using HappyBuyDAL.Interfaces;
+    using HappyBuyDAL.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+
+    /// <summary>
+    /// Order BL test.
+    /// </summary>
     [TestClass]
     public class OrderTest
     {
@@ -16,7 +22,6 @@ namespace HappyBuyTest.HappyBuy.BL
         private IHBOrderBL hBOrderBL;
         private Mock<IHBOrderBL> hBOrderBLMock;
         private Dictionary<string, object> dictionary;
-        
 
         /// <summary>
         /// Test Initialization.
@@ -24,8 +29,6 @@ namespace HappyBuyTest.HappyBuy.BL
         [TestInitialize]
         public void TestInitialze()
         {
-            
-
             this.happyBuyRepositoryMock = new Mock<IHappyBuyRepository>();
             this.hBOrderBLMock = new Mock<IHBOrderBL>();
 
@@ -33,40 +36,66 @@ namespace HappyBuyTest.HappyBuy.BL
             this.dictionary = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// Place Order test.
+        /// </summary>
         [TestMethod]
         public void Place_Order_Test()
         {
             // Arrange
-            dictionary.Add("OrdersCustomerId", 2);
-            dictionary.Add("OrdersShippingAddressId", 1);
-            dictionary.Add("OrdersOrderStatusId", 2);
-            dictionary.Add("PaymentDetailsPaymentModeId", 1);
-            dictionary.Add("PaymentDetailsCardNumber", "COD");
-            dictionary.Add("PaymentDetailsCardHolderName", "COD");
-            dictionary.Add("PaymentDetailsExpiryMonth", "COD");
-            dictionary.Add("PaymentDetailsExpiryYear", "COD");
-            dictionary.Add("PaymentDetailsCVV", "COD");
-            dictionary.Add("OrderDetailsPrice", 144900.00);
-            this.hBOrderBLMock.Setup(x => x.PlaceOrder<OrderPayment>(this.dictionary)).Returns(2);
-            this.happyBuyRepositoryMock.Setup(x => x.AddDetails<OrderPayment>(this.dictionary,11)).Returns(2);
+            Orders orders = new Orders()
+            {
+                OrdersCustomerId = 2,
+                OrdersShippingAddressId = 1,
+                OrdersOrderStatusId = 2,
+                PaymentDetailsPaymentModeId = 1,
+                PaymentDetailsCardNumber = null,
+                PaymentDetailsCardHolderName = null,
+                PaymentDetailsExpiryMonth = null,
+                PaymentDetailsExpiryYear = null,
+                PaymentDetailsCVV = null,
+                PaymentDetailsAmountPaid = 144900,
+            };
+            this.dictionary.Add("OrdersCustomerId", orders.OrdersCustomerId);
+            this.dictionary.Add("OrdersShippingAddressId", orders.OrdersShippingAddressId);
+            this.dictionary.Add("OrdersOrderStatusId", orders.OrdersOrderStatusId);
+            this.dictionary.Add("PaymentDetailsPaymentModeId", orders.PaymentDetailsPaymentModeId);
+            this.dictionary.Add("PaymentDetailsCardNumber", orders.PaymentDetailsCardNumber);
+            this.dictionary.Add("PaymentDetailsCardHolderName", orders.PaymentDetailsCardHolderName);
+            this.dictionary.Add("PaymentDetailsExpiryMonth", orders.PaymentDetailsExpiryMonth);
+            this.dictionary.Add("PaymentDetailsExpiryYear", orders.PaymentDetailsExpiryYear);
+            this.dictionary.Add("PaymentDetailsCVV", orders.PaymentDetailsCVV);
+            this.dictionary.Add("OrderDetailsPrice", orders.PaymentDetailsAmountPaid);
+            this.hBOrderBLMock.Setup(x => x.PlaceOrder<Orders>(this.dictionary)).Returns(2);
+            this.happyBuyRepositoryMock.Setup(x => x.AddDetails<Orders>(this.dictionary, 11)).Returns(2);
             int expectedValue = 2;
 
             // Act
-            int actualValue = this.hBOrderBL.PlaceOrder<OrderPayment>(this.dictionary);
+            int actualValue = this.hBOrderBL.PlaceOrder<Orders>(this.dictionary);
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
-
-
         }
+
+        /// <summary>
+        /// Make Payment test.
+        /// </summary>
         [TestMethod]
         public void Make_Payment_Test()
         {
             // Arrange
-            this.dictionary.Add("OrderDetailsProductId", 4);
-            this.dictionary.Add("OrderDetailsOrdersId", 1);
-            this.dictionary.Add("OrderDetailsQuantity", 1);
-            this.dictionary.Add("OrderDetailsPrice", 144900.00);
+            OrderDetails orderDetails = new OrderDetails()
+            {
+                OrderDetailsProductId = 4,
+                OrderDetailsOrdersId = 1,
+                OrderDetailsQuantity = 1,
+                OrderDetailsPrice = 144900,
+            };
+
+            this.dictionary.Add("OrderDetailsProductId", orderDetails.OrderDetailsProductId);
+            this.dictionary.Add("OrderDetailsOrdersId", orderDetails.OrderDetailsOrdersId);
+            this.dictionary.Add("OrderDetailsQuantity", orderDetails.OrderDetailsQuantity);
+            this.dictionary.Add("OrderDetailsPrice", orderDetails.OrderDetailsPrice);
             this.hBOrderBLMock.Setup(x => x.MakePayment<OrderDetails>(this.dictionary)).Returns(2);
             this.happyBuyRepositoryMock.Setup(x => x.AddDetails<OrderDetails>(this.dictionary, 19)).Returns(2);
             int expectedValue = 2;
