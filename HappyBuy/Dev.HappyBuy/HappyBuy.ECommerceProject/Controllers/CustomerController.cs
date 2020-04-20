@@ -63,6 +63,20 @@ namespace HappyBuy.ECommerceProject.Controllers
         }
 
         /// <summary>
+        /// Update Profile validation.
+        /// </summary>
+        /// <param name="customer">Customer Object Properties.</param>
+        /// <returns>Validation.</returns>
+        [HttpPost]
+        [Route("api/UpdateProfileValidation")]
+        public int UpdateProfileValidation(Customer customer)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
+            int i = this.devHappyBuyBL.UpdateProfileValidation<Customer>(keyValues);
+            return i;
+        }
+
+        /// <summary>
         /// Add Shipping Address for the Customer.
         /// </summary>
         /// <param name="shippingAddress">ShippingAddress Object Properties.</param>
@@ -89,6 +103,21 @@ namespace HappyBuy.ECommerceProject.Controllers
 
             var getCustomer = this.devHappyBuyBL.GetMyProfile<Customer>(keyValues);
             return getCustomer;
+        }
+
+        /// <summary>
+        /// Get All Customer Details.
+        /// </summary>
+        /// <param name="customer">CustomerId.</param>
+        /// <returns>Returns the Customer Object.</returns>
+        [HttpPost]
+        [Route("api/updateProfile")]
+        public int UpdateProfile(Customer customer)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Customer>(customer);
+
+            int result = this.devHappyBuyBL.UpdateProfile<Customer>(keyValues);
+            return result;
         }
 
         /// <summary>

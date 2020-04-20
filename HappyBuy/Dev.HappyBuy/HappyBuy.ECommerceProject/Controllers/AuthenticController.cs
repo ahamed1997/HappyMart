@@ -7,13 +7,10 @@ namespace HappyBuy.ECommerceProject.Controllers
     using System;
     using System.Collections.Generic;
     using System.IdentityModel.Tokens.Jwt;
-    using System.Linq;
     using System.Reflection;
     using System.Text;
-    using System.Threading.Tasks;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
@@ -45,12 +42,13 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Return Token.</returns>
         [HttpPost]
         [Route("api/LogIn")]
-        public string LogIn(Customer customer)
+        public object LogIn(Customer customer)
         {
-            string response = null;
+            object response = null;
             Customer customers = new Customer();
             List<Customer> customerList = null;
             Dictionary<string, object> keyValues = null;
+            string[] temp = null;
             if (customer.CustomerEmail != null && customer.CustomerPassword != null)
             {
                 keyValues = this.GetProperty<Customer>(customer);
@@ -65,10 +63,19 @@ namespace HappyBuy.ECommerceProject.Controllers
                 customers.CustomerLastName = customerList[0].CustomerLastName.ToString();
                 customers.CustomerMobile = customerList[0].CustomerMobile.ToString();
                 var tokenString = this.GenerateJSONWebToken(customers);
-                response = this.Ok(new { token = tokenString }).ToString();
+                response = this.Ok(new { token = tokenString });
+                temp = new string[]
+                {
+                    customers.CustomerId.ToString(),
+                    customers.CustomerFirstName,
+                    customers.CustomerLastName,
+                    customers.CustomerMobile,
+                    customers.CustomerEmail,
+                    tokenString.ToString(),
+                };
             }
 
-            return response;
+            return temp;
         }
 
         /// <summary>
@@ -112,7 +119,7 @@ namespace HappyBuy.ECommerceProject.Controllers
                 claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: credentials);
-            var encodetoken = new JwtSecurityTokenHandler().WriteToken(token);
+            var encodetoken = new JwtSecurityTokenHandler().WriteToken(token).ToString();
             return encodetoken;
         }
     }

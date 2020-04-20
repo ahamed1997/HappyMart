@@ -17,7 +17,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     /// <summary>
     /// Order related API's.
     /// </summary>
-    [EnableCors("http://localhost:4200", "*", "GET,PUT,POST")]
+    [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IHBOrderBL hBOrderBL;
@@ -38,10 +38,15 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns OrderID.</returns>
         [HttpPost]
         [Route("api/PlaceOrder")]
-        public int PlaceOrder(Orders order)
+        public int PlaceOrder(List<Orders> order)
         {
-            Dictionary<string, object> keyValues = this.GetProperty<Orders>(order);
-            int i = this.hBOrderBL.PlaceOrder<Orders>(keyValues);
+            int i = 0;
+            for (int j = 0; j < order.Count; j++)
+            {
+                Dictionary<string, object> keyValues = this.GetProperty<Orders>(order[j]);
+                i = this.hBOrderBL.PlaceOrder<Orders>(keyValues);
+            }
+
             return i;
         }
 
@@ -56,6 +61,20 @@ namespace HappyBuy.ECommerceProject.Controllers
         {
             Dictionary<string, object> keyValues = this.GetProperty<OrderDetails>(orderDetails);
             int i = this.hBOrderBL.PlaceOrder<OrderDetails>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <param name="product">Payment Order Details.</param>
+        /// <returns>Insert Result.</returns>
+        [HttpPost]
+        [Route("api/GetOrderDetails")]
+        public object GetOrderDetails(Product product)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<OrderDetails>(product);
+            var i = this.hBOrderBL.GetOrderDetails<Product>(keyValues);
             return i;
         }
 

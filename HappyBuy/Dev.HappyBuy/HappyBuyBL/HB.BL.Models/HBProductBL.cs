@@ -59,7 +59,7 @@ namespace HappyBuyBL
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 5);
         }
 
-        /// <summary>
+        /// <summary> 
         /// Get All Products.
         /// </summary>
         /// <typeparam name="T">Generic Object Passing.</typeparam>
@@ -69,6 +69,54 @@ namespace HappyBuyBL
             where T : new()
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 20);
+        }
+
+        /// <summary>
+        /// GetCategories.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns> Get Categories Details.</returns>
+        public List<T> GetCategories<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 25);
+        }
+
+        /// <summary>
+        /// GetSubCategories.GetSpecification
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns> Get SubCategories Details.</returns>
+        public List<T> GetSubCategories<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 26);
+        }
+
+        /// <summary>
+        /// GetSpecification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns> GetSpecification Details.</returns>
+        public List<T> GetSpecification<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 28);
+        }
+
+        /// <summary>
+        /// GetOptions.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Options Type Dictionary.</param>
+        /// <returns> GetOptions Details.</returns>
+        public List<T> GetOptions<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 29);
         }
 
         /// <summary>

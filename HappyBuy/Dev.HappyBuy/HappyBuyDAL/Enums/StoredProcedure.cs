@@ -108,5 +108,50 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for Get All Products.
         /// </summary>
         USP_GetAllProducts = 20,
+
+        /// <summary>
+        /// Stored Procedure for Get All OrderDetails.
+        /// </summary>
+        USP_GetOrderDetails = 21,
+
+        /// <summary>
+        /// Stored Procedure for Email existence.
+        /// </summary>
+        USP_ForgotPasswordValidation = 22,
+
+        /// <summary>
+        /// Stored Procedure for update Password.
+        /// </summary>
+        USP_UpdatePassword = 23,
+
+        /// <summary>
+        /// Stored Procedure for update Profile.
+        /// </summary>
+        USP_UpdateProfile = 24,
+
+        /// <summary>
+        /// Stored Procedure for Get Categories.
+        /// </summary>
+        USP_GetCategories = 25,
+
+        /// <summary>
+        /// Stored Procedure for Get SubCategories.
+        /// </summary>
+        USP_GetSubCategories = 26,
+
+        /// <summary>
+        /// Stored Procedure for Update Profile Validation.
+        /// </summary>
+        USP_UpdateProfileValidation = 27,
+
+        /// <summary>
+        /// Stored Procedure for Product Specification.
+        /// </summary>
+        USP_GetProductSpecification = 28,
+
+        /// <summary>
+        /// Stored Procedure for getting Options.
+        /// </summary>
+        USP_GetOptions = 29,
     }
 }

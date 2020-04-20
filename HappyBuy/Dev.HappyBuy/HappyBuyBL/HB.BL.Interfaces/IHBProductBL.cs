@@ -60,5 +60,41 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <returns>Product Details.</returns>
         List<T> GetAllProducts<T>(Dictionary<string, object> dictionary)
             where T : new();
+
+        /// <summary>
+        /// GetCategories.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns> Get Categories Details.</returns>
+        List<T> GetCategories<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// GetSubCategories.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Product Type Dictionary.</param>
+        /// <returns> Get SubCategories Details.</returns>
+        List<T> GetSubCategories<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// GetSpecification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns> GetSpecification Details.</returns>
+        List<T> GetSpecification<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// GetOptions.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Options Type Dictionary.</param>
+        /// <returns> GetOptions Details.</returns>
+        List<T> GetOptions<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

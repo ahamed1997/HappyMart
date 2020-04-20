@@ -10,12 +10,17 @@ namespace HappyBuyDAL.Models
     /// OrderDetails Entity.
     /// </summary>
     [Table("OrderDetails")]
-    public class OrderDetails
+    public class OrderDetails : OrderStatus
     {
         /// <summary>
         /// Gets or Sets  Id.
         /// </summary>
         public int? OrderDetailsId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets  Id.
+        /// </summary>
+        public int? OrderDetailsCustomerId { get; set; }
 
         /// <summary>
         /// Gets or Sets  ProductId.

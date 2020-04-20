@@ -42,6 +42,6 @@ namespace HappyBuyDAL
         /// <summary>
         /// Gets or Sets DateRecieved.
         /// </summary>
-        public DateTime OrdersDateOfOrderCompleted { get; set; }
+        public DateTime? OrdersDateOfOrderCompleted { get; set; }
     }
 }

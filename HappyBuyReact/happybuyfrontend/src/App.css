@@ -47,12 +47,11 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .navbar-brand{
-  font-weight: 500;
-  
+  font-weight: 500;  
   font-family: 'Fira Sans', sans-serif;
 }
 .logo
 {
-  height: 50px;
-  width: 60px;
+  height: 30px;
+  width: 40px;
 }

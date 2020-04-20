@@ -1,0 +1,16 @@
+.cartImgage
+{
+  height: 50px;
+  width: 60px;
+}
+.cards
+{
+    max-height: 20%;
+    max-width: 65%;
+    margin: 5% ;
+    margin-bottom: 5%;
+}
+.card{
+  margin-top: 2%;
+
+}

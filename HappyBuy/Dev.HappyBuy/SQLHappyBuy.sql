@@ -215,3 +215,66 @@ END
 --Query 5
 
 SELECT Name, COUNT(*) FROM tblStudent GROUP BY  Name HAVING  COUNT(*) > 1;
+
+--Query 1
+select  DeptName from EmptDept join Employee on Department = DeptId where EmpId>103;
+
+--Query 2
+select EmpName from Employee where EmpHeadId = (select EmpHeadId from Employee where EmpName = 'Abishek');
+
+--Query 3
+
+select EmpName from Employee join EmptDept on DeptHead = Empid where DeptName = 'HR';
+
+--Query 4
+
+select EmpName from Employee  E join EmpSalary ES on ES.EmpId = E.EmpHeadId where IsPermenant = 'Yes' ;
+
+--Query 5
+
+select  EmpName, EmailId from Employee E join EmpDept ED on E.Empid = ED.DeptHead join EmpSalary ES on ED.DeptHead = ES.EmpId where IsPermanent = 'Yes';
+
+--Query 6
+
+select * from Empoyee join EmpDept on Department = DeptId where Dept_off = 'Monday';
+
+
+
+
+--Query 1
+
+select CODE, COLLEGE_NAME, UNIVERSITY_NAME, CITY, STATE,YEAR_OPENED, DEPTARTMENT_NAME, HOD_NAME from COLLEGE C inner join EMPLOYEE E on 
+E.COLLEGE_ID = C.ID inner join DESIGNATION D on E.DESIG_ID = D.ID where D.NAME = 'HOD';
+
+--Query 2
+
+select ROLL_NUMBER, NAME, GENDER, DOB, EMAIL, PHONE, ADDRESS,COLLEGE_NAME, DEPARTMENT_NAME FROM STUDENT S INNER JOIN COLLEGE C on S.COLLEGE_ID = C.ID 
+JOIN UNVERSITY U on U.ID = C.UNIV_CODE JOIN COLLEGE_DEPARTMENT CD on CD.COLLEGE_ID = C.ID JOIN DEPARTMENT on UDEPT_CODE = DEPT_CODE where U.UNIVERSITY_NAME = 'A.K. COLLEGE ' AND C.CITY = 'CHENNAI';
+
+--Query 3
+
+select ROLL_NUMBER, NAME, GENDER, DOB, EMAIL, PHONE, ADDRESS,COLLEGE_NAME, DEPARTMENT_NAME, HOD_NAME FROM STUDENT S INNER JOIN COLLEGE C on S.COLLEGE_ID = C.ID 
+JOIN UNVERSITY U on U.ID = C.UNIV_CODE  JOIN COLLEGE_DEPARTMENT CD on CD.COLLEGE_ID = C.ID JOIN DEPARTMENT on UDEPT_CODE = DEPT_CODE join EMPLOYEE E on E.CDEPT_ID = CD.CDEPT_ID join DESIGNATION D on
+E.DESIGN_ID = D.ID  where U.UNIVERSITY_NAME = 'A.K. COLLEGE ' AND C.CITY = 'CHENNAI' LIMIT  20 OFFSET 20
+
+--Query 4
+
+
+select * from EMPLOYEE E JOIN COLLEGE C ON C.ID  = E.COLLEGE_ID JOIN COLLEGE_DEPARTMENT CD ON CD.CDEPT_ID = E.CDEPT_ID JOIN DEPARTMNET D ON D.DEPT_CODE = CD.UDEPT_CODE ORDER BY D.RANK ASC
+
+--Query 5
+
+select * from STUDENT JOIN SEMESTER_RESULT SR ON SR.STUDENT_ID = S.ID where CREDITS > 8 AND SEMESTER  = 4;
+
+--Query 6 
+
+select * from STUDENT JOIN SEMESTER_RESULT SR ON SR.STUDENT_ID = S.ID where CREDITS > 5 and SEMESTER = 3;
+ 
+--Query 7
+
+select C.NAME,SF.PAID_STATUS from COLLEGE C JOIN STUDENT ON S.COLLEGE_ID = C.ID JOIN STUDENTS_FEE SF ON SF.CDEPT_ID = CD.CDEPT_ID WHERE S.ACADEMIC_YEAR= 2018 GROUP BY SF.PAID_STATUS 
+
+--Query 8
+
+select C.NAME,SF.PAID_STATUS from COLLEGE C JOIN STUDENT ON S.COLLEGE_ID = C.ID JOIN STUDENTS_FEE SF ON SF.CDEPT_ID = CD.CDEPT_ID WHERE S.ACADEMIC_YEAR= 2018 AND SF.PAID_STATUS = 'PAID'
+

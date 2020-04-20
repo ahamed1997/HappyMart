@@ -11,7 +11,7 @@ namespace HappyBuyDAL.Models
     /// PaymentDetails Entity.
     /// </summary>
     [Table("PaymentDetails")]
-    public class PaymentDetails
+    public class PaymentDetails : ShippingAddress
     {
         /// <summary>
         /// Gets or Sets Id.
@@ -29,31 +29,6 @@ namespace HappyBuyDAL.Models
         public int? PaymentDetailsPaymentModeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CardHolderName.
-        /// </summary>
-        public string PaymentDetailsCardHolderName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CardNumber.
-        /// </summary>
-        public string PaymentDetailsCardNumber { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExpiryMonth.
-        /// </summary>
-        public string PaymentDetailsExpiryMonth { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExpiryYear.
-        /// </summary>
-        public string PaymentDetailsExpiryYear { get; set; }
-
-        /// <summary>
-        /// Gets or Sets CVV.
-        /// </summary>
-        public string PaymentDetailsCVV { get; set; }
-
-        /// <summary>
         /// Gets or Sets DateOfPayment.
         /// </summary>
         public DateTime? PaymentDetailsDateOfPayment { get; set; }
@@ -62,5 +37,30 @@ namespace HappyBuyDAL.Models
         /// Gets or Sets PaymentDetailsAmountPaid.
         /// </summary>
         public decimal? PaymentDetailsAmountPaid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsTransactionId.
+        /// </summary>
+        public string PaymentDetailsTransactionId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsPayerId.
+        /// </summary>
+        public string PaymentDetailsPayerId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsPayerName.
+        /// </summary>
+        public string PaymentDetailsPayerName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsPayeeId.
+        /// </summary>
+        public string PaymentDetailsPayeeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaymentDetailsPayeeEmailId.
+        /// </summary>
+        public string PaymentDetailsPayeeEmailId { get; set; }
     }
 }

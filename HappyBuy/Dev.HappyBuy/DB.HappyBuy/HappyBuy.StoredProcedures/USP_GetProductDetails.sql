@@ -2,7 +2,8 @@
 	@ProductName varchar(100)
 AS
 BEGIN
-	DECLARE @Count int;		
+		DECLARE @trimmedString varchar(50);		
+	set @trimmedString =(RTRIM(LTRIM(@ProductName)));
 			SELECT 
 				P.ProductId,
 				P.ProductSubCategoryId,
@@ -18,7 +19,8 @@ BEGIN
 			JOIN Category C on SC.SubCategoryCategoryId = C.CategoryId 
 			WHERE 
 			(
-			C.CategoryName  LIKE '%'+@ProductName+'%' OR
-			P.ProductName LIKE '%'+@ProductName+'%' OR
-			SC.SubCategoryName LIKE '%'+@ProductName+'%')
+			C.CategoryName  LIKE '%'+@trimmedString+'%' OR
+			P.ProductName LIKE '%'+@trimmedString+'%' OR
+			SC.SubCategoryName LIKE '%'+@trimmedString+'%'
+			OR P.ProductBrand LIKE '%' +@trimmedString+'%')
 END

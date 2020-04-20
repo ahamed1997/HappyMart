@@ -8,6 +8,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using System.Reflection;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
+    using HappyBuyDAL.Models;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -114,7 +115,12 @@ namespace HappyBuy.ECommerceProject.Controllers
         [Route("api/GetProducts")]
         public object GetProducts(Product product)
         {
-            Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
+            string trimmed = product.ProductName.Trim();
+            Product products = new Product()
+            {
+                ProductName = trimmed,
+            };
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(products);
             var getProduct = this.hBProductBL.GetProducts<Product>(keyValues);
             return getProduct;
         }
@@ -130,6 +136,63 @@ namespace HappyBuy.ECommerceProject.Controllers
             Product p = new Product();
             Dictionary<string, object> keyValues = this.GetProperty<Product>(p);
             List<Product> getProduct = this.hBProductBL.GetAllProducts<Product>(keyValues);
+            return getProduct;
+        }
+
+        /// <summary>
+        /// GetCategories.
+        /// </summary>
+        /// <returns>Returns Product Items.</returns>
+        [HttpPost]
+        [Route("api/GetCategories")]
+        public List<Category> GetCategories()
+        {
+            Category c = new Category();
+            Dictionary<string, object> keyValues = this.GetProperty<Category>(c);
+            List<Category> getProduct = this.hBProductBL.GetCategories<Category>(keyValues);
+            return getProduct;
+        }
+
+        /// <summary>
+        /// GetSpecifications.
+        /// </summary>
+        /// <param name="specification">Product Id.</param>
+        /// <returns>Specifications.</returns>
+        [HttpPost]
+        [Route("api/GetSpecification")]
+        public List<Specification> GetSpecification(Specification specification)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Specification>(specification);
+            List<Specification> getProduct = this.hBProductBL.GetSpecification<Specification>(keyValues);
+            return getProduct;
+        }
+
+        /// <summary>
+        /// GetOptions.
+        /// </summary>
+        /// <param name="options">Product Id.</param>
+        /// <returns>Options.</returns>
+        [HttpPost]
+        [Route("api/GetOptions")]
+        public List<Options> GetOptions()
+        {
+            Options options = new Options();
+            Dictionary<string, object> keyValues = this.GetProperty<Options>(options);
+            List<Options> getProduct = this.hBProductBL.GetOptions<Options>(keyValues);
+            return getProduct;
+        }
+
+        /// <summary>
+        /// GetSubCategories.
+        /// </summary>
+        /// <returns>Returns Product Items.</returns>
+        [HttpPost]
+        [Route("api/GetSubCategories")]
+        public List<SubCategory> GetSubCategories()
+        {
+            SubCategory s = new SubCategory();
+            Dictionary<string, object> keyValues = this.GetProperty<SubCategory>(s);
+            List<SubCategory> getProduct = this.hBProductBL.GetSubCategories<SubCategory>(keyValues);
             return getProduct;
         }
     }

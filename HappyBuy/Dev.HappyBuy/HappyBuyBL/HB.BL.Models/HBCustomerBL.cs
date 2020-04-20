@@ -48,6 +48,28 @@ namespace HappyBuyBL
         }
 
         /// <summary>
+        /// UpdateProfileValidation.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer type Dictionary.</param>
+        /// <returns>Update Results.</returns>
+        public int UpdateProfileValidation<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 27);
+        }
+
+        /// <summary>
+        /// Update in Profile.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer type Dictionary.</param>
+        /// <returns>Update Results.</returns>
+        public int UpdateProfile<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 24);
+        }
+
+        /// <summary>
         /// Update Shipping Address.
         /// </summary>
         /// <typeparam name="T">Dynamic Object.</typeparam>
@@ -80,6 +102,28 @@ namespace HappyBuyBL
             where T : new()
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 18);
+        }
+
+        /// <summary>
+        /// Check for Email exist.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer.</param>
+        /// <returns>Existence result.</returns>
+        public int ForgotPassword<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 22);
+        }
+
+        /// <summary>
+        /// Change Password.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer.</param>
+        /// <returns>Change result.</returns>
+        public int UpdatePassword<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 23);
         }
     }
 }

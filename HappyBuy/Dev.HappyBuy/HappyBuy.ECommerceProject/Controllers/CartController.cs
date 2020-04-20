@@ -73,11 +73,12 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns Updated Results.</returns>
         [HttpPost]
         [Route("api/UpdateCartQuantity")]
-        public int UpdateCartQuantity(Cart cart)
+        public List<Cart> UpdateCartQuantity(Cart cart)
         {
+            List<Cart> cartlist = new List<Cart>();
             Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
-            int i = this.hBCartBL.UpdateCartQuantity<Cart>(keyValues);
-            return i;
+            cartlist = this.hBCartBL.UpdateCartQuantity<Cart>(keyValues);
+            return cartlist;
         }
 
         /// <summary>
@@ -87,11 +88,12 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// <returns>Returns the Removed cart Id.</returns>
         [HttpPost]
         [Route("api/RemoveCartItem")]
-        public int RemoveCartItem(Cart cart)
+        public object RemoveCartItem(Cart cart)
         {
+            List<Cart> cartlist = new List<Cart>();
             Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
-            int i = this.hBCartBL.RemoveCartItem<Cart>(keyValues);
-            return i;
+            cartlist = this.hBCartBL.RemoveCartItem<Cart>(keyValues);
+            return cartlist;
         }
 
         /// <summary>

@@ -5,12 +5,13 @@ BEGIN
 	SELECT 
 		ShippingAddressId,
 		ShippingAddressCustomerId,
-		ShippingAddressMobile,
 		ShippingAddressStreet,
-		ShippingAddressLandMark,
 		ShippingAddressCity,
 		ShippingAddressState,
-		ShippingAddressZipcode
+		ShippingAddressZipcode,
+		ShippingAddressCountryCode,
+		ShippingAddressName
 	from ShippingAddress 
 	WHERE ShippingAddressCustomerId = @ShippingAddressCustomerId;
 END
+
