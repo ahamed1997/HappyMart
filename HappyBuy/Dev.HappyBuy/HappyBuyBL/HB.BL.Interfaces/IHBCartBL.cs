@@ -25,7 +25,8 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <typeparam name="T">Generic type Parameter.</typeparam>
         /// <param name="dictionary">Dynamic Dictionary.</param>
         /// <returns>Returns the Update Result Id.</returns>
-        int UpdateCartQuantity<T>(Dictionary<string, object> dictionary);
+        List<T> UpdateCartQuantity<T>(Dictionary<string, object> dictionary)
+              where T : new();
 
         /// <summary>
         /// Removes Item from Cart.
@@ -33,7 +34,8 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <typeparam name="T">Generic type Parameter.</typeparam>
         /// <param name="dictionary">Dynamic Dictionary.</param>
         /// <returns>Returns removed item id.</returns>
-        int RemoveCartItem<T>(Dictionary<string, object> dictionary);
+        List<T> RemoveCartItem<T>(Dictionary<string, object> dictionary)
+             where T : new();
 
         /// <summary>
         /// Get Cart items for Customer.

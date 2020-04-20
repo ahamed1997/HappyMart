@@ -1,9 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[USP_RemoveCartItems]
-	@CartId INT
+	@CartId INT,
+	@CartCustomerId INT
 AS
 BEGIN
 	DECLARE @CartCount INT, @returnRemovedCartId int;
-
+	set @CartCustomerId = (Select @CartCustomerId from Cart where CartId = @CartId);
 	set @returnRemovedCartId = @CartId;
 
 	set @CartCount = (SELECT COUNT(*) from Cart);
@@ -15,6 +16,6 @@ BEGIN
 	UPDATE Cart set CartId = @CartId WHERE CartId = @CartId+1;
 	set @CartId = @CartId + 1;
 	END
-
-	select @returnRemovedCartId;
+	EXEC USP_GetCartItems @CartCustomerId;
+	
 END

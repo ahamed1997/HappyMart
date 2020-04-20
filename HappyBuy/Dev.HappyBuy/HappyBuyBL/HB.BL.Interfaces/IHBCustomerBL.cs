@@ -52,5 +52,37 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <returns>Customer Details.</returns>
         List<T> LogInValidation<T>(Dictionary<string, object> dictionary)
             where T : new();
+
+        /// <summary>
+        /// Check for Email exist.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer.</param>
+        /// <returns>Existence result.</returns>
+        int ForgotPassword<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Change Password.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer.</param>
+        /// <returns>Change result.</returns>
+        int UpdatePassword<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Update in Profile.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer type Dictionary.</param>
+        /// <returns>Update Results.</returns>
+        int UpdateProfile<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// UpdateProfileValidation.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Customer type Dictionary.</param>
+        /// <returns>Update Results.</returns>
+        int UpdateProfileValidation<T>(Dictionary<string, object> dictionary);
     }
 }

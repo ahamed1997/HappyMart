@@ -10,7 +10,7 @@ namespace HappyBuyDAL
     /// SubCategory Entity.
     /// </summary>
     [Table("SubCategory")]
-    public class SubCategory
+    public class SubCategory : Category
     {
         /// <summary>
         /// Gets or Sets Id.

@@ -95,5 +95,18 @@
     <Build Include="HappyBuy.StoredProcedures\USP_LogInValidation.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_MakePayment.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_GetAllProducts.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetOrderDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_ForgotPasswordValidation.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdatePassword.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateProfile.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetCategories.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetSubCategories.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateProfileValidation.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_InsertProductSpecification.sql" />
+    <Build Include="HappyBuy.Tables\Specification.sql" />
+    <Build Include="HappyBuy.Tables\Options.sql" />
+    <Build Include="HappyBuy.Tables\OptionDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetProductSpecification.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetOptions.sql" />
   </ItemGroup>
 </Project>

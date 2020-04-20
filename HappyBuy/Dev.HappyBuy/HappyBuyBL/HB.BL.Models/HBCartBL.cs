@@ -42,9 +42,10 @@ namespace HappyBuyBL
         /// <typeparam name="T">Generic type Parameter.</typeparam>
         /// <param name="dictionary">Dynamic Dictionary.</param>
         /// <returns>Returns the Update Result Id.</returns>
-        public int UpdateCartQuantity<T>(Dictionary<string, object> dictionary)
+        public List<T> UpdateCartQuantity<T>(Dictionary<string, object> dictionary)
+             where T : new()
         {
-            return this.happyBuyRepository.AddDetails<T>(dictionary, 13);
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 13);
         }
 
         /// <summary>
@@ -53,9 +54,10 @@ namespace HappyBuyBL
         /// <typeparam name="T">Generic type Parameter.</typeparam>
         /// <param name="dictionary">Dynamic Dictionary.</param>
         /// <returns>Returns removed item id.</returns>
-        public int RemoveCartItem<T>(Dictionary<string, object> dictionary)
+        public List<T> RemoveCartItem<T>(Dictionary<string, object> dictionary)
+            where T : new()
         {
-            return this.happyBuyRepository.DeleteDetails<T>(dictionary, 12);
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 12);
         }
 
         /// <summary>

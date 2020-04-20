@@ -10,7 +10,7 @@ namespace HappyBuyDAL
     /// Product Entity.
     /// </summary>
     [Table("Product")]
-    public class Product
+    public class Product : Orders
     {
         /// <summary>
         /// Gets or Sets Id.

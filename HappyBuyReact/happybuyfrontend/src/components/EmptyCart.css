@@ -1,0 +1,22 @@
+.emptyCartImage
+{
+    
+    width: 30%;    
+    padding-left: 0%;
+}
+.emptyCartImage
+{
+    background-color: white;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    font-size: large;
+}
+.emptySearchImage{
+    background-color: white;
+    text-align: center;
+    align-content: center;
+    width: 70%;
+    margin-top: 0px;
+    font-size: large;
+}

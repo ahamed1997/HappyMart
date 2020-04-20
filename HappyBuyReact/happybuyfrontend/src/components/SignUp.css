@@ -1,7 +1,6 @@
 .auth-wrapper {
 
     display: flex;
-    margin-top: 100px;
     justify-content: center;
     flex-direction: column;
     text-align: left;
@@ -26,4 +25,9 @@
     text-align: center;
     margin: 0;
     line-height: 1;
+  }
+  .errorMessage
+  {
+    color: red;
+    font-size: x-small;
   }

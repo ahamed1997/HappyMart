@@ -10,5 +10,5 @@ BEGIN
 		CustomerMobile,
 		CustomerEmail
 	from Customer WHERE CustomerEmail = @CustomerEmail AND 
-	(select convert(nvarchar(100),DecryptByPassPhrase('key', CustomerPassword ))) = @CustomerPassword
+	(select convert(varchar(100),DecryptByPassPhrase('key', CustomerPassword ))) = @CustomerPassword
 END

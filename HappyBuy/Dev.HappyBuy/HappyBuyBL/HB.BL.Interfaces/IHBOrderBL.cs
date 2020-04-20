@@ -28,5 +28,14 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <param name="dictionary">Payments type Dictionary.</param>
         /// <returns>Insertion Results.</returns>
         int MakePayment<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Getting Order Details.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Order Details.</returns>
+        List<T> GetOrderDetails<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

@@ -11,3 +11,5 @@ C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBu
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuyDAL\obj\Debug\netcoreapp2.2\HappyBuyDAL.dll
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuyDAL\obj\Debug\netcoreapp2.2\HappyBuyDAL.pdb
 C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuyDAL\obj\Debug\netcoreapp2.2\HappyBuyDAL.csprojAssemblyReference.cache
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuyDAL\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
+C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\HappyBuyDAL\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml

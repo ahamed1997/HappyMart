@@ -5,6 +5,7 @@
 namespace HappyBuyDAL
 {
     using System.ComponentModel.DataAnnotations.Schema;
+    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// Customer Entity.

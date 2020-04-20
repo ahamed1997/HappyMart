@@ -1,0 +1,5076 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.9" DspName="Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider" CollationLcid="1033" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="True" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="True" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="130" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="DB.HappyBuy.dll" />
+			<Metadata Name="FileName" Value="C:\USERS\AHAMED.THAMIMUL\DOCUMENTS\DESKTOP GITHUB\HAPPYMART\HAPPYBUY\DEV.HAPPYBUY\DB.HAPPYBUY\OBJ\DEBUG\DB.HAPPYBUY.DLL" />
+			<Metadata Name="AssemblyName" Value="DB.HappyBuy" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\DB.HappyBuy\obj\Debug\DB.HappyBuy.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
+			<Property Name="IsAnsiNullDefaultOn" Value="True" />
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Property Name="IsAnsiWarningsOn" Value="True" />
+			<Property Name="IsArithAbortOn" Value="True" />
+			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="PageVerifyMode" Value="3" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Property Name="QueryStoreStaleQueryThreshold" Value="367" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsOrdersId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPaymentId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Payment].[PaymentId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPaymentModeId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[PaymentMode].[PaymentModeId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[PaymentMode]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryCategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Category].[CategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSubCategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Payment].[PaymentOrderId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersOrderStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersShippingAddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PaymentMode].[PaymentModeId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PaymentMode]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[OrderDetails].[OrderDetailsId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[OrderStatus].[OrdersStatusId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PaymentDetails].[PaymentDetailsId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[SubCategory].[SubCategoryId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Product].[ProductId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Payment].[PaymentId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Orders].[OrdersId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Customer].[CustomerId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Category].[CategoryId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Cart].[CartId]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Cart]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Cart].[CartId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="27" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Cart].[CartCustomerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Cart].[CartProductId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Cart].[CartPrice]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="2" />
+									<Property Name="Precision" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Cart].[CartQuantity]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="14" />
+			<AttachedAnnotation Disambiguator="15" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Category]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Category].[CategoryId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="26" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Category].[CategoryName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Customer]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="25" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerFirstName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerLastName]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerMobile]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="15" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerEmail]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Customer].[CustomerPassword]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varbinary]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[OrderDetails]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetails].[OrderDetailsId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="17" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetails].[OrderDetailsProductId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetails].[OrderDetailsOrdersId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetails].[OrderDetailsQuantity]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderDetails].[OrderDetailsPrice]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="18" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="3" />
+			<AttachedAnnotation Disambiguator="4" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Orders]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="24" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersCustomerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersShippingAddressId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersDateOfOrder]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersOrderStatusId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Orders].[OrdersDateOfOrderCompleted]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="11" />
+			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="13" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[OrderStatus]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderStatus].[OrdersStatusId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="18" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[OrderStatus].[OrdersStatusState]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Payment]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Payment].[PaymentId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="23" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Payment].[PaymentOrderId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="10" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[PaymentDetails]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="19" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPaymentId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPaymentModeId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsDateOfPayment]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[datetime]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsAmountPaid]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="2" />
+									<Property Name="Precision" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsTransactionId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPayerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPayerName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPayeeId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentDetails].[PaymentDetailsPayeeEmailId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="5" />
+			<AttachedAnnotation Disambiguator="6" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[PaymentMode]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentMode].[PaymentModeId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="16" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PaymentMode].[PaymentModeModeOfPayment]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Product]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="22" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductSubCategoryId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductDescription]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductSpecification]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductOptions]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductPrice]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="2" />
+									<Property Name="Precision" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductBrand]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductIsActive]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductQuantity]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Product].[ProductImageURL]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="200" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="9" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[ShippingAddress]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="21" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressCustomerId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressStreet]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressCity]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressState]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressZipcode]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressCountryCode]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[ShippingAddress].[ShippingAddressName]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="8" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[SubCategory]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[SubCategory].[SubCategoryId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="20" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[SubCategory].[SubCategoryCategoryId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[SubCategory].[SubCategoryName]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="7" />
+		</Element>
+		<Element Type="SqlUniqueConstraint" Name="[dbo].[Uk_Email]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Customer].[CustomerEmail]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="28" />
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_AddCart]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT, @ProductCount INT,@CartPrice DECIMAL;
+	set @ProductCount = (SELECT COUNT(*) from Cart WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId);
+	set @CartPrice = (SELECT ProductPrice from Product WHERE ProductId = @CartProductId);
+	IF(@ProductCount > 0)
+	BEGIN
+		UPDATE Cart set CartQuantity += @CartQuantity WHERE CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
+		UPDATE Cart set CartPrice = @CartPrice * (SELECT CartQuantity from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId) WHERE CartProductId = @CartProductId;
+		select CartId from Cart where CartCustomerId = @CartCustomerId AND CartProductId = @CartProductId;
+	END
+	ELSE IF (@ProductCount < 1)
+	BEGIN
+	set @Id = (SELECT COUNT(*) from Cart)+1;
+		INSERT INTO Cart values(@Id, @CartCustomerId,@CartProductId,@CartPrice,@CartQuantity)
+		select @Id;
+	END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[decimal]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddCart].[@CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddCart].[@CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddCart].[@CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddCart].[@CartCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddCart].[@CartProductId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddCart].[@CartQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1030" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_AddCart]&#xD;&#xA;&#x9;@CartCustomerId INT,&#xD;&#xA;&#x9;@CartProductId INT,&#xD;&#xA;&#x9;@CartQuantity INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_AddShippingAddress]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT count(*) from ShippingAddress)+1;
+	INSERT into ShippingAddress values(@Id,@ShippingAddressCustomerId,@ShippingAddressStreet,@ShippingAddressCity,@ShippingAddressState,@ShippingAddressZipcode,@ShippingAddressCountryCode,@ShippingAddressName);
+	SELECT MAX(ShippingAddressId) from ShippingAddress;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressStreet]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressState]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressZipcode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressCountryCode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_AddShippingAddress].[@ShippingAddressName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="671" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_AddShippingAddress]&#xD;&#xA;&#x9;&#x9;@ShippingAddressCustomerId INT,&#xD;&#xA;&#x9;&#x9;@ShippingAddressStreet varchar(100),&#xD;&#xA;&#x9;&#x9;@ShippingAddressCity varchar(30), &#xD;&#xA;&#x9;&#x9;@ShippingAddressState varchar(30), &#xD;&#xA;&#x9;&#x9;@ShippingAddressZipcode varchar(10),&#xD;&#xA;&#x9;&#x9;@ShippingAddressCountryCode varchar(10),&#xD;&#xA;&#x9;&#x9;@ShippingAddressName varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_CustomerRegister]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT,@encryptedPassword varbinary(4000); 
+	set @Id = (SELECT COUNT(*) from Customer)+1;
+	set @encryptedPassword = EncryptByPassPhrase('key', @CustomerPassword)
+
+	INSERT Customer values (@Id,@CustomerFirstname,@CustomerLastname,@CustomerMobile,@CustomerEmail,@encryptedPassword);
+	SELECT MAX(CustomerId) from Customer;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varbinary]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_CustomerRegister].[@CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_CustomerRegister].[@CustomerFirstname]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_CustomerRegister].[@CustomerLastname]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_CustomerRegister].[@CustomerMobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_CustomerRegister].[@CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_CustomerRegister].[@CustomerFirstname]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_CustomerRegister].[@CustomerLastname]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_CustomerRegister].[@CustomerMobile]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="15" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_CustomerRegister].[@CustomerEmail]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_CustomerRegister].[@CustomerPassword]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="557" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_CustomerRegister]&#xD;&#xA;&#x9;@CustomerFirstname varchar(50),&#xD;&#xA;&#x9;@CustomerLastname varchar(50),&#xD;&#xA;&#x9;@CustomerMobile varchar(15),&#xD;&#xA;&#x9;@CustomerEmail varchar(30),&#xD;&#xA;&#x9;@CustomerPassword varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_ForgotPasswordValidation]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SELECT COUNT(*) FROM Customer where CustomerEmail = @CustomerEmail ;
+END
+
+select * from Customer]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_ForgotPasswordValidation].[@CustomerEmail]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_ForgotPasswordValidation].[@CustomerEmail]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="195" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_ForgotPasswordValidation]&#xD;&#xA;&#x9;@CustomerEmail varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetAllProducts]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[	
+BEGIN
+	SELECT * FROM Product;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="85" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetAllProducts]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetCartItems]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	BEGIN
+		SELECT 
+		C.CartId,
+		C.CartPrice,
+		C.CartQuantity,
+		C.CartCustomerId,
+		C.CartProductId,
+		P.ProductId,
+		P.ProductName,
+		P.ProductBrand,
+		P.ProductDescription,
+		P.ProductSpecification,
+		P.ProductImageURL,
+		P.ProductIsActive,
+		P.ProductOptions,
+		P.ProductPrice,
+		P.ProductQuantity,
+		P.ProductSubCategoryId
+		from Cart C JOIN Product P on P.ProductId = C.CartProductId 
+		WHERE  CartCustomerId = @CartCustomerId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductDescription]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductImageURL]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductIsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetCartItems].[@CartCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_GetCartItems].[@CartCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="527" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetCartItems]&#xD;&#xA;&#x9;@CartCustomerId INT&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetCustomerDetails]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SELECT 
+		CustomerId, 
+		CustomerFirstName, 
+		CustomerLastName,
+		CustomerMobile,
+		CustomerEmail
+	    from Customer where CustomerId = @CustomerId;	
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerFirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerLastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerMobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetCustomerDetails].[@CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_GetCustomerDetails].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="240" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetCustomerDetails]&#xD;&#xA;&#x9;@CustomerId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetOrderDetails]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+		Select 
+		O.OrdersId,
+		O.OrdersDateOfOrder,
+		O.OrdersDateOfOrderCompleted,
+		OS.OrdersStatusState,
+		OD.OrderDetailsPrice,
+		OD.OrderDetailsQuantity,
+		SA.ShippingAddressStreet,
+		SA.ShippingAddressCity,
+		SA.ShippingAddressState,
+		SA.ShippingAddressZipcode,
+		SA.ShippingAddressCountryCode,
+		SA.ShippingAddressName,
+		PD.PaymentDetailsTransactionId,
+		PD.PaymentDetailsPayerName,
+		PD.PaymentDetailsPayerId,
+		PD.PaymentDetailsPayeeId,
+		PD.PaymentDetailsAmountPaid,
+		P.ProductId,
+		P.ProductName,
+		P.ProductPrice,
+		P.ProductSpecification,
+		P.ProductBrand		
+		from Orders O inner join OrderDetails OD on O.OrdersId = OD.OrderDetailsOrdersId join OrderStatus OS on OS.OrdersStatusId = O.OrdersOrderStatusId
+		join ShippingAddress SA on SA.ShippingAddressId = O.OrdersShippingAddressId join Payment PT on PT.PaymentOrderId = O.OrdersId join PaymentDetails PD on
+		PD.PaymentDetailsPaymentId = PT.PaymentId join Product P on P.ProductId = OD.OrderDetailsProductId where O.OrdersCustomerId = @OrdersCustomerId;		
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsOrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersOrderStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersShippingAddressId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Payment].[PaymentOrderId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPaymentId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Payment].[PaymentId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersDateOfOrder]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersDateOfOrderCompleted]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails].[OrderDetailsQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsTransactionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPayerName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsPayeeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsAmountPaid]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetOrderDetails].[@OrdersCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_GetOrderDetails].[@OrdersCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1134" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetOrderDetails]&#xD;&#xA;@OrdersCustomerId int&#xD;&#xA;&#x9;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetProductDetails]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Count int;		
+			SELECT 
+				P.ProductId,
+				P.ProductSubCategoryId,
+				P.ProductName,
+				P.ProductDescription,
+				P.ProductSpecification,
+				P.ProductOptions,
+				P.ProductPrice,
+				P.ProductBrand,
+				P.ProductQuantity,
+				P.ProductImageURL
+			FROM Product P JOIN SubCategory SC ON SC.SubCategoryId = P.ProductSubCategoryId
+			JOIN Category C on SC.SubCategoryCategoryId = C.CategoryId 
+			WHERE 
+			(
+			C.CategoryName  LIKE '%'+@ProductName+'%' OR
+			P.ProductName LIKE '%'+@ProductName+'%' OR
+			SC.SubCategoryName LIKE '%'+@ProductName+'%')
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category].[CategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductDescription]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductImageURL]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category].[CategoryName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetProductDetails].[@ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryName]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_GetProductDetails].[@ProductName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="672" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetProductDetails]&#xD;&#xA;&#x9;@ProductName varchar(100)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_GetShippingAddress]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SELECT 
+		ShippingAddressId,
+		ShippingAddressCustomerId,
+		ShippingAddressStreet,
+		ShippingAddressCity,
+		ShippingAddressState,
+		ShippingAddressZipcode,
+		ShippingAddressCountryCode,
+		ShippingAddressName
+	from ShippingAddress 
+	WHERE ShippingAddressCustomerId = @ShippingAddressCustomerId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetShippingAddress].[@ShippingAddressCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_GetShippingAddress].[@ShippingAddressCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="402" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_GetShippingAddress]&#xD;&#xA;&#x9;@ShippingAddressCustomerId INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_InsertCategory]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT;
+	select @Id = (SELECT COUNT(*) FROM Category)+1
+	INSERT INTO Category values( @Id , @CategoryName);
+	SELECT MAX(CategoryId) from Category;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertCategory].[@CategoryName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Category].[CategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertCategory].[@CategoryName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="248" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_InsertCategory]&#xD;&#xA;&#x9;@CategoryName varchar(50)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_InsertOrderStatusTable]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT COUNT(*) from OrderStatus)+1;
+	INSERT into OrderStatus values (@Id,@OrdersState);
+	select Max(OrdersStatusId) from OrderStatus;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertOrderStatusTable].[@OrdersState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertOrderStatusTable].[@OrdersState]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="263" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_InsertOrderStatusTable]&#xD;&#xA;&#x9;@OrdersState varchar(20)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_InsertProduct]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT;
+	set @Id = (SELECT COUNT(*) from Product)+1;
+	INSERT into Product values (@Id,@ProductSubCategoryId,@ProductName,@ProductDescription,@ProductSpecification,@ProductOptions,@ProductPrice,@ProductBrand,@ProductIsActive,@ProductQuantity,@ProductImageURL);
+	select Max(ProductId) from Product;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductSubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductDescription]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductIsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertProduct].[@ProductImageURL]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductSubCategoryId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductDescription]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductSpecification]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductOptions]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductPrice]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="2" />
+									<Property Name="Precision" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductBrand]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductIsActive]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertProduct].[@ProductImageURL]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="200" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="680" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_InsertProduct]&#x9;&#xD;&#xA;&#x9;@ProductSubCategoryId INT,&#xD;&#xA;&#x9;@ProductName varchar(100),&#xD;&#xA;&#x9;@ProductDescription nvarchar(1000),&#xD;&#xA;&#x9;@ProductSpecification nvarchar(MAX),&#xD;&#xA;&#x9;@ProductOptions nvarchar(MAX),&#xD;&#xA;&#x9;@ProductPrice DECIMAL(10,2),&#xD;&#xA;&#x9;@ProductBrand varchar(50),&#xD;&#xA;&#x9;@ProductIsActive bit,&#xD;&#xA;&#x9;@ProductQuantity int,&#xD;&#xA;&#x9;@ProductImageURL varchar(200)&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_InsertSubCategory]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT,@Count INT;
+	set @Id = (select COUNT(*) from SubCategory)+1;
+	INSERT INTO SubCategory values( @Id , @SubCategoryCategoryId, @SubCategoryName);
+	select Max(SubCategoryId) from SubCategory
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertSubCategory].[@SubCategoryCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_InsertSubCategory].[@SubCategoryName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertSubCategory].[@SubCategoryCategoryId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_InsertSubCategory].[@SubCategoryName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="332" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_InsertSubCategory]&#xD;&#xA;&#x9;@SubCategoryCategoryId INT,&#xD;&#xA;&#x9;@SubCategoryName varchar(100)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_LogInValidation]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	SELECT
+		CustomerId,
+		CustomerFirstName,
+		CustomerLastName,
+		CustomerMobile,
+		CustomerEmail
+	from Customer WHERE CustomerEmail = @CustomerEmail AND 
+	(select convert(nvarchar(100),DecryptByPassPhrase('key', CustomerPassword ))) = @CustomerPassword
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerFirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerLastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerMobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_LogInValidation].[@CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_LogInValidation].[@CustomerPassword]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_LogInValidation].[@CustomerEmail]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_LogInValidation].[@CustomerPassword]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="383" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_LogInValidation]&#xD;&#xA;&#x9;@CustomerEmail varchar(30),&#xD;&#xA;&#x9;@CustomerPassword varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_MakePayment]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Count int;
+	set @Count = (SELECT COUNT(*) from OrderDetails)+1;
+	INSERT into OrderDetails  values (@Count,@OrderDetailsProductId,@OrderDetailsOrdersId,@OrderDetailsQuantity,@OrderDetailsPrice);
+	SELECT @OrderDetailsOrdersId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_MakePayment].[@OrderDetailsProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_MakePayment].[@OrderDetailsOrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_MakePayment].[@OrderDetailsQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_MakePayment].[@OrderDetailsPrice]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_MakePayment].[@OrderDetailsProductId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_MakePayment].[@OrderDetailsOrdersId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_MakePayment].[@OrderDetailsQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_MakePayment].[@OrderDetailsPrice]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="18" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="416" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_MakePayment]&#xD;&#xA;&#x9;@OrderDetailsProductId  INT ,&#xD;&#xA;&#x9;@OrderDetailsOrdersId INT ,&#xD;&#xA;&#x9;@OrderDetailsQuantity INT ,&#xD;&#xA;&#x9;@OrderDetailsPrice DECIMAL&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_ModifyOrdersStatusTable]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	UPDATE OrderStatus set OrdersStatusState = @OrdersStatusState where OrdersStatusId = @OrdersStatusId;
+	SELECT OrdersStatusId from OrderStatus where OrdersStatusId = @OrdersStatusId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[OrderStatus]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_ModifyOrdersStatusTable].[@OrdersStatusState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderStatus].[OrdersStatusId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_ModifyOrdersStatusTable].[@OrdersStatusId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_ModifyOrdersStatusTable].[@OrdersStatusId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_ModifyOrdersStatusTable].[@OrdersStatusState]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="311" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_ModifyOrdersStatusTable]&#xD;&#xA;&#x9;@OrdersStatusId INT,&#xD;&#xA;&#x9;@OrdersStatusState varchar(20)&#xD;&#xA;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_PlaceOrder]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE 
+	@OrderId INT, 
+	@OrderDetailsId INT,
+	@CurrentDate DATETIME,
+	@PaymentId int,
+	@PaymentDetailsId int,
+	@validate INT;
+	set @validate = (select COUNT(*) from PaymentDetails where PaymentDetailsTransactionId = @PaymentDetailsTransactionId);
+
+	IF(@validate =0)
+	BEGIN
+
+				DECLARE @Id INT;
+				set @Id = (SELECT count(*) from ShippingAddress)+1;
+				INSERT into ShippingAddress values(@Id,@OrdersCustomerId,@ShippingAddressStreet,@ShippingAddressCity,@ShippingAddressState,@ShippingAddressZipcode,@ShippingAddressCountryCode,@ShippingAddressName);
+
+				set @OrderId = (SELECT COUNT(*) from Orders)+1;
+				set @CurrentDate = (SELECT GETDATE());
+				INSERT into Orders values (@OrderId,@OrdersCustomerId,@Id,@CurrentDate,2,NULL);
+	
+				set @PaymentId = (SELECT COUNT(*) from Payment)+1;
+				INSERT into Payment values(@PaymentId,@OrderId);
+
+				IF(@PaymentDetailsPaymentModeId != 1)
+				BEGIN
+					set @PaymentDetailsId = (SELECT COUNT(*) from PaymentDetails)+1;
+		
+					INSERT into PaymentDetails values(
+					@PaymentDetailsId,
+					@PaymentId,
+					@PaymentDetailsPaymentModeId,
+					@CurrentDate,
+					@PaymentDetailsAmountPaid,
+					@PaymentDetailsTransactionId,
+					@PaymentDetailsPayerId,
+					@PaymentDetailsPayerName,
+					@PaymentDetailsPayeeId,
+					@PaymentDetailsPayeeEmailId
+					);
+	
+				END
+				ELSE IF (@PaymentDetailsPaymentModeId = 1)
+				BEGIN
+					set @PaymentDetailsId = (SELECT COUNT(*) from PaymentDetails)+1;
+					INSERT into PaymentDetails values(
+					@PaymentDetailsId,
+					@PaymentId,
+					@PaymentDetailsPaymentModeId,
+					@CurrentDate,
+					@PaymentDetailsAmountPaid,
+					NULL,
+					NULL,
+					NULL,
+					NULL,
+					NULL
+					);
+				END
+
+				DECLARE @Count int;
+				set @Count = (SELECT COUNT(*) from OrderDetails)+1;
+				INSERT into OrderDetails  values (@Count,@OrderDetailsProductId,@OrderId,@OrderDetailsQuantity,@OrderDetailsPrice);
+				Update Product set ProductQuantity = ProductQuantity -@OrderDetailsQuantity where ProductId = @OrderDetailsProductId;
+
+
+				IF((SELECT COUNT(*) FROM Cart where CartCustomerId=@OrdersCustomerId AND CartProductId = @OrderDetailsProductId)!=0)
+				BEGIN
+					delete from Cart where CartCustomerId=@OrdersCustomerId AND CartProductId = @OrderDetailsProductId;
+				END
+				select @OrderId;
+		END
+		ELSE IF(@validate != 0)
+		BEGIN
+			DECLARE @Counts int,@OrderDetailsOrdersId int;
+			set @Counts = (SELECT COUNT(*) from OrderDetails)+1;
+			set @OrderDetailsOrdersId = (SELECT MAX(OrdersId) from Orders where OrdersCustomerId = @OrdersCustomerId);
+			INSERT into OrderDetails  values (@Counts,@OrderDetailsProductId,@OrderDetailsOrdersId,@OrderDetailsQuantity,@OrderDetailsPrice);
+			Update Product set ProductQuantity = ProductQuantity - @OrderDetailsQuantity where ProductId = @OrderDetailsProductId;
+
+
+			IF((SELECT COUNT(*) FROM Cart where CartCustomerId=@OrdersCustomerId AND CartProductId = @OrderDetailsProductId)!=0)
+			BEGIN
+				delete from Cart where CartCustomerId=@OrdersCustomerId AND CartProductId = @OrderDetailsProductId;
+			END
+			SELECT @OrderDetailsOrdersId;
+		END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[datetime]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails].[PaymentDetailsTransactionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsTransactionId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@OrdersCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Payment]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPaymentModeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PaymentDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsAmountPaid]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayerName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayeeId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayeeEmailId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[OrderDetails]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@OrderDetailsProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@OrderDetailsQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_PlaceOrder].[@OrderDetailsPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Orders].[OrdersCustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@OrderDetailsProductId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@OrderDetailsQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@OrderDetailsPrice]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="18" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressStreet]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressCity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressState]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressZipcode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@ShippingAddressCountryCode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@OrdersCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPaymentModeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsAmountPaid]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Precision" Value="18" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsTransactionId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayerName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayeeId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_PlaceOrder].[@PaymentDetailsPayeeEmailId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="3827" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_PlaceOrder]&#xD;&#xA;&#x9;@OrderDetailsProductId  INT ,&#xD;&#xA;&#x9;@OrderDetailsQuantity INT ,&#xD;&#xA;&#x9;@OrderDetailsPrice DECIMAL,&#xD;&#xA;&#x9;@ShippingAddressName varchar(30),&#xD;&#xA;&#x9;@ShippingAddressStreet varchar(100),&#xD;&#xA;&#x9;@ShippingAddressCity varchar(30), &#xD;&#xA;&#x9;@ShippingAddressState varchar(30), &#xD;&#xA;&#x9;@ShippingAddressZipcode varchar(10),&#xD;&#xA;&#x9;@ShippingAddressCountryCode varchar(10),&#xD;&#xA;&#x9;@OrdersCustomerId int,&#xD;&#xA;&#x9;@PaymentDetailsPaymentModeId int,&#xD;&#xA;&#x9;@PaymentDetailsAmountPaid Decimal,&#xD;&#xA;&#x9;@PaymentDetailsTransactionId nvarchar(20),&#xD;&#xA;&#x9;@PaymentDetailsPayerId nvarchar(20),&#xD;&#xA;&#x9;@PaymentDetailsPayerName varchar(30),&#xD;&#xA;&#x9;@PaymentDetailsPayeeId nvarchar(20),&#xD;&#xA;&#x9;@PaymentDetailsPayeeEmailId varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_RemoveCartItems]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @CartCount INT, @returnRemovedCartId int;
+	set @CartCustomerId = (Select @CartCustomerId from Cart where CartId = @CartId);
+	set @returnRemovedCartId = @CartId;
+
+	set @CartCount = (SELECT COUNT(*) from Cart);
+
+	DELETE from Cart WHERE CartId = @CartId;
+
+	while(@CartId <= @CartCount)
+	BEGIN
+	UPDATE Cart set CartId = @CartId WHERE CartId = @CartId+1;
+	set @CartId = @CartId + 1;
+	END
+	EXEC USP_GetCartItems @CartCustomerId;
+	
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_RemoveCartItems].[@CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_RemoveCartItems].[@CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetCartItems]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_RemoveCartItems].[@CartId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_RemoveCartItems].[@CartCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="546" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_RemoveCartItems]&#xD;&#xA;&#x9;@CartId INT,&#xD;&#xA;&#x9;@CartCustomerId INT&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_UpdateCartQuantity]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @CartProductCount INT,@Stock INT,@CartCount INT;
+	set @CartProductCount = (SELECT CartQuantity from Cart WHERE CartId = @CartId);
+	set @Stock = (SELECT P.ProductQuantity from Product P JOIN Cart C on P.ProductId = C.CartProductId  where C.CartId  = @CartId);
+
+
+	IF(@CartQuantity = @Stock)
+	BEGIN		
+		 EXEC USP_GetCartItems @CartCustomerId
+	END	
+	ELSE IF(@CartQuantity > @CartProductCount)
+	BEGIN
+		UPDATE Cart set CartQuantity = @CartQuantity WHERE CartId = @CartId;
+		update Cart set CartPrice = ((SELECT P.ProductPrice from Product P JOIN Cart C on P.ProductId = C.CartProductId where C.CartId = @CartId) * (SELECT CartQuantity from Cart where CartId = @CartId))
+		where CartId= @CartId;
+		EXEC USP_GetCartItems @CartCustomerId;		
+	END
+	ELSE IF(@CartQuantity < @CartProductCount)
+	BEGIN	
+		
+		UPDATE Cart set CartQuantity = @CartQuantity WHERE CartId = @CartId;
+		update Cart set CartPrice = ((SELECT P.ProductPrice from Product P JOIN Cart C on P.ProductId = C.CartProductId where C.CartId = @CartId) * (SELECT CartQuantity from Cart where CartId = @CartId))
+		where CartId= @CartId;
+		EXEC USP_GetCartItems @CartCustomerId;
+	END
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateCartQuantity].[@CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateCartQuantity].[@CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_GetCartItems]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateCartQuantity].[@CartCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Cart].[CartPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateCartQuantity].[@CartCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateCartQuantity].[@CartId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateCartQuantity].[@CartQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1290" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_UpdateCartQuantity]&#xD;&#xA;&#x9;@CartCustomerId INT,&#xD;&#xA;&#x9;@CartId INT,&#xD;&#xA;&#x9;@CartQuantity INT&#xD;&#xA;&#x9;&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_UpdatePassword]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @encryptedPassword varbinary(4000); 
+	set @encryptedPassword = EncryptByPassPhrase('key', @CustomerPassword)
+	UPDATE Customer set CustomerPassword = @encryptedPassword where CustomerEmail = @CustomerEmail;
+	SELECT COUNT(*) FROM Customer where CustomerEmail = @CustomerEmail ;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varbinary]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdatePassword].[@CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdatePassword].[@CustomerEmail]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdatePassword].[@CustomerEmail]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdatePassword].[@CustomerPassword]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="410" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_UpdatePassword]&#xD;&#xA;&#x9;@CustomerEmail varchar(30),&#xD;&#xA;&#x9;@CustomerPassword varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_UpdateProductDetails]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @SubCategoryId INT;
+	set @SubCategoryId = (SELECT SubCategoryId from SubCategory where SubCategoryName = @ProductSubCategoryName);
+	UPDATE Product 
+			set ProductSubCategoryId = @SubCategoryId,
+				ProductName = @ProductName,
+				ProductDescription = @ProductDescription,
+				ProductSpecification = @ProductSpecification,
+				ProductOptions = @ProductOptions,
+				ProductPrice = @ProductPrice,
+				ProductBrand = @ProductBrand,
+				ProductIsActive = @ProductIsActive,
+				ProductQuantity = @ProductQuantity,
+				ProductImageURL= @ProductImageURL
+			WHERE ProductId = @ProductId;
+			SELECT ProductId from Product where ProductId = @ProductId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SubCategory].[SubCategoryName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductSubCategoryName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSubCategoryId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductDescription]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductDescription]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductSpecification]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductOptions]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductPrice]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductBrand]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductIsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductIsActive]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductQuantity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductImageURL]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductImageURL]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Product].[ProductId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProductDetails].[@ProductId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductSubCategoryName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductDescription]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductSpecification]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductOptions]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="IsMax" Value="True" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductPrice]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Scale" Value="2" />
+									<Property Name="Precision" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[decimal]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductBrand]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductIsActive]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductQuantity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProductDetails].[@ProductImageURL]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="200" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="1067" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_UpdateProductDetails]&#xD;&#xA;&#x9;@ProductId INT,&#xD;&#xA;&#x9;@ProductSubCategoryName varchar(50),&#xD;&#xA;&#x9;@ProductName varchar(100),&#xD;&#xA;&#x9;@ProductDescription nvarchar(1000),&#xD;&#xA;&#x9;@ProductSpecification nvarchar(MAX),&#xD;&#xA;&#x9;@ProductOptions nvarchar(MAX),&#xD;&#xA;&#x9;@ProductPrice DECIMAL(10,2),&#xD;&#xA;&#x9;@ProductBrand varchar(50),&#xD;&#xA;&#x9;@ProductIsActive int,&#xD;&#xA;&#x9;@ProductQuantity int,&#xD;&#xA;&#x9;@ProductImageURL varchar(200)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_UpdateProfile]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	DECLARE @Id INT,@encryptedPassword varbinary(4000); 
+	set @encryptedPassword = EncryptByPassPhrase('key', @CustomerPassword)
+
+	update Customer set CustomerFirstName = @CustomerFirstname, CustomerLastName = @CustomerLastname, CustomerMobile = @CustomerMobile, CustomerEmail = @CustomerEmail, CustomerPassword = @encryptedPassword where CustomerId = @CustomerId;
+	SELECT @CustomerId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[int]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varbinary]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerFirstName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerFirstname]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerLastName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerLastname]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerMobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerMobile]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerEmail]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerPassword]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Customer].[CustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateProfile].[@CustomerId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerFirstname]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerLastname]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerMobile]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="15" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerEmail]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateProfile].[@CustomerPassword]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="625" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_UpdateProfile]&#xD;&#xA;&#x9;@CustomerId INT,&#xD;&#xA;&#x9;@CustomerFirstname varchar(50),&#xD;&#xA;&#x9;@CustomerLastname varchar(50),&#xD;&#xA;&#x9;@CustomerMobile varchar(15),&#xD;&#xA;&#x9;@CustomerEmail varchar(30),&#xD;&#xA;&#x9;@CustomerPassword varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[USP_UpdateShippingAddress]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	UPDATE ShippingAddress
+		set ShippingAddressCustomerId = @ShippingAddressCustomerId,
+			ShippingAddressStreet = @ShippingAddressStreet,
+			ShippingAddressCity = @ShippingAddressCity,
+			ShippingAddressState =@ShippingAddressState,
+			ShippingAddressZipcode = @ShippingAddressZipcode,
+			ShippingAddressCountryCode=@ShippingAddressCountryCode,
+			ShippingAddressName = @ShippingAddressName
+			WHERE 
+			ShippingAddressId = @ShippingAddressId;
+	select ShippingAddressId from ShippingAddress where ShippingAddressId = @ShippingAddressId;
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[ShippingAddress]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCustomerId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressStreet]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCity]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressState]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressZipcode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCountryCode]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressName]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[ShippingAddress].[ShippingAddressId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCustomerId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressStreet]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCity]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressState]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressZipcode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressCountryCode]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[USP_UpdateShippingAddress].[@ShippingAddressName]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="30" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="904" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[USP_UpdateShippingAddress]&#xD;&#xA;&#x9;@ShippingAddressId INT,&#xD;&#xA;&#x9;@ShippingAddressCustomerId INT,&#xD;&#xA;&#x9;@ShippingAddressStreet varchar(100),&#xD;&#xA;&#x9;@ShippingAddressCity varchar(30), &#xD;&#xA;&#x9;@ShippingAddressState varchar(30), &#xD;&#xA;&#x9;@ShippingAddressZipcode varchar(10),&#xD;&#xA;&#x9;@ShippingAddressCountryCode varchar(10),&#xD;&#xA;&#x9;@ShippingAddressName varchar(30)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+	</Model>
+</DataSchemaModel>

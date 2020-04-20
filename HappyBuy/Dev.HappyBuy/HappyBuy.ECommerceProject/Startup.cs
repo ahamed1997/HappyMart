@@ -87,6 +87,7 @@ namespace HappyBuy.ECommerceProject
             services.AddTransient<IHBCartBL, HBCartBL>();
             services.AddTransient<IHBCustomerBL, HBCustomerBL>();
             services.AddTransient<IHBProductBL, HBProductBL>();
+            services.AddTransient<IHBOrderBL, HBOrderBL>();
         }
 
         /// <summary>

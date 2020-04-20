@@ -1,0 +1,17 @@
+.page-link:active{
+    background:black;
+    color: aliceblue;
+    position: fixed;
+  }
+ .page-link:focus{
+    background:black;
+    color: aliceblue;
+  }
+  .page-item
+  {
+    background-color: white;
+    color: black;
+  }
+  .page-link{
+      border-radius: 3px;
+  }
