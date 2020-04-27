@@ -1,166 +1,43 @@
-// import React, { Component } from 'react'
-// import axios from 'axios';  
-// import './Home.css';
-// import {toast } from 'react-toastify';
-// import Rating from '@material-ui/lab/Rating';
-// import Image from './Image';
-// import { Tooltip } from '@material-ui/core';
-
-// import {
-//   Card, CardImg, CardText, CardBody,
-//   CardTitle, CardSubtitle, Button,Container, Row, Col 
-// } from 'reactstrap';
-
-// import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
-// import { Link } from 'react-router-dom';
-
-// export default class Home extends Component {
-//   state = {loading: true}
-//   constructor({props}){
-//      console.log(props)
-//     super(props);
-//     this.state = {
-//         products:[]
-//     }
-        
-// }
-// componentDidMount() {
-//   const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-//   axios.post('https://localhost:44376/api/GetAllProducts',{
-//   headers:headers
-// }).then(json=>{
-//   if( json.status === 200){  
-//     const products = json.data;
-//     console.log(json.data)
-//     this.setState({ products: products });
-//   }
-//   else 
-//   {
-//     alert('No Products Found');
-//   }
-// })
-// }
-// placeOrder(product){
-//   console.log(product.productBrand)
-//   const test = {ProductName : product.productName, ProductId : product.productId};
-//   console.log(test)
-//   this.props.history.push("/placeOrder/"+test);
-//   console.log(product)
-// }
-// handleAddtoCart(productId){
-//   const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-//   const userInfo = sessionStorage.getItem('userInfo');
-//   if( userInfo != null)
-//   {
-//     const AddToCart ={CartCustomerId : sessionStorage.getItem('userId'),CartProductId: productId,CartQuantity: 1}
-//     console.log(productId)
-//     axios.post('https://localhost:44376/api/AddToCart', AddToCart ,{headers:headers})     
-//         .then(res =>{
-//            if(res.data < 6){
-//             toast.success('Added to Cart Successfully!',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
-//            }
-//            else{
-//             toast.error('Sorry, You can add only 5 items in Cart at a time!',{position:toast.POSITION.TOP_CENTER, autoClose:false})
-//            }
-//           })  
-//   }
-//   else{
-//     this.history.push('/login');
-//   }
-// }
-//   render() {
-//     const {
-//       products
-//    } = this.state;
-//    let productList = this.state.products.map(product=>{
-    
-//      return (
-//        <Col sm="3" className="blog">       
-//             <Card>          
-//               <CardBody>
-//               <Tooltip title={product.productName} placement="bottom-start">
-//                 <Image match={product.productId}/> 
-//                 </Tooltip>                           
-//                 <CardTitle>
-//                   <p className="title">{product.productName} </p>  
-                           
-//                 </CardTitle>
-//                 <CardSubtitle>
-//                     <h2 className="Offers">"FLAT 50 %"</h2>
-//                 </CardSubtitle>
-//                 <CardSubtitle>
-//                     <b className="price"> Price : &#x20b9;{product.productPrice}</b>
-//                 </CardSubtitle>
-//                 <strike>&#x20b9;{product.productPrice*2}</strike> 
-//                 <i> You save : &#x20b9;{product.productPrice}</i>
-//                 <CardText>
-//                       <p className="description">Brand : {product.productBrand}</p><Rating name="size-medium" defaultValue={product.productQuantity} />
-//                 </CardText>
-//                 <b>{
-//                 product.productSpecification.Series}</b>
-//                 <Button className="btn btn-warning btn-rounded" type="button" onClick={this.handleAddtoCart.bind(this,product.productId)}><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>
-//                 &nbsp;&nbsp;&nbsp;&nbsp;
-                
-//                 <Link to={{pathname:"/placeOrder",
-//                         state:{
-//                           placeProduct : product
-//                         }}}
-//                   className="btn btn-success btn-rounded">
-//                  BUY NOW
-//                 </Link>               
-//               </CardBody>                
-//             </Card>                                 
-//        </Col>
-//      )
-//    })
-//     return (
-//       <div className="frame">
-//           <Container fluid>
-//           <Row>
-//               {productList}
-//           </Row>
-//         </Container> 
-//       </div>      
-//     )
-//   }
-// }
-
-////BACK UP-----------------------------------------------------------------------------------------------------------
-
 
 import React, { useState, useEffect  } from 'react'
 import axios from 'axios';  
+import {message} from 'antd';
+import {FastBackwardOutlined,StepForwardOutlined,StepBackwardOutlined,FastForwardOutlined} from '@ant-design/icons';
 import './Home.css';
 import { useHistory } from "react-router-dom";
-import {toast } from 'react-toastify';
-import Rating from '@material-ui/lab/Rating';
 import Image from './Image';
-import { Tooltip } from '@material-ui/core';
-import {  Card, CardImg, CardText, CardBody,  CardTitle, CardSubtitle, Button,Container, Row, Col } from 'reactstrap';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+import {  FormControl } from '@material-ui/core';
+import { CardBody,  CardTitle,Button, CardSubtitle,Container,InputGroup, Row, Col, CardFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Pagination from './Pagination';
+import { Tooltip ,Spin} from 'antd';
+import Filter from './Filter';
+import AuthService from './AuthService';
+
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading,setLoading]=useState(false);
   const [currentPage,setCurrentPage]= useState(1);
-  const [productPerPage, setproductPerPage] = useState(4);
+  const [productPerPage, setproductPerPage] = useState(12);
   const [test,setTest]=useState([]);
+  const [filteredProducts,setFileteredProducts]=useState([]);
+  const key = 'updatable';
   let history = useHistory();
     useEffect(() => {
       async function fetchData() {
         const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-      axios.post('https://localhost:44376/api/GetAllProducts',{
-      headers:headers
-    }).then(json=>{
+    //   axios.post('https://localhost:44376/api/GetAllProducts',{
+    //   headers:headers
+    // })
+    AuthService.getAllProducts()    
+    .then(json=>{
       if( json.status === 200){  
         const products = json.data;
         console.log(json.data)
         setProducts(json.data)
+        setFileteredProducts(json.data)
         for(let i=0;i<products.length;i++)
         {
-          console.log(test[i]);
           setTest([
             ...test,products[i]
           ])
@@ -176,7 +53,6 @@ export default function Home() {
       fetchData();
     },[]);
 
-  
  
   function handleAddtoCart(productId){
     const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
@@ -186,12 +62,16 @@ export default function Home() {
       const AddToCart ={CartCustomerId : sessionStorage.getItem('userId'),CartProductId: productId,CartQuantity: 1}
       console.log(productId)
       axios.post('https://localhost:44376/api/AddToCart', AddToCart ,{headers:headers})     
-          .then(res =>{
+          .then(res =>{console.log(res.data)
              if(res.data < 6){
-              toast.success('Added to Cart Successfully!',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
-             }
+                message.loading({ content: 'Loading...', key });
+              setTimeout(() => {
+                message.success({ content: ' Added to Cart Successfully!', key, duration: 2 });
+              }, 1000);
+                        }
              else{
-              toast.error('Sorry, You can add only 5 items in Cart at a time!',{position:toast.POSITION.TOP_CENTER, autoClose:false})
+              message.error('Sorry, You can add only 5 items in Cart at a time!');
+
              }
             })  
     }
@@ -200,58 +80,118 @@ export default function Home() {
     }
   }
 
+  
+  function firstPage(){
+    if(currentPage>1){
+      setCurrentPage(1)
+    }
+  }
+  function prevPage(){
+    if(currentPage>1){
+      setCurrentPage(currentPage-1)
+    }
+  }
+  function nextPage(){
+    if(currentPage < Math.ceil(filteredProducts.length/productPerPage)){
+      setCurrentPage(currentPage + 1)
+    }
+  }
+  function lastPage(){
+    if(currentPage < Math.ceil(filteredProducts.length/productPerPage)){
+      setCurrentPage(Math.ceil(filteredProducts.length/productPerPage))
+    }
+    
+  }
+
+  
+  const filter = (prod)=>{console.log(prod); setFileteredProducts(prod)}
+  console.log(filteredProducts)
   const indexOfLastProduct = currentPage * productPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct,indexOfLastProduct);
-  const paginate = (pageNumber)=> setCurrentPage(pageNumber);
+  const indexOfFirstProduct= indexOfLastProduct - productPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct,indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length/productPerPage);
+  const pageNumberCss ={
+    width:"45px",
+    border:"1px solid #17A2B8",
+    color:"#17A2B8",
+    textAlign:"center",
+    fontWeight:"bold"
+  }
   return (
     <div> 
+      {filteredProducts.length > 0 ?
+        <Filter  filter={filter}  product={products}/> :<div></div>      
+      } 
+      {products.length === 0 ? (<div className="text-center" style={{"float":"center"}}><Spin size="large" /></div> ):(
+       <div className="frame"> 
+            <div className="text-center">    
+           
 
-       <div className="frame">  
-        <div className="Pagination"> 
-            <Pagination productsPerPage={productPerPage} totalProducts={products.length} paginate={paginate}/>
-          </div>
+              </div>
+
             <Container fluid style={{ marginTop: 30}}>
                <Row >     
               {
              currentProducts.map(product =>
-                <Col sm="3" className="blog" key={product.productId}>   
-                <Card>          
+                <Col sm="3" className="blog" key={product.productId}>    
                   <CardBody> 
-                  <Link to={{pathname:"/view",state:{placeProduct : product}}}>              
-                        <Image match={product.productId}/> 
-                      </Link>
+                  <Tooltip placement="bottom" title={product.productName}>
+                  <Link to={{pathname:"/view",state:{placeProduct : product}}}> 
+                  <Image match={product.productId}/>               
+                      </Link>     
+                       </Tooltip>             
                     <CardTitle>
                       <p className="title">{product.productName} </p>          
                     </CardTitle>
                     <CardSubtitle>
                       <b className="price"> Price : &#x20b9;{product.productPrice}</b>
                     </CardSubtitle>
-                    
-                    {product.productQuantity >5 ?
+                    {product.productQuantity >5 ?(
                     <div>
-                      
                     <Button className="btn btn-warning " value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)} type="button"><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>
                       &nbsp;&nbsp;&nbsp;
+                      
                     <Link to={{pathname:"/placeOrder",state:{placeProduct : product}}}className="btn btn-success btn-rounded">BUY NOW</Link>            
                     </div>
-                      :(
+                      ):(
                         <div>
-                         
-                       
-                                    <h5 className="Offers">"OUT OF STACK"</h5>
-                          
+                          <h5 className="Offers">"OUT OF STACK"</h5>
                         </div>
                       )
                     }
-                    
                 </CardBody>
-              </Card>
              </Col> 
               )}
             </Row>
         </Container>
-    </div>  
+            <CardFooter>
+              <div style={{"float":"left"}}>
+                      <b>Showing Results : {currentPage} of {totalPages}</b>
+              </div>
+              <div style={{"float":"right"}}>
+                        <InputGroup size="sm">
+                        <div style={{"float":"left"}}>
+                        <button className="btn btn-outline-dark" disabled={currentPage === 1? true:false} onClick={firstPage}>
+                        <FastBackwardOutlined />
+                        </button >
+                        <button className="btn btn-outline-dark" disabled={currentPage === 1? true:false} onClick={prevPage}>
+                        <StepBackwardOutlined />
+                          </button>
+                        </div>
+                        <input className="bg-dark" style={pageNumberCss} name ="currentPage" value ={currentPage} disabled />
+                        <div style={{"float":"right"}}>
+                        <button  className="btn btn-outline-dark" disabled={currentPage === totalPages ? true:false} onClick={nextPage}>
+                        <StepForwardOutlined />
+                          </button> 
+                          <button className="btn btn-outline-dark" disabled={currentPage === totalPages ? true:false} onClick={lastPage}>
+                          <FastForwardOutlined />
+                          </button>
+                        </div>
+                        </InputGroup>
+              </div>
+            </CardFooter>
+    </div> 
+      )} 
  </div>
 );
 

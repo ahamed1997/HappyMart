@@ -1,25 +1,23 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Menu,Input,Button } from 'antd';
-
+import { Menu,Button } from 'antd';
 import {toast } from 'react-toastify';
-
-import {
-  MenuUnfoldOutlined,CustomerServiceOutlined,
-  MenuFoldOutlined,DownOutlined,EditOutlined,
-  PieChartOutlined,SearchOutlined,SettingOutlined,AppstoreAddOutlined,BarsOutlined,
-  DesktopOutlined,BookOutlined,PoweroffOutlined,
-  CheckCircleOutlined,UserSwitchOutlined,UserOutlined,ShoppingCartOutlined,ShoppingOutlined,
-  ContainerOutlined,UsergroupAddOutlined,LogoutOutlined
-} from '@ant-design/icons';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {CustomerServiceOutlined,EditOutlined,SearchOutlined,SettingOutlined,AppstoreAddOutlined,BarsOutlined,
+  UserOutlined,ShoppingCartOutlined,ShoppingOutlined,LogoutOutlined} from '@ant-design/icons';
+import { InputGroup } from 'reactstrap';
+import { Link } from "react-router-dom";
+import {  notification } from 'antd';
 import { dark } from '@material-ui/core/styles/createPalette';
 import './NavbarComponent.css'
-import SideNavbar from './SideNavbar';
-const { Search } = Input;
-const { SubMenus } = Menu;
 const { SubMenu } = Menu;
-
+const inputCss ={
+  border: "0",
+  outline:"0",
+  background: "transparent",  
+  borderBottom: "2px solid black",
+  fontWeight:"bold",
+  width:"350px"
+}
 class NavbarIn extends React.Component {
   constructor(props){  
     super(props)  
@@ -35,12 +33,6 @@ class NavbarIn extends React.Component {
   
 
 
-  handleClick = e => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
-  };
   fixSearchItem(e){
     e.preventDefault();
     this.setState({[e.target.name]:e.target.value});  
@@ -49,44 +41,43 @@ class NavbarIn extends React.Component {
   logOut() {
     sessionStorage.removeItem("userInfo");  
     sessionStorage.clear("userId");
-    toast.success('Thanks for visiting our site!',{position:toast.POSITION.TOP_RIGHT, autoClose:3000})
+    notification['success']({
+      message: 'Logged out !',
+      description:
+        'Thanks for visiting HappyBuy',
+    });  
     
   } 
 
   render() {
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" >
+      <div>
+    <Menu className="navbar" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" >
       <Menu.Item key="mail">
-        <Link className="navbar-brand" to={"/home"}><img className="logo" src={ require('../images/logo1.jpg') } /><b  style={{ color : dark}}><i>Happy Buy</i></b> </Link>
+        <Link className="navbar-brand" to={"/home"}><img className="logo" alt="" src={ require('../images/logo1.jpg') } /><b  style={{ color : dark}}><i>Happy Buy</i></b> </Link>
       </Menu.Item>
       <Menu.Item key="app" onSubmit={this.onFormSubmit}>
-      <Input
-       name="searchItem"
-      placeholder="Serach for products"
-      value={this.state.searchItem} 
-      onChange={this.fixSearchItem}
-      style={{ width: 500 }}
-    />   
+      <InputGroup>
+        <input style={inputCss} value={this.state.searchItem}  onChange={this.fixSearchItem} className="form-control"  name="searchItem" type="text" placeholder="Search" aria-label="Search" />
+        <Button size="large" href={"/searchProduct/"+this.state.searchItem} disabled={this.state.searchItem.length > 0  ? false : true}  icon={<SearchOutlined />}>Search</Button>
+    </InputGroup> 
       </Menu.Item>
-      <Link  className="btn btn-outline-secondary" to={"/searchProduct/"+this.state.searchItem}> <SearchOutlined /> </Link>
       <SubMenu
         title={
           <span className="submenu-title-wrapper">
          <BarsOutlined />   Search by Category
           </span>
-        }
-      >
+        }>
         <Menu.ItemGroup title="Categories">
-          <Menu.Item key="setting:1"> <Link type="submit"  to={"/searchProduct/Appliances,Electronics"}>Appliances,Electronics</Link></Menu.Item>
-          <Menu.Item key="setting:2"><Link type="submit"  to={"/searchProduct/Men's Fashions"}>Men's Fashions</Link></Menu.Item>
-          <Menu.Item key="setting:3"><Link type="submit"  to={"/searchProduct/Womens's Fashions"}>Womens's Fashions</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Books"}>Books</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Home,Kitchen,Pets"}>Home,Kitchen,Pets</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Sports,Fitness"}>Sports,Fitness</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Mobiles,Computers"}>Mobiles,Computers</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Toys,Baby Products"}>Toys,Baby Products</Link></Menu.Item>
-          <Menu.Item key="setting:4"><Link type="submit"  to={"/searchProduct/Gift Cards"}>Gift Cards</Link></Menu.Item>
-
+          <Menu.Item > <Link  to={"/searchProduct/"+"Appliances,Electronics"}>Appliances,Electronics</Link></Menu.Item>
+          <Menu.Item key="setting:2"><Link  to={"/searchProduct/Men's Fashions"}>Men's Fashions</Link></Menu.Item>
+          <Menu.Item key="setting:3"><Link   to={"/searchProduct/Women's Fashions"}>Women's Fashions</Link></Menu.Item>
+          <Menu.Item key="setting:4"><Link  to={"/searchProduct/Books"}>Books</Link></Menu.Item>
+          <Menu.Item key="setting:5"><Link   to={"/searchProduct/Home,Kitchen,Pets"}>Home,Kitchen,Pets</Link></Menu.Item>
+          <Menu.Item key="setting:6"><Link   to={"/searchProduct/Sports,Fitness"}>Sports,Fitness</Link></Menu.Item>
+          <Menu.Item key="setting:7"><Link   to={"/searchProduct/Mobiles,Computers"}>Mobiles,Computers</Link></Menu.Item>
+          <Menu.Item key="setting:8"><Link  to={"/searchProduct/Toys,Baby Products"}>Toys,Baby Products</Link></Menu.Item>
+          <Menu.Item key="setting:9"><Link   to={"/searchProduct/Gift Cards"}>Gift Cards</Link></Menu.Item>
         </Menu.ItemGroup>
       </SubMenu>
       <SubMenu 
@@ -119,10 +110,12 @@ class NavbarIn extends React.Component {
         <Link type="submit"  to={"/cart"}><b>Cart</b></Link>
          </Menu.Item>
         <Menu.Item className="links">
-        <Link type="submit" onClick={this.logOut} to={"/login"}><LogoutOutlined /><b>LogOut</b></Link>
+        <Link type="submit" onClick={this.logOut} to={"/happybuy"}><LogoutOutlined /><b>LogOut</b></Link>
       </Menu.Item>
     </Menu>
 
+      </div>
+      
     );
   }
 }

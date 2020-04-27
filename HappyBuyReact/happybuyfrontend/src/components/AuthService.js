@@ -9,12 +9,23 @@ class AuthService {
         return axios.post(USER_API_BASE_URL + 'LogIn', credentials);
     }
 
-    getUserInfo(){
-        return JSON.parse(sessionStorage.getItem("userInfo"));
+    getAllProducts()
+    {
+        return axios.post(USER_API_BASE_URL + 'GetAllProducts', {}, this.getAuthHeader());
     }
 
-    getAuthHeader() {
-       return {headers: {Authorization: 'Bearer ' + this.getUserInfo().token }};
+    getProducts(key)
+    {
+        return axios.post(USER_API_BASE_URL + 'GetProducts',key, this.getAuthHeader());
+    }
+
+    getUserInfo(){
+        return sessionStorage.getItem("userInfo");
+    }
+
+    getAuthHeader() {       
+
+       return {headers: {'Content-Type': 'application/json','Accept': 'application/json', Authorization: 'Bearer ' + this.getUserInfo()}};
     }
 
     logOut() {

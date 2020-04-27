@@ -1,14 +1,11 @@
-
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';  
 import 'reactjs-toastr/lib/toast.css';
 import './SignUp.css' ;
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {LoginOutlined ,LeftCircleFilled,WarningFilled } from '@ant-design/icons';
-
-
 const emailRegex = RegExp(/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/);
 
 export default class ForgotPassword extends Component {
@@ -38,7 +35,7 @@ export default class ForgotPassword extends Component {
               headers:headers
             })  
           .then(json => {console.log(json.data)
-            if( json.data == 1){  
+            if( json.data === 1){  
                 toast.success('Password updated Successfully!',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
                 this.props.history.push('/login');              
             }
@@ -64,7 +61,7 @@ export default class ForgotPassword extends Component {
     handleSubmit = e =>{
         e.preventDefault()
         console.log(this.state.formErrors)
-        if(this.state.CustomerEmail != null && this.state.formErrors.CustomerEmail == "")
+        if(this.state.CustomerEmail !== null && this.state.formErrors.CustomerEmail === "")
         {  
           const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
           const forgotPassword = {CustomerEmail:this.state.CustomerEmail}
@@ -72,7 +69,7 @@ export default class ForgotPassword extends Component {
               headers:headers
             })  
           .then(json => {console.log(json.data)
-            if( json.data != ''){  
+            if( json.data !== ''){  
               this.setState({isEmailValid:true}) 
               this.setState({Otp:json.data})
             }
@@ -93,7 +90,7 @@ export default class ForgotPassword extends Component {
       validateOtp = (e)=>
       {
           e.preventDefault()
-         if(this.state.userOtp == this.state.Otp)
+         if(this.state.userOtp === this.state.Otp)
          {
              this.setState({isOtpValid:false})
              this.setState({error:false})

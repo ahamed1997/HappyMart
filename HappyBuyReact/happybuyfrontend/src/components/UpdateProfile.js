@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';  
 import 'reactjs-toastr/lib/toast.css';
 import './SignUp.css' ;
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Input } from 'antd';
 import {EditOutlined,LockOutlined} from '@ant-design/icons';
 
 const formValid = ({formErrors, ...rest}) => {
-
   let valid = true;
   Object.values(formErrors).forEach(val=>
     {
@@ -48,7 +46,7 @@ const mobileRegex = RegExp(/^\d{10}$/);
     {
       const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
       const CustomerId = {CustomerId: sessionStorage.getItem('userId') }
-      const res = axios.post('https://localhost:44376/api/GetMyProfile', CustomerId ,{headers:headers})     
+      axios.post('https://localhost:44376/api/GetMyProfile', CustomerId ,{headers:headers})     
       .then(json=>{
         this.setState({ CustomerFirstName:json.data[0].customerFirstName});
         this.setState({ CustomerLastName:json.data[0].customerLastName});
@@ -62,9 +60,9 @@ const mobileRegex = RegExp(/^\d{10}$/);
     {  
       const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
       const Customer = {CustomerId: sessionStorage.getItem('userId'),CustomerFirstName:this.state.CustomerFirstName,CustomerLastName:this.state.CustomerLastName,CustomerMobile:this.state.CustomerMobile,CustomerEmail:this.state.CustomerEmail,CustomerPassword:this.state.CustomerPassword}
-      const res = axios.post('https://localhost:44376/api/updateProfile', Customer ,{headers:headers})     
+      axios.post('https://localhost:44376/api/updateProfile', Customer ,{headers:headers})     
       .then(json=>{
-        if(json.data==sessionStorage.getItem('userId')){
+        if(json.data===sessionStorage.getItem('userId')){
           toast.success('Profile Updated Successfully',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
           this.props.history.push('/home');        }
       }) 
@@ -77,13 +75,13 @@ const mobileRegex = RegExp(/^\d{10}$/);
 
   handleValidation =(e)=>
   {
-    if(this.state.Password != null)
+    if(this.state.Password !== null)
     {
       const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
       const CustomerId = {CustomerId: sessionStorage.getItem('userId'),CustomerPassword:this.state.Password }
-      const res = axios.post('https://localhost:44376/api/UpdateProfileValidation', CustomerId ,{headers:headers})     
+      axios.post('https://localhost:44376/api/UpdateProfileValidation', CustomerId ,{headers:headers})     
       .then(json=>{
-        if(json.data != 0)
+        if(json.data !== 0)
         {
           this.setState({isValidProfile:true})
         }
@@ -175,7 +173,7 @@ const mobileRegex = RegExp(/^\d{10}$/);
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" name="CustomerPassword"  noValidate onChange={this.handleChange} maxLength="10" value={this.state.CustomerPassword} onChange={this.handleChange} value={this.state.CustomerFirstname} className="form-control" placeholder="Enter password" />
+                            <input type="password" name="CustomerPassword"  noValidate  maxLength="10" value={this.state.CustomerPassword} onChange={this.handleChange}  className="form-control" placeholder="Enter password" />
                             {formErrors.CustomerPassword.length>0 &&(
                               <span className="errorMessage">{formErrors.CustomerPassword}</span>
                             )}

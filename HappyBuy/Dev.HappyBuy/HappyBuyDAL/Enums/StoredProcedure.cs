@@ -153,5 +153,10 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for getting Options.
         /// </summary>
         USP_GetOptions = 29,
+
+        /// <summary>
+        /// Stored Procedure for Admin LogIn Validation.
+        /// </summary>
+        USP_AdminLogInValidation = 30,
     }
 }

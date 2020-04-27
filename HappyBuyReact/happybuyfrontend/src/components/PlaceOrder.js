@@ -1,51 +1,12 @@
-// import { Tooltip } from '@material-ui/core';
-// import React, { Component ,useRef} from 'react' 
-// import Image from './Image';
-// export default class PlaceOrder extends Component {
-//     constructor({ match, ...props }){  
-//         console.log(match.params)
-//                 super(props)  
-//                 this.state = {  
-//                     searchItem :'',
-//                     products:[],
-//                     paidFor:false,
-//                     loaded:false
-//                     }  
-                   
-//             }  
-//     componentDidMount(){
-//         console.log(this.props.location.state)
-//         const{placeProduct}= this.props.location.state 
-//         this.setState({products:placeProduct})
-        
-//     }
-//     render() {
-  
-//         return (
-//               <div>
-//                  <h1>{this.state.products.productId}</h1>
-//               </div>      
-//         )
-    
-//       }
-    
-// }
-
 import React, { useState, useEffect,useRef  } from 'react'
 import axios from 'axios';  
 import './Placeorder.css';
-import {  Card, CardImg, CardText, CardBody,  CardTitle, CardSubtitle,Container, Row, Col } from 'reactstrap';
 import Image from './Image';
-import {toast } from 'react-toastify';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import PaymentResult from './PaymentResult';
 import './EmptyCart.css';
 import { Result, Button } from 'antd';
-
-
 function PlaceOrder(...match) {
-  console.log(match)
  let ShippingAddressStreet;let ShippingAddressCity;let ShippingAddressState;let ShippingAddressZipcode;let ShippingAddressCountryCode;let PaymentDetailsPayerName;let PaymentDetailsPayeeEmailId;let PaymentDetailsPayeeId; let res1=0;let res2=0;let res3=0;
   const [product,setProduct] = useState(match[0].location.state.placeProduct);
   const [paidFor,setPaidFor] = useState(false);

@@ -1,28 +1,25 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios'; 
 import { useHistory } from "react-router-dom";
-import { Table,Collapse, Button, CardBody, Card ,Modal, ModalHeader, ModalBody, ModalFooter,Container, Row, Col   } from 'reactstrap';
+import { Table, Button, Modal, ModalHeader, ModalBody, Container, Row, Col   } from 'reactstrap';
 import Pagination from './Pagination';
 
 function Orders(props) {
     const [orders, setOrders] = useState([]);
     const [currentPage,setCurrentPage]= useState(1);
     const [productPerPage, setproductPerPage] = useState(5);
-    const product = {OrdersCustomerId: sessionStorage.getItem('userId') }
-    
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
-  const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-  
-
-    const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+    const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
     let history = useHistory();
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.post('https://localhost:44376/api/GetOrderDetails', product ,{headers:headers})     
+        const product = {OrdersCustomerId: sessionStorage.getItem('userId') }
+        const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
+      await axios.post('https://localhost:44376/api/GetOrderDetails', product ,{headers:headers})     
         .then(res =>{
             console.log(res.data);
-           if(res.data.length != 0)
+           if(res.data.length !== 0)
            {
             setOrders(res.data)
            } else{
@@ -38,7 +35,6 @@ function Orders(props) {
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
   const currentOrders = orders.slice(indexOfFirstProduct,indexOfLastProduct);
   const paginate = (pageNumber)=> setCurrentPage(pageNumber);
-  let count =0;
     return (
         <div>           
              <Table responsive>
@@ -57,7 +53,7 @@ function Orders(props) {
                 {
                 currentOrders.map(order =>
                     <tbody>
-                        <tr>
+                        <tr key ={order.orderId}>
                             <th scope="row"></th>
                             <td>{order.paymentDetailsTransactionId}</td>
                             <td>{order.productName}</td>
@@ -72,7 +68,7 @@ function Orders(props) {
                            
                         </tr>
                             <Modal isOpen={modal} toggle={toggle} >
-                            <ModalHeader toggle={toggle} close={closeBtn}><img className="logo" src={ require('../images/logo1.jpg') } />Order Details</ModalHeader>
+                            <ModalHeader toggle={toggle} close={closeBtn}><img className="logo" alt="" src={ require('../images/logo1.jpg') } />Order Details</ModalHeader>
                                 <ModalBody>
                                 <Container>
                                         <Row xs="2">

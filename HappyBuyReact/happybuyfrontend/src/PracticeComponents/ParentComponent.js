@@ -1,39 +1,7 @@
-// import React, { Component } from 'react'
-// import ChildrenComponent from './ChildrenComponent'
-
-// class ParentComponent extends Component {
-//     constructor(props) {
-//         super(props)
-    
-//         this.state = {
-//              greet:"Parent"
-//         }
-//         this.greetParent = this.greetParent.bind(this)
-//     }
-    
-//     greetParent(childParam){
-//         alert(`Hello ${this.state.greet} from ${childParam}`)
-//     }
-//     render() {
-//         return (
-//             <div>
-//                 <ChildrenComponent greetHandler ={this.greetParent}/>
-//             </div>
-//         )
-//     }
-// }
-
-// export default ParentComponent
 import React, { Component } from 'react'
-import {  Redirect } from "react-router-dom";
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ChildrenComponent from './ChildrenComponent'
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button,Container, Row, Col 
-  } from 'reactstrap';
-  
+
  class ParentComponent extends Component {
     constructor(props){  
         super(props)  
