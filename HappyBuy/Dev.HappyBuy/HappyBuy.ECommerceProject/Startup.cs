@@ -7,6 +7,7 @@ namespace HappyBuy.ECommerceProject
     using System.Text;
     using HappyBuyBL;
     using HappyBuyBL.HB.BL.Interfaces;
+    using HappyBuyBL.HB.BL.Models;
     using HappyBuyDAL;
     using HappyBuyDAL.Implementation;
     using HappyBuyDAL.Interfaces;
@@ -88,6 +89,7 @@ namespace HappyBuy.ECommerceProject
             services.AddTransient<IHBCustomerBL, HBCustomerBL>();
             services.AddTransient<IHBProductBL, HBProductBL>();
             services.AddTransient<IHBOrderBL, HBOrderBL>();
+            services.AddTransient<IHBAdminBL, HBAdminBL>();
         }
 
         /// <summary>

@@ -1,12 +1,10 @@
 import React from 'react'
 import './EmptyCart.css';
-import { Tooltip } from '@material-ui/core';
-
 function EmptyCart() {
     return (
         <div>
             <div className="emptyCartImage">  
-                  <div className="emptyCartImage"><img src={ require('../images/gif4.gif')} />
+                  <div className="emptyCartImage"><img alt="" src={ require('../images/gif4.gif')} />
                   
                   </div>  
                   <b>Sorry mate.. No Items Found! </b>

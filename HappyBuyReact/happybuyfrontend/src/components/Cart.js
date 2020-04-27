@@ -1,56 +1,51 @@
 import React, { useState, useEffect  } from 'react';
 import axios from 'axios'; 
-import Rating from '@material-ui/lab/Rating';
 import './Home.css'; 
-import { Tooltip } from '@material-ui/core';
 import Image from './Image';
-import { useHistory } from "react-router-dom";
+import { useHistory ,Link } from "react-router-dom";
 import {toast } from 'react-toastify';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './Cart.css'
-import {Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button,Container, Row, Col } from 'reactstrap';
+import { Popconfirm, message, Button } from 'antd';
+import {CardSubtitle } from 'reactstrap';
 function Cart() {
     const [products, setProducts] = useState([]);
-    const CartCustomerId = {CartCustomerId: sessionStorage.getItem('userId') }
     const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
     let history = useHistory();
     let prod = [];
+    const text = 'Are you sure to remove this item?';
+
+
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.post('https://localhost:44376/api/GetCartItems', CartCustomerId ,{headers:headers})     
+    const headers={ 'Content-Type': 'application/json','Accept': 'application/json',};   
+    const CartCustomerId = {CartCustomerId: sessionStorage.getItem('userId') }
+      await axios.post('https://localhost:44376/api/GetCartItems', CartCustomerId ,{headers:headers})     
         .then(res =>{
-            console.log(res.data);
-           if(res.data.length != 0)
+           if(res.data.length !== 0)
            {
             setProducts(res.data)
            } else{
             history.push('/emptyCart');
         }
-          
         })  
           
     }
     fetchData();
   },[]);
-   
   function decreaseCartdetails(cart){
-            console.log(cart)
             const CartUpdate = {CartCustomerId:sessionStorage.getItem('userId'),CartId:cart.cartId,CartQuantity:cart.cartQuantity-1}
-        if(cart.cartQuantity != 1)
+        if(cart.cartQuantity !== 1)
         {
-            const res =  axios.post('https://localhost:44376/api/UpdateCartQuantity', CartUpdate ,{headers:headers})     
+            axios.post('https://localhost:44376/api/UpdateCartQuantity', CartUpdate ,{headers:headers})     
             .then(res =>{
-                console.log(res.data);
             setProducts(res.data)})  
         }else{
             const removeCartItem = {CartCustomerId:sessionStorage.getItem('userId'),CartId:cart.cartId};
-            const res =  axios.post('https://localhost:44376/api/RemoveCartItem', removeCartItem ,{headers:headers})     
+            axios.post('https://localhost:44376/api/RemoveCartItem', removeCartItem ,{headers:headers})     
             .then(res =>{
-                console.log(res.data)
-                if(res.data.length != 0){
+                if(res.data.length !== 0){
                     setProducts(res.data)
                     toast.warn(cart.productName +' removed from cart!',{position:toast.POSITION.TOP_CENTER, autoClose:3000})
-
                 }
                 else{
                     history.push('/emptyCart');
@@ -60,14 +55,11 @@ function Cart() {
   }
   function removeCartItem(product){
     const removeCartItem = {CartCustomerId:sessionStorage.getItem('userId'),CartId:product.cartId};
-    const res =  axios.post('https://localhost:44376/api/RemoveCartItem', removeCartItem ,{headers:headers})     
+    axios.post('https://localhost:44376/api/RemoveCartItem', removeCartItem ,{headers:headers})     
             .then(res =>{
-                debugger
-                console.log(res.data)
-                if(res.data.length != 0){
+                if(res.data.length !== 0){
                     setProducts(res.data)
-                    toast.warn(product.productName +' removed from cart!',{position:toast.POSITION.TOP_CENTER, autoClose:3000})
-
+                    message.info(product.productName +' removed from cart!');
                 }
                 else{
                     history.push('/emptyCart');
@@ -79,9 +71,8 @@ function Cart() {
     if(cart.cartQuantity < 5)
         {
             const CartUpdate = {CartCustomerId:sessionStorage.getItem('userId'),CartId:cart.cartId,CartQuantity:cart.cartQuantity+1}
-            const res =  axios.post('https://localhost:44376/api/UpdateCartQuantity', CartUpdate ,{headers:headers})     
+            axios.post('https://localhost:44376/api/UpdateCartQuantity', CartUpdate ,{headers:headers})     
             .then(res =>{
-                console.log(res.data);
             setProducts(res.data)})  
 
         }else{
@@ -99,6 +90,9 @@ function Cart() {
         }
     }
 
+    function confirm() {
+        
+      }
     return (
         <div className="cards">
             {
@@ -122,7 +116,9 @@ function Cart() {
                      <b>{product.cartQuantity}</b>&nbsp;&nbsp;
                             <button onClick={increaseCartdetails.bind(this,product)} className="btn btn-outline-warning">+</button> &nbsp;&nbsp;&nbsp;
                             <b> Price :&nbsp;{product.cartQuantity}  x {product.productPrice} =  &#x20b9;{product.cartPrice}</b>&nbsp;&nbsp;
-                            <Link onClick={removeCartItem.bind(this,product)} className="btn btn-danger">Remove</Link>&nbsp;&nbsp;&nbsp;
+                            <Popconfirm placement="topRight"  title={text}  onConfirm={removeCartItem.bind(this,product)}  okText="Yes" cancelText="No" >
+                            <Button danger>Remove</Button>&nbsp;&nbsp;&nbsp;
+                            </Popconfirm>
                             <div className="card">
                                             <Link to={{pathname:"/placeOrders",
                                                     state:{

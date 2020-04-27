@@ -40,7 +40,7 @@
 
 
 
-import React, { useEffect } from "react";
+import React from "react";
 const ChildrenComponent = (...match) => {
 console.log(match[0].location.state.placeProduct.productId)
   

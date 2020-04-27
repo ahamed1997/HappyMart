@@ -1,29 +1,21 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Menu,Input,Button } from 'antd';
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Redirect } from 'react-router'
+import { Menu,Button } from 'antd';
 
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,SearchOutlined,
-  DesktopOutlined,BookOutlined,
-  BarsOutlined,LoginOutlined,
-  ContainerOutlined,UsergroupAddOutlined
-} from '@ant-design/icons';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {SearchOutlined, BookOutlined,LoginOutlined,UsergroupAddOutlined} from '@ant-design/icons';
+import { Link } from "react-router-dom";
 import { dark } from '@material-ui/core/styles/createPalette';
 import './NavbarComponent.css'
+import { InputGroup } from 'reactstrap';
 
-const { Search } = Input;
-const { SubMenus } = Menu;
-
-const { SubMenu } = Menu;
+const inputCss ={
+  border: "0",
+  outline:"0",
+  background: "transparent",
+  borderBottom: "2px solid black",
+  fontWeight:"bold",
+  width:"350px"
+}
 
 class NavbarComponent extends React.Component {
   constructor(props){  
@@ -33,12 +25,10 @@ class NavbarComponent extends React.Component {
       collapsed: false,
       searchItem:"",
       size: 'large',
-
+      search:false
     };    
     this.fixSearchItem = this.fixSearchItem.bind(this);
 }  
-  
-
 
   handleClick = e => {
     console.log('click ', e);
@@ -51,34 +41,21 @@ class NavbarComponent extends React.Component {
     this.setState({[e.target.name]:e.target.value});  
     
   }
-  searchProduct()
-  {
-    if(this.state.searchItem != null)
-    {
-      
-    }
-  }
   render() {
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+      <Menu className="navbar" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
       <Menu.Item key="mail">
-        <Link className="navbar-brand" to={"/home"}><img className="logo" src={ require('../images/logo1.jpg') } /><b  style={{ color : dark}}><i>Happy Buy</i></b> </Link>
+        <Link className="navbar-brand" to={"/happybuy"}><img className="logo" alt="" src={ require('../images/logo1.jpg') } /><b  style={{ color : dark}}><i>Happy Buy</i></b> </Link>
       </Menu.Item>
-      <Menu.Item key="app" onSubmit={this.onFormSubmit}>
-      <Input
-       name="searchItem"
-      placeholder="Serach for products"
-      value={this.state.searchItem} 
-      onChange={this.fixSearchItem}
-      style={{ width: 500 }}
-    />   
-
+      <Menu.Item >
+    <InputGroup>
+        <input style={inputCss} value={this.state.searchItem}  onChange={this.fixSearchItem} className="form-control"  name="searchItem" type="text" placeholder="Search" aria-label="Search" />
+        <Button size="large" href={"/searchProduct/"+this.state.searchItem} disabled={this.state.searchItem.length > 0  ? false : true}  icon={<SearchOutlined />}>Search</Button>
+    </InputGroup>
       </Menu.Item>
-      <Link  className="btn btn-outline-secondary" to={"/searchProduct/"+this.state.searchItem}> <SearchOutlined /> </Link>
-    
       <Menu.Item >
       <BookOutlined />
-      <Link type="submit"  to={"/login"}><b>About</b></Link>      
+      <Link type="submit"  to={"/about"}><b>About</b></Link>      
          </Menu.Item>
       <Menu.Item className="links">
       <LoginOutlined />

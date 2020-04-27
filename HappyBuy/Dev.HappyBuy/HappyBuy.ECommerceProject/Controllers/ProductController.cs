@@ -9,6 +9,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
     using HappyBuyDAL.Models;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -111,16 +112,12 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="product">Search Items.</param>
         /// <returns>Returns Product Items.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/GetProducts")]
         public object GetProducts(Product product)
         {
-            string trimmed = product.ProductName.Trim();
-            Product products = new Product()
-            {
-                ProductName = trimmed,
-            };
-            Dictionary<string, object> keyValues = this.GetProperty<Product>(products);
+            Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
             var getProduct = this.hBProductBL.GetProducts<Product>(keyValues);
             return getProduct;
         }
@@ -129,6 +126,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// Get All Products.
         /// </summary>
         /// <returns>Returns Product Items.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/GetAllProducts")]
         public List<Product> GetAllProducts()
