@@ -1,8 +1,13 @@
-
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import './NavbarComponent.css'
-
+import { Tag } from 'antd';
+import {
+  TwitterOutlined,
+  YoutubeOutlined,
+  FacebookOutlined,
+  LinkedinOutlined,
+} from '@ant-design/icons';
 const Footer= () => {
   return (
     <div className="footer">
@@ -74,6 +79,18 @@ const Footer= () => {
               </li>
               <li className="list-unstyled">
               Telephone : <a href="http://localhost:3000/"> +91 944 577 4250 </a>
+              </li>
+              <li className="list-unstyled">
+                <Tag shape="circle" icon={<TwitterOutlined />} color="#55acee">
+                
+              </Tag>
+              <Tag shape="circle" icon={<YoutubeOutlined />} color="#cd201f">
+               
+              </Tag>
+              <Tag shape="circle" icon={<FacebookOutlined />} color="#3b5999">
+               
+              </Tag>
+              
               </li>
             </ul>
           </MDBCol>

@@ -110,5 +110,8 @@
     <Build Include="HappyBuy.StoredProcedures\USP_GetOptions.sql" />
     <Build Include="HappyBuy.Tables\Admin.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_AdminLogInValidation.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllCustomers.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_AddSpecification.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateSpecification.sql" />
   </ItemGroup>
 </Project>

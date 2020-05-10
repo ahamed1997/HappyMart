@@ -1,7 +1,8 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu,Button } from 'antd';
-import {toast } from 'react-toastify';
+import {  Redirect } from "react-router-dom";
+
 import {CustomerServiceOutlined,EditOutlined,SearchOutlined,SettingOutlined,AppstoreAddOutlined,BarsOutlined,
   UserOutlined,ShoppingCartOutlined,ShoppingOutlined,LogoutOutlined} from '@ant-design/icons';
 import { InputGroup } from 'reactstrap';
@@ -9,6 +10,8 @@ import { Link } from "react-router-dom";
 import {  notification } from 'antd';
 import { dark } from '@material-ui/core/styles/createPalette';
 import './NavbarComponent.css'
+import Suggestion from './Suggestion';
+import CartIcon from './CartIcon';
 const { SubMenu } = Menu;
 const inputCss ={
   border: "0",
@@ -30,7 +33,6 @@ class NavbarIn extends React.Component {
     };    
     this.fixSearchItem = this.fixSearchItem.bind(this);
 }  
-  
 
 
   fixSearchItem(e){
@@ -48,7 +50,11 @@ class NavbarIn extends React.Component {
     });  
     
   } 
+  redirect(){
+    return (    <Redirect to={{pathname:"/home"}}/> 
+    )
 
+  }
   render() {
     return (
       <div>
@@ -58,8 +64,9 @@ class NavbarIn extends React.Component {
       </Menu.Item>
       <Menu.Item key="app" onSubmit={this.onFormSubmit}>
       <InputGroup>
-        <input style={inputCss} value={this.state.searchItem}  onChange={this.fixSearchItem} className="form-control"  name="searchItem" type="text" placeholder="Search" aria-label="Search" />
-        <Button size="large" href={"/searchProduct/"+this.state.searchItem} disabled={this.state.searchItem.length > 0  ? false : true}  icon={<SearchOutlined />}>Search</Button>
+      <Suggestion/>
+        {/* <input style={inputCss} value={this.state.searchItem}  onChange={this.fixSearchItem} className="form-control"  name="searchItem" type="text" placeholder="Search" aria-label="Search" />
+        <Button size="large" href={"/searchProduct/"+this.state.searchItem} disabled={this.state.searchItem.length > 0  ? false : true}  icon={<SearchOutlined />}>Search</Button> */}
     </InputGroup> 
       </Menu.Item>
       <SubMenu
@@ -106,8 +113,9 @@ class NavbarIn extends React.Component {
         </Menu.ItemGroup>
       </SubMenu>
       <Menu.Item className="links">
-      <ShoppingCartOutlined />
-        <Link type="submit"  to={"/cart"}><b>Cart</b></Link>
+      {/* <ShoppingCartOutlined /> */}
+        {/* <Link type="submit"  to={"/cart"}><b>Cart</b></Link> */}
+        <Link type="submit"  to={"/cart"}><CartIcon/></Link>
          </Menu.Item>
         <Menu.Item className="links">
         <Link type="submit" onClick={this.logOut} to={"/happybuy"}><LogoutOutlined /><b>LogOut</b></Link>

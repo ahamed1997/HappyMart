@@ -12,6 +12,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
     using HappyBuyDAL.Models;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -36,6 +37,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="order">Order Items.</param>
         /// <returns>Returns OrderID.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/PlaceOrder")]
         public int PlaceOrder(List<Orders> order)
@@ -55,6 +57,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="orderDetails">Payment Order Details.</param>
         /// <returns>Insert Result.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/MakePayment")]
         public int MakePayment(OrderDetails orderDetails)
@@ -69,6 +72,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="product">Payment Order Details.</param>
         /// <returns>Insert Result.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/GetOrderDetails")]
         public object GetOrderDetails(Product product)

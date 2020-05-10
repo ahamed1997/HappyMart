@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
-import axios from 'axios';
+import AuthService from './AuthService';
+
 export default function PaymentResult({...match}) {
 
   let results = [];
@@ -9,6 +10,7 @@ export default function PaymentResult({...match}) {
   const [order] = useState(match.sendResult);
   const [payerdetails,setPayerdetails]=useState(match.sendResult.payer);
   const [purchaseUnitsDetails] = useState(match.sendResult.purchase_units);
+  
   ShippingAddressStreet = (purchaseUnitsDetails[0].shipping.address.address_line_1); 
   ShippingAddressCity = purchaseUnitsDetails[0].shipping.address.admin_area_2;
   ShippingAddressState =purchaseUnitsDetails[0].shipping.address.admin_area_1;
@@ -41,10 +43,10 @@ export default function PaymentResult({...match}) {
   } 
   useEffect(() => {
     async function fetchData() {
+      debugger
       if(match.count  === order.length)
-      {
-        const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-       await axios.post('https://localhost:44376/api/PlaceOrder', results ,{headers:headers})     
+      { 
+      AuthService.placeOrder(results)
         .then(res =>{
             return;
         })
@@ -56,7 +58,6 @@ export default function PaymentResult({...match}) {
         <div>
          <div className="emptyCartImage">  
              <div className="emptyCartImage"><img alt="" style={{width:'500px'}} src={ require('../images/success.gif')} />
-             
              </div>  
              <b>Payment Successfull..!! Please Check your Orders.</b>
              <a href="/order"><b><i> Click here</i></b></a> <b>to view Order Details</b>             

@@ -8,6 +8,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using System.Reflection;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -81,6 +82,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="shippingAddress">ShippingAddress Object Properties.</param>
         /// <returns>Returns Inserted Reuslt.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/AddShippingAddress")]
         public int AddShippingAddress(ShippingAddress shippingAddress)
@@ -95,6 +97,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="customer">CustomerId.</param>
         /// <returns>Returns the Customer Object.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/GetMyProfile")]
         public object GetMyProfile(Customer customer)
@@ -110,6 +113,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="customer">CustomerId.</param>
         /// <returns>Returns the Customer Object.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/updateProfile")]
         public int UpdateProfile(Customer customer)

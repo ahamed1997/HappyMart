@@ -35,5 +35,17 @@ namespace HappyBuyBL.HB.BL.Models
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 30);
         }
+
+        /// <summary>
+        /// Get All Customers.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Customer Details.</returns>
+        public List<T> GetAllCustomers<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 31);
+        }
     }
 }

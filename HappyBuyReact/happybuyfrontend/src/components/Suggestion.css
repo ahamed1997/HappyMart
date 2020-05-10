@@ -1,0 +1,58 @@
+.Suggestion{
+    width: 500px;
+    border: 1px solid grey;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 1px rgba(0,0,0,.18);
+    font-size: 14px;
+    color: rgba(0,0,0,.73);
+    
+}
+
+.Suggestion input{
+    width: 500px;
+    border: none;
+    font-size: 14px;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    outline: none;
+    color: #000;
+    background-color: rgb(253, 255, 253);
+    height:40px;
+    border-color: black;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 1px rgba(0,0,0,.18);
+}
+
+.Suggestion ul{
+   list-style-type: none;
+   text-align: left;
+   margin: 0;
+   padding: 0;
+   border-top: 1px solid grey;
+    position: fixed;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 100; 
+    text-overflow: ellipsis; 
+    line-height: 26px;  
+    -webkit-line-clamp: 2;  
+    -webkit-box-orient: vertical; 
+    display: -webkit-box; 
+    color: #000;
+    background-color: rgb(253, 255, 253);
+}
+
+
+.Suggestion ul::before{
+  content: "";
+ }
+
+.Suggestion li{
+    padding: 10px 5px;
+    cursor: pointer;
+    white-space: nowrap; 
+    width: 385px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+ }
+
+ .Suggestion li{
+   background-color: rgba(128,128,128,0.20);
+ }

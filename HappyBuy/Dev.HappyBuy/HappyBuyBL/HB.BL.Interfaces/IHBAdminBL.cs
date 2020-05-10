@@ -21,5 +21,14 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <returns>Customer Details.</returns>
         List<T> AdminLogInValidation<T>(Dictionary<string, object> dictionary)
             where T : new();
+
+        /// <summary>
+        /// Get All Customers.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Customer Details.</returns>
+        List<T> GetAllCustomers<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

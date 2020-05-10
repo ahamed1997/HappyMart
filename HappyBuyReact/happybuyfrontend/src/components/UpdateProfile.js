@@ -6,6 +6,11 @@ import './SignUp.css' ;
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {EditOutlined,LockOutlined} from '@ant-design/icons';
+import AuthService from './AuthService';
+import {  notification } from 'antd';
+import {message} from 'antd';
+import { Button } from 'antd';
+import {LeftCircleOutlined ,LogoutOutlined,CheckCircleOutlined } from '@ant-design/icons';
 
 const formValid = ({formErrors, ...rest}) => {
   let valid = true;
@@ -19,6 +24,7 @@ const formValid = ({formErrors, ...rest}) => {
 
   return valid;
 }
+const key = 'updatable';
 
 const emailRegex = RegExp(/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/);
 const mobileRegex = RegExp(/^\d{10}$/);
@@ -38,16 +44,17 @@ const mobileRegex = RegExp(/^\d{10}$/);
                       CustomerEmail:"",
                       CustomerPassword:""
                     },isValidProfile:false,
-                    Password:""
+                    Password:null,
+                    loadings:false,
                     }  
             }  
     
     componentDidMount()
     {
-      const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
       const CustomerId = {CustomerId: sessionStorage.getItem('userId') }
-      axios.post('https://localhost:44376/api/GetMyProfile', CustomerId ,{headers:headers})     
-      .then(json=>{
+      AuthService.getMyProfile(CustomerId)  
+      .then(json=>{        console.log(json)
+
         this.setState({ CustomerFirstName:json.data[0].customerFirstName});
         this.setState({ CustomerLastName:json.data[0].customerLastName});
         this.setState({ CustomerMobile:json.data[0].customerMobile});
@@ -57,41 +64,81 @@ const mobileRegex = RegExp(/^\d{10}$/);
   handleSubmit = e =>{
     e.preventDefault()
     if(formValid(this.state))
-    {  
-      const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-      const Customer = {CustomerId: sessionStorage.getItem('userId'),CustomerFirstName:this.state.CustomerFirstName,CustomerLastName:this.state.CustomerLastName,CustomerMobile:this.state.CustomerMobile,CustomerEmail:this.state.CustomerEmail,CustomerPassword:this.state.CustomerPassword}
-      axios.post('https://localhost:44376/api/updateProfile', Customer ,{headers:headers})     
+    {  this.setState({
+      loadings: true,
+    });
+    setTimeout(() => {
+      this.setState({ loadings: false });
+    }, 5000);
+      const key = {CustomerId: sessionStorage.getItem('userId'),CustomerFirstName:this.state.CustomerFirstName,CustomerLastName:this.state.CustomerLastName,CustomerMobile:this.state.CustomerMobile,CustomerEmail:this.state.CustomerEmail,CustomerPassword:this.state.CustomerPassword}
+      AuthService.updateProfile(key)
       .then(json=>{
-        if(json.data===sessionStorage.getItem('userId')){
-          toast.success('Profile Updated Successfully',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
-          this.props.history.push('/home');        }
+        console.log(json)
+        
+        console.log(sessionStorage.getItem('userId'))
+        if(json.status === 200){
+          message.success({ content: 'Profile updated Successfuly..', key, duration: 2 });
+
+          setTimeout(() => {
+            this.props.history.push('/home');        
+
+          }, 1000);
+        }
       }) 
     }
     else{
       e.preventDefault()
-      toast.warn('Please Fill the Details..',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
-    }
+      setTimeout(() => {
+        this.setState({
+          loadings: true,
+        });
+        setTimeout(() => {
+          this.setState({ loadings: false });
+        }, 1000);
+        notification['warning']({
+          message: 'Please fill the Details..',
+        }); 
+      }, 1000);
+      }
   }
 
   handleValidation =(e)=>
   {
     if(this.state.Password !== null)
     {
-      const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-      const CustomerId = {CustomerId: sessionStorage.getItem('userId'),CustomerPassword:this.state.Password }
-      axios.post('https://localhost:44376/api/UpdateProfileValidation', CustomerId ,{headers:headers})     
+      this.setState({
+        loadings: true,
+      });
+      setTimeout(() => {
+        this.setState({ loadings: false });
+      }, 5000);
+      const key = {CustomerId: sessionStorage.getItem('userId'),CustomerPassword:this.state.Password }
+      AuthService.profileValidation(key)
       .then(json=>{
         if(json.data !== 0)
         {
-          this.setState({isValidProfile:true})
+          setTimeout(() => {
+            this.setState({isValidProfile:true})
+          }, 5000);
         }
         else{
-          toast.error('Invalid Password',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
-        }
+          notification['error']({
+            message: 'Invalid Password..',
+          });        }
       }) 
     }
     else{
-      toast.warn('Please Fill the Details..',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
+      this.setState({
+        loadings: true,
+      });
+      setTimeout(() => {
+        this.setState({ loadings: false });
+      }, 1000);
+      setTimeout(() => {
+        notification['warning']({
+          message: 'Please fill the Details..',
+        }); 
+      }, 1000); 
     }
   }
     handleChange= (e)=> {  
@@ -178,7 +225,7 @@ const mobileRegex = RegExp(/^\d{10}$/);
                               <span className="errorMessage">{formErrors.CustomerPassword}</span>
                             )}
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" className="btn btn-primary btn-block"><CheckCircleOutlined />&nbsp;&nbsp;Update</button>
                         </form>
                      ):(
                   <div >
@@ -186,10 +233,10 @@ const mobileRegex = RegExp(/^\d{10}$/);
                      <div className="text-center">
                           <h6 >Please verify that its you!</h6>
                           <label>Password</label>
-                          <input type="password" name="Password"   onChange={this.handleChange} maxLength="10"  value={this.state.Password} className="form-control" placeholder="Enter your password" />
+                          <input type="password" name="Password"  name="Password"   onChange={this.handleChange} maxLength="10"  value={this.state.Password} className="form-control" placeholder="Enter your password" />
                           <br/>
-                          <Link className="btn btn-danger" to={{pathname:"/home"}}>Exit</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-                          <button className="btn btn-primary" onClick={this.handleValidation}>Submit</button>
+                          <Button type="primary" danger href="/home"><LeftCircleOutlined />Back</Button>&nbsp;&nbsp;
+                          <Button loading={this.state.loadings} onClick={this.handleValidation} type="primary"><CheckCircleOutlined />Verify</Button>
                      </div>
                   </div>
                  )} 

@@ -1,0 +1,82 @@
+.loginImage
+{
+    width: 155px; 
+    border-radius: 130px;
+    align-content: center;
+    text-align: center;
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
+.auth-wrapper {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .auth-inner {
+    width: 450px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+  }
+  
+  .auth-wrapper .form-control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+  }
+  
+  .auth-wrapper h3 {
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+  }
+  .errorMessage
+  {
+    color: red;
+    font-size: x-small;
+  }
+  
+.childComponent{
+    margin-top: 5%;
+    height: 100%;
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  .logo2
+  {
+    height: 40px;
+    width: 50px;
+    border-radius: 30px;
+  }
+  .Dropdown
+  {
+    background-color: white;
+    color: white;
+  }

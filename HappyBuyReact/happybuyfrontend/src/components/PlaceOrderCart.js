@@ -1,13 +1,14 @@
 import React, { useState, useEffect,useRef  } from 'react'
-import './Placeorder.css';
 import {  Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import PaymentResult from './PaymentResult';
-import './EmptyCart.css';
 import { Table  } from 'reactstrap';
+import AuthService from './AuthService';
+import './EmptyCart.css';
+import './Placeorder.css';
+
+
 
 function PlaceOrderCart(...match) {
-  console.log(match[0].location.state.placeProduct)
   let products = [];
   if(match[0].location.state.placeProduct.length>0 )
   {
@@ -18,14 +19,13 @@ function PlaceOrderCart(...match) {
   }else{
     products.push(match[0].location.state.placeProduct);
   }
-  console.log(products)
   const [paidFor,setPaidFor] = useState(false);
   const [loaded,setLoaded] = useState(false);
   const [count,setCount]=useState(0);
   const [usdAmount,setUSD]=useState(0);
   const [orders,setOrder]=useState([]);
   let paypalRef = useRef();
-  let usd;    let history = useHistory();
+  let usd;    
   const [totalPrice,setTotalPrice]=useState();
   const [quantity,setQuatity]=useState(match[0].location.state.placeProduct.cartQuantity);
 
@@ -46,7 +46,7 @@ function PlaceOrderCart(...match) {
     usd = Number((usd).toFixed(2));
     setUSD(usd);
   const script = document.createElement("script");
-  script.src = "https://www.paypal.com/sdk/js?client-id=ARNcFazYFHPAjKADrd_Zk_BOy5BrMPclb0gB9LVKzBLlr7WnOAiOBIVzb_vjbEPwixdmlLUFa-I0BDrb"
+  script.src = AuthService.payPalId();
   script.addEventListener("load",()=>setLoaded(true));
   document.body.appendChild(script);
   if(loaded){
@@ -76,6 +76,8 @@ function PlaceOrderCart(...match) {
     });   
   }
   });
+
+
     return (
       <div className="cards">
         {orders != ''?(
@@ -95,27 +97,25 @@ function PlaceOrderCart(...match) {
                 </thead>
                 <tbody>
                 {
-                    products.map(product =>
-                  
-                        <tr>
-                          <td>{product.productName}</td>
-                          <td>{product.cartQuantity}</td>
-                          <td>&#x20b9;{product.cartPrice}</td>
-                        </tr>
-                  
-                )}  </tbody> 
+                  products.map(product =>
+                    <tr key={product.productId}>
+                      <td>{product.productName}</td>
+                      <td>{product.cartQuantity}</td>
+                      <td>&#x20b9;{product.cartPrice}</td>
+                    </tr>
+                )}  
                   <tr >
-                    <td className="text-center"><b>Total :</b></td>
+                    <td className="text-center" ><b>Total :</b></td>
                     <td><b>{quantity}</b></td>
                     <td> <b>&nbsp; &#x20b9;{totalPrice}</b></td>              
                   </tr> 
                   <tr>
-                    <td><b>Please select payment type :</b></td>
+                    <td colspan="2"><b>Please select payment type :</b></td>
                     <td>
                     <div   ref={v=>(paypalRef = v)}/>
                     </td>
-                    <td></td>
-                  </tr>      
+                  </tr> 
+                  </tbody>      
               </Table>
           </div>
         )}

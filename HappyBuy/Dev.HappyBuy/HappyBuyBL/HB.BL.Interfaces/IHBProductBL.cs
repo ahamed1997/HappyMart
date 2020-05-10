@@ -96,5 +96,21 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <returns> GetOptions Details.</returns>
         List<T> GetOptions<T>(Dictionary<string, object> dictionary)
             where T : new();
+
+        /// <summary>
+        /// Insert a Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns>Insert Results.</returns>
+        int AddSpecification<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Update Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns>Udpate Results.</returns>
+        int UpdateSpecification<T>(Dictionary<string, object> dictionary);
     }
 }

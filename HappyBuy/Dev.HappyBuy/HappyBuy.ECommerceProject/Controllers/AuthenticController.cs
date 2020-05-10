@@ -91,14 +91,15 @@ namespace HappyBuy.ECommerceProject.Controllers
         [Route("api/adminLogIn")]
         public object AdminLogIn(Admin admincredentials)
         {
+
             object response = null;
             Admin admin = new Admin();
             List<Admin> adminlist = null;
             Dictionary<string, object> keyValues = null;
             string[] temp = null;
-            if (admin.AdminEmail != null && admin.AdminPassword != null)
+            if (admincredentials.AdminEmail != null && admincredentials.AdminPassword != null)
             {
-                keyValues = this.GetProperty<Admin>(admin);
+                keyValues = this.GetProperty<Admin>(admincredentials);
                 adminlist = this.hBAdminBL.AdminLogInValidation<Admin>(keyValues);
             }
 

@@ -34,9 +34,10 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="product">Product Details.</param>
         /// <returns>Inserted result.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/InsertProduct")]
-        public int InsertProduct([FromBody]Product product)
+        public int InsertProduct(Product product)
         {
             Dictionary<string, object> keyValues = this.GetProperty<Product>(product);
 
@@ -45,10 +46,47 @@ namespace HappyBuy.ECommerceProject.Controllers
         }
 
         /// <summary>
+        /// Insert a new specification.
+        /// </summary>
+        /// <param name="specification">specification Details.</param>
+        /// <returns>Inserted result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/addSpecification")]
+        public int AddSpecification(List<Specification> specification)
+        {
+            int i = 0;
+            for (int j = 0; j < specification.Count; j++)
+            {
+                Dictionary<string, object> keyValues = this.GetProperty<Specification>(specification[j]);
+                i = this.hBProductBL.AddSpecification<Specification>(keyValues);
+            }
+
+            return i;
+        }
+
+        /// <summary>
+        /// Insert a new specification.
+        /// </summary>
+        /// <param name="specification">specification Details.</param>
+        /// <returns>Inserted result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/updateSpecification")]
+        public int UpdateSpecification(Specification specification)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Specification>(specification);
+
+            int i = this.hBProductBL.AddSpecification<Specification>(keyValues);
+            return i;
+        }
+
+        /// <summary>
         /// Update Product Product Details.
         /// </summary>
         /// <param name="product">Product Details.</param>
         /// <returns>Updated Results.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/UpdateProductDetails")]
         public int UpdateProductDetails(Product product)
@@ -112,7 +150,6 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="product">Search Items.</param>
         /// <returns>Returns Product Items.</returns>
-        [Authorize]
         [HttpPost]
         [Route("api/GetProducts")]
         public object GetProducts(Product product)
@@ -126,7 +163,6 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// Get All Products.
         /// </summary>
         /// <returns>Returns Product Items.</returns>
-        [Authorize]
         [HttpPost]
         [Route("api/GetAllProducts")]
         public List<Product> GetAllProducts()

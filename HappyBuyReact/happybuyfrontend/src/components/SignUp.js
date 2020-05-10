@@ -1,9 +1,9 @@
-
 import React, { Component } from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 import axios from 'axios';  
 import 'reactjs-toastr/lib/toast.css';
 import './SignUp.css' ;
+import AuthService from './AuthService';
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,23 +46,16 @@ const mobileRegex = RegExp(/^\d{10}$/);
     e.preventDefault()
     if(formValid(this.state))
     {  
-      const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-        axios.post('https://localhost:44376/api/RegisterCustomer/', this.state, {
-          headers:headers
-        })  
+      AuthService.registerCustomer(this.state)
       .then(json => {
         if( json.data !== 2627){  
           toast.success('Registration done Successfully',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
           this.props.history.push('/login')  
         }
         else{  
-    
           toast.error('Email Exits Already',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
         } 
       }) 
-      .error(json=>{
-        console.log(json)
-      })
     }
     else{
       e.preventDefault()

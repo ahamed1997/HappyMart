@@ -6,7 +6,6 @@ namespace HappyBuyBL
 {
     using System.Collections.Generic;
     using HappyBuyBL.HB.BL.Interfaces;
-    using HappyBuyDAL.Implementation;
     using HappyBuyDAL.Interfaces;
 
     /// <summary>
@@ -37,6 +36,28 @@ namespace HappyBuyBL
         }
 
         /// <summary>
+        /// Insert a Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns>Insert Results.</returns>
+        public int AddSpecification<T>(Dictionary<string, object> dictionary)
+        {
+                return this.happyBuyRepository.AddDetails<T>(dictionary, 32);
+        }
+
+        /// <summary>
+        /// Update Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns>Udpate Results.</returns>
+        public int UpdateSpecification<T>(Dictionary<string, object> dictionary)
+        {
+            return this.happyBuyRepository.AddDetails<T>(dictionary, 33);
+        }
+
+        /// <summary>
         /// Update Product Details.
         /// </summary>
         /// <typeparam name="T">Generic Object Passing.</typeparam>
@@ -59,7 +80,7 @@ namespace HappyBuyBL
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 5);
         }
 
-        /// <summary> 
+        /// <summary>
         /// Get All Products.
         /// </summary>
         /// <typeparam name="T">Generic Object Passing.</typeparam>
@@ -84,7 +105,7 @@ namespace HappyBuyBL
         }
 
         /// <summary>
-        /// GetSubCategories.GetSpecification
+        /// GetSubCategories.
         /// </summary>
         /// <typeparam name="T">Generic Object Passing.</typeparam>
         /// <param name="dictionary">Product Type Dictionary.</param>

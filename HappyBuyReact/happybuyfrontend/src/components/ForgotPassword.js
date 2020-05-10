@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import axios from 'axios';  
 import 'reactjs-toastr/lib/toast.css';
 import './SignUp.css' ;
+import {  notification } from 'antd';
+import {message} from 'antd';
+import { Button } from 'antd';
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {LoginOutlined ,LeftCircleFilled,WarningFilled } from '@ant-design/icons';
+import {LoginOutlined ,LeftCircleFilled,WarningFilled,CheckCircleOutlined } from '@ant-design/icons';
 const emailRegex = RegExp(/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/);
+const key = 'updatable';
 
 export default class ForgotPassword extends Component {
     constructor(props){  
@@ -22,7 +26,8 @@ export default class ForgotPassword extends Component {
             isEmailValid:false,
             formErrors:{
               CustomerEmail:"",
-            }
+            },
+            loadings:false,
             }  
     } 
     handSubmit = e =>{
@@ -36,17 +41,23 @@ export default class ForgotPassword extends Component {
             })  
           .then(json => {console.log(json.data)
             if( json.data === 1){  
-                toast.success('Password updated Successfully!',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
+                notification['success']({
+                  message: 'Password updated Successfully!',
+                });  
                 this.props.history.push('/login');              
             }
             else{  
-              toast.error('Password update failed',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
+              notification['warning']({
+                message: 'Password update failed',
+              }); 
             } 
           }) 
         }else
         {
             e.preventDefault()
-            toast.warn('Please Fill the Details..',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
+            notification['warning']({
+              message: 'Please fill the Details..',
+            }); 
         }
     }
    
@@ -60,9 +71,12 @@ export default class ForgotPassword extends Component {
 
     handleSubmit = e =>{
         e.preventDefault()
-        console.log(this.state.formErrors)
         if(this.state.CustomerEmail !== null && this.state.formErrors.CustomerEmail === "")
-        {  
+        {              
+          message.loading({ content: 'Loading...', key });      
+          setTimeout(() => {
+            message.loading({ content: 'Loading...', key });
+          }, 1000);    
           const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
           const forgotPassword = {CustomerEmail:this.state.CustomerEmail}
             axios.post('https://localhost:44376/api/forgotPassword/', forgotPassword, {
@@ -74,13 +88,20 @@ export default class ForgotPassword extends Component {
               this.setState({Otp:json.data})
             }
             else{  
-              toast.error('Email does not exist',{position:toast.POSITION.TOP_RIGHT, autoClose:2000})
+              message.loading({ content: 'Loading...', key });
+              setTimeout(() => {
+                message.error({ content: 'Email does not exist..', key, duration: 2 });
+              }, 1000);
             } 
           }) 
         }
         else{
+       
           e.preventDefault()
-          toast.warn('Please Fill the Details..',{position:toast.POSITION.TOP_CENTER, autoClose:2000})
+          message.loading({ content: 'Loading...', key });
+          setTimeout(() => {
+            message.warn({ content: 'Please Fill the Details..', key, duration: 2 });
+          }, 1000);
         }
       }
       handChange = (e)=>{
@@ -95,7 +116,10 @@ export default class ForgotPassword extends Component {
              this.setState({isOtpValid:false})
              this.setState({error:false})
              this.setState({disabled:true})
-             toast.success('OTP macthed',{position:toast.POSITION.TOP_RIGHT, autoClose:1000})
+             message.loading({ content: 'Loading...', key });
+              setTimeout(() => {
+                message.success({ content: 'OTP macthed', key, duration: 2 });
+              }, 1000);
 
          }else{
              this.setState({error:true})
@@ -137,7 +161,7 @@ export default class ForgotPassword extends Component {
                                             {this.state.error &&(<span className="errorMessage"> <WarningFilled />&nbsp;&nbsp;&nbsp;Invalid Otp</span>)}
                                         </div>
                                         <div className="form-group">
-                                             <label>Email Password</label>
+                                             <label>Password</label>
                                             <input type="password" name="CustomerPassword"  onChange={this.handChange} maxLength="15" value={this.state.CustomerPassword} className="form-control"  disabled={this.state.isOtpValid}  placeholder="Enter new Password" />
                                         </div>
                                         <button type="submit" className="btn btn-primary btn-block">Submit</button>
@@ -160,8 +184,8 @@ export default class ForgotPassword extends Component {
                                               <span className="errorMessage">{formErrors.CustomerEmail}</span>
                                              )}
                                         </div>
-                                        <Link to={{pathname:"/login"}} className="btn btn-secondary btn-block"><LeftCircleFilled />&nbsp;&nbsp; &nbsp;Back</Link>            
-                                        <button type="submit" className="btn btn-primary btn-block">Submit&nbsp;&nbsp;&nbsp; <LoginOutlined/> </button>
+                                        <Link to={{pathname:"/login"}} className="btn btn-secondary btn-block"><LeftCircleFilled />&nbsp;&nbsp; &nbsp;Back</Link>  
+                                          <button loading={this.state.loadings} type="submit" className="btn btn-primary btn-block">{this.state.loadings}Submit&nbsp;&nbsp;&nbsp; <LoginOutlined/> </button>
                                 </form>
                             </div>
                         </div>

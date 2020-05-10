@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect  } from 'react'
 import axios from 'axios';  
-import {message} from 'antd';
+import {message, Pagination} from 'antd';
 import {FastBackwardOutlined,StepForwardOutlined,StepBackwardOutlined,FastForwardOutlined} from '@ant-design/icons';
 import './Home.css';
 import { useHistory } from "react-router-dom";
@@ -13,42 +12,45 @@ import { Tooltip ,Spin} from 'antd';
 import Filter from './Filter';
 import AuthService from './AuthService';
 
+import { Layout, Menu } from 'antd';
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  ShopOutlined,
+  TeamOutlined,
+  UserOutlined,
+  UploadOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons';
+import TopFilter from './TopFilter';
+
+const { Header, Content, Footer, Sider } = Layout;
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading,setLoading]=useState(false);
   const [currentPage,setCurrentPage]= useState(1);
   const [productPerPage, setproductPerPage] = useState(12);
-  const [test,setTest]=useState([]);
   const [filteredProducts,setFileteredProducts]=useState([]);
+  const [spinner,setSpinner]=useState(false);
   const key = 'updatable';
   let history = useHistory();
+
+
     useEffect(() => {
+      setSpinner(true);
       async function fetchData() {
-        const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-    //   axios.post('https://localhost:44376/api/GetAllProducts',{
-    //   headers:headers
-    // })
-    AuthService.getAllProducts()    
-    .then(json=>{
-      if( json.status === 200){  
-        const products = json.data;
-        console.log(json.data)
-        setProducts(json.data)
-        setFileteredProducts(json.data)
-        for(let i=0;i<products.length;i++)
-        {
-          setTest([
-            ...test,products[i]
-          ])
-        }
-      }
-      else 
-      {
-        alert('No Products Found');
-      }
-    })
-          
+
+        AuthService.getAllProducts()    
+        .then(json=>{
+          setSpinner(false);
+          if( json.status === 200){  
+                const products = json.data;
+                setProducts(json.data)
+                setFileteredProducts(json.data)
+          }
+        })
       }
       fetchData();
     },[]);
@@ -60,15 +62,14 @@ export default function Home() {
     if( userInfo != null)
     {
       const AddToCart ={CartCustomerId : sessionStorage.getItem('userId'),CartProductId: productId,CartQuantity: 1}
-      console.log(productId)
-      axios.post('https://localhost:44376/api/AddToCart', AddToCart ,{headers:headers})     
-          .then(res =>{console.log(res.data)
+      AuthService.addToCart(AddToCart)
+      .then(res =>{console.log(res.data)
              if(res.data < 6){
                 message.loading({ content: 'Loading...', key });
               setTimeout(() => {
                 message.success({ content: ' Added to Cart Successfully!', key, duration: 2 });
               }, 1000);
-                        }
+              }
              else{
               message.error('Sorry, You can add only 5 items in Cart at a time!');
 
@@ -104,8 +105,9 @@ export default function Home() {
   }
 
   
-  const filter = (prod)=>{console.log(prod); setFileteredProducts(prod)}
-  console.log(filteredProducts)
+  const filter = (prod)=>{setFileteredProducts(prod);setCurrentPage(1)}
+  const topFilter = (prod)=>{console.log(prod); setFileteredProducts(prod);setCurrentPage(1)}
+
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct= indexOfLastProduct - productPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct,indexOfLastProduct);
@@ -118,27 +120,42 @@ export default function Home() {
     fontWeight:"bold"
   }
   return (
-    <div> 
-      {filteredProducts.length > 0 ?
-        <Filter  filter={filter}  product={products}/> :<div></div>      
+    <Layout style={{marginTop:0}}>
+    <Sider
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+        backgroundColor:'white',
+      }}
+    >
+      <div className="logo" />
+      <Menu>
+      {filteredProducts.length > 0 &&
+        <Filter  filter={filter}  product={products}/>    
       } 
-      {products.length === 0 ? (<div className="text-center" style={{"float":"center"}}><Spin size="large" /></div> ):(
+      </Menu>
+    </Sider>
+    <Layout className="site-layout" style={{ marginLeft: 200,backgroundColor:"white" }}>
+      <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <div className="site-layout-background" style={{  textAlign: 'center' }}>
+    <div> 
+      {spinner && (<div className="spin" style={{"float":"center"}}><Spin tip="Loading..." size="large" /></div> )}
+      {products.length > 0 && 
        <div className="frame"> 
-            <div className="text-center">    
-           
-
-              </div>
-
+       {filteredProducts.length > 0 &&
+       <TopFilter topFilter={topFilter}  product={filteredProducts}/>  } 
             <Container fluid style={{ marginTop: 30}}>
                <Row >     
               {
              currentProducts.map(product =>
                 <Col sm="3" className="blog" key={product.productId}>    
                   <CardBody> 
-                  <Tooltip placement="bottom" title={product.productName}>
-                  <Link to={{pathname:"/view",state:{placeProduct : product}}}> 
-                  <Image match={product.productId}/>               
-                      </Link>     
+                      <Tooltip placement="bottom" title={product.productName}>
+                          <Link to={{pathname:"/view",state:{placeProduct : product}}}> 
+                            <Image match={product.productId}/>               
+                            </Link>     
                        </Tooltip>             
                     <CardTitle>
                       <p className="title">{product.productName} </p>          
@@ -146,19 +163,17 @@ export default function Home() {
                     <CardSubtitle>
                       <b className="price"> Price : &#x20b9;{product.productPrice}</b>
                     </CardSubtitle>
-                    {product.productQuantity >5 ?(
-                    <div>
-                    <Button className="btn btn-warning " value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)} type="button"><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>
-                      &nbsp;&nbsp;&nbsp;
-                      
-                    <Link to={{pathname:"/placeOrder",state:{placeProduct : product}}}className="btn btn-success btn-rounded">BUY NOW</Link>            
-                    </div>
-                      ):(
-                        <div>
-                          <h5 className="Offers">"OUT OF STACK"</h5>
-                        </div>
-                      )
-                    }
+                    {product.productQuantity >5 ?
+                    (
+                      <div>
+                        <Button className="btn btn-warning " value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)} type="button"><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>&nbsp;&nbsp;&nbsp; 
+                        <Link to={{pathname:"/placeOrder",state:{placeProduct : product}}}className="btn btn-success btn-rounded">BUY NOW</Link>            
+                      </div>
+                        ):(
+                          <div>
+                            <h5 className="Offers">"OUT OF STACK"</h5>
+                          </div>
+                        )}
                 </CardBody>
              </Col> 
               )}
@@ -172,11 +187,11 @@ export default function Home() {
                         <InputGroup size="sm">
                         <div style={{"float":"left"}}>
                         <button className="btn btn-outline-dark" disabled={currentPage === 1? true:false} onClick={firstPage}>
-                        <FastBackwardOutlined />
+                          <FastBackwardOutlined />
                         </button >
                         <button className="btn btn-outline-dark" disabled={currentPage === 1? true:false} onClick={prevPage}>
-                        <StepBackwardOutlined />
-                          </button>
+                          <StepBackwardOutlined />
+                        </button>
                         </div>
                         <input className="bg-dark" style={pageNumberCss} name ="currentPage" value ={currentPage} disabled />
                         <div style={{"float":"right"}}>
@@ -190,9 +205,18 @@ export default function Home() {
                         </InputGroup>
               </div>
             </CardFooter>
-    </div> 
-      )} 
+    </div> }
  </div>
+
+
+
+
+
+
+ </div>
+      </Content>
+    </Layout>
+  </Layout>
 );
 
 }
