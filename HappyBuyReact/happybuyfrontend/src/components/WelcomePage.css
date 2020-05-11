@@ -1,6 +1,6 @@
 
 .childComponent{
-  margin-top: 5%;
+  margin-top: 58px;
   height: 100%;
 }
 
@@ -37,4 +37,17 @@
 {
   background-color: white;
   color: white;
+}
+.spin {
+  text-align: center;
+  background: transparent;
+  border-radius: 4px;
+  margin-top: 20%;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+}
+.auto-index td:first-child:before
+{
+  counter-increment: Serial; 
+  content:  counter(Serial); 
 }

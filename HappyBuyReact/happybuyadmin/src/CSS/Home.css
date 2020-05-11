@@ -1,0 +1,31 @@
+#components-layout-demo-fixed-sider .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+  #components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+  }
+  
+  
+  .logo{
+    height: 30px;
+    width: 40px;
+    margin-right: 13px;
+    margin-left: 12px;
+  }
+  .title {
+    color: #fff;
+    font-weight: 300;
+    font-style: italic;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
+  }
+  .seperator {
+    width: 200px;
+    border: .8px solid honeydew;
+  }

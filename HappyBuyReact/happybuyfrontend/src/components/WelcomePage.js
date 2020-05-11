@@ -47,7 +47,9 @@ class WelcomePage extends Component {
         <NavbarIn/> 
       </div>  
     ):(
+      <div style={{ position: 'fixed', zIndex: 1, width: '100%', top:0 }}>
       <NavbarComponent/>
+      </div> 
     )}
       <div>
         <div className="childComponent">
@@ -69,6 +71,7 @@ class WelcomePage extends Component {
           <Route exact path="/emptySearch" component={EmptySearch} />
           <Route exact path="/view" component={ViewProduct} /> 
           <Route  path="/searchProduct/:searchItem" component={SearchProduct} /> 
+          {/* <Route path="/searchProduct" render={(props) => <SearchProduct {...props}/>}/> */}
           <Route  path="/forgotpassword" component={ForgotPassword} /> 
           <Route  path="/admin" component={AdminHome} />   
           </Switch>         

@@ -2,10 +2,11 @@ import React, { useState, useEffect,useRef  } from 'react'
 import axios from 'axios';  
 import './Placeorder.css';
 import Image from './Image';
+import AuthService from './AuthService';
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import './EmptyCart.css';
 import { Result, Button } from 'antd';
+
 function PlaceOrder(...match) {
  let ShippingAddressStreet;let ShippingAddressCity;let ShippingAddressState;let ShippingAddressZipcode;let ShippingAddressCountryCode;let PaymentDetailsPayerName;let PaymentDetailsPayeeEmailId;let PaymentDetailsPayeeId; let res1=0;let res2=0;let res3=0;
   const [product,setProduct] = useState(match[0].location.state.placeProduct);
@@ -18,15 +19,15 @@ function PlaceOrder(...match) {
   const [orders,setOrder]=useState([]);
   const [payerdetails,setPayerdetails]=useState([]);
   const [purchaseUnitsDetails, setPurchaseDetails] = useState([]);
-  const [result,setResult]=useState(0);
   let paypalRef = useRef();
-  let usd;    let history = useHistory();
+  let usd;   
+
   useEffect(()=>{
     usd = totalPrice/76.18;
     usd = Number((usd).toFixed(2));
     setUSD(usd);
   const script = document.createElement("script");
-  script.src = "https://www.paypal.com/sdk/js?client-id=ARNcFazYFHPAjKADrd_Zk_BOy5BrMPclb0gB9LVKzBLlr7WnOAiOBIVzb_vjbEPwixdmlLUFa-I0BDrb"
+  script.src = AuthService.payPalId();
   script.addEventListener("load",()=>setLoaded(true));
   document.body.appendChild(script);
   if(loaded){
@@ -73,7 +74,6 @@ function PlaceOrder(...match) {
            PaymentDetailsPayeeEmailId = purchaseUnitsDetails[0].payee.email_address;
            PaymentDetailsPayeeId = purchaseUnitsDetails[0].payee.merchant_id;
         }
-        const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
         let order = [];
               order.push({
             OrderDetailsProductId:product.productId,
@@ -93,7 +93,7 @@ function PlaceOrder(...match) {
             PaymentDetailsPayerName:payerdetails.name.given_name + ' ' + payerdetails.name.surname,
             PaymentDetailsPayeeId:PaymentDetailsPayeeId,
             PaymentDetailsPayeeEmailId:PaymentDetailsPayeeEmailId});
-          axios.post('https://localhost:44376/api/PlaceOrder', order ,{headers:headers})     
+            AuthService.placeOrder(order)
           .then(res =>{
               console.log(res.data); 
             res2 = res.data; 
@@ -125,19 +125,18 @@ function PlaceOrder(...match) {
       <div className="cards">
         {paidFor?(
            <div className="card">
-           <div className="row no-gutters">
-             <div className="col-md-10">      
-            <Result
-    status="success"
-    title="Successfully Purchased.. Thanks for the purchase!"
-    subTitle="Your Order Id is : " subTitle={orders.id}
-    extra={[
-      <Button type="primary" key="console">
-       <a href="/order">Check Order</a>
-      </Button>,
-      <Button key="buy"><a href="/home">Buy Again</a></Button>,
-    ]}
-  /></div></div>
+                <div className="row no-gutters">
+                   <div className="col-md-10">      
+                        <Result status="success"
+                          title="Successfully Purchased.. Thanks for the purchase!"
+                          subTitle={"Your Order Id is : " + orders.id}
+                          extra={[ <Button type="primary" key="console">
+                          <a href="/order">Check Order</a>
+                            </Button>,
+                            <Button key="buy"><a href="/home">Buy Again</a></Button>,
+                          ]}/>
+                    </div>
+                </div>
           </div>
         ):(
           <div className="card">
@@ -152,7 +151,6 @@ function PlaceOrder(...match) {
                 <div className="col-md-10">
                   <div className="card-body">
                     <h5 className="card-title">{product.productName}</h5>   
-                      
                           Quantity :    
                           <button  className="btn btn-outline-warning" onClick={decreaseQuantity.bind(this,product.productPrice)}>-</button>&nbsp;&nbsp;
                           <b> {quantity}</b>&nbsp;&nbsp;
@@ -171,16 +169,14 @@ function PlaceOrder(...match) {
                       </div>                  
                     </div>               
                   </div>
-                </div>   <Link to={{pathname:"/home"}} className="btn btn-danger">CANCEL ORDER</Link>              
-                <div className="paymentButtons">
-                <b><i>Please select Payment type</i> </b>
-                <br/><br/>
-                    <div  className="Buttons" ref={v=>(paypalRef = v)}/>
-                 </div> 
-             </div>
+                </div>   
+              <Link to={{pathname:"/home"}} className="btn btn-danger">CANCEL ORDER</Link>              
+          <div className="paymentButtons">
+            <b><i>Please select Payment type</i> </b><br/><br/>
+                <div  className="Buttons" ref={v=>(paypalRef = v)}/>
+              </div> 
+          </div>
         )}
-      
-      
       </div>
     )
 }

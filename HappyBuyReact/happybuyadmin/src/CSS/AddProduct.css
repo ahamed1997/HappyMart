@@ -1,0 +1,7 @@
+.specification {
+    display: block;
+    min-height: 290px;
+    overflow: scroll;
+    max-height: 290px;
+    color: black;
+}

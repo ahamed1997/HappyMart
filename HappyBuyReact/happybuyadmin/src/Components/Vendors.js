@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Specification() {
+function Vendors() {
     return (
         <div>
-            
+            <h2>Vendors</h2>
         </div>
     )
 }
 
-export default Specification
+export default Vendors

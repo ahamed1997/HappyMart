@@ -1,15 +1,17 @@
 import React, { useState, useEffect  } from 'react'
-import axios from 'axios'; 
+import { Avatar, Button } from 'antd';
 import './Cart.css'
 import './Home.css'
+import AuthService from './AuthService';
 import {CardImg} from 'reactstrap';
+import { UserOutlined } from '@ant-design/icons';
+
 function Profile() {
     const [customer, setCustomer] = useState([]);
   useEffect(() => {
-    const CustomerId = {CustomerId: sessionStorage.getItem('userId') }
-    const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
+    const key = {CustomerId: sessionStorage.getItem('userId') }
     async function fetchData() {
-      await axios.post('https://localhost:44376/api/GetMyProfile', CustomerId ,{headers:headers})     
+        AuthService.getMyProfile(key)
         .then(res =>{
             console.log(res.data);           
             setCustomer(res.data)        
@@ -25,7 +27,9 @@ function Profile() {
                 <div className="card">
                     <div className="row no-gutters">
                         <div className="col-md-4"> 
-                            <CardImg top width="100%" src={ require('../images/gif1.gif')} />
+                        <Avatar style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }} shape="square" size={194} icon={<UserOutlined />}>
+                        {cust.customerFirstName}
+                        </Avatar>
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
@@ -37,14 +41,6 @@ function Profile() {
                                 <br/>
                                 <tr> <b>Mobile : {cust.customerEmail}</b>   </tr>   
                                                                                                                                                                     
-                            </div>                                                        
-                        </div>                  
-                    </div>               
-                </div>
-                <div className="card">
-                    <div className="row no-gutters">
-                        <div className="col-md-8">
-                            <div className="card-body">
                             </div>                                                        
                         </div>                  
                     </div>               

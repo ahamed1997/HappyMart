@@ -11,6 +11,7 @@ namespace HappyBuy.ECommerceProject.Controllers
     using HappyBuyBL;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
@@ -35,6 +36,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="cart">Cart Parameters.</param>
         /// <returns>Returns Registered Results.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/AddToCart")]
         public int AddToCart(Cart cart)
@@ -71,6 +73,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="cart">Cart Parameters.</param>
         /// <returns>Returns Updated Results.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/UpdateCartQuantity")]
         public List<Cart> UpdateCartQuantity(Cart cart)
@@ -86,6 +89,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="cart">Item to be removed.</param>
         /// <returns>Returns the Removed cart Id.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/RemoveCartItem")]
         public object RemoveCartItem(Cart cart)
@@ -101,6 +105,7 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="cart">Customer Id.</param>
         /// <returns>Cart Items.</returns>
+        [Authorize]
         [HttpPost]
         [Route("api/GetCartItems")]
         public object GetCartItems(Cart cart)

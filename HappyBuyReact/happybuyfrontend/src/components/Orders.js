@@ -1,22 +1,22 @@
 import React, { useState, useEffect  } from 'react';
-import axios from 'axios'; 
+import AuthService from './AuthService';
 import { useHistory } from "react-router-dom";
 import { Table, Button, Modal, ModalHeader, ModalBody, Container, Row, Col   } from 'reactstrap';
 import Pagination from './Pagination';
+import ViewOrder from './ViewOrder';
 
 function Orders(props) {
     const [orders, setOrders] = useState([]);
     const [currentPage,setCurrentPage]= useState(1);
-    const [productPerPage, setproductPerPage] = useState(5);
+    const [productPerPage, setproductPerPage] = useState(6);
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
     let history = useHistory();
   useEffect(() => {
     async function fetchData() {
-        const product = {OrdersCustomerId: sessionStorage.getItem('userId') }
-        const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
-      await axios.post('https://localhost:44376/api/GetOrderDetails', product ,{headers:headers})     
+        const key = {OrdersCustomerId: sessionStorage.getItem('userId') }
+        AuthService.getOrders(key)
         .then(res =>{
             console.log(res.data);
            if(res.data.length !== 0)
@@ -37,7 +37,7 @@ function Orders(props) {
   const paginate = (pageNumber)=> setCurrentPage(pageNumber);
     return (
         <div>           
-             <Table responsive>
+             <Table responsive  className="auto-index">
                 <thead>
                     <tr>
                         <th>S.No</th>
@@ -54,7 +54,7 @@ function Orders(props) {
                 currentOrders.map(order =>
                     <tbody>
                         <tr key ={order.orderId}>
-                            <th scope="row"></th>
+                            <td></td>
                             <td>{order.paymentDetailsTransactionId}</td>
                             <td>{order.productName}</td>
                             <td>{order.orderDetailsQuantity}</td>
@@ -62,12 +62,9 @@ function Orders(props) {
                             <td>{order.ordersDateOfOrder}</td>
                             <td>{order.ordersStatusState}</td>
                             <td>
-                            <Button color="primary" onClick={toggle}>View</Button>
-                               
-                            </td>
-                           
-                        </tr>
-                            <Modal isOpen={modal} toggle={toggle} >
+                                <ViewOrder match={order} />
+                            {/* <Button color="primary" onClick={toggle}>View</Button>  */}
+                            {/* <Modal isOpen={modal} toggle={toggle} >
                             <ModalHeader toggle={toggle} close={closeBtn}><img className="logo" alt="" src={ require('../images/logo1.jpg') } />Order Details</ModalHeader>
                                 <ModalBody>
                                 <Container>
@@ -95,13 +92,16 @@ function Orders(props) {
                                         </Row>
                                     </Container>
                                 </ModalBody>
-                            </Modal>                    
+                            </Modal>                      */}
+                            </td>
+                        </tr>
+                            
                     </tbody>
                     )}                
             </Table>
             <div className="Pagination">
-    <Pagination productsPerPage={productPerPage} totalProducts={orders.length} paginate={paginate}/>
-      </div>
+             <Pagination productsPerPage={productPerPage} totalProducts={orders.length} paginate={paginate}/>
+            </div>
         </div>
     )
 }

@@ -41,9 +41,11 @@ class NavbarComponent extends React.Component {
     this.setState({[e.target.name]:e.target.value});  
     
   }
+  
   render() {
     return (
-      <Menu className="navbar" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+      <div>
+    <Menu className="navbar" onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
       <Menu.Item key="mail">
         <Link className="navbar-brand" to={"/happybuy"}><img className="logo" alt="" src={ require('../images/logo1.jpg') } /><b  style={{ color : dark}}><i>Happy Buy</i></b> </Link>
       </Menu.Item>
@@ -59,14 +61,17 @@ class NavbarComponent extends React.Component {
          </Menu.Item>
       <Menu.Item className="links">
       <LoginOutlined />
+      <button onClick={this.handle}>LogIn</button>
       <Link type="submit"  to={"/login"}><b>LogIn</b></Link>
+
          </Menu.Item>
         <Menu.Item className="links">
         <UsergroupAddOutlined />
         <Link type="submit"  to={"/sign-up"}><b>SignUp</b></Link>
       </Menu.Item>
     </Menu>
-
+      </div>
+      
     );
   }
 }
