@@ -5,8 +5,8 @@ BEGIN
 
 		Select 
 		O.OrdersId,
-		O.OrdersDateOfOrder,
-		O.OrdersDateOfOrderCompleted,
+		(FORMAT ((O.OrdersDateOfOrder), 'd', 'no' )  )AS OrdersDateOfOrder,
+		(FORMAT ((O.OrdersDateOfOrderCompleted), 'd', 'no' )  )AS OrdersDateOfOrderCompleted,
 		OS.OrdersStatusState,
 		OD.OrderDetailsPrice,
 		OD.OrderDetailsQuantity,

@@ -4,9 +4,9 @@
 
 namespace HappyBuyBL.HB.BL.Models
 {
+    using System.Collections.Generic;
     using HappyBuyBL.HB.BL.Interfaces;
     using HappyBuyDAL.Interfaces;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Admin Business Layer.
@@ -46,6 +46,54 @@ namespace HappyBuyBL.HB.BL.Models
             where T : new()
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 31);
+        }
+
+        /// <summary>
+        /// GetAllVendors.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Vendors Details.</returns>
+        public List<T> GetAllVendors<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 40);
+        }
+
+        /// <summary>
+        /// GetStock.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Stock Details.</returns>
+        public List<T> GetStock<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 41);
+        }
+
+        /// <summary>
+        /// Get Sales.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Sales Details.</returns>
+        public List<T> GetSales<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 42);
+        }
+
+        /// <summary>
+        /// Get Sales by Products.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Sales Details.</returns>
+        public List<T> GetSalesByProducts<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 43);
         }
     }
 }

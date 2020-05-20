@@ -41,14 +41,20 @@ class NavbarIn extends React.Component {
     
   }
   logOut() {
-    sessionStorage.removeItem("userInfo");  
-    sessionStorage.clear("userId");
+    
+
+      
+     
+    window.location.reload();
     notification['success']({
       message: 'Logged out !',
       description:
         'Thanks for visiting HappyBuy',
-    });  
-    
+    }); 
+    sessionStorage.removeItem("userInfo");  
+    setTimeout(() => {
+      sessionStorage.removeItem("userId");
+    }, 1000);
   } 
   redirect(){
     return (    <Redirect to={{pathname:"/home"}}/> 
@@ -115,7 +121,7 @@ class NavbarIn extends React.Component {
       <Menu.Item className="links">
       {/* <ShoppingCartOutlined /> */}
         {/* <Link type="submit"  to={"/cart"}><b>Cart</b></Link> */}
-        <Link type="submit"  to={"/cart"}><CartIcon/></Link>
+        <Link type="submit"  to={"/cart"}><CartIcon /></Link>
          </Menu.Item>
         <Menu.Item className="links">
         <Link type="submit" onClick={this.logOut} to={"/happybuy"}><LogoutOutlined /><b>LogOut</b></Link>

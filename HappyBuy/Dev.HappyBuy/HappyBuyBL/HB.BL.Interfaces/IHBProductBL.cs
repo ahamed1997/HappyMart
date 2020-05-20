@@ -112,5 +112,14 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <param name="dictionary">Specification Type Dictionary.</param>
         /// <returns>Udpate Results.</returns>
         int UpdateSpecification<T>(Dictionary<string, object> dictionary);
+
+        /// <summary>
+        /// Delete Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns> Specification Details.</returns>
+        List<T> DeleteSpecification<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

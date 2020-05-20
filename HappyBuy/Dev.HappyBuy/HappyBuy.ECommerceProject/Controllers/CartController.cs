@@ -105,14 +105,13 @@ namespace HappyBuy.ECommerceProject.Controllers
         /// </summary>
         /// <param name="cart">Customer Id.</param>
         /// <returns>Cart Items.</returns>
-        [Authorize]
         [HttpPost]
         [Route("api/GetCartItems")]
-        public object GetCartItems(Cart cart)
+        public List<Cart> GetCartItems(Cart cart)
         {
             Product product = new Product();
             Dictionary<string, object> keyValues = this.GetProperty<Cart>(cart);
-            var getCartDetails = this.hBCartBL.GetCartItems<Cart>(keyValues);
+            List<Cart> getCartDetails = this.hBCartBL.GetCartItems<Cart>(keyValues);
             return getCartDetails;
         }
     }

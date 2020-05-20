@@ -9,6 +9,7 @@ import './Placeorder.css';
 
 
 function PlaceOrderCart(...match) {
+  console.log(match)
   let products = [];
   if(match[0].location.state.placeProduct.length>0 )
   {

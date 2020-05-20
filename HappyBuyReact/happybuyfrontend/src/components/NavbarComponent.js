@@ -61,7 +61,6 @@ class NavbarComponent extends React.Component {
          </Menu.Item>
       <Menu.Item className="links">
       <LoginOutlined />
-      <button onClick={this.handle}>LogIn</button>
       <Link type="submit"  to={"/login"}><b>LogIn</b></Link>
 
          </Menu.Item>

@@ -10,7 +10,6 @@ import { Tooltip ,Spin} from 'antd';
 
 
 const SearchProduct = ({match}) => {
-  console.log(match)
 const [products, setProducts] = useState([]);
 const key = {ProductName: match.params.searchItem}
 const [currentPage,setCurrentPage]= useState(1);
@@ -18,9 +17,6 @@ const [productPerPage] = useState(12);
 let history = useHistory();
 const [spinner,setSpinner]=useState(false);
   useEffect(() => {
-    console.log("object")
-
-    const headers={ 'Content-Type': 'application/json','Accept': 'application/json',}
     async function fetchData() {
       if(match.params.searchItem !== '')
       {

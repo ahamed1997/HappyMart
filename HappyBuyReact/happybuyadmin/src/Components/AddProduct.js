@@ -14,6 +14,8 @@ var styles = {
     textOverflow: 'ellipsis',
     whitespace: 'nowrap',
    };
+   const mobileRegex = RegExp(/^\d{10}$/);
+
 class AddProduct extends Component {
     constructor(props) {
         super(props)
@@ -35,6 +37,20 @@ class AddProduct extends Component {
             specificationValue:"",
             SubCategory:[],
             ProductSubCategoryId:null,
+            formErrors:{
+                ProductName:"",
+                ProductDescription:"",
+                ProductSubCategoryId:"",
+                ProductBrand:"",
+                ProductPrice:"",
+                ProductQuantity:"",
+                ProductIsActive:"",
+                ProductImageURL:"",
+                ProductOptions:"",
+                ProductSpecification:"",
+                SpecificationName:[],
+                SpecificationValue:[],
+            }
         }
         this.handleSpecificationChange = this.handleSpecificationChange.bind(this);
     }
@@ -83,9 +99,11 @@ class AddProduct extends Component {
                     }
                         AuthService.addSpecifications(specarray)
                     .then(json=>{
-                        console.log(json.data);
+                        window.location.reload();
                     })
-                    window.location.reload();
+                })
+                .catch(error=>{
+                    AuthService.errorHandling(error)
                 })
         }
         else{
@@ -100,6 +118,7 @@ class AddProduct extends Component {
     handleChange= (e)=> {  
         e.preventDefault() 
         this.setState({[e.target.name]:e.target.value});
+        
     }
     handleSpecificationChange(e)
     {     
@@ -128,8 +147,7 @@ class AddProduct extends Component {
               });  
            
         }
-        console.log(this.state.SpecificationName)
-        console.log(this.state.SpecificationValue)
+      
     }
 
     render() {
@@ -146,7 +164,7 @@ class AddProduct extends Component {
                 <Table responsive   bordered>
                     <tbody>
                         <tr>
-                            <th className="text-left"><Label> SubCategory : </Label></th>
+                            <th className="text-left"><Label> SubCategory  </Label></th>
                             <td className="text-left"> 
                             <select  className="form-control" value={this.state.ProductSubCategoryId} name="ProductSubCategoryId" onChange={this.handleChange}>
                                 <option disabled selected value> -- select an category -- </option>
@@ -190,7 +208,7 @@ class AddProduct extends Component {
                         
                         <tr>
                             <th className="text-left"><Label>Quantity  </Label></th>
-                            <td style={style} className="text-left"> <input required className="form-control" type="number" value={this.state.ProductQuantity} onChange={this.handleChange} name="ProductQuantity"/></td>
+                            <td style={style} className="text-left"> <input required className="form-control" type="number" value={this.state.ProductQuantity} max={4} onChange={this.handleChange} name="ProductQuantity"/></td>
                         </tr>
                         <tr>
                             <th className="text-left"><Label>Options </Label></th>

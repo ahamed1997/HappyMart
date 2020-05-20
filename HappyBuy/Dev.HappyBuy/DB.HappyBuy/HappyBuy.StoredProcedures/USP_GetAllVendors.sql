@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE [dbo].[USP_GetAllVendors]
+AS
+BEGIN
+	SELECT * FROM Vendors;
+END

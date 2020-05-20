@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[USP_UpdateProductDetails]
 	@ProductId INT,
-	@ProductSubCategoryName varchar(50),
+	@ProductSubCategoryId INT,
 	@ProductName varchar(100),
 	@ProductDescription nvarchar(1000),
 	@ProductSpecification nvarchar(MAX),
@@ -12,10 +12,8 @@
 	@ProductImageURL varchar(200)
 AS
 BEGIN
-	DECLARE @SubCategoryId INT;
-	set @SubCategoryId = (SELECT SubCategoryId from SubCategory where SubCategoryName = @ProductSubCategoryName);
 	UPDATE Product 
-			set ProductSubCategoryId = @SubCategoryId,
+			set ProductSubCategoryId = @ProductSubCategoryId,
 				ProductName = @ProductName,
 				ProductDescription = @ProductDescription,
 				ProductSpecification = @ProductSpecification,

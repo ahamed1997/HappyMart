@@ -173,5 +173,55 @@ namespace HappyBuyDAL.Enums
         /// Stored Procedure for Update Specification.
         /// </summary>
         USP_UpdateSpecification = 33,
+
+        /// <summary>
+        /// Stored Procedure for Delete Specification.
+        /// </summary>
+        USP_DeleteSpecification = 34,
+
+        /// <summary>
+        /// Stored Procedure for Get All Orders.
+        /// </summary>
+        USP_GetAllOrders = 35,
+
+        /// <summary>
+        /// Stored Procedure for Get All OrderDetails.
+        /// </summary>
+        USP_GetAllOrderDetails = 36,
+
+        /// <summary>
+        /// Stored Procedure for Shipping Address.
+        /// </summary>
+        USP_GetAllShippingAddress = 37,
+
+        /// <summary>
+        /// Stored Procedure for Get Orders Status.
+        /// </summary>
+        USP_GetAllOrderStatus = 38,
+
+        /// <summary>
+        /// Stored Procedure for Update Orders Status.
+        /// </summary>
+        USP_UpdateOrderStatus = 39,
+
+        /// <summary>
+        /// Stored Procedure for Get All Vendors.
+        /// </summary>
+        USP_GetAllVendors = 40,
+
+        /// <summary>
+        /// Stored Procedure for Get Stock.
+        /// </summary>
+        USP_GetStock = 41,
+
+        /// <summary>
+        /// Stored Procedure for Get Sales.
+        /// </summary>
+        USP_GetSales = 42,
+
+        /// <summary>
+        /// Stored Procedure for Get Sales  by Products.
+        /// </summary>
+        USP_GetSalesByProducts = 43,
     }
 }

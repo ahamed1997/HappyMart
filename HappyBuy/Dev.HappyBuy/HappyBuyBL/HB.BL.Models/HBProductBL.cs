@@ -162,5 +162,17 @@ namespace HappyBuyBL
         {
             return this.happyBuyRepository.AddDetails<T>(dictionary, 9);
         }
+
+        /// <summary>
+        /// Delete Specification.
+        /// </summary>
+        /// <typeparam name="T">Generic Object Passing.</typeparam>
+        /// <param name="dictionary">Specification Type Dictionary.</param>
+        /// <returns> Specification Details.</returns>
+        public List<T> DeleteSpecification<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 34);
+        }
     }
 }

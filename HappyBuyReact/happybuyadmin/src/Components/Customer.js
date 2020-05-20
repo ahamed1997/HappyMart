@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import AuthService from './AuthService';
 import { Table  } from 'reactstrap';
-import { Spin} from 'antd';
 import { TeamOutlined,} from '@ant-design/icons';
 
 function Customer() {
@@ -14,6 +13,9 @@ function Customer() {
         .then(result =>{
             console.log(result.data)
         setCustomers(result.data)        
+        })
+        .catch((error) => {
+            AuthService.errorHandling(error)
         })
     },[])
     return (
@@ -45,10 +47,11 @@ function Customer() {
                         {customer.customerLastName}
                     </td>
                     <td>
-                        {customer.customerMobile}
+                        <a href=""> {customer.customerMobile}</a>
+                       
                     </td>
                     <td>
-                        {customer.customerEmail}
+                    <a href=""> {customer.customerEmail}</a>
                     </td>
                     <td>
                        True

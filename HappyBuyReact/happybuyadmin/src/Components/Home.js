@@ -2,12 +2,10 @@ import React from 'react'
 import { Layout, Menu } from 'antd';
 import '../CSS/Home.css';
 import {
-    DollarCircleOutlined,
   BarChartOutlined,
   CloudServerOutlined,
   ShopOutlined,
   TeamOutlined,
-  ShakeOutlined,
   SettingOutlined,
   BuildOutlined,
   BarsOutlined,
@@ -16,7 +14,7 @@ import {
 } from '@ant-design/icons';
 import Customer from './Customer';
 import Orders from './Orders';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link,Redirect } from "react-router-dom";
 import Courier from './Courier';
 import Offers from './Offers';
 import Products from './Products';
@@ -29,13 +27,19 @@ import Dashboard from './Dashboard';
 const {  Content, Sider } = Layout;
 
 export default function Home() {
-  
+
+  const ProtectedRoute =({component:Component, ...rest}) =>{
+    return <Route {...rest} render = {(props)=>{
+      return sessionStorage.getItem("token") ? <Component {...props}/> : <Redirect to={'/login'} />
+    }}    
+    />
+  }
     function logout()
     {
         sessionStorage.clear();
     }
     return (
-        <div>
+        <React.Fragment>
             <Router>
            <Layout>
            <Sider
@@ -78,14 +82,14 @@ export default function Home() {
         <CloudServerOutlined />
         <Link className="nav-text" to={{pathname:"/home/vendor"}}>Vendors</Link>
         </Menu.Item>
-        <Menu.Item key="7">
+        {/* <Menu.Item key="7">
         <DollarCircleOutlined />
         <Link className="nav-text" to={{pathname:"/home/offer"}}>Offers</Link>
         </Menu.Item>
         <Menu.Item key="8">
         <ShakeOutlined />    
         <Link className="nav-text" to={{pathname:"/home/courier"}}>Courier services</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="9">
         <SettingOutlined />
         <Link className="nav-text" to={{pathname:"/home/settings"}}>Settings</Link>
@@ -100,23 +104,23 @@ export default function Home() {
          <Content className="site-layout-background" style={{padding: 24,overflow: 'initial' }}>
         <div>
             <Switch>
-                <Route  path="/home/dasboard" component={Dashboard} />
-                <Route  path="/home/customer" component={Customer} />
-                <Route  path="/home/order" component={Orders} />   
-                <Route  path="/home/courier" component={Courier} />
-                <Route  path="/home/offer" component={Offers} />
-                <Route  path="/home/product" component={Products} />
-                <Route  path="/home/vendor" component={Vendors} />
-                <Route  path="/home/stock" component={Stock} />
-                <Route  path="/home/sales" component={Sales} />
-                <Route  path="/home/settings" component={Settings} />
-                <Route  path="/home/" component={Dashboard} />
+                <ProtectedRoute exact  path="/home/dasboard" component={Dashboard} />
+                <ProtectedRoute exact  path="/home/customer" component={Customer} />
+                <ProtectedRoute exact  path="/home/order" component={Orders} />   
+                <ProtectedRoute exact path="/home/courier" component={Courier} />
+                <ProtectedRoute exact path="/home/offer" component={Offers} />
+                <ProtectedRoute exact path="/home/product" component={Products} />
+                <ProtectedRoute exact path="/home/vendor" component={Vendors} />
+                <ProtectedRoute exact path="/home/stock" component={Stock} />
+                <ProtectedRoute exact path="/home/sales" component={Sales} />
+                <ProtectedRoute exact  path="/home/settings" component={Settings} />
+                <ProtectedRoute exact  path="/home/" component={Dashboard} />
             </Switch>
         </div>
       </Content>
     </Layout>
   </Layout>
   </Router>
-        </div>
+  </React.Fragment>
     )
 }

@@ -11,6 +11,7 @@ export default class LogIn extends Component {
 
     constructor(props){
         super(props);
+        this.input = React.createRef()
         this.state = {
             AdminEmail: '',
             AdminPassword: '',
@@ -21,6 +22,8 @@ export default class LogIn extends Component {
     }
     componentDidMount() {
         localStorage.clear();
+        sessionStorage.clear();
+        this.input.current.focus()
     }
   
     login = (e) => {
@@ -35,8 +38,8 @@ export default class LogIn extends Component {
                 this.setState({ loadings: false });
               }, 9000);
             const credentials = {AdminEmail: this.state.AdminEmail, AdminPassword: this.state.AdminPassword};
-            AuthService.login(credentials).then(res => {
-                console.log(res.data);
+            AuthService.login(credentials)
+            .then(res => {
             if(res.data !== '' ){      
                 this.setState({Message : res.data});
                 console.log(res.data);
@@ -53,7 +56,9 @@ export default class LogIn extends Component {
                   }); 
                 
             }
-        });
+        }).catch((error) => {
+            AuthService.errorHandling(error)
+        })
         }else{
             this.setState({
                 loadings: true,
@@ -84,7 +89,7 @@ export default class LogIn extends Component {
                 <h3>Sign In</h3>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email" className="form-control" name="AdminEmail" value={this.state.AdminEmail} onChange={this.onChange} placeholder="Enter email" />
+                        <input type="email" className="form-control" ref={this.input} name="AdminEmail" value={this.state.AdminEmail} onChange={this.onChange} placeholder="Enter email" />
                     </div>
                     <div className="form-group">
                         <label>Password</label>

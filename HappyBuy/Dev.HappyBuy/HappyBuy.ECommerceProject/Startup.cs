@@ -63,7 +63,7 @@ namespace HappyBuy.ECommerceProject
 
             services.AddCors(options =>
             {
-                options.AddPolicy(this.myAllowSpecificOrigins, builder => builder.WithOrigins("http://localhost:3000").
+                options.AddPolicy(this.myAllowSpecificOrigins, builder => builder.WithOrigins("http://localhost:3000").WithOrigins("http://localhost:3001").
                 AllowAnyMethod().AllowAnyHeader().AllowCredentials().Build());
             });
 

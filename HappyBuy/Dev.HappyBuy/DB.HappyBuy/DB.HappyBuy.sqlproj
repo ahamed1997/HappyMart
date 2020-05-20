@@ -113,5 +113,17 @@
     <Build Include="HappyBuy.StoredProcedures\USP_GetAllCustomers.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_AddSpecification.sql" />
     <Build Include="HappyBuy.StoredProcedures\USP_UpdateSpecification.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_DeleteSpecification.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllOrders.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllOrderDetails.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllShippingAddress.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllOrderStatus.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_UpdateOrderStatus.sql" />
+    <Build Include="HappyBuy.Tables\Vendors.sql" />
+    <Build Include="HappyBuy.Tables\Stock.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetAllVendors.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetStock.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetSales.sql" />
+    <Build Include="HappyBuy.StoredProcedures\USP_GetSalesByProducts.sql" />
   </ItemGroup>
 </Project>

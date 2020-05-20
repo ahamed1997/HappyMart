@@ -1,5 +1,6 @@
 import React from 'react'
 import {  Alert } from 'antd';
+import SalesByProduct from './SalesByProduct';
 function Dashboard() {
     return (
         <div>

@@ -137,6 +137,7 @@ namespace HappyBuyTest
         [TestMethod]
         public void Get_Customer_Details()
         {
+            // Arrange
             this.dictionary.Add("CustomerId", "1");
             this.listCustomer = new List<Customer>()
             {
