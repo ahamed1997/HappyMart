@@ -58,5 +58,65 @@ namespace HappyBuyBL
         {
             return this.happyBuyRepository.GetAllDetails<T>(dictionary, 21);
         }
+
+        /// <summary>
+        /// GetAllOrders.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Order Details.</returns>
+        public List<T> GetAllOrders<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 35);
+        }
+
+        /// <summary>
+        /// GetAll Orders Details.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Order Details.</returns>
+        public List<T> GetAllOrdersDetails<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 36);
+        }
+
+        /// <summary>
+        /// GetAllOrdersStatus.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Order Details.</returns>
+        public List<T> GetAllOrdersStatus<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 38);
+        }
+
+        /// <summary>
+        /// Get All ShippingAddress.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Shiiping Address Details.</returns>
+        public List<T> GetAllShippingAddress<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 37);
+        }
+
+        /// <summary>
+        /// Update OrderStatus.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Updated Results Details.</returns>
+        public List<T> UpdateOrderStatus<T>(Dictionary<string, object> dictionary)
+            where T : new()
+        {
+            return this.happyBuyRepository.GetAllDetails<T>(dictionary, 39);
+        }
     }
 }

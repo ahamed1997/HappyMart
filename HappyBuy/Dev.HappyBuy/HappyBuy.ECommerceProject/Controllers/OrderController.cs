@@ -82,6 +82,82 @@ namespace HappyBuy.ECommerceProject.Controllers
             return i;
         }
 
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <param name="product">Payment Order Details.</param>
+        /// <returns>Insert Result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/getallorders")]
+        public object GetAllOrders()
+        {
+            Product product = new Product();
+            Dictionary<string, object> keyValues = this.GetProperty<OrderDetails>(product);
+            var i = this.hBOrderBL.GetAllOrders<Product>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <param name="product">Payment Order Details.</param>
+        /// <returns>Insert Result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/getallorderdetails")]
+        public object GetAllOrderDetails(Product product)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<OrderDetails>(product);
+            var i = this.hBOrderBL.GetAllOrdersDetails<Product>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <returns>Insert Result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/getallshippingaddress")]
+        public object GetAllShippingAddress()
+        {
+            ShippingAddress shippingAddress = new ShippingAddress();
+            Dictionary<string, object> keyValues = this.GetProperty<ShippingAddress>(shippingAddress);
+            var i = this.hBOrderBL.GetAllShippingAddress<ShippingAddress>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <returns>Insert Result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/getOrderStatus")]
+        public object GetOrderStatus()
+        {
+            OrderStatus orderStatus = new OrderStatus();
+            Dictionary<string, object> keyValues = this.GetProperty<OrderStatus>(orderStatus);
+            var i = this.hBOrderBL.GetAllOrdersStatus<OrderStatus>(keyValues);
+            return i;
+        }
+
+        /// <summary>
+        /// MakePayment.
+        /// </summary>
+        /// <param name="orderStatus">Payment Order Details.</param>
+        /// <returns>Insert Result.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/updateOrderStatus")]
+        public object UpdateOrderStatus(Orders orderStatus)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Orders>(orderStatus);
+            var i = this.hBOrderBL.UpdateOrderStatus<Orders>(keyValues);
+            return i;
+        }
+
         private Dictionary<string, object> GetProperty<T>(object classobject)
         {
             Dictionary<string, object> keyValues = new Dictionary<string, object>();

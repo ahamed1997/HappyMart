@@ -18,6 +18,7 @@ const [cartCount, setcartCount] = useState(0);
                    for(let i=0; i<res.data.length ; i++)
                    {
                         count = Math.ceil(count + res.data[i].cartQuantity)
+                        
                    }
                     setProducts(res.data)
                     setcartCount(count);

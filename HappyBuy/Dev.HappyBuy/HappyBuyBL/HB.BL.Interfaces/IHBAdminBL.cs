@@ -30,5 +30,41 @@ namespace HappyBuyBL.HB.BL.Interfaces
         /// <returns>Customer Details.</returns>
         List<T> GetAllCustomers<T>(Dictionary<string, object> dictionary)
             where T : new();
+
+        /// <summary>
+        /// GetStock.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Stock Details.</returns>
+        List<T> GetStock<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// GetAllVendors.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Vendors Details.</returns>
+        List<T> GetAllVendors<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// Get Sales.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Sales Details.</returns>
+        List<T> GetSales<T>(Dictionary<string, object> dictionary)
+            where T : new();
+
+        /// <summary>
+        /// Get Sales by Products.
+        /// </summary>
+        /// <typeparam name="T">Dynamic Object.</typeparam>
+        /// <param name="dictionary">Input Parameters.</param>
+        /// <returns>Sales Details.</returns>
+        List<T> GetSalesByProducts<T>(Dictionary<string, object> dictionary)
+            where T : new();
     }
 }

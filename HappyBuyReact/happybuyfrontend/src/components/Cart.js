@@ -24,9 +24,10 @@ function Cart() {
     setSpinner(true);
 
     async function fetchData() {
-    const CartCustomerId = {CartCustomerId: sessionStorage.getItem('userId') }
-      AuthService.getCartItems(CartCustomerId)  
+        const CartCustomerId = {CartCustomerId: sessionStorage.getItem('userId') }
+        AuthService.getCartItems(CartCustomerId)  
         .then(res =>{
+            
             setSpinner(false);
            if(res.data.length !== 0)
            {
@@ -119,7 +120,7 @@ function Cart() {
                                                 <i> You save : &#x20b9;{product.productPrice}</i>
                                                 <p className="description">Brand : {product.productBrand} &nbsp;&nbsp;&nbsp;</p>
                                                 Quantity :
-                                                <button onClick={decreaseCartdetails.bind(this,product)}  className="btn btn-outline-warning" disabled={product.cartQuantity = 1  ? false : true}>-</button>&nbsp;&nbsp;
+                                                <button onClick={decreaseCartdetails.bind(this,product)}  className="btn btn-outline-warning" disabled={product.cartQuantity === 1  ? true : false}>-</button>&nbsp;&nbsp;
                                                 <b>{product.cartQuantity}</b>&nbsp;&nbsp;
                                                 <button onClick={increaseCartdetails.bind(this,product)} className="btn btn-outline-warning">+</button> &nbsp;&nbsp;&nbsp;
                                                 <b> Price :&nbsp;{product.cartQuantity}  x {product.productPrice} =  &#x20b9;{product.cartPrice}</b>&nbsp;&nbsp;

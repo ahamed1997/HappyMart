@@ -13,7 +13,7 @@ namespace HappyBuyTest.HappyBuy.DAL
 
     /// <summary>
     /// Data Access layer Test.
-    /// </summary>
+    /// </summary>C:\Users\ahamed.thamimul\Documents\Desktop Github\HappyMart\HappyBuy\Dev.HappyBuy\UnitTestProject\HappyBuy.DAL\DALTest.cs
     [TestClass]
     public class DALTest
     {

@@ -70,7 +70,7 @@ namespace HappyBuyDAL
             }
             catch (SqlException ex)
             {
-                return ex.Number;
+                return ex.ErrorCode;
             }
         }
 

@@ -76,9 +76,23 @@ namespace HappyBuy.ECommerceProject.Controllers
         public int UpdateSpecification(Specification specification)
         {
             Dictionary<string, object> keyValues = this.GetProperty<Specification>(specification);
-
-            int i = this.hBProductBL.AddSpecification<Specification>(keyValues);
+            int i = this.hBProductBL.UpdateSpecification<Specification>(keyValues);
             return i;
+        }
+
+        /// <summary>
+        /// Delete Specification.
+        /// </summary>
+        /// <param name="specification">Specification Id.</param>
+        /// <returns>Updated list.</returns>
+        [Authorize]
+        [HttpPost]
+        [Route("api/deletespecification")]
+        public List<Specification> DeleteSpecification(Specification specification)
+        {
+            Dictionary<string, object> keyValues = this.GetProperty<Specification>(specification);
+            List<Specification> getProduct = this.hBProductBL.DeleteSpecification<Specification>(keyValues);
+            return getProduct;
         }
 
         /// <summary>

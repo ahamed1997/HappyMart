@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
 import axios from 'axios';  
 import {message, Pagination} from 'antd';
-import {FastBackwardOutlined,StepForwardOutlined,StepBackwardOutlined,FastForwardOutlined} from '@ant-design/icons';
+import {FastBackwardOutlined,StepForwardOutlined,ShoppingCartOutlined,StepBackwardOutlined,FastForwardOutlined} from '@ant-design/icons';
 import './Home.css';
 import { useHistory } from "react-router-dom";
 import Image from './Image';
@@ -120,6 +120,7 @@ export default function Home() {
     fontWeight:"bold"
   }
   return (
+ 
     <Layout style={{marginTop:0}}>
     <Sider
       style={{
@@ -154,7 +155,7 @@ export default function Home() {
                   <CardBody> 
                       <Tooltip placement="bottom" title={product.productName}>
                           <Link to={{pathname:"/view",state:{placeProduct : product}}}> 
-                            <Image match={product.productId}/>               
+                          <img top  height="100%" width="100%" alt=" Not Found" src={'../../images2/'+product.productImageURL} />
                             </Link>     
                        </Tooltip>             
                     <CardTitle>
@@ -166,8 +167,9 @@ export default function Home() {
                     {product.productQuantity >5 ?
                     (
                       <div>
-                        <Button className="btn btn-warning " value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)} type="button"><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>&nbsp;&nbsp;&nbsp; 
-                        <Link to={{pathname:"/placeOrder",state:{placeProduct : product}}}className="btn btn-success btn-rounded">BUY NOW</Link>            
+                          <Button type="primary" style={{ background: "#ECD40C", borderColor: "#ECD40C" }} value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)}><ShoppingCartOutlined/>ADD TO CART</Button>
+                        {/* <Button className="btn btn-warning" value={product.productId} onClick={handleAddtoCart.bind(this,product.productId)} type="button"><i className="fa fa-shopping-cart" ></i> ADD TO CART</Button>&nbsp;&nbsp;&nbsp; 
+                        <Link to={{pathname:"/placeOrder",state:{placeProduct : product}}}className="btn btn-success btn-rounded">BUY NOW</Link>             */}
                       </div>
                         ):(
                           <div>
@@ -207,12 +209,6 @@ export default function Home() {
             </CardFooter>
     </div> }
  </div>
-
-
-
-
-
-
  </div>
       </Content>
     </Layout>

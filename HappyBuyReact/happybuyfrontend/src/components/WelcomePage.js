@@ -58,7 +58,7 @@ class WelcomePage extends Component {
           <Route  path="/happybuy" component={MainPage} />   
           <Route  path="/login" component={LogIn} />
           <Route  path="/sign-up" component={SignUp} />
-          <Route  path="/home" component={Home} />
+          <this.ProtectedRoute  path="/home" component={Home} />
           <Route  path="/about" component={about} />   
           <this.ProtectedRoute exact path="/cart" component={Cart} />
           <this.ProtectedRoute exact path="/emptyCart" component={EmptyCart} />
