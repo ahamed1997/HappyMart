@@ -18,16 +18,14 @@ function App() {
  
   return (
     <div className="App">
-      <Image/>
-       {/*<Router>
-         
+       <Router>
          <Switch>
           <ProtectedRoute  path="/home" component={Home} />
           <Route  path="/" component={LogIn} />
           <ProtectedRoute  path="/home" component={Home} />
           <Route  path="/login" component={LogIn} />
         </Switch> 
-      </Router>*/}
+      </Router>
     </div>
   );
 }
