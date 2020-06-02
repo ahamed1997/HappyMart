@@ -62,7 +62,6 @@ const [productPerPage, setproductPerPage] = useState(6);
      }
     return (
         <div>
-            
              <Table responsive  bordered className="auto-index">
                 <thead>
                     <tr>
